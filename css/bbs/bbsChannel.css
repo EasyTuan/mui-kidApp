@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+.channelTitle{
+	text-indent: 15px;
+	margin: 0;
+	line-height: 30px;
+	display: none;
+}
+
+.border {
+    line-height: 50px!important;
+    max-width: 50px!important;
+    height: 50px!important;
+    border-radius:4px ;
+}
+
+.mui-table-view-cell{
+	padding: 13px 15px;
+	font-size: 16px;
+}
+
+.top8{
+	margin: 8px 0 0 0;
+}
+
+.channelBtn{
+	border-color:#4B9CF6 ;
+	padding: 2px 18px;
+	color: #4B9CF6;
+	position: absolute;
+	top: 15px;
+	right: 15px;
+}
+
+.channelNum{
+	color: #ff6600;
+	font-weight: normal;
+	margin: 0 0 0 5px;
+}

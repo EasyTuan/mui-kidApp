@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/tool/events.css','../../css/tool/correlationCard.css']);
+		</script>
+		<style type="text/css">
+			.mui-table-view-cell{
+				padding: 13px 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">相关套牌</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper" id="pullrefresh">
+			<div class="mui-scroll">
+			    <ul class="mui-table-view tblv-nl" id="cardList">
+			        <!--<li class="mui-table-view-cell mui-media">
+			            <a href="javascript:;">
+			                <img class="mui-media-object mui-pull-right" src="../../images/image.png">
+			                <div class="mui-media-body">
+			                    套牌名称
+			                </div>
+			               <p>玩家：华佗</p>
+			            </a>
+			        </li>
+			        <li class="mui-table-view-cell mui-media">
+			            <a href="javascript:;">
+			                <img class="mui-media-object mui-pull-right" src="../../images/image.png">
+			                <div class="mui-media-body">
+			                    套牌名称
+			                </div>
+			             <p>玩家：华佗</p>
+			            </a>
+			        </li>
+			        <li class="mui-table-view-cell mui-media">
+			            <a href="javascript:;">
+			                <img class="mui-media-object mui-pull-right" src="../../images/image.png">
+			                <div class="mui-media-body">
+			                    套牌名称
+			                </div>
+			               <p>玩家：华佗</p>
+			            </a>
+			        </li>-->
+			    </ul>
+			</div>
+		</div>
+		<div class="none">
+			<img src="../../images/collectnothing.png"/>
+			<div class="mui-text-center">没有相关数据</div>
+		</div>
+		<script type="text/html" id="cardListTep1">
+			{{each data as value}}
+				<li class="mui-table-view-cell mui-media" data-id = "{{value.CardGroupId}}">
+		            <a href="javascript:;">
+		                <img class="mui-media-object mui-pull-right loadthumb" data-url="{{value.ImgUrl}}" data-wh=",64">
+		                <div class="mui-media-body">
+		                    {{value.CardGroupName}}
+		                </div>
+		             <p>玩家：{{value.NickName}}</p>
+		            </a>
+		        </li>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/tool/correlationCard.js']);
+		</script>
+	</body>
+
+</html>

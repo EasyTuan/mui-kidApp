@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style type="text/css">
+			body,
+			html {
+				margin: 0px;
+				padding: 0;
+				background: rgba(0, 0, 0, 0.3);
+				height: 100vh;
+			}
+			
+			.container {
+				width: 260px;
+				height: auto;
+				margin: 0px auto;
+				padding-top: 140px;
+				background: url(../../images/uploadbg.png) no-repeat;
+				background-position: 0px 0px;
+				background-size: 100%;
+			}
+			
+			.pd {
+				padding-top: calc(50vh - 170px);
+			}
+			
+			.bg {
+				background: #fff;
+				padding: 0px 20px 20px 20px;				
+				margin-top: 40px;
+				border-radius: 5px;
+			}
+			
+			#newverson {
+				color: #0062CC;
+				text-align: center;
+				margin: 0px;
+				line-height: 25px;
+			}
+			
+			ul {
+				margin: 0px;
+				font-size: 14px;
+				line-height: 20px;
+				color: #999;
+				padding: 0px 0px 20px 0px;
+			}
+			
+			li {
+				list-style: none;
+				margin: 0;
+			}
+			
+			li i {
+				display: inline-block;
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				background: #4B9CF6;
+				margin: 0 8px 0 0;
+				position: relative;
+				top: -2px;
+			}
+			
+			button {
+				background: #4B9CF6;
+				border: none;
+				width: 100%;
+				line-height: 35px;
+				color: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="pd">
+			<div class="container">
+
+				<div class="bg">
+					<p id="newverson"></p>
+					<ul id="desc">
+					</ul>
+					<button type="button">立即更新</button>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				keyEventBind: {
+					backbutton: false, //Boolean(默认true)关闭back按键监听
+				}
+			})
+			mui('body').on('tap', 'button', function() {
+				mui.toast('更新完成！');
+				mui.back();
+			})
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				if(self && self.info) {
+					var json = self.info;
+
+					document.getElementById("desc").innerHTML = HTMLDecode(json.UpdateDesc);
+					document.getElementById("newverson").innerText = json.Version;
+
+				}
+			})
+
+			function HTMLDecode(text) {
+				var temp = document.createElement("div");
+				temp.innerHTML = text;
+				var output = temp.innerText || temp.textContent;
+				temp = null;
+				return output;
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/reset.css']);
+		</script>
+		<style type="text/css">
+			.liRight{
+				position: absolute;
+				top: 34px;
+				right: 10px;
+				font-size: 12px;
+				color: #999;
+			}
+			
+			.liRight span:nth-of-type(2){
+				border: 1px solid #4B9CF6;
+				color: #4B9CF6;
+				padding: 0px 4px 2px 4px;
+				border-radius:4px ;
+				margin: 0 0 0 5px;
+				font-size: 14px;
+			}
+			
+			.mui-content{
+				margin: 10px 0 0 0;
+			}
+			
+			.mui-table-view .mui-media-object {
+			    line-height: 42px;
+			    max-width: 42px;
+			    height: 42px;
+			    border-radius:50% ;
+			}
+			#shopList{
+				display: none;
+			}
+			.mui-media-body{
+				text-overflow: ellipsis;
+			}
+			.mui-table-view-cell{
+				padding: 13px 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<div class="searchbar">
+				<div class="mui-input-row">
+					<span class="iconfont icon-searchIcon1"></span>
+					<input id="inpt_search" type="text" class="mui-input-clear pl30" placeholder="搜索">
+				</div>
+			</div>
+			<a class="mui-action-back mui-pull-right head-rightbtn" id="backBtn">取消</a>
+			<a class="mui-pull-right head-rightbtn" id="searchBtn" style="display: none;">搜索</a>
+		</header>
+		<div class="mui-content mui-scroll-wrapper" id="pullrefresh">
+			<div class="mui-scroll">
+				<div class="history" style="background: #fff;display: none;">
+					<p>
+						<span class="mui-pull-left">历史记录</span>
+						<span class="iconfont icon-delete mui-pull-right" id="clear"></span>
+					</p>
+					<div class="historyList">
+						
+					</div>
+				</div>
+				<ul class="mui-table-view tblv-nl" id="shopList" style="display: block;">
+			        <!--<li class="mui-table-view-cell mui-media">
+			            <a href="javascript:;" class="details">
+			                <img class="mui-media-object mui-pull-left" src="../../images/tx1.png">
+			                <div class="mui-media-body">
+			                    小明晨光文具店小明晨光文具店小明晨光文具店小明晨光文具店小明晨光文具店
+			                    <p class="mui-ellipsis">
+			                    	<div class="scorewarp1">
+										<i style="width: calc(4.2 * 13px);"></i>
+									</div>
+			                    	<span class="grade">4.2分</span>
+			                    </p>
+			                </div>
+			            </a>
+			            <div class="liRight">
+		                	<span>距离500m</span>
+		                	<span class="war">查看对战</span>
+		                </div>
+			        </li>-->
+			    </ul>
+			</div>
+		</div>
+		<script type="text/html" id="shopListTep1">
+			{{each data as value}}
+				<li class="mui-table-view-cell mui-media">
+		            <a href="javascript:;" class="details" data-storeid="{{value.StoreId}}">
+		                <img class="mui-media-object mui-pull-left loadthumb" src="{{value.ImgUrl}}" data-wh="32,32" >
+		                <div class="mui-media-body">
+		                    {{value.StoreName}}
+		                    <p class="mui-ellipsis">
+		                    	<div class="scorewarp1">
+									<i style="width: calc({{value.Score}} * 13px);"></i>
+								</div>
+		                    	<span class="grade">{{value.Score}}分</span>
+		                    </p>
+		                </div>
+		            </a>
+		            <div class="liRight">
+	                	<span style="position: relative;top: 5px;">距离{{value.distance}}m</span>
+	                	<span style="position: relative;top: 5px;" class="war" data-id="{{value.StoreId}}" data-shopname="{{value.StoreName}}">查看对战</span>
+	                </div>
+		        </li>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/index/searchShop.js']);
+		</script>
+	</body>
+
+</html>

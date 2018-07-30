@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/tool/oneCardMe.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">我的套牌</h1>
+		    <button type="button" class="mui-pull-right" id="create">+创建</button>
+		</header>
+		<div class="mui-content">
+		    <nav>
+		    	<span id="chuangjian" class="active" data-type="0">我创建的套牌<i></i></span>
+		    	<span id="wode" data-type="1">我收藏的套牌<i></i></span>
+		    </nav>
+		    <div class="kind" id="tag">
+		    </div>
+		    <div class="contant">
+		    	<p>
+		    		<span class="mui-pull-left">全部（<span id="cardnum">0</span>套）</span>
+		    		<span class="mui-pull-right">左滑可删除</span>
+		    	</p>
+		    	<div class="mui-scroll-wrapper" id="pullrefresh">
+					<div class="mui-scroll">
+				    	<ul class="mui-table-view tblv-nl" id="cardList">
+				    		<!--<li class="mui-table-view-cell">
+								<div class="mui-slider-right mui-disabled">
+									<a class="mui-btn mui-btn-red">删除</a>
+								</div>
+								<div class="mui-slider-handle">
+					                <img class="mui-media-object mui-pull-right" src="../../images/image.png">
+					                <div class="mui-media-body">
+					                    套牌名称
+					                </div>
+					                <p>标签：快攻、组合技能、大奖赛 </p>
+					               <p>玩家：无影光波 <span class="mui-pull-right">2017-06-17</span></p>
+								</div>
+							</li>
+					        <li class="mui-table-view-cell">
+								<div class="mui-slider-right mui-disabled">
+									<a class="mui-btn mui-btn-red">删除</a>
+								</div>
+								<div class="mui-slider-handle">
+					                <img class="mui-media-object mui-pull-right" src="../../images/image.png">
+					                <div class="mui-media-body">
+					                    套牌名称
+					                </div>
+					                <p>标签：快攻、组合技能、大奖赛 </p>
+					               <p>玩家：无影光波 <span class="mui-pull-right">2017-06-17</span></p>
+								</div>
+							</li>
+							<li class="mui-table-view-cell">
+								<div class="mui-slider-right mui-disabled">
+									<a class="mui-btn mui-btn-red">删除</a>
+								</div>
+								<div class="mui-slider-handle">
+					                <img class="mui-media-object mui-pull-right" src="../../images/image.png">
+					                <div class="mui-media-body">
+					                    套牌名称
+					                </div>
+					                <p>标签：快攻、组合技能、大奖赛 </p>
+					               <p>玩家：无影光波 <span class="mui-pull-right">2017-06-17</span></p>
+								</div>
+							</li>-->
+					    </ul>
+					</div>
+			    </div>
+			     <!--无数据时-->
+		    	<div class="none">
+		    		<img src="../../images/searchnothing.png"/>
+		    		<p class="mui-text-center">没有找到相关记录</p>
+		    	</div>
+		    </div>
+		</div>
+		<script type="text/html" id="tagTep1">
+			{{each data as value}}
+				<span data-tag='{{value.Tag}}'>{{value.Tag}}</span>
+			{{/each}}
+		</script>
+		<script type="text/html" id="cardListTep1">
+			{{each data as value}}
+				<li class="mui-table-view-cell" data-id="{{value.CardGroupId}}">
+					<div class="mui-slider-right mui-disabled">
+						<a data-id="{{value.CardGroupId}}" class="mui-btn mui-btn-red">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+		                <img class="mui-media-object mui-pull-right loadthumb" data-url="{{value.ImgUrl}}" data-wh=",128">
+		                <div class="mui-media-body">
+		                    {{value.CardGroupName}}
+		                </div>
+		                <p>标签：{{value.Tag}} </p>
+		               <p>玩家：{{value.NickName}} <span class="mui-pull-right">{{value.CreateTime}}</span></p>
+					</div>
+				</li>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/tool/oneCardMe.js']);
+		</script>
+	</body>
+
+</html>

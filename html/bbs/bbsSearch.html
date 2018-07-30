@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css', '../../css/reset.css','../../css/bbs/bbsIndex.css','../../css/bbs/bbsChannel.css','../../css/bbs/bbsSearch.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<div class="searchbar">
+				<div class="mui-input-row">
+					<span style="top: -8px;" class="iconfont icon-searchIcon1"></span>
+					<input id="inpt_search" type="text" class="mui-input-clear pl30" placeholder="搜索帖子、频道">
+				</div>
+			</div>
+			<a class="mui-action-back mui-pull-right head-rightbtn" id="backBtn">取消</a>
+			<a class="mui-pull-right head-rightbtn" id="searchBtn" style="display: none;">搜索</a>
+		</header>
+
+		<div class="mt15 mui-content" id="history_warp" style="display: block;">
+			<div class="history bg-fff">
+				<p>
+					<span class="mui-pull-left">历史记录</span>
+					<span class="iconfont icon-delete mui-pull-right" id="clear"></span>
+				</p>
+				<div class="historyList" id="historylist_warp">
+				</div>
+			</div>
+		</div>
+		<div class="mt15 mui-content mui-scroll-wrapper" id="pullrefresh" style="display: none;top: -15px;">
+			<div class="mui-scroll">
+				<ul class="mui-table-view" id="searchresult_warp">
+					
+				</ul>
+			</div>
+		</div>
+
+		<script type="text/html" id="historylist_view">
+			{{each data as item}}
+				<span>{{item}}</span> 
+			{{/each}}
+		</script>
+		<script type="text/html" id="searchresult_view">
+			<!--帖子-->
+			{{each topic_list as value}}
+				<li class="mui-table-view-cell mui-media bbs" data-id='{{value.topic_id}}'>
+			        <a href="javascript:;">
+			            {{if value.topic_ico!=''}}
+			        	<div class="mui-media-object mui-pull-right imgbox50">
+			        		<img class="loadthumb" data-url='{{value.topic_ico}}' data-wh="128,">
+			        	</div>
+			        	{{/if}}
+			            <div class="mui-media-body bbsBody">
+			            	{{value.title}}
+			                <p class="mui-ellipsis top8">
+			                	<span class="mui-pull-left">
+			                		<img class="avatar mui-pull-left loadthumb defuserimg" data-url='{{value.avatar}}' data-wh="32,32"/>
+			                		{{value.username}}
+			                	</span>
+			                	<span class="mui-pull-right">
+			                		<i class="iconfont icon-eye"> {{value.views}}</i>&nbsp;&nbsp;&nbsp;
+			                		<i class="iconfont icon-comment"> {{value.comments}}</i>
+			                	</span>
+			                </p>
+			            </div>
+			        </a>
+			    </li>
+		    {{/each}}
+		    <!--频道-->
+		    {{each node_list as value}}
+				<li class="mui-table-view-cell mui-media channel" data-id='{{value.node_id}}'>
+			        <a data-nodeid='{{value.node_id}}'>
+			        	<img class="mui-media-object mui-pull-left border loadthumb" data-url='{{value.ico}}' data-wh="128,128">
+			            <div class="mui-media-body">
+			                {{value.cname}}
+			                <p class="mui-ellipsis top8">主题数：{{value.listnum}} <strong class="channelNum">{{value.subscribes}}万+人已订阅</strong></p>
+			                <p class="mui-ellipsis">{{value.content}}</p>
+			            </div>
+			        </a>
+			        <!--<button class="channelBtn ckecklogin" data-nodeid='{{value.node_id}}' data-loginevent="pkEvent.subscribe()" data-loginbackid="bbs/bbs.html">订阅</button>-->
+			    </li>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js', '../../js/lib/md5.min.js','../../js/lib/artTemplate.js', '../../js/lib/common.js','../../js/bbs/bbsSearch.js']);
+		</script>
+	</body>
+
+</html>

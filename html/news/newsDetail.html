@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/imgpreview.css']);
+		</script>
+		<style type="text/css">
+			.newsdetail {
+				padding: 15px;
+			}
+			
+			.newsdetail .title {
+				font-size: 22px;
+				color: #222;
+				line-height: 28px;
+			}
+			
+			.newsdetail .info {
+				line-height: 1.2;
+				font-size: 14px;
+				color: #666;
+			}
+			
+			.newsdetail img {
+				max-width: 100%;
+				height: auto;
+				vertical-align: middle;
+			}
+			
+			.info time,
+			.info span {
+				font-size: 12px;
+				color: #999;
+				line-height: 22px;
+				height: 22px;
+			}
+			
+			.text {
+				line-height: 1.4rem;
+				font-size: 14px;
+				vertical-align: middle;
+			}
+			
+			.text p {
+				color: #666;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">资讯详情</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper scroll">
+			<div class="mui-scroll" style="margin-top: 15px; background: #fff;">
+				<div class="newsdetail" id="detail_warp">	
+					<div class="nodata">加载中...</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/html" id="detail_view">
+			<h5 class="title">{{data.Subject}}</h5>
+			<p class="info">
+				<time>{{data.NewsDate}}</time> &nbsp;&nbsp;&nbsp;&nbsp;
+				<span>浏览次数：{{data.ReadCount}}</span>
+			</p>
+			<div class="text" id="body">
+			</div>
+			<br/>
+			<br/>
+			<br/>
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js','../../js/mui.zoom.js','../../js/mui.previewimage.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/news/newsDetail.js']);
+		</script>
+	</body>
+
+</html>

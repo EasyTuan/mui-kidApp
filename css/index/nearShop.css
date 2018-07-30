@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+.mui-ellipsis i{
+	font-size: 10px;
+}
+
+.grade{
+	margin: 0 0 0 2px;
+	font-size: 12px;
+	color: #999;
+	position: relative;
+	top: -1px;
+}
+
+.mui-ellipsis .active{
+	color: #ffcf1c;
+}

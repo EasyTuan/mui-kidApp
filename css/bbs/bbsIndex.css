@@ -1,0 +1,135 @@
+@charset "utf-8";
+
+.swiper-slide{
+	width: 100%;
+}
+
+.swiper-pagination-bullet {
+    background: #fff;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background: #ffcf1c;
+}
+
+.mui-table-view{
+	background: transparent;	
+}
+
+.channel{
+	background: #fff;
+	padding-bottom:10px ;
+	margin: -14px 0 0 0;
+}
+
+.channel h5{
+	color: #4B9CF6;
+	padding: 5px 15px;
+}
+
+#channelBtn{
+	border: none;
+	color: #666;
+	margin: 1px 0 0 0;
+	display: none;
+}
+
+.channelList{
+	clear: both;
+	display: flex;
+	flex-wrap: wrap;
+	max-height: 84px;
+	overflow: hidden;
+}
+
+.channelFold{
+	max-height: none;
+	overflow: visible;
+}
+
+.channelList span{
+	display: inline-block;
+	text-align: center;
+	width: 20vw;
+	margin: 6px 2.5vw;
+	line-height: 28px;
+	border-radius:4px ;
+	font-size: 12px;
+	background: #edf6fd;
+}
+
+.channelList b{
+	display: inline-block;
+	text-align: center;
+	width: 20vw;
+	font-weight: normal;
+	margin: 6px 2.5vw;
+	line-height: 28px;
+	border-radius:4px ;
+	font-size: 12px;
+	border: 1px dashed #ccc;
+}
+
+.addChannel{
+	clear: both;
+	display: inline-block;
+}
+
+.mui-table-view{
+	background: #fff;
+	margin: 10px 0 0 0;
+}
+
+.mui-table-view-cell{
+	padding: 13px 15px;
+	font-size: 16px;
+}
+
+.mui-table-view-cell strong{
+	font-weight: normal;
+	font-size: 12px;
+	border: 1px solid #fa964a;
+	color: #fa964a;
+	padding: 0 4px;
+	border-radius:4px ;
+	position: relative;
+	top: -2px;
+}
+
+.mui-table-view:before,.mui-table-view:after{
+	height: 0;
+}
+
+.avatar{
+	width: 24px;
+	height: 24px;
+	min-width: 24px!important;
+	min-height: 24px!important;
+	border-radius:50% ;
+	margin: 0 5px 0 0;
+	position: relative;
+	top: -2px;
+}
+
+.top8{
+	margin-top:8px ;
+	font-size: 13px;
+	overflow: visible;
+}
+
+.icon-eye,.icon-comment{
+	font-size: 14px;
+}
+
+.mui-table-view .mui-media-object {
+    line-height: 50px;
+    max-width: 50px;
+    height: 50px;
+}
+
+.bbsBody{
+	overflow: visible;
+	white-space: normal;
+}
+

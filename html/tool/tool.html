@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/tool/tool.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <h1 class="mui-title">工具</h1>
+		    <a class="mui-icon iconfont icon-manage mui-pull-right ckecklogin"  data-loginevent="pkEvent.goToolControl()" data-loginbackid="tool/toolControl.html"></a>
+		</header>
+		<div class="mui-content mui-scroll-wrapper" id="pullrefresh">
+			<div class="mui-scroll" id="toolList">
+				<div class="nodata" style="margin-top: 15px;"></div>
+			    <ul class="mui-table-view"> 
+			        <li class="mui-table-view-cell mui-collapse mui-active">
+			            <a href="#">
+			            	<div class="imgBox mui-pull-left "><img data-url="{{value.ImgUrl}}" class="loadthumb" data-wh=",80" /></div>
+			            	<span class="mui-pull-left">{{value.BrandName}}</span>
+			            	<span class="mui-pull-right status">展开</span>
+			            	<span class="mui-pull-right statu">收起</span>
+			            </a>
+			            <div class="mui-collapse-content mui-text-center">
+			                <span data-href="oneCardSearch.html" data-id="{{value.BrandId}}">
+		                		<img src="../../images/searchcard.png"/><br />
+		                		单卡查询
+			                </span>
+			                 <span data-href="" class="ckecklogin" data-id="{{value.BrandId}}" data-loginevent="pkEvent.goInvitation()" data-loginbackid="tool/oneCardCollect.html">
+		                		<img src="../../images/collectcard.png"/><br />
+		                		单卡收藏
+			                </span>
+			                 <span data-href="oneCardSquare.html" data-id="{{value.BrandId}}">
+		                		<img src="../../images/cards.png"/><br />
+		                		套牌广场
+			                </span>
+			                 <span data-href="" data-id="{{value.BrandId}}" class="ckecklogin"  data-loginevent="pkEvent.goOneCardMe()" data-loginbackid="tool/oneCardMe.html">
+		                		<img src="../../images/mycards.png"/><br />
+		                		我的套牌
+			                </span>
+			            </div>
+			        </li>
+			    </ul>
+			</div>
+		</div>
+		<script type="text/html" id="toolListTep1">	
+			{{if data==null||data.length==0}}
+			<div class="nodata">暂无内容</div>
+			{{else}}
+			{{each data as value}}
+				<ul class="mui-table-view"> 
+			        <li class="mui-table-view-cell mui-collapse mui-active">
+			            <a href="#">
+			            	<div class="imgBox mui-pull-left "><img data-url="{{value.ImgUrl}}" class="loadthumb" data-wh=",80" /></div>
+			            	<span class="mui-pull-left">{{value.BrandName}}</span>
+			            	<span class="mui-pull-right status">展开</span>
+			            	<span class="mui-pull-right statu">收起</span>
+			            </a>
+			            <div class="mui-collapse-content mui-text-center">
+			                <span data-href="oneCardSearch.html" data-id="{{value.BrandId}}">
+		                		<img src="../../images/searchcard.png"/><br />
+		                		单卡查询
+			                </span>
+			                 <span data-href="" class="ckecklogin" data-id="{{value.BrandId}}" data-loginevent="pkEvent.goInvitation()" data-loginbackid="tool/oneCardCollect.html">
+		                		<img src="../../images/collectcard.png"/><br />
+		                		单卡收藏
+			                </span>
+			                 <span data-href="oneCardSquare.html" data-id="{{value.BrandId}}">
+		                		<img src="../../images/cards.png"/><br />
+		                		套牌广场
+			                </span>
+			                 <span data-href="" data-id="{{value.BrandId}}" class="ckecklogin"  data-loginevent="pkEvent.goOneCardMe()" data-loginbackid="tool/oneCardMe.html">
+		                		<img src="../../images/mycards.png"/><br />
+		                		我的套牌
+			                </span>
+			            </div>
+			        </li>
+			    </ul>
+			{{/each}}
+			{{/if}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/tool/tool.js']);
+		</script>
+	</body>
+
+</html>

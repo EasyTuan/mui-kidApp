@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/reset.css','../../css/my/myMatch.css']);
+		</script>
+	
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">我的比赛</h1>
+			<a class="mui-pull-right iconfont icon-searchIcon1" id="search"></a>
+		</header>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<a class="mui-control-item mui-active" data-typeid="0" href="#item0">
+						全部
+					</a>
+					<a class="mui-control-item" data-typeid="1" href="#item1">
+						未比赛
+					</a>
+					<a class="mui-control-item" data-typeid="2" href="#item2">
+						已结束
+					</a>
+					<a class="mui-control-item" data-typeid="3" href="#item3">
+						已取消
+					</a>
+				</div>
+				<div class="mui-slider-progress-bar mui-col-xs-3">
+					<b></b>
+				</div>
+				<div class="mui-slider-group">
+					<div id="item0" class="mui-slider-item mui-control-content mui-active">
+						<div class="mui-scroll-wrapper">							
+							<div class="mui-scroll" id="scroll0">
+								<div>	
+									<ul class="mui-table-view tblv-nl" id="contwarp0">
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="item1" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll" id="scroll1">
+								<div>	
+									<ul class="mui-table-view tblv-nl" id="contwarp1">
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="item2" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll" id="scroll2">
+								<div>	
+									<ul class="mui-table-view tblv-nl" id="contwarp2">
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="item3" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll" id="scroll3">
+								<div>	
+									<ul class="mui-table-view tblv-nl" id="contwarp3">
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<script type="text/html" id="mymatch_view">
+			{{if data.length==0}}
+			<div class="mui-text-center">
+				木有数据o(︶︿︶)o 唉
+			</div>			
+			{{else}}
+			{{each data as item}}		
+				<li class="mui-table-view-cell mui-media detail" data-id="{{item.MatchId}}">
+					<a href="javascript:;" class="pstn-r">
+						<img class="mui-media-object mui-pull-left loadthumb defuserimg" data-url="{{item.ImgUrl}}" data-wh="128,128" >
+						<div class="mui-media-body">
+							{{item.MatchName}}
+							<p class="mui-ellipsis mui-row fs12">
+								<span class="mui-col-sm-6 mui-col-xs-6 mui-ellipsis">{{item.StoreName}}</span>
+								<span class="mui-col-sm-6 mui-col-xs-6 cor-lan  mui-ellipsis">{{item.vs}}</span>
+								<span class="mui-col-sm-6 mui-col-xs-6  mui-ellipsis">{{item.MatchBeginTime}}</span>
+								<span class="mui-col-sm-6 mui-col-xs-6  mui-ellipsis">参赛人数<strong>{{item.PlayerJoinNum}}</strong>/{{item.PlayerMaxNum}}</span>
+							</p>
+						</div>
+					</a>
+					{{if item.Status==4}}
+					<span class="status cor-lv">{{item.result}}</span> {{else}}
+					<span class="status  match_s{{item.Status}}">{{item.result}}</span> {{/if}}
+				</li>
+			{{/each}}
+			{{/if}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min1.js','../../js/lib/artTemplate.js','../../js/mui.pullToRefresh.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/my/myMatch.js']);
+		</script>
+	</body>
+
+</html>

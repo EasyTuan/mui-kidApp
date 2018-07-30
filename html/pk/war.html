@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/swiper-3.4.2.min.css','../../css/pk/war.css']);
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content mui-scroll-wrapper scroll">
+			<div class="mui-scroll list">
+				<div class="warbg">
+					<a class="mui-action-back mui-icon mui-icon-left-nav backBtn"></a>
+					<div class="swiper-container">
+						<div class="swiper-wrapper" id="swiperContainer">
+							<!--<div class="swiper-slide"><div class="imgBox" ><img src="../../images/dumb.png"/></div></div>
+							<div class="swiper-slide"><div class="imgBox" ><img src="../../images/banner.png"/></div></div>
+							<div class="swiper-slide"><div class="imgBox" ><img src="../../images/defuser.jpg"/></div></div>-->
+						</div>
+					</div>
+				</div>
+				<div id="img_warp" style="display: none;">
+					<div class="container">
+						<div class="box" style="" id="one">
+
+						</div>
+						<i class="vs"></i>
+						<div class="box" style="" id="two">
+						</div>
+					</div>
+				</div>
+				<div class="group">
+					<h5>标题</h5>
+					<input type="text" name="" id="matchName" value="" />
+					<!--<span class="iconfont icon-edit" id="shuru1"></span>-->
+					<span class="saizi" id="selectName"></span>
+				</div>
+				<div class="group">
+					<h5>赛场</h5>
+					<!--<input onblur="mui('.mui-popover').popover('hide');" type="text" name="" id="place" readonly="readonly" value="" data-id="" />-->
+					<input type="text" name="" id="place" readonly="readonly" value="" data-id="" />
+					<span class="iconfont icon-map openMap"></span>
+					<div class="mui-popover">
+						<ul id="storedata">
+							<!--<li data-text="小明百货店">
+								<a href="#">小明百货店</a>
+							</li>
+							<li data-text="小花百货店">
+								<a href="#">小花百货店</a>
+							</li>
+							<li data-text="小绿百货店">
+								<a href="#">小绿百货店</a>
+							</li>-->
+						</ul>
+					</div>
+
+				</div>
+				<p class="storeaddress" ><i class="iconfont icon-location mr10" style="color: #999;"></i> <span id="storeaddress" ></span>
+				</p>
+				<p class="matchNum mui-text-center" id="gameNum">
+					<span class="selectMactchNum" data-status='solo'><i class="iconfont icon-sure"></i>单人对战 <i class="iconfont icon-single"></i></span>
+					<span class="selectMactchNum" data-status='multi'><i class="iconfont icon-sure"></i>多人对战 <i class="iconfont icon-double"></i></span>
+				</p>
+				<div class="group2">
+					<nav class="mui-bar mui-bar-tab kidNav" id="dateSelect">
+						<a class="mui-tab-item mui-active" data-index="0">
+							<b class="mui-tab-label">今天<i></i></b>
+						</a>
+						<a class="mui-tab-item" data-index="1">
+							<b class="mui-tab-label">明天<i></i></b>
+						</a>
+						<a class="mui-tab-item" data-index="2">
+							<b class="mui-tab-label">后天<i></i></b>
+						</a>
+					</nav>
+					<div class="kindTime mui-text-center">
+						<span class="matchTime" data-index='8'><i class="iconfont icon-sure"></i>08:00</span>
+						<span class="matchTime" data-index='8'><i class="iconfont icon-sure"></i>08:30</span>
+						<span class="matchTime" data-index='9'><i class="iconfont icon-sure"></i>09:00</span>
+						<span class="matchTime" data-index='9'><i class="iconfont icon-sure"></i>09:30</span>
+						<span class="matchTime" data-index='10'><i class="iconfont icon-sure"></i>10:00</span>
+						<span class="matchTime" data-index='10'><i class="iconfont icon-sure"></i>10:30</span>
+						<span class="matchTime" data-index='11'><i class="iconfont icon-sure"></i>11:00</span>
+						<span class="matchTime" data-index='11'><i class="iconfont icon-sure"></i>11:30</span>
+						<span class="matchTime" data-index='12'><i class="iconfont icon-sure"></i>12:00</span>
+						<span class="matchTime" data-index='12'><i class="iconfont icon-sure"></i>12:30</span>
+						<span class="matchTime" data-index='13'><i class="iconfont icon-sure"></i>13:00</span>
+						<span class="matchTime" data-index='13'><i class="iconfont icon-sure"></i>13:30</span>
+						<span class="matchTime" data-index='14'><i class="iconfont icon-sure"></i>14:00</span>
+						<span class="matchTime" data-index='14'><i class="iconfont icon-sure"></i>14:30</span>
+						<span class="matchTime" data-index='15'><i class="iconfont icon-sure"></i>15:00</span>
+						<span class="matchTime" data-index='15'><i class="iconfont icon-sure"></i>15:30</span>
+						<span class="matchTime" data-index='16'><i class="iconfont icon-sure"></i>16:00</span>
+						<span class="matchTime" data-index='16'><i class="iconfont icon-sure"></i>16:30</span>
+						<span class="matchTime" data-index='17'><i class="iconfont icon-sure"></i>17:00</span>
+						<span class="matchTime" data-index='17'><i class="iconfont icon-sure"></i>17:30</span>
+						<span class="matchTime" data-index='18'><i class="iconfont icon-sure"></i>18:00</span>
+						<span class="matchTime" data-index='18'><i class="iconfont icon-sure"></i>18:30</span>
+						<span class="matchTime" data-index='19'><i class="iconfont icon-sure"></i>19:00</span>
+						<span class="matchTime" data-index='19'><i class="iconfont icon-sure"></i>19:30</span>
+						<span class="matchTime" data-index='20'><i class="iconfont icon-sure"></i>20:00</span>
+						<span class="matchTime" data-index='20'><i class="iconfont icon-sure"></i>20:30</span>
+					</div>
+				</div>
+				<div class="group">
+					<h5 style="line-height: 70px;background: #f1f9ff;">宣言</h5>
+					<textarea style="margin-top:-63px ;height: 50px;" onblur="mui('.mui-popover').popover('hide');" id="manifesto" name="" rows="2" cols="" data-time=''></textarea>
+					<!--<span class="sanj"></span>-->
+					<span class="saizi" id="selectSay" style="top: 32px;"></span>
+					<!--<div class="mui-popover">
+						<ul id="slogandata">
+							
+						</ul>
+					</div>-->
+				</div>
+			</div>
+			<div class="search mui-text-center" id="searchBtn">下一步</div>
+		</div>
+		<script type="text/html" id="swiperContainerTep1">
+			{{each branddata as value}}
+				{{if value.BigImgUrl!=null}}
+					<div class="swiper-slide" data-id='{{value.BrandId}}' data-imgurl='{{value.PKImgUrl}}'><div class="imgBox" ><img class="loadthumb" data-url="{{value.BigImgUrl}}" data-wh="128,128"/></div></div>
+				{{/if}}
+			{{/each}}
+		</script>
+		<script type="text/html" id="storedataTep1">
+			<b></b> {{each storedata as value}}
+			<li data-text="{{value.StoreName}}" data-id="{{value.StoreId}}" data-lon="{{value.Lon}}" data-lat="{{value.Lat}}" data-province="{{value.ProvinceName}}" data-city="{{value.CityName}}" data-distance='{{value.distance}}' data-district="{{value.DistrictName}}" data-address="{{value.Address}}">
+				<a href="#">{{value.StoreName}}</a>
+			</li>
+			{{/each}}
+		</script>
+		<script type="text/html" id="slogandataTep1">
+			<b></b> {{each slogandata as value}}
+			<li data-text="{{value}}">
+				<a href="#">{{value}}</a>
+			</li>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/swiper-3.4.1.min.js', '../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/pk/war.js']);
+		</script>
+	</body>
+
+</html>

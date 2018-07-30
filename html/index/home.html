@@ -1,0 +1,261 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/swiper-3.4.2.min.css','../../css/common.css','../../css/index/home.css','../../css/news/newsList.css']);
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content mui-scroll-wrapper" id="pullrefresh">
+			<div class="mui-scroll">
+				<nav>
+					<h5 id="city">定位中..</h5>
+					<input type="text" name="" id="search" readonly="readonly" value="搜索赛事、新闻、店铺" placeholder="" />
+					<span class="mui-icon mui-icon-search"></span>
+				</nav>
+				<div class="swiper-container">
+					<div class="swiper-wrapper" id="banner_warp">
+					</div>
+					<div class="swiper-pagination"></div>
+				</div>
+				<div class="mui-row mui-text-center navig">
+					<div class="mui-col-sm-3 mui-col-xs-3" id="newslist">
+						<img src="../../images/homepage_icon_nformation.png" />
+						<p>官方资讯</p>
+					</div>
+					<div class="mui-col-sm-3 mui-col-xs-3" data-href="nearShop.html">
+						<img src="../../images/homepage_icon_nearly shop.png" />
+						<p>附近店铺</p>
+					</div>
+					<div class="mui-col-sm-3 mui-col-xs-3 ckecklogin" data-loginevent="pkEvent.gonearPeople()" data-loginbackid="index/nearPeople.html">
+						<img src="../../images/homepage_icon_people nearly.png" />
+						<p>附近的人</p>
+					</div>
+					<div class="mui-col-sm-3 mui-col-xs-3" data-href="richScan.html">
+						<img src="../../images/homepage_icon_scan.png" />
+						<p>扫一扫</p>
+					</div>
+				</div>
+				<div class="gameList" id="siglematch_warp">
+					<div class="nodata"></div>
+					<img class="matchLogo" src="http://kid-test.oss-cn-shanghai.aliyuncs.com/Brand/20170817172122475roihf.jpg"/>
+					<div class="matchDetails">
+						<h4 class="mui-text-center">多管制大家哈萨克计划</h4>
+						<p class="mui-text-center"><b id="timer_h">11</b>:<b id="timer_m">01</b>:<b id="timer_s">00</b></p>
+						<img class="matchBtn" src="../../images/matchBtn.png"/>
+						<div class="mui-text-center">距离你100m</div>
+					</div>
+				</div>
+				<div class="competition">
+					<div class="mui-text-center">
+						<div class="head">
+							<i class="iconfont icon-competition"></i> 最新赛事
+							<button class="btn_change" id="changematch">换一组</button>
+							<!--<span id="eventsMore">更多<i class="mui-icon mui-icon-arrowright" style="font-size: 16px;"></i></span>-->
+						</div>
+						<ul class="mui-table-view mui-text-left" id="newmatch_warp" style="min-height: 120px;">
+							<div class="nodata"></div>
+						    <!--<li class="mui-table-view-cell mui-media matchList">
+						        <a href="javascript:;">
+						            <img class="mui-media-object mui-pull-left" src="../../images/1v.png">
+						            <div class="mui-media-body">
+						                <b>报名中</b>幸福
+						                <p class="mui-ellipsis"><i class="iconfont icon-shop"></i> 能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+						                <p class="imgList">
+						                	<img class="" src="../../images/defuser.jpg"/>
+						                	<img src="../../images/defuser.jpg"/>
+						                	<img src="../../images/defuser.jpg"/>
+						                	<img src="../../images/defuser.jpg"/>
+						                	<img src="../../images/defuser.jpg"/>
+						                </p>
+						            </div>
+						            <div class="dec">
+						            	<img src="../../images/fun.png"/>
+						            	<time>6-12 12：00</time>
+						            </div>
+						        </a>
+						    </li>-->
+						</ul>
+					</div>
+				</div>
+				<div class="topic" style="padding: 0;">
+					<img src="../../images/faqqq.jpg" id="topic_warp" />
+				</div>
+				<div class="competition">
+					<h5 class="mui-text-center">
+						<div class="head">
+							<i class="iconfont icon-praise"></i>
+							店铺推荐
+							<button class="btn_change" id="changestore">换一组</button>
+						</div>
+						<div class="mui-row mui-text-left recommend" id="nearstore_warp" style="overflow: hidden;">
+							<div class="nodata"></div>
+							<!--<div class="mui-col-sm-6 mui-col-xs-6 storeinfo" data-id="{{item.StoreId}}">
+								<p class="star mui-pull-left">
+									<span class="scorewarp1">
+										<i style="width: calc(4.6 * 13px);"></i> 
+									</span> 4.6<br />
+									<span class="storeName">店铺</span>
+								</p>
+								<img class="mui-pull-left loadthumb storeImg" data-url="{{item.ImgUrl}}" data-wh=",200"/>
+							</div>
+							<div class="mui-col-sm-6 mui-col-xs-6 storeinfo" data-id="{{item.StoreId}}">
+								<p class="star mui-pull-left">
+									<span class="scorewarp1">
+										<i style="width: calc(4.6 * 13px);"></i> 
+									</span> 4.6<br />
+									<span class="storeName">店铺</span>
+								</p>
+								<img class="mui-pull-left loadthumb storeImg" data-url="{{item.ImgUrl}}" data-wh=",200"/>
+							</div>
+							<div class="mui-col-sm-6 mui-col-xs-6 storeinfo" data-id="{{item.StoreId}}">
+								<p class="star mui-pull-left">
+									<span class="scorewarp1">
+										<i style="width: calc(4.6 * 13px);"></i> 
+									</span> 4.6<br />
+									<span class="storeName">店铺</span>
+								</p>
+								<img class="mui-pull-left loadthumb storeImg" data-url="{{item.ImgUrl}}" data-wh=",200"/>
+							</div>
+							<div class="mui-col-sm-6 mui-col-xs-6 storeinfo" data-id="{{item.StoreId}}">
+								<p class="star mui-pull-left">
+									<span class="scorewarp1">
+										<i style="width: calc(4.6 * 13px);"></i> 
+									</span> 4.6<br />
+									<span class="storeName">店铺</span>
+								</p>
+								<img class="mui-pull-left loadthumb storeImg" data-url="{{item.ImgUrl}}" data-wh=",200"/>
+							</div>-->
+						</div>
+					</h5>
+				</div>
+				<div class="competition">
+					<img src="../../images/strongCard.png"/>
+					<div class="mui-row mui-text-left recommend cardList" id="cardgroup_warp" style="padding: 0 6px;">
+						<div class="nodata"></div>
+					</div>
+				</div>
+				<div class="newslistwarp">
+					<div class="head">
+						<hr />
+						<span>最新资讯</span>
+						<div style="height: 8px;"></div>
+					</div>
+					<ul class="newslist" id="news_warp">
+						<div class="nodata"></div>
+					</ul>
+				</div>
+				<p class="mui-text-center cor-999">~到底了~</p>
+			</div>
+		</div>
+		<script type="text/html" id="banner_view">
+			{{if data==null || data.length==0}}
+			<div class="swiper-slide"><img src="../../images/banner.png" /></div>
+			<div class="swiper-slide"><img src="../../images/banner.png" /></div>
+			<div class="swiper-slide"><img src="../../images/banner.png" /></div>
+			{{else}} {{each data as item}}
+			<div class="swiper-slide addetail" data-href="{{item.HrefUrl}}" data-param="{{item.HrefParam}}"><img class="loadthumb" data-url="{{item.ImgUrl}}" data-wh=",320" /></div>
+			{{/each}} {{/if}}
+		</script>
+		<script type="text/html" id="siglematch_view">
+			{{if data!=null && data.MatchId}}
+				<div class="matchInfo" data-id="{{data.MatchId}}">
+					<img class="matchLogo loadthumb" data-url="{{data.ImgUrl}}" data-wh="160,"/>
+					<div class="matchDetails">
+						<h4 class="mui-text-center">{{data.MatchName}}</h4>
+						<p class="mui-text-center"><b id="timer_h"></b>:<b id="timer_m"></b>:<b id="timer_s"></b></p>
+						<img class="matchBtn" src="../../images/matchBtn.png"/>
+						<div class="mui-text-center">比赛店铺距离你{{data.distance}}m</div>
+					</div>
+				</div>
+			{{else}}
+			<div class="nodata">暂无内容</div>
+			{{/if}}
+		</script>
+		<script type="text/html" id="newmatch_view">
+			{{if data!=null && data.length>0}} {{each data as item}}
+			<li class="mui-table-view-cell mui-media matchList matchInfo" data-id='{{item.MatchId}}'>
+		        <a href="javascript:;">
+		            <img style="min-width: 42px;min-height: 42px;" class="mui-media-object mui-pull-left loadthumb defuserimg" data-url="{{item.ImgUrl}}" data-wh="200,200">
+		            <div class="mui-media-body">
+		                <b>{{item.StatusName}}</b>{{item.MatchName}}
+		                <p class="mui-ellipsis"><i class="iconfont icon-shop"></i> {{item.StoreName}}</p>
+		                <p class="imgList">
+		                	{{each item.PlayerImg as value}}
+		                		<img style="min-width: 20px;min-height: 20px;" class="loadthumb defuserimg" data-url='{{value.ImgUrl}}' data-wh="80,80"/>
+		                	{{/each}}
+		                </p>
+		            </div>
+		            <div class="dec">
+		            	{{if item.PlayerMaxNum==2}}
+		            		<img src="../../images/solo.png"/>
+		            	{{else}}
+		            		<img src="../../images/fun.png"/>
+		            	{{/if}}
+		            	<time>{{item.MatchBeginTime}}</time>
+		            </div>
+		        </a>
+		    </li>
+			{{/each}} {{else}}
+			<div class="nodata">暂无内容</div>
+			{{/if}}
+		</script>
+		<script type="text/html" id="nearstore_view">
+			{{if data!=null && data.length>0}} {{each data as item}}
+			<div class="mui-col-sm-6 mui-col-xs-6 storeinfo" data-id="{{item.StoreId}}">
+				<p class="star mui-pull-left">
+					<span class="scorewarp1">
+						<i style="width: calc({{item.Score}} * 13px);"></i> 
+					</span> {{item.Score}}<br />
+					<span class="storeName">{{item.StoreName}}</span>
+				</p>
+				<img class="mui-pull-left loadthumb storeImg" style="min-width: 30px;min-height: 30px;" data-url="{{item.ImgUrl}}" data-wh=",64"/>
+			</div>
+			{{/each}} {{else}}
+			<div class="nodata">暂无内容</div>
+			{{/if}}
+		</script>
+		<script type="text/html" id="cardgroup_view">
+			{{if data!=null && data.length>0}} {{each data as item}}
+				<div class="mui-col-sm-4 mui-col-xs-4 header cardgroupdetail" data-id="{{item.CardGroupId}}" style="pa: 0 5px;">
+					<div class="cardgroupimgbox">
+						<img class="loadthumb" data-url="{{item.ImgUrl}}" data-wh=",200" />
+					</div>
+					<h5 class="mui-col-xs-12 mui-ellipsis cardName">{{item.CardGroupName}}</h5>
+					<div class="mui-row">
+						<span class="mui-ellipsis">玩家:{{item.NickName}}</span>
+					</div>
+				</div>
+			{{/each}} {{else}}
+			<div class="nodata">暂无内容</div>
+			{{/if}}
+		</script>
+		<script type="text/html" id="news_view">
+			{{if data!=null && data.length>0}} {{each data as item}}
+			<li class="newsinfo" data-id="{{item.NewsId}}">
+				<div class="newsimgbox">
+					<img class="loadthumb" data-url="{{item.ImgUrl}}" data-wh=",220" />
+				</div>
+				<h5 style="margin-top:15px ;">{{item.Subject}}</h5>
+				<p>{{item.Summary}}</p>
+				<span class="newtype news_m{{item.ModuleId}}">{{item.ModuleName}}</span>
+			</li>
+			{{/each}} {{else}}
+			<div class="nodata">暂无内容</div>
+			{{/if}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js','../../js/lib/swiper-3.4.1.min.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/index/home.js']);
+		</script>
+	</body>
+
+</html>

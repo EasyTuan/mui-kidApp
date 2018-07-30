@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/reset.css','../../css/my/myFriends.css']);
+		</script>
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">新的朋友</h1>
+			<button type="button" class="head-button" id="addFriend">添加好友</button>
+		</header>
+		<div class="mui-indexed-list-bar" id="bar_warp"></div>
+		<div class="mui-indexed-list-alert" id="baralert"></div>
+		<div class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="pstn-r">
+					<div id="list" class="mui-indexed-list">
+						<div class="mui-indexed-list-search ">
+							<div class="mtb10 ml10 mr10">
+								<div class="mui-input-row">
+									<span class="iconfont icon-searchIcon1 pstn-a l10 t10 fs18"></span>
+									<input type="text" id="inpt_search" class="mui-input-clear mui-indexed-list-search-input pl30" placeholder="输入手机号、昵称全网搜索">
+								</div>
+							</div>
+							<ul class="mui-table-view tblv-nl">
+								<li class="mui-table-view-cell mui-text-center" id="myMobileBook">
+									<a>
+										<span class="iconfont icon-phone icon50 cor-lv" style="float: none;"></span>
+										<br />
+										<span class="lh22r cor-999">
+										添加手机联系人
+									</span>
+									</a>
+								</li>
+								<!--<li class="mui-table-view-cell">
+								<a>
+									<span class="iconfont icon-share_address bg-lan1 icon22"></span>
+									<span class="ml10 lh22r">
+							标签
+						</span>
+								</a>
+							</li>-->
+							</ul>
+						</div>
+
+						<div class="mui-indexed-list-inner">
+							<div class="mui-indexed-list-empty-alert">没有数据</div>
+							<ul class="mui-table-view tblv-nl" id="list_warp">								
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/html" id="bar_view">
+			{{each data as item}}
+			<a>{{item.group}}</a>
+			{{/each}}
+		</script>
+		<script type="text/html" id="list_view">
+			{{each data as item}}
+			<li class="mui-indexed-list-group" data-group="{{item.group}}">{{item.group}}</li>
+			{{each item.list as subitem}}
+			<li class="mui-table-view-cell" data-value="{{subitem.NickName}}{{subitem.PinyinName}}{{subitem.Mobile}}" data-pinyin="{{subitem.PinyinName}}" data-mobile="{{subitem.Mobile}}" >
+				<a class="userinfo mr60" data-id="{{subitem.FriendId}}">
+					{{if subitem.ImgUrl==null}}
+					<img src="../../images/defuser.jpg" class="img3r" /> {{else}}
+					<img class="loadthumb img3r" data-url="{{subitem.ImgUrl}}" data-wh="48,48" /> {{/if}}
+					<p class="ml58">
+						<span class=" cor-000 fs16">{{subitem.NickName}}</span><br />
+						<span class="">留言：{{subitem.RemarkGreet}}</span>
+					</p>
+
+				</a>
+				{{if subitem.IsMutual==1}}
+				<span class="mui-pull-right cor-999 lh22r mt-40 mr20">已接受</span> {{else}}
+				<a class="mui-btn mui-btn-outlined mui-btn-green agree mr20" data-id="{{subitem.FriendId}}">接受</a>
+				{{/if}}
+			</li>
+			{{/each}} {{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/mui.indexedlist.js','../../js/my/myNewFriends.js']);
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/reset.css','../../css/match/detail.css']);
+		</script>
+		<style>
+			.nosrcimg {
+				background: #22CC74;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav head-resetnavbar2">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title" id="matchname">战帖</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper scroll">
+			<div class="mui-scroll pb60" style="min-height: calc(100vh - 44px);">
+				<div id="tips">
+					<div id="tipscont_warp">
+					</div>
+				</div>
+				<div id="detail_warp">
+					<div class="title mui-text-center">
+						<p class="matchslogan"><i class="iconfont icon-flag fs20"></i> <span id="matchslogan"></span></p>
+					</div>
+					<div class="pkbgwarp">
+						<div class="pkbg"></div>
+						<div class="container" id="boxcont">							
+						</div>
+					</div>
+					<p class="mui-text-center" id="desc">1v1</p>
+					<div class="info">
+						<i class="iconfont icon-time"></i><span id="matchtime"></span>
+						<i class="iconfont icon-shop"></i><span id="matchstore"></span>
+						<div id="openmap">
+						<i class="iconfont icon-location"></i><span id="matchaddress"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="btmbar-f bg-lan" id="btn_warp">
+			<button class="btn mui-text-center p0 bg-lan btn50p btnl50p" id="btn_back">返回编辑</button>
+			<button class="btn mui-text-center p0 bg-lan btn50p" id="btn_save">完成</button>
+		</div>
+		<script type="text/html" id="tipscont_view">
+			{{each data as item}}
+			<div>
+				{{if item.Type==1}}
+				<p><img class="loadthumb defuserimg" data-url="{{item.ImgUrl}}" data-wh="50,50" /><strong><span class="nickname">{{item.CreatorName}}</span>发起了赛事</strong></p>
+				{{else}}
+				<p><img class="loadthumb defuserimg" data-url="{{item.ImgUrl}}" data-wh="50,50" /><strong><span class="nickname">{{item.PlayerName}}</span>加入<span class="creatorname">{{item.CreatorName}}</span>发起的赛事</strong></p>
+
+				{{/if}}
+			</div>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/match/detail_war.js']);
+		</script>
+	</body>
+
+</html>

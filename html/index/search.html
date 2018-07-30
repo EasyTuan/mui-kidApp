@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/reset.css','../../css/index/search.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<div class="searchbar">
+				<div class="mui-input-row">
+					<span style="top: -8px;" class="iconfont icon-searchIcon1"></span>
+					<input id="inpt_search" type="text" class="mui-input-clear pl30" placeholder="搜索赛事、新闻、店铺">
+				</div>
+			</div>
+			<a class="mui-action-back mui-pull-right head-rightbtn" id="backBtn">取消</a>
+			<a class="mui-pull-right head-rightbtn" id="searchBtn" style="display: none;">搜索</a>
+		</header>
+
+		<div class="mt15 mui-content" id="history_warp" style="display: block;">
+			<div class="history bg-fff">
+				<p>
+					<span class="mui-pull-left">历史记录</span>
+					<span class="iconfont icon-delete mui-pull-right" id="clear"></span>
+				</p>
+				<div class="historyList" id="historylist_warp">
+				</div>
+			</div>
+		</div>
+		<div class="mt15 mui-content mui-scroll-wrapper" id="pullrefresh" style="display: none;">
+			<div class="mui-scroll">
+				<ul class="mui-table-view tblv-nl" id="searchresult_warp">
+					
+				</ul>
+			</div>
+		</div>
+
+		<script type="text/html" id="historylist_view">
+			{{each data as item}}
+			<span>{{item}}</span> {{/each}}
+		</script>
+		<script type="text/html" id="searchresult_view">
+			{{if data!=null&& data.length>0}}
+			{{each data as item}} {{if item.TypeId==1}}
+			<li class="mui-table-view-cell newsdetail" data-id="{{item.Id}}">
+				<p class="cor-000">
+					<span class="newtype news_m{{item.ModuleId}}">{{item.ModuleName}}</span> {{item.Name}}
+				</p>
+			</li>
+			{{else if item.TypeId==2}}
+			<!--店铺-->
+			<li class="mui-table-view-cell mui-media  shopdetail" data-id="{{item.Id}}">
+				<div class="mui-media-object mui-pull-left imgcontain">
+					<img class="loadthumb" data-url="{{item.ImgUrl}}" data-wh="64,64">
+				</div>
+				<div class="mui-media-body">
+					<i>店</i>{{item.Name}}
+					<p class="mui-ellipsis mui-row">
+						<span>{{item.Address}}{{if item.Distance}}&nbsp;&nbsp;&nbsp;{{item.Distance}}m{{/if}}</span>
+					</p>
+				</div>
+			</li>
+			{{else if item.TypeId==3}}
+			<!--赛事-->
+			<li class="mui-table-view-cell mui-media  matchdetail" data-id="{{item.Id}}">
+				<div class="mui-media-object mui-pull-left imgcontain">
+					<img class="loadthumb" data-url="{{item.ImgUrl}}" data-wh="64,64">
+				</div>
+				<div class="mui-media-body">
+					<i>赛</i>{{item.Name}}
+					<p class="mui-ellipsis mui-row">
+						<span>{{item.StoreName}}</span>
+					</p>
+				</div>
+			</li>
+			{{/if}} {{/each}}
+			{{else}}
+			<div class="nodata">暂无内容</div>
+			{{/if}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/index/search.js']);
+		</script>
+	</body>
+
+</html>

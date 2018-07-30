@@ -1,0 +1,187 @@
+@charset "utf-8";
+
+.font12{
+	font-size: 12px;
+}
+
+.bottom3{
+	margin-bottom:3px ;
+}
+
+.posi{
+	position: relative;
+	top: 2px;
+	padding: 0 15px 0 0;
+}
+
+.bottom0{
+	margin-bottom:-7px ;
+}
+
+header{
+	background: #fff;
+	padding: 0 15px;
+	border-bottom:1px solid #e6ebef ;
+}
+
+header h4{
+	font-weight: normal;
+	padding: 15px 0 5px 0;
+	margin: 0;
+	line-height: 1.3;
+}
+
+header p{
+	margin: 5px 0 ;
+	font-size: 12px;
+}
+
+.mainBody{
+	clear: both;
+	background: #fff;
+}
+
+.avatar{
+	width: 24px;
+	height: 24px;
+	min-width: 24px!important;
+	min-height: 24px!important;
+	border-radius:50% ;
+	margin: 0 5px 0 0;
+	position: relative;
+	top: -2px;
+}
+
+
+
+.mainBody{
+	padding: 20px 15px;
+	color: #999;
+}
+
+.mainBody img{
+	width: 100%;
+	height: auto;
+	margin: 10px 0;
+}
+
+.flex2{
+	display: flex;
+	justify-content: space-between;
+}
+
+/**
+ * 评论区域
+ */
+
+.commentTitle{
+	margin: 10px 0 0 0;
+	background: #fff;
+	padding: 10px 15px 5px 15px;
+	color: #4B9CF6;
+}
+
+.padding15{
+	padding: 0 15px;
+}
+
+
+#onlySee{
+	color:#4B9CF6;
+	border: none;
+	padding: 0;
+}
+
+.commentDetails{
+	background: #fff;
+	padding: 15px 0 10px 0;
+	margin: 0 0 10px 0;
+}
+
+.userInfo{
+	white-space: nowrap;
+}
+
+.avatar2{
+	width: 40px;
+	height: 40px;
+	min-width: 40px!important;
+	min-height: 40px!important;
+	border-radius:50% ;
+	margin: 0 5px 0 0;
+	position: relative;
+	top: -2px;
+}
+
+.commentText{
+	padding-bottom: 15px;
+	margin: 0;
+	border-bottom:1px solid #e6ebef ;
+}
+
+.reply{
+	margin: 0 15px;
+	padding:10px 0;
+	border-bottom:1px solid #e6ebef ;
+}
+
+.commentDetails p:nth-last-of-type(1){
+	border-bottom:none ;
+}
+
+.bottom5{
+	margin-bottom:5px ;
+}
+
+.bottomBtn{
+	font-size: 20px;
+	position: relative;
+	top: 5px;
+}
+
+.editInput{
+	padding: 8px 15px;
+	line-height: 1.2;
+	margin: 0 0 10px 15px!important;
+	font-size: 14px;
+	width: 72%;
+}
+
+.mui-bar-tab .mui-tab-item.mui-active {
+    color: #929292;
+}
+
+.bg_ededed{
+	background: #ededed!important;
+	box-shadow: none;
+}
+
+.commentBtn{
+	border: none;
+	margin:0 0 11px 8px ;
+	background: #CCCCCC;
+	color: #fff;
+}
+
+.editComment{
+	display: flex;
+	align-items: flex-end;
+	position: fixed;
+	bottom: -6px;
+	z-index: 999;
+	width: 100%;
+	padding: 10px 0 0 0;
+	display: none;
+}
+
+#oneComment{
+	position: absolute;
+	top: 17px;
+	left: 31px;
+	font-size: 14px!important;
+	color: #999;
+}
+
+.editComment .active{
+	background: #4B9CF6;
+}

@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/tool/toolControl.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">工具管理</h1>
+		</header>
+		<div class="mui-content">
+			<div class="bg">
+				<p>已选工具</p>
+
+				<ul class="mui-table-view tblv-nl" id="selectedTool">
+
+					<!--<li class="mui-table-view-cell mui-media">
+		            <a href="javascript:;">
+		            	<span class="mui-icon mui-icon-minus mui-pull-left"></span>
+		                <img class="mui-media-object mui-pull-left" src="../../images/image.png">
+		                <div class="mui-media-body">
+		                    赛尔号
+		                    <p class="mui-ellipsis">星辰之门即将开启，哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒</p>
+		                </div>
+		            </a>
+		        </li>-->
+				</ul>
+			</div>
+			<div class="bg">
+				<p>更多工具</p>
+				<ul class="mui-table-view tblv-nl" id="moreTool">
+					
+					
+					<!--<li class="mui-table-view-cell mui-media">
+		            <a href="javascript:;">
+		            	<span class="mui-icon mui-icon-plus mui-pull-left"></span>
+		                <img class="mui-media-object mui-pull-left" src="../../images/image.png">
+		                <div class="mui-media-body">
+		                    赛尔号
+		                    <p class="mui-ellipsis">星辰之门即将开启，哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒</p>
+		                </div>
+		        </li>-->
+				</ul>
+			</div>
+		</div>
+		<script type="text/html" id="selectedToolTep1">			
+			{{each FavBrandList as value}}
+			<li class="mui-table-view-cell mui-media" data-id="{{value.BrandId}}">
+						<a href="javascript:;">
+							<span class="iconfont icon-subtract mui-pull-left"></span>
+							<img class="mui-media-object mui-pull-left loadthumb" data-url="{{value.ImgUrl}}" data-wh=",64">
+							<div class="mui-media-body" style="position: relative;top: 12px;">
+								{{value.BrandName}}
+								<!--<p class="mui-ellipsis">{{value.BrandDesc}}</p>-->
+							</div>
+						</a>
+			</li>
+			{{/each}}
+		</script>
+		<script type="text/html" id="moreToolTep1">			
+			{{each NoFavBrandList as value}}
+			<li class="mui-table-view-cell mui-media" data-id="{{value.BrandId}}">
+						<a href="javascript:;">
+							<span class="iconfont icon-increseblue mui-pull-left"></span>
+							<img class="mui-media-object mui-pull-left loadthumb" data-url="{{value.ImgUrl}}" data-wh=",64">
+							<div class="mui-media-body" style="position: relative;top: 12px;">
+								{{value.BrandName}}
+								<p class="mui-ellipsis">{{value.BrandDesc}}</p>
+							</div>
+						</a>
+			</li>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/tool/toolControl.js']);
+		</script>
+	</body>
+
+</html>

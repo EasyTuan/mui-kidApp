@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/tool/oneCardDetail.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title" id="cardName"></h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll" id="detail">
+			    <!--<h5 class="cardName">卡牌名称</h5>-->
+			    <!--<img src="../../images/image_card.png" class="card" />
+			    <div class="mui-row">
+			    	<div class="mui-col-sm-3 mui-col-xs-3">军衔：</div>
+			    	<div class="mui-col-sm-3 mui-col-xs-3">准尉</div><br />
+			    	<div class="mui-col-sm-3 mui-col-xs-3">特征：</div>
+			    	<div class="mui-col-sm-3 mui-col-xs-3">兽族</div>
+			    	<div class="mui-col-sm-3 mui-col-xs-3">星数：</div>
+			    	<div class="mui-col-sm-3 mui-col-xs-3">10 <span class="iconfont icon-collect_select"></span></div>
+			    	<div class="mui-col-sm-3 mui-col-xs-3">职阶：</div>
+			    	<div class="mui-col-sm-3 mui-col-xs-3">A</div>
+			    	<div class="mui-col-sm-3 mui-col-xs-3">克制职阶：</div>
+			    	<div class="mui-col-sm-3 mui-col-xs-3">H</div>
+			    	<div class="mui-col-sm-3 mui-col-xs-3">招式名1：</div>
+			    	<div class="mui-col-sm-3 mui-col-xs-3">炎火之击</div>
+			    	<div class="mui-col-sm-3 mui-col-xs-3">招式1战力：</div>
+			    	<div class="mui-col-sm-3 mui-col-xs-3">1亿4000万</div>
+			    	<div class="mui-col-sm-3 mui-col-xs-3">招式名2：</div>
+			    	<div class="mui-col-sm-3 mui-col-xs-3">烈火燎牙</div>
+			    	<div class="mui-col-sm-3 mui-col-xs-3">招式2战力：</div>
+			    	<div class="mui-col-sm-3 mui-col-xs-3">2亿2000万</div>
+			    	<div class="mui-col-sm-3 mui-col-xs-3">招式名3：</div>
+			    	<div class="mui-col-sm-3 mui-col-xs-3">布拉布拉</div>
+			    	<div class="mui-col-sm-3 mui-col-xs-3">招式3战力：</div>
+			    	<div class="mui-col-sm-3 mui-col-xs-3">2亿3000万</div>
+			    </div>
+			    <div class="effect">
+			    	<h5>卡牌效果：</h5>
+			    	<p>此牌被弃掉时，选择场上一张7星以下的精灵卡战斗力+8000万</p>
+			    </div>-->
+			</div>
+			<div class="none">
+				<img src="../../images/searchnothing.png"/>
+				<div class="mui-text-center">未获取到数据或数据已删除</div>
+			</div>
+		</div>
+		<nav class="mui-bar mui-bar-tab" id="bottom">
+		    <span class="mui-pull-left ckecklogin" id="collect" data-loginevent="pkEvent.goInvitation()" data-loginbackid="tool/oneCardDetail.html">
+		    	<i class="iconfont icon-collect_defaut"></i><br />
+		    	<span>收藏</span>
+		    </span>
+		    <span class="mui-pull-left" id="correlationCard">
+		    	<i class="iconfont icon-relatedcard"></i><br />
+		    	相关套牌
+		    </span>
+		    <div class="select mui-pull-right">
+		    	<i class="mui-icon mui-icon-arrowleft" id="arrowleft"></i>
+		    	<span id="page"></span>
+		    	<i class="mui-icon mui-icon-arrowright" id="arrowright"></i>
+		    </div>
+		</nav>
+		<script type="text/html" id="detailTep1">
+			{{each data as val}}
+				{{if val!=''}}
+					<p></p>
+					<img data-url="{{val.ImgUrl}}" class="card loadthumb" data-preview-src="" data-preview-group="1" data-wh=",600"  />
+				    <div class="mui-row">
+						{{each val.AttrList as value}}
+							{{if value.CardAttrValue!=null}}
+								{{if value.CardAttrValue!=''}}
+									{{if value.ViewLayoutType==1}}
+										<div class="mui-col-sm-3 mui-col-xs-3">{{value.CardAttrName}}：</div>
+									    <div class="mui-col-sm-3 mui-col-xs-3">{{value.CardAttrValue}}</div>
+								    {{/if}}
+							    {{/if}}
+						    {{/if}}
+						{{/each}}
+					</div>
+					{{each val.AttrList as value}}
+						{{if value.ViewLayoutType==2}}
+							{{if value.CardAttrValue!=''}}
+								<div class="effect">
+							    	<h5>{{value.CardAttrName}}：</h5>
+							    	<p style="white-space: normal;font-size: 14px;">{{#value.CardAttrValue}}</p>
+							    </div>
+						    {{/if}}
+						{{/if}}
+					{{/each}}
+				{{/if}}
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js','../../js/mui.zoom.js','../../js/mui.previewimage.js', '../../js/lib/common.js','../../js/tool/oneCardDetail.js']);
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,133 @@
+</html>
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/tool/oneCardMe.css','../../css/tool/oneCardMeCreate.css','../../css/tool/cardDetails.css']);
+		</script>
+		<style type="text/css">
+			.mui-bar-nav~.mui-content .mui-pull-top-pocket {
+			    top: 0px;
+			}
+			.star{
+				position: relative;
+				top: 7px;
+				right: 85px;
+			}
+			.romeveAdd{
+				height: 100%;
+				padding: 19px 5px 0 5px;
+				position: absolute;
+				top: -4px;
+				right: 10px;
+			}
+			.romeveAdd b{
+				display: inline-block;
+				margin: 3px 0 0 0;
+				font-size: 16px;
+				color: #4B9CF6;
+				font-weight: normal;
+				position: relative;
+			}
+			.romeveAdd button{
+				color: #4B9CF6;
+				border: none;
+				padding:3px 7px;
+				font-size: 18px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">编辑套牌</h1>
+		    <button type="button" class="mui-pull-right" id="create">完成</button>
+		</header>
+		<div class="bottom mui-row mui-text-center" style="z-index: 999;">
+	    	<span class="mui-col-sm-3 mui-col-xs-3" id="addCard">
+	    		<i class="iconfont icon-increse"></i>
+	    		<p>添加单卡</p>
+	    	</span>
+	    	<span class="mui-col-sm-3 mui-col-xs-3" id="starNumber">
+	    		<i class="iconfont icon-statistics"></i>
+	    		<p>查看星数比例</p>
+	    	</span>
+	    	<span class="mui-col-sm-3 mui-col-xs-3" id="copy">
+	    		<i class="iconfont icon-copy"></i>
+	    		<p>复制套牌</p>
+	    	</span>
+	    	<span class="mui-col-sm-3 mui-col-xs-3" id="share">
+	    		<i class="iconfont icon-share"></i>
+	    		<p>分享套牌</p>
+	    	</span>
+	    </div>
+		<div class="mui-content mui-scroll-wrapper" style="padding-bottom: 50px;">
+			<div class="mui-scroll"> 
+			    <nav>
+			    	<h5 id="hotspot"><b id="cardName"></b><span class="iconfont icon-edit" id="edit"></span></h5>
+			    	<p id="mainNum">主牌：0</p>
+			    </nav>
+			    <div class="contant">
+			    	<p>
+			    		<span class="mui-pull-left">标签</span>
+			    		<span class="mui-pull-right" id="biaoqian">点此编辑</span>
+			    	</p>
+			    	<div class="lable">
+			    		
+			    	</div>
+			    	<p style="height: 45px;">
+			    		<span class="mui-pull-left">备注</span>
+			    		<span class="mui-pull-right" id="beizhu" style="color: #4B9CF6;">点此编辑</span>
+			    	</p>
+			    	<div class="remark remarkActive">
+			    		
+			    	</div>
+			    </div>
+				<div id="cardList">
+					
+				</div>
+			</div>
+		</div>
+		<script type="text/html" id="cardListTep1">
+			{{each CardList as value i}}
+				<ul class="mui-table-view" id="i{{i}}">
+			    	<h5>{{value.CardType}}</h5>
+			    	{{each value.CardList as val}}
+			    		<li class="mui-table-view-cell mui-media">
+				            <a href="javascript:;"  data-id="{{val.CardId}}" data-page="{{val.page}}">
+				                <img class="mui-media-object mui-pull-left loadthumb" data-url="{{val.ImgUrl}}" data-wh=",64">
+				                {{if val.StarNum!=null}}
+				                	<span class="mui-pull-right star">{{val.StarNum}} <i class="iconfont icon-collect_select"></i></span>
+				                {{/if}}
+				                <div class="mui-media-body">
+				                    {{val.CardName}}
+				                    {{if val.JobName!=null}}
+				                    	<p class="mui-ellipsis">职阶：{{val.JobName}}</p>
+				                    {{/if}}
+				                </div>
+				            </a>
+				            <span class="mui-pull-right romeveAdd">
+			                	<button type="button" class="iconfont icon-subtract remove" data-type="{{val.CardType}}" data-typename='{{val.CardTypeExplain}}'></button>
+			                	<b class="num" data-cardid="{{val.CardId}}" data-type="{{val.CardType}}">{{val.CardNum}}</b>
+			                	<button type="button" class="iconfont icon-increseblue add" data-type="{{val.CardType}}" data-typename='{{val.CardTypeExplain}}'></button>
+			                </span>
+				        </li>
+			    	{{/each}}
+			    </ul>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/tool/oneCardMeEdit.js']);
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/reset.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title" id="title">朋友验证</h1>
+			<button class="head-button" id="btn_ok">发送</button>
+		</header>
+		<div class="mui-content mui-scroll-wrapper scroll">
+			<div class="mui-scroll">
+				<h5 class="lh30 ml15">您需要发送验证申请，等待对方通过</h5>
+				<ul class="mui-table-view mb1rem tblv-nl lh30" id="edit_warp">
+					<li class="mui-table-view-cell">
+						<div class="mui-input-row">
+							<input type="text" id="inpt_val" class="mui-input-clear mb0 bor-no p0 h30 lh30 fs14" placeholder="留言"  />
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>		
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/my/addMyFriend.js']);
+		</script>
+	</body>
+
+</html>

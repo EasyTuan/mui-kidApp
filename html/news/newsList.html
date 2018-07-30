@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/news/newsList.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">官方资讯</h1>
+			<a class="mui-icon iconfont icon-searchIcon1 mui-pull-right" id="search"></a>
+		</header>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll mt15">
+				<ul class="newslist" id="list_warp">
+					<div class="nodata"></div>					
+				</ul>
+			</div>
+		</div>
+		<script type="text/html" id="list_view">
+			{{if data==null||data.length==0}}
+			<div class="nodata">暂无内容</div>
+			{{else}}
+			{{each data as item}}
+			<li class="detail" data-id="{{item.NewsId}}">
+				<div class="newsimgbox">
+				<img class="loadthumb" data-url="{{item.ImgUrl}}" data-wh=",220" />	
+				</div>				
+				<h5>{{item.Subject}}</h5>
+				<p>{{item.Summary}}</p>
+				<span class="newtype news_m{{item.ModuleId}}">{{item.ModuleName}}</span>
+			</li>
+			{{/each}}
+			{{/if}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/news/newsList.js']);
+		</script>
+	</body>
+
+</html>

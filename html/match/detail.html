@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/reset.css','../../css/imgpreview.css','../../css/match/detail.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav head-resetnavbar2">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title" id="matchname">战帖</h1>
+		</header>
+
+		<div class="mui-content mui-scroll-wrapper" id="pullrefresh">
+			<div class="mui-scroll" style="min-height: calc(100vh - 44px);" id="pb">
+				<div id="tips">
+					<div id="tipscont_warp">						
+					</div>
+				</div>
+				<div id="detail_warp">	
+				
+				</div>
+				<div class="bottomImg" id="img_warp">
+					<!--底部图片-->
+				</div>
+			</div>
+		</div>
+		<div id="matchstatus" class="matchstatus"></div>
+		<div class="btmbar-f bg-lan" id="btn_warp">		
+		</div>
+		<script type="text/html" id="tipscont_view">
+			{{each data as item}}
+			<div>
+				{{if item.Type==1}}
+				<p><img class="loadthumb defuserimg" data-url="{{item.ImgUrl}}" data-wh="50,50" /><strong><span class="nickname">{{item.CreatorName}}</span>发起了赛事</strong></p>				
+				{{else}}
+				<p><img class="loadthumb defuserimg" data-url="{{item.ImgUrl}}" data-wh="50,50" /><strong><span class="nickname">{{item.PlayerName}}</span>加入<span class="creatorname">{{item.CreatorName}}</span>发起的赛事</strong></p>
+					
+				{{/if}}
+			</div>
+			{{/each}}
+		</script>
+		<script type="text/html" id="img_view">
+			{{if UpshotImg.length>0}}
+			<div class="imgwarp">
+				{{each UpshotImg as item}}
+					<img class="loadthumb" data-url="{{item}}" data-wh=",400" data-preview-src="" data-preview-group="1">
+				{{/each}}
+			</div>
+			{{/if}}
+		</script>
+		<script type="text/html" id="btn_view">
+			{{if Status==1}}		
+			<!--<a class="btn mui-text-center">报名中</a>-->
+				{{if IsCreater}}					
+					{{if CanDel}}
+						<button class="btn mui-text-center p0 bg-lan" id="btn_del">删除比赛</button> 
+					{{else if PlayerJoinNum > PlayerMinNum}}
+						<button class="btn mui-text-center p0 bg-lan  btn50p btnl50p" id="btn_out">退出比赛</button> 
+						<button class="btn mui-text-center p0 bg-lan  btn50p ckecklogin" data-loginevent="pkEvent.goMyMatch()" data-loginbackid="my/myMatch.html" >前往我的比赛</button>
+					{{else}}	
+						<button class="btn mui-text-center p0 bg-lan  btn50p btnl50p" id="btn_back">返回</button>
+						<button class="btn mui-text-center p0 bg-lan  btn50p ckecklogin" data-loginevent="pkEvent.goMyMatch()" data-loginbackid="my/myMatch.html" >前往我的比赛</button>
+					{{/if}}					
+				{{else}}
+					{{if WhetherJoin=="Y"}}
+						<button class="btn mui-text-center p0 bg-lan  btn50p btnl50p" id="btn_out">退出比赛</button> 
+						<button class="btn mui-text-center p0 bg-lan  btn50p ckecklogin" data-loginevent="pkEvent.goMyMatch()" data-loginbackid="my/myMatch.html" >前往我的比赛</button> 
+					{{else if InviteStatus=="1"}}
+						<button class="btn mui-text-center p0 bg-lan btn50p btnl50p" id="btn_accept">接受</button>
+						<button class="btn mui-text-center p0 bg-lan btn50p" id="btn_refuse">拒绝</button>
+					{{else}}
+						{{if (WhetherJoin=="N" && IsFixed!="1") || (IsFixed=="1"&& IsCanJoin=="Y")}}
+							<button class="btn mui-text-center p0 bg-lan" id="btn_join">加入</button> 
+						{{else}}	
+							<button class="btn mui-text-center p0 bg-lan  btn50p btnl50p" id="btn_back">返回</button>
+							<button class="btn mui-text-center p0 bg-lan  btn50p ckecklogin" data-loginevent="pkEvent.goMyMatch()" data-loginbackid="my/myMatch.html" >前往我的比赛</button>
+						{{/if}}	
+					{{/if}}	
+				{{/if}}	
+			{{else if Status==2}}
+			<!--<a class="btn mui-text-center">比赛进行中...</a>-->
+				<button class="btn mui-text-center p0 bg-lan  btn50p btnl50p" id="btn_back">返回</button>
+				<button class="btn mui-text-center p0 bg-lan  btn50p ckecklogin" data-loginevent="pkEvent.goMyMatch()" data-loginbackid="my/myMatch.html" >前往我的比赛</button>
+			{{else if Status==3}}
+			<!--<a class="btn mui-text-center">已满员</a>-->
+				{{if IsCreater}}					
+					{{if CanDel}}
+						<button class="btn mui-text-center p0 bg-lan" disabled="disabled" id="btn_del">删除比赛</button> 
+					{{else if PlayerJoinNum > PlayerMinNum}}
+						<button class="btn mui-text-center p0 bg-lan  btn50p btnl50p" id="btn_out">退出比赛</button> 
+						<button class="btn mui-text-center p0 bg-lan  btn50p ckecklogin" data-loginevent="pkEvent.goMyMatch()" data-loginbackid="my/myMatch.html" >前往我的比赛</button> 
+					{{else}}	
+						<button class="btn mui-text-center p0 bg-lan  btn50p btnl50p" id="btn_back">返回</button>
+						<button class="btn mui-text-center p0 bg-lan  btn50p ckecklogin" data-loginevent="pkEvent.goMyMatch()" data-loginbackid="my/myMatch.html" >前往我的比赛</button>
+					{{/if}}				
+				{{else}}
+					{{if WhetherJoin=="Y"}}
+						<button class="btn mui-text-center p0 bg-lan  btn50p btnl50p" id="btn_out">退出比赛</button> 
+						<button class="btn mui-text-center p0 bg-lan  btn50p ckecklogin" data-loginevent="pkEvent.goMyMatch()" data-loginbackid="my/myMatch.html" >前往我的比赛</button>
+					{{else}}	
+						<button class="btn mui-text-center p0 bg-lan  btn50p btnl50p" id="btn_back">返回</button>
+						<button class="btn mui-text-center p0 bg-lan  btn50p ckecklogin" data-loginevent="pkEvent.goMyMatch()" data-loginbackid="my/myMatch.html" >前往我的比赛</button>
+					{{/if}}	
+				{{/if}}	
+			{{else if Status==4}}
+			<!--<a  class="btn mui-text-center">已结束</a>-->
+				<button class="btn mui-text-center p0 bg-lan  btn50p btnl50p" id="btn_back">返回</button>
+				<button class="btn mui-text-center p0 bg-lan  btn50p ckecklogin" data-loginevent="pkEvent.goMyMatch()" data-loginbackid="my/myMatch.html" >前往我的比赛</button>
+			{{else if Status==5}}
+			<!--<a class="btn mui-text-center">已取消</a>-->
+				<button class="btn mui-text-center p0 bg-lan  btn50p btnl50p" id="btn_back">返回</button>
+				<button class="btn mui-text-center p0 bg-lan  btn50p ckecklogin" data-loginevent="pkEvent.goMyMatch()" data-loginbackid="my/myMatch.html" >前往我的比赛</button>
+			{{/if}}
+
+		</script>		
+
+
+		<script type="text/html" id="detail_view">
+			<div class="title mui-text-center">
+				<p class="matchslogan"><i class="iconfont icon-flag fs20"></i> {{match.Slogan}}</p>
+			</div>
+			<div class="pkbgwarp">
+				<div style="width: 100vw;overflow: hidden;">
+					<div class="pkbg"></div>
+				</div>
+				<div class="container" id="boxcont">
+					{{each player as item }}
+					<div class="box r{{item.RankingNum}} userinfo" data-uid="{{item.PlayerId}}">						
+						{{if item.IsNoJoin}}
+							<div class="imgbox op">
+							<img class="loadthumb defuserimg" data-url="{{item.ImgUrl}}" data-wh="150,150" />
+						</div>
+						{{else}}
+						<div class="imgbox">
+							<img class="loadthumb defuserimg" data-url="{{item.ImgUrl}}" data-wh="150,150" />
+						</div>
+						{{/if}}						
+						{{if item.RankingNum !=null}}
+						<i class="ranking">{{item.RankingNum}}</i> {{/if}}
+						<span>{{item.ShowName}}</span>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+			<p class="mui-text-center" id="desc"></p>
+			<p class="info">
+				<i class="iconfont icon-time"></i><span>{{match.MatchBeginTime}}</span>
+				<i class="iconfont icon-shop"></i><span>{{match.StoreName}}</span>
+				<i class="iconfont icon-location"></i><span>{{match.ProvinceName}}{{match.CityName}}{{match.DistrictName}}{{match.Address}}</span>
+			</p>
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js','../../js/mui.zoom.js','../../js/mui.previewimage.js', '../../js/lib/common.js','../../js/match/detail.js']);
+		</script>
+	</body>
+
+</html>

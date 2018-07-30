@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/reset.css','../../css/my/myMatchSearch.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">好友赛事列表</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper" id="pullrefresh">
+			<div class="mui-scroll">
+				<ul class="mui-table-view tblv-nl mt15" id="searchresult_warp">					
+				</ul>
+			</div>
+		</div>
+		<script type="text/html" id="searchresult_view">
+			{{each data as item}}
+			<li class="mui-table-view-cell mui-media detail" data-id="{{item.MatchId}}">
+				<a href="javascript:;" class="pstn-r">
+					<img class="mui-media-object mui-pull-left loadthumb img4r defuserimg" data-url="{{item.ImgUrl}}" data-wh="128,128" >
+					<div class="mui-media-body">
+						{{item.MatchName}}
+						<p class="mui-ellipsis mui-row fs12">
+							<span class="mui-col-sm-6 mui-col-xs-6 mui-ellipsis">{{item.StoreName}}</span>
+							<span class="mui-col-sm-6 mui-col-xs-6 cor-lan  mui-ellipsis">{{item.vs}}</span>
+							<span class="mui-col-sm-6 mui-col-xs-6  mui-ellipsis">{{item.MatchBeginTime}}</span>
+							<span class="mui-col-sm-6 mui-col-xs-6  mui-ellipsis">参赛人数<strong>{{item.PlayerJoinNum}}</strong>/{{item.PlayerMaxNum}}</span>
+						</p>
+					</div>
+				</a>
+				{{if item.Status==4}}
+				<span class="status cor-lv">{{item.result}}</span> {{else}}
+				<span class="status">{{item.result}}</span> {{/if}}
+			</li>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/my/myFriendsMatch.js']);
+		</script>
+	</body>
+
+</html>

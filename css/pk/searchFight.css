@@ -1,0 +1,159 @@
+@charset "utf-8";
+
+.mui-content{
+	padding-bottom: 0!important;
+	
+}
+.mui-media-body .mui-row{
+	line-height: 20px;
+	margin-top: 8px;
+}
+.mui-row{
+	line-height: 25px;
+}
+.mui-table-view{	
+	background: none;
+}
+.mui-table-view-cell{
+	background: #fff;
+	margin-bottom: 5px;
+	border-top:1px solid  #E3E3E5;
+}
+.mui-table-view-cell:after, .mui-table-view-cell:before{
+	height: 1px !important;
+}
+.mui-table-view .mui-ellipsis{
+	font-size: 12px;
+}
+
+.mui-table-view .mui-ellipsis span{
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.status{
+	position: absolute;
+	top: 12px;
+	right: 30px;
+	font-size: 13px;
+}
+.iscrt_Y{
+	background: #F6FBFF;
+}
+.apply{
+	color: #4ea463;
+}
+
+.join{
+	color: #74b6ed;
+	border: 1px solid #74b6ed;
+	border-radius:4px ;
+	padding: 0 15px;
+}
+
+.full{
+	color: #fab52f;
+}
+
+.mui-media-object {
+    line-height: 55px;
+    max-width: 55px;
+    height: 55px;
+    position: relative;
+    top: 3px;
+}
+.mui-media-body span{
+	font-size: 12px;
+}
+.mui-media-body h5{
+	color: #000;
+	font-size: 16px !important;
+}
+.mui-ellipsis strong{
+	font-weight: normal;
+	color: #4ea463;
+}
+
+
+.peoplewarp{
+	border-top:1px solid #eee ;
+	line-height: 30px;
+	padding-top: 8px;
+}
+.peoplewarp span,
+.peoplewarp div{
+	float: left;
+	overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+}
+.peoplewarp .imgbox{
+	height: 26px;
+}
+.peoplewarp a{
+	display: table-cell;
+	max-width: 20px;
+	float: left;
+}
+.peoplewarp span{
+	color: #4B9CF7;
+	margin-right: 2px;
+}
+.peoplewarp .names{
+	color: #999;
+	margin-left: 10px;
+}
+.peoplewarp img{	
+	border-radius:50% ;	
+	width: 26px !important;
+	height: 26px !important;	
+	max-width: initial;
+	max-height: 26px;
+	background: #eee;
+}
+.btn_warp{
+	text-align: center;
+	position: absolute;	
+	right: 15px;
+	top: 40px;
+}
+.btn_warp button{
+	line-height: 20px;
+	font-size: 14px;
+	padding: 2px 1rem;
+}
+.btnlan{
+	background: #4B9CF7;
+	color: #fff;
+	border: 1px solid #4B9CF7;
+}
+.btndef{
+	color: #4B9CF7;
+	border: 1px solid #4B9CF7;
+}
+.yqstatus:before{
+	position: absolute;
+	content: " ";
+	display: block;
+	 
+    border-bottom: 40px solid transparent;
+    border-left: 40px solid transparent;
+    top: 0px;
+right: 0px;
+z-index: 0;
+}
+.yqstatus{
+	color: #fff;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 40px;
+    height: 40px;
+   overflow: hidden;
+   text-align: center;
+line-height: 23px;
+}
+.yqstatus i{
+	position: absolute;
+	font-style: normal;
+}

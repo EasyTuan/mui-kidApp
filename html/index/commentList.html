@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/index/shopDetails.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">评论</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper" id="pullrefresh">
+			<div class="mui-scroll">
+				<div class="comment" style="padding: 0;">
+					<!--<div class="group">
+						<span class="active kind">全部</span>
+						<span class="kind">未完成</span>
+						<span class="kind">快攻</span>
+						<span class="kind">组合技能</span>
+						<span class="kind">吐槽</span>
+					</div>-->
+					<div class="commentList">
+						<ul class="mui-table-view" id="commentList">
+						    
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="publish" style="z-index: 9;" class="ckecklogin" data-loginevent="pkEvent.goComment()" data-loginbackid="index/comment.html">发表评价</div>
+		</div>
+		<script type="text/html" id="commentListTep1">
+			{{each data as value j}}
+				<li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left loadthumb" data-url="{{value.PlayerImgUrl}}" data-wh="128,128">
+			            <div class="mui-media-body">
+			                {{value.PlayerName}}
+			                <p class="mui-ellipsis">{{value.CreateTime}}</p>
+			            </div>
+			        </a>
+			        <p>{{value.Content}}</p>
+			        <div class="commentImg">
+			        	{{each value.ImgList as imgList i}}
+				        	<div class="imgcontain">
+				        		<img data-url="{{imgList.ImgUrl}}" class="loadthumb" data-preview-src="" data-preview-group="{{j}}+1" data-wh=",400" />
+				        	</div>
+			        	{{/each}}
+			        </div>
+			    </li>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js','../../js/mui.zoom.js','../../js/mui.previewimage.js', '../../js/lib/common.js','../../js/index/commentList.js']);
+		</script>
+	</body>
+
+</html>

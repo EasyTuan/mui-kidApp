@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/index/nearPeople.css','../../css/index/nearShop.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <input type="text" name="" id="search" readonly="readonly" value="" placeholder="输入店铺名称" />
+		    <span class="iconfont icon-searchIcon1"></span>
+		    <a class="mui-icon iconfont icon-map mui-pull-right"></a>
+		</header>
+		<div class="mui-content mui-scroll-wrapper" id="pullrefresh">
+			<div class="mui-scroll">
+			    <ul class="mui-table-view tblv-nl" id="shopList">
+			        <li class="mui-table-view-cell mui-media">
+			            <a href="javascript:;" class="details">
+			                <img class="mui-media-object mui-pull-left" src="../../images/tx1.png">
+			                <div class="mui-media-body">
+			                    小明晨光文具店
+			                    <p class="mui-ellipsis">
+			                    	<div class="scorewarp1">
+										<i style="width: calc(4.2 * 13px);"></i>
+									</div>
+			                    	<span class="grade">4.2分</span>
+			                    </p>
+			                </div>
+			            </a>
+			            <div class="liRight">
+		                	<span>距离500m</span>
+		                	<span class="war">查看对战</span>
+		                </div>
+			        </li>
+			    </ul>
+			</div>
+			<div class="none">
+				<img src="../../images/searchnothing.png"/>
+				<div class="mui-text-center">无店铺记录</div>
+			</div>
+		</div>
+		<script type="text/html" id="shopListTep1">
+			{{each data as value}}
+				<li class="mui-table-view-cell mui-media">
+		            <a href="javascript:;" class="details" data-storeid="{{value.StoreId}}">
+		                <img class="mui-media-object mui-pull-left loadthumb" data-url="{{value.ImgUrl}}" data-wh="128,128" >
+		                <div class="mui-media-body">
+		                    {{value.StoreName}}
+		                    <p class="mui-ellipsis">
+		                    	<div class="scorewarp1">
+									<i style="width: calc({{value.Score}} * 13px);"></i>
+								</div>
+		                    	<span class="grade">{{value.Score}}分</span>
+		                    </p>
+		                </div>
+		            </a>
+		            <div class="liRight">
+	                	<span style="position: relative;top: 5px;">距离{{value.distance}}m</span>
+	                	<span style="position: relative;top: 5px;" class="war" data-id="{{value.StoreId}}" data-shopname="{{value.StoreName}}" data-address="{{value.Address}}">查看对战</span>
+	                </div>
+		        </li>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/index/nearShop.js']);
+		</script>
+	</body>
+
+</html>

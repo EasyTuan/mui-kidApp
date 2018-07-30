@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/swiper-3.4.2.min.css','../../css/bbs/bbsIndex.css']);
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="swiper-container">
+						<div class="swiper-wrapper" id="banner_warp">
+							
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+					<div class="channel">
+						<p>
+							<h5 class="mui-pull-left"><i class="sign"></i>订阅频道</h5>
+							<button class="mui-pull-right" id="channelBtn">展开</button>
+						</p>
+						<div class="channelList" id="channelList">
+							<!--<b id="addchannel">+添加订阅</b>-->
+							<!--<span>玩家杂谈</span>
+							<span>玩家杂谈</span>-->
+						</div>
+					</div>
+					<ul class="mui-table-view" id="bbsList">
+					    <!--<li class="mui-table-view-cell mui-media">
+					        <a href="javascript:;">
+					        	<div class="mui-media-object mui-pull-right imgbox50">
+					            <img class="" src="http://kid-test.oss-cn-shanghai.aliyuncs.com/player/commentimg/5_1505985391377.png">
+					            </div>
+					            <div class="mui-media-body bbsBody">
+					            	<strong>置顶</strong> 战火燃尽六月战火燃尽六月战火燃尽六月战火燃尽六月
+					                <p class="mui-ellipsis top8">
+					                	<span class="mui-pull-left">
+					                		<img class="avatar mui-pull-left" src="../../images/defuser.jpg"/>
+					                		用户昵称
+					                	</span>
+					                	<span class="mui-pull-right">
+					                		<i class="iconfont icon-eye"> 0</i>&nbsp;&nbsp;&nbsp;
+					                		<i class="iconfont icon-comment"> 0</i>
+					                	</span>
+					                </p>
+					            </div>
+					        </a>
+					    </li>-->
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script type="text/html" id="channelListTep1">
+			{{if subscribe_list.length>0}}
+				{{each subscribe_list as value}}
+					<span data-nodeid='{{value.node_id}}'>{{value.cname}}</span>
+				{{/each}}
+			{{else}}
+				<b id="addchannel">+添加订阅</b>
+			{{/if}}
+		</script>
+		<script type="text/html" id="bbsListTep1">
+			{{each is_top_list as value}}
+				<li class="mui-table-view-cell mui-media" data-id='{{value.topic_id}}'>
+			        <a href="javascript:;">
+			        	{{if value.topic_ico!=''}}
+			        	<div class="mui-media-object mui-pull-right imgbox50">
+			        		<img class="loadthumb" data-url='{{value.topic_ico}}' data-wh="128,">
+			        	</div>
+			        	{{/if}}
+			            <div class="mui-media-body bbsBody">
+			            	<strong>置顶</strong> {{value.title}}
+			                <p class="mui-ellipsis top8">
+			                	<span class="mui-pull-left">
+			                		<img class="avatar mui-pull-left loadthumb defuserimg" data-url='{{value.avatar}}' data-wh="32,32"/>
+			                		{{value.username}}
+			                	</span>
+			                	<span class="mui-pull-right">
+			                		<i class="iconfont icon-eye"> {{value.views}}</i>&nbsp;&nbsp;&nbsp;
+			                		<i class="iconfont icon-comment"> {{value.comments}}</i>
+			                	</span>
+			                </p>
+			            </div>
+			        </a>
+			    </li>
+		    {{/each}}
+		    {{each not_top_list as value}}
+		    	<li class="mui-table-view-cell mui-media" data-id='{{value.topic_id}}'>
+			        <a href="javascript:;">
+			            {{if value.topic_ico!=''}}
+			        		<div class="mui-media-object mui-pull-right imgbox50">
+			        		<img class="loadthumb" data-url='{{value.topic_ico}}' data-wh="128,">
+			        	</div>
+			        	{{/if}}
+			            <div class="mui-media-body bbsBody">
+			            	{{value.title}}
+			                <p class="mui-ellipsis top8">
+			                	<span class="mui-pull-left">
+			                		<img class="avatar mui-pull-left loadthumb defuserimg" data-url='{{value.avatar}}' data-wh="32,32"/>
+			                		{{value.username}}
+			                	</span>
+			                	<span class="mui-pull-right">
+			                		<i class="iconfont icon-eye"> {{value.views}}</i>&nbsp;&nbsp;&nbsp;
+			                		<i class="iconfont icon-comment"> {{value.comments}}</i>
+			                	</span>
+			                </p>
+			            </div>
+			        </a>
+			    </li>
+		    {{/each}}
+		    {{if is_top_list.length>0 && not_top_list.length}}
+		    	<p class="mui-text-center cor-999" style="background: #efeff4;padding: 5px 0;">~到底了~</p>
+		    {{/if}}
+		</script>
+		<script type="text/html" id="banner_view">
+			{{each banner_list as item}}
+			<div class="swiper-slide bannerImg" data-href="{{item.HrefUrl}}" data-param="{{item.HrefParam}}"><img class="loadthumb" data-url="{{item.ImgUrl}}" data-wh=",320" /></div>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js', '../../js/lib/md5.min.js', '../../js/lib/artTemplate.js','../../js/lib/common.js','../../js/lib/swiper-3.4.1.min.js','../../js/bbs/bbsIndex.js']);
+		</script>
+	</body>
+
+</html>

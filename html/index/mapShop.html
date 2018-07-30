@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/index/map.css']);
+		</script>
+		<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=f932f2a38967c4f6379f51aef9951ea7"></script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <input type="text" name="" id="search" value="" style="color: #333;" placeholder="搜索店铺" />
+		    <span class="iconfont icon-searchIcon1"></span>
+		    <span class="mui-pull-right" id="searchBtn">搜索</span>
+		</header>
+		<div id="noNetwork" class="mui-text-center" style="padding: 80% 0px;display: none;">网络无法访问，请点击重试</div>
+		<div class="mui-content">
+			<a id='reload' class="mui-icon iconfont icon-refresh home_btn"></a>
+			<a id='location' class="mui-icon iconfont icon-location3 home_btn"></a>
+			<a id='add' class="mui-icon iconfont icon-increse1 right_btn"></a>
+			<a id='subtract' class="mui-icon iconfont icon-subtract1 right_btn"></a>
+			<img src="../../images/center.svg" class="center"/>
+			<div id="main_ad" class="main_ad" data-href=''>
+				<img id="ad_img" src="../../images/banner.png" />
+				<span id="ad_text" class="mui-ellipsis">---</span>
+			</div>
+			<div id="map"></div>
+		</div>
+		<div id="mainPopoverEl" class="mui-popover main-pop" style="background: #fff;">
+		    
+		</div>
+		<script type="text/html" id="popoverTep1">
+			<div class="shopTop">
+	            <img class="mui-pull-left" src="{{ImgUrl}}">
+	            <div class="shopDetail mui-pull-left">
+	                {{name}}
+	                <p class="mui-ellipsis">
+                    	<div class="scorewarp1">
+							<i style="width: calc({{Score}} * 13px);"></i>
+						</div>
+                    	<span class="grade">{{Score}}分</span>
+                    </p>
+	            </div>
+	            <button class="iconfont icon-close mui-pull-right" id="close"></button>
+		    </div>
+			<div class="dist">
+				<span class="iconfont icon-navigation"></span>
+				距离{{distance}}米
+				{{if status==1}}
+					<span class="mui-pull-right" id="lookFight" data-id="{{id}}" data-shopname="{{name}}">查看战帖</span>
+				{{/if}}
+			</div>
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js', '../../js/lib/md5.min.js','../../js/lib/artTemplate.js', '../../js/lib/common.js','../../js/index/mapShop.js']);
+		</script>
+		
+	</body>
+
+</html>

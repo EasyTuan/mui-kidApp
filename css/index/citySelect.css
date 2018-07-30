@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+#city{
+	border: none;
+}
+
+.cut{
+	position: absolute;
+	top: 54px;
+	right: 15px;
+	color: #999;
+	font-size: 12px;
+}
+
+.cut i{
+	font-size: 16px;
+}
+
+#comment{
+	color: #fff!important;
+	background: #4B9CF6;
+	border-radius:4px ;
+	padding: 0 5px;
+	line-height: 22px;
+	position: relative;
+	top: 10px;
+}
+
+.recently p{
+	text-indent: 15px;
+	line-height: 1;
+}
+
+.stoList{
+	
+}
+
+.item{
+	float: left;
+	background: #fff;
+	width: 21%;
+	line-height: 28px;
+	margin: 0 2% 10px 2%;	
+}
+
+#delete{
+	position: relative;
+	top: -3px;
+	right: 12px;
+}

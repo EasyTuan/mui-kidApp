@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/reset.css','../../css/picker/mui.picker.min.css','../../css/picker/mui.poppicker.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title" id="title"></h1>
+			<button type="button" class="head-button" id="save" >保存</button>
+		</header>
+		<div class="mui-content mui-scroll-wrapper scroll">
+			<div class="mui-scroll">
+				<ul class="mui-table-view mb1rem tblv-nl lh30 mt15" id="edit_warp">					
+				</ul>
+			</div>
+
+			<div id='regionbox' class="ui-alert"></div>
+		</div>
+		<script type="text/html" id="edit_view">
+			{{if model.typeid==1}}
+			<!--文本框-->
+			<li class="mui-table-view-cell">
+				<div class="mui-input-row">
+					<input type="text" id="inpt_val" class="mui-input-clear mb0 bor-no p0 h30 lh30 fs14" placeholder="请填写{{model.fieldname}}" value="{{model.value}}" maxlength="{{model.maxlen}}"  />
+				</div>
+			</li>
+			{{else if model.typeid==2}}
+			<!--多行文本-->
+			<li class="mui-table-view-cell">
+				<div class="mui-input-row">
+					<textarea rows="3" id="txt_val" class="mui-input-clear mb0 bor-no p0  lh30 fs14" placeholder="请填写{{model.fieldname}}"  maxlength="{{model.maxlen}}"/>{{model.value}}</textarea>
+				</div>
+			</li>
+			{{else if model.typeid==3}}
+			<!--性别选择-->
+			<li class="mui-table-view-cell genderck" id="gender1">
+				男<i class="mui-pull-right iconfont icon-sure cor-lan fw" style="display: none;"></i>
+			</li>
+			<li class="mui-table-view-cell genderck" id="gender2">
+				女<i class="mui-pull-right iconfont icon-sure cor-lan fw" style="display: none;"></i>
+			</li>
+			{{else if model.typeid==4}}
+			<!--日期选择框-->
+			<li class="mui-table-view-cell">
+				<div id='birthday' data-options='{"type":"date"}' class="dis-b h30">{{model.value}}</div>
+			</li>
+			{{else if model.typeid==5}}
+			<!--编辑地址-->
+			<li class="mui-table-view-cell ">
+				<label class="mui-col-xs-3 mui-pull-left">所在区域：</label>
+				<a id='region' class="mui-col-xs-9 mui-pull-left">{{if model.ProvinceId>0}}
+					{{model.ProvinceName}}{{model.CityName}}{{model.DistrictName}}{{model.Address}}
+					{{else}}<span class="cor-999">请选择</span> 
+				{{/if}}</a>
+			</li>
+			<li class="mui-table-view-cell" style="height: 52px;">
+				<span class="mui-col-xs-3 p0 h30 mui-pull-left">详细地址：</span>
+				<div class="mui-input-row mui-col-xs-9 dis-ib" style="width: 75%;">
+					<input type="text" id="inpt_val" class=" mui-input-clear   mb0 bor-no p0 h30 lh30 fs14"  placeholder="请填写详细地址" value="{{model.value}}"  maxlength="{{model.maxlen}}"/>
+				</div>
+				
+			</li>
+			{{/if}}
+
+		</script>
+		
+		<script type="text/javascript">
+			//必须顺序加载
+
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js','../../js/lib/picker/mui.picker.min.js','../../js/lib/picker/mui.poppicker.js','../../js/lib/region.js','../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/my/myEdit.js']);
+
+		</script>
+	</body>
+
+</html>

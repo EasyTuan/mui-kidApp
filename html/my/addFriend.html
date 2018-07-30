@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/reset.css']);
+		</script>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">添加朋友</h1>			
+		</header>
+		<div class="mui-content mui-scroll-wrapper scroll">
+			<div class="mui-scroll">
+			<div class="mui-content-padded mt10 pstn-r bg-fff lh40" id="search">				
+				<span class="iconfont icon-searchIcon1 pstn-a l10  fs18"></span>
+				<span class="pl30 cor-999">输入手机号、昵称全网搜索</span>			
+			</div>
+			<ul class="mui-table-view mb1rem tblv-nl">				
+				<li class="mui-table-view-cell" id="scan">
+					<a>
+						<span class="iconfont icon-manage bg-lan1 icon50"></span>
+						<div class="ml60">
+							<h5 class="fs18 cor-000">扫一扫</h5>
+							<p>扫描二维码名片</p>
+						</div>						
+					</a>
+				</li>	
+				<li class="mui-table-view-cell" id="mobilebook">
+					<a class="">
+						<span class="iconfont icon-share_address bg-lan1 icon50"></span>
+						<div class="ml60">
+							<h5 class="fs18 cor-000">手机联系人</h5>
+							<p>添加通讯录中好友</p>
+						</div>						
+					</a>
+				</li>	
+				<!--<li class="mui-table-view-cell">
+					<a class="">
+						<span class="iconfont icon-tool bg-lan1 icon50"></span>
+						<div class="ml60">
+							<h5 class="fs18 cor-000">雷达加好友</h5>
+							<p>添加身边的朋友</p>
+						</div>						
+					</a>
+				</li>	-->
+			</ul>		
+			</div>
+		</div>		
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/my/addFriend.js']);
+		</script>
+	</body>
+	
+
+</html>

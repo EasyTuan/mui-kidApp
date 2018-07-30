@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/index/map.css']);
+		</script>
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=f932f2a38967c4f6379f51aef9951ea7"></script>
+		<style type="text/css">
+			.shopTop img{
+				position: relative;
+				left: 10px;
+			}
+			.shopDetail{
+				font-size: 15px;
+			}
+			.shopDetail p{
+				line-height: 1.3;
+				margin: 5px 0 0 0;
+			}
+			#war{
+				width: 90%;
+				background: #74b6ed;
+				margin: 10px 0 0 5%;
+				line-height: 42px;
+				border-radius:8px ;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <input type="text" name="" id="search" value="" style="color: #333;" placeholder="输入好友昵称" />
+		    <span class="iconfont icon-searchIcon1"></span>
+		    <span class="mui-pull-right" id="searchBtn">搜索</span>
+		</header>
+		<div id="noNetwork" class="mui-text-center" style="padding: 80% 0px;display: none;">网络无法访问，请点击重试</div>
+		<div class="mui-content">
+			<a id='reload' class="mui-icon iconfont icon-refresh home_btn"></a>
+			<a id='location' class="mui-icon iconfont icon-location3 home_btn"></a>
+			<a id='add' class="mui-icon iconfont icon-increse1 right_btn"></a>
+			<a id='subtract' class="mui-icon iconfont icon-subtract1 right_btn"></a>
+			<img src="../../images/center.svg" class="center"/>
+			<div id="main_ad" class="main_ad" data-href=''>
+				<img id="ad_img" src="../../images/banner.png" />
+				<span id="ad_text" class="mui-ellipsis">---</span>
+			</div>
+			<div id="map"></div>
+		</div>
+		<div id="mainPopoverEl" class="mui-popover main-pop" style="background: #fff;z-index: 9999;">
+		    
+		</div>
+		<script type="text/html" id="popoverTep1">
+			<div class="shopTop mui-text-center">
+		    	<button class="iconfont icon-close mui-pull-right" id="close"></button>
+	            <img data-url="{{ImgUrl}}" class="loadthumb defuserimg" data-wh="64,64">
+	            <div class="shopDetail" style="margin: 0;">
+	                {{NickName}}
+	                <p>
+	                	{{SelfdomSign}}
+	                </p>
+	                <p>
+	                	距离{{distance}}m
+	                </p>
+	                <div id="war" style="color: #fff;" data-id="{{PlayerId}}" data-imgurl="{{ImgUrl}}" data-nickname="{{NickName}}">约战</div>
+	            </div>
+		    </div>
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/lib/artTemplate.js','../../js/index/mapPeople.js']);
+		</script>
+	</body>
+
+</html>

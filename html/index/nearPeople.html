@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/index/nearPeople.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <input type="text" name="" id="search" readonly="readonly" value="" placeholder="输入好友昵称" />
+		    <span class="iconfont icon-searchIcon1"></span>
+		    <a class="mui-icon iconfont icon-map mui-pull-right"></a>
+		</header>
+		<div class="mui-content mui-scroll-wrapper" id="pullrefresh">
+			<div class="mui-scroll">
+			    <ul class="mui-table-view tblv-nl" id="peopleList">			    	
+			        <!--<li class="mui-table-view-cell mui-media">
+			            <a href="javascript:;" class="details">
+			                <img class="mui-media-object mui-pull-left" src="../../images/tx1.png">
+			                <div class="mui-media-body">
+			                    Chenipan
+			                    <p class="mui-ellipsis">我死故我在</p>
+			                </div>
+			            </a>
+			            <div class="liRight">
+		                	<span>距离500m</span>
+		                	<span class="war">约战</span>
+		                </div>
+			        </li>-->
+			    </ul>
+			</div>
+			<div class="none">
+				<img src="../../images/searchnothing.png"/>
+				<div class="mui-text-center">没有搜索到结果</div>
+			</div>
+		</div>
+		<script type="text/html" id="peopleListTep1">
+			{{each data as value}}
+				<li class="mui-table-view-cell mui-media">
+		            <a href="javascript:;" class="details mui-col-xs-9" data-playerid="{{value.PlayerId}}">
+		                <img class="mui-media-object mui-pull-left loadthumb defuserimg" data-url="{{value.ImgUrl}}" data-wh="128,128">
+		                <div class="mui-media-body">
+		                    {{value.NickName}}
+		                    <p class="mui-ellipsis">{{value.SelfdomSign}}</p>
+		                </div>
+		            </a>
+		            <div class="liRight">
+	                	<span>距离{{value.distance}}m</span>
+	                	<span class="war" data-playerid="{{value.PlayerId}}" data-imgurl="{{value.ImgUrl}}" data-nickname="{{value.NickName}}">约战</span>
+	                </div>
+		        </li>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/index/nearPeople.js']);
+		</script>
+	</body>
+
+</html>

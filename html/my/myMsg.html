@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/reset.css']);
+		</script>
+		<style>
+			.msginfo i {
+				font-style: normal;
+				font-size: 12px;
+				color: #999;
+				font-weight: normal;
+				float: right;
+			}
+			.msginfo a span {
+				position: relative;
+			}
+			.msginfo .redbadge{
+				right: 0px;
+				
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">消息</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper" id="pullrefresh">
+			<div class="mui-scroll">				
+				<ul class="mui-table-view mb1rem tblv-nl" id="mymsg_warp">
+				</ul>
+			</div>
+		</div>
+		<script type="text/html" id="mymsg_view">
+			{{each data as item}}
+			<li class="mui-table-view-cell msginfo msgtype{{item.MessageType}}" data-id="{{item.ObjectId}}" data-nid="{{item.NotifyId}}">
+				<a>
+					<span class="iconfont icon-{{item.typeclassname}} icon50 bor-r25">
+						{{if item.ReadStatus=='N'}}
+							<b class="redbadge"></b>
+						{{/if}}
+					</span>
+					<div class="ml60">
+						<h5 class="fs18 cor-000">{{item.Title}}<i>{{item.CreateTime}}</i></h5>
+						<p class="mui-ellipsis">{{item.Content}}</p>
+					</div>
+				</a>
+			</li>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/my/myMsg.js', '../../js/my/addMyFriend.js']);
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,384 @@
+@charset "utf-8";
+body {
+	background-color: #F0F0F0;
+	font-size: 14px;
+	font-family: "微软雅黑";
+}
+
+.mui-pull {
+	font-weight: normal!important;
+}
+
+img {
+	max-width: 100%;
+}
+.imgbox50{
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+	line-height: 50px;
+}
+.imgbox50 img{
+	min-width: 50px !important;
+}
+.img_50{
+	min-width: 50px;
+	/*line-height: 50px!important;
+ 
+    min-height: 50px!important;
+    max-height: 50px!important;*/
+}
+
+img.loadthumb {
+	min-width: 50px;
+	min-height: 50px;
+	background: #eee url(../images/def.jpg) no-repeat center center;
+	background-size: cover;
+}
+
+img.loadok {
+	background: #eee;
+}
+
+.mui-title {
+	color: #333;
+}
+
+.mui-bar-nav {
+	box-shadow: none;
+	background: #fff;
+	border-bottom: 1px solid #E6EBEF;
+}
+
+.mui-bar-nav a {
+	color: #333;
+}
+
+.mui-table-view-cell:after {
+	left: 0;
+}
+
+.headBtb {
+	margin: 11px 0 0 0;
+	background: #4B9CF6;
+	color: #fff!important;
+	font-size: 13px;
+	padding: 1px 3px;
+	border-radius: 4px;
+}
+
+.kidNav {
+	box-shadow: none;
+	top: 44px;
+	background: #fff;
+	z-index: 3;
+	border-bottom: 1px solid #eee;
+}
+
+.kidNav a {
+	color: #333!important;
+	position: relative;
+}
+
+.kidNav .mui-active {
+	color: #4B9CF6!important;
+}
+
+.kidNav .mui-active i {
+	display: inline-block;
+	width: 50%;
+	height: 2px;
+	background: #4B9CF6;
+	position: absolute;
+	bottom: 0;
+	left: 25%;
+}
+
+#toptip {
+	transition: all .5s;
+	-moz-transition: all .5s;
+	/* Firefox 4 */
+	-webkit-transition: all .5s;
+	/* Safari and Chrome */
+	-o-transition: all .5s;
+	/* Opera */
+	opacity: 0;
+	background: #000;
+	position: fixed;
+	top: 14px;
+	left: 0px;
+	line-height: 30px;
+	height: 30px;
+	color: #fff;
+	width: 100%;
+	text-align: center;
+	z-index: 8;
+}
+
+#toptip.show {
+	top: 44px;
+	opacity: 0.7;
+}
+
+#toptip.showend {
+	top: 14px;
+	opacity: 0;
+}
+
+
+/*.scorewarp{
+	width: 98px;
+	height: 18px;
+	display: inline-block;	
+	position: relative;
+	background: url(../images/star1.png);
+	background-size:100% 100% ;
+}
+.scorewarp i{
+	position: absolute;
+	left: 0px;
+	top: 0px;	
+	background: url(../images/star2.png);
+	height: 18px;
+	max-width: 100%;
+	background-repeat:no-repeat ;
+	display: block;
+}*/
+
+
+/*分数星星*/
+
+.scorewarp1 {
+	width: 65px;
+	height: 12px;
+	display: inline-block;
+	position: relative;
+	background: url(../images/star_grey.svg);
+	background-size: 100% 100%;
+}
+
+.scorewarp1 i {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background: url(../images/star_yellow.svg);
+	height: 12px;
+	max-width: 100%;
+	background-repeat: no-repeat;
+	display: block;
+}
+
+
+/*图片大小*/
+
+
+/*左侧icon*/
+
+.icon50 {
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	float: left;
+	color: #fff;
+	font-size: 2rem !important;
+	text-align: center;
+	line-height: 50px;
+}
+
+.icon22 {
+	width: 2.2rem;
+	height: 2.2rem;
+	display: inline-block;
+	float: left;
+	color: #fff;
+	font-size: 1.6rem !important;
+	text-align: center;
+	line-height: 2.2rem;
+}
+
+.img4r {
+	width: 4rem !important;
+	height: 4rem !important;
+	max-height: 4rem !important;
+	max-width: 4rem !important;
+}
+
+.img50 {
+	width: 5rem !important;
+	height: 5rem !important;
+	max-height: 5rem !important;
+	max-width: 5rem !important;
+}
+
+.img22 {
+	width: 2.2rem;
+	height: 2.2rem;
+	display: inline-block;
+	float: left;
+	line-height: 2.2rem;
+	min-height: 2.2rem !important;
+	min-width: 2.2rem !important;
+}
+
+.img3r {
+	width: 3rem;
+	height: 3rem;
+	display: inline-block;
+	float: left;
+	line-height: 3rem;
+}
+
+
+/*头部右边按钮*/
+
+.head-rightbtn {
+	font-size: 17px;
+	line-height: 44px;
+	padding: 0px 5px 0px 10px;
+	z-index: 0;
+}
+
+.head-righticonbtn {
+	font-size: 1.3rem !important;
+	line-height: 40px;
+	float: right;
+}
+
+.head-button {
+	padding: 3px 8px;
+	line-height: 18px;
+	border: none;
+	margin-top: 10px;
+	border-radius: 5px;
+	background: #4B9CF6;
+	color: #FFF;
+	float: right;
+}
+
+.sign{
+	display: inline-block;
+	width: 4px;
+	height: 14px;
+	background: #4B9CF6;
+	position: relative;
+	top: 2px;
+	margin: 0 4px 0 0;
+}
+
+.col333{
+	color: #333;
+}
+
+.col4b{
+	color: #4B9CF6;
+}
+
+.col999{
+	color: #999;
+}
+
+.margin0{
+	margin: 0!important;
+}
+
+
+/**
+ * 无记录
+ */
+
+.none {
+	width: 100%;
+	height: 100vh;
+	background: #f0f0f0;
+	position: absolute;
+	top: 0;
+	z-index: 9;
+	display: none;
+}
+
+.none img {
+	width: 50%;
+	height: auto;
+	display: block;
+	margin: 30vh auto 0 auto;
+}
+
+.nodata {
+	position: relative;
+	top: calc(50% - 12px);
+	text-align: center;
+	color: #999;
+}
+
+
+/*清楚上下边框*/
+
+.tblv-nl:after,
+.tblv-nl:before {
+	height: 0;
+}
+
+
+/*新闻类别背景*/
+
+.newtype {
+	position: absolute;
+	top: 10px;
+	left: 0px;
+	z-index: 999;
+	display: inline-block;
+	text-align: center;
+	color: #fff;
+	padding: 0 8px;
+	background: #0062CC;
+}
+
+.news_m7 {
+	background: #4ea463;
+}
+
+.news_m8 {
+	background: #CD4E48;
+}
+
+.news_m9 {
+	background: #FFB11C;
+}
+
+
+/*赛事状态颜色*/
+
+.match_s1 {
+	color: #007AFF !important;
+}
+
+.match_s2 {
+	color: #4EA562 !important;
+}
+
+.match_s3 {
+	color: #999 !important;
+}
+
+.match_s4 {
+	color: #842900 !important;
+}
+
+.match_s5 {
+	color: #999 !important;
+}
+
+
+/*赛事邀请背景色*/
+
+.yq_s1:before {
+	border-right: 40px solid #FD6703;
+}
+
+.yq_s2:before {
+	border-right: 40px solid #5DC504;
+}
+
+.yq_s3:before {
+	border-right: 40px solid #BDBDBD;
+}

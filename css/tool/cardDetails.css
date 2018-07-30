@@ -1,0 +1,86 @@
+@charset "utf-8";
+
+.cardName .mui-media-body{
+	font-size: 18px;
+}
+
+.cardName p{
+	font-size: 13px;
+	line-height: 1.2;
+}
+
+.cardName p:nth-of-type(1){
+	margin: 5px 0 0 0;
+}
+
+.contant .mui-pull-left{
+	color: #333!important;
+}
+
+.contant p:nth-of-type(2){
+	height: auto;
+	/*padding-top:10px ;*/
+}
+
+.contant p:nth-of-type(2) span{
+	color: #666;
+}
+
+.mui-table-view h5{
+	padding: 10px 0 6px 10px;
+	color: #333;
+	border-bottom:1px solid #e6ebef ;
+}
+
+.star{
+	color: #74b6ed;
+}
+
+.mui-table-view:before,.mui-table-view:after{
+	height: 0;
+}
+
+#cardList .mui-table-view{
+	margin: 10 px 0 0 0;
+}
+
+/**
+ * 弹出图片
+ */
+
+#popover img{
+	width: 100%;
+	height: auto;
+}
+
+#popover .mui-row{
+	background: #74b6ed;
+	line-height: 40px;
+	color: #fff;
+}
+
+#popover span{
+	display: inline-block;
+	width: 1px;
+	height: 30px;
+	position: absolute;
+	bottom: 5px;
+	left: 50%;
+	z-index: 9999;
+	background: #639bca;
+}
+
+.contant>p {
+    
+}
+
+#cardList h5{
+	padding-left:15px ;
+}
+
+#openPopover img{
+	width: 20px;
+	height: 20px;
+	position: relative;
+	top: 12px;
+}

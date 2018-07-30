@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../css/mui.min.css', '../css/swiper-3.4.2.min.css','../css/iconfont.css']);
+		</script>
+		<style type="text/css">
+			.swiper-slide img {
+				width: 100%;
+				height: 100vh;
+				display: block;
+			}
+			
+			.swiper-pagination-bullet-active {
+				background: #fff none repeat scroll 0 0;
+				opacity: 1;
+			}
+			#join{
+				position: absolute;
+				bottom: 60px;
+				text-align: center;
+				width: 100%;
+				font-size: 10rem;				
+				color: #fff;
+				padding: 5px 10px;
+				border-radius:5px ;
+			}
+			#pass{
+				position: fixed;
+				top: 15px;
+				right: 15px;
+				z-index: 999;
+				border: none;
+				border-radius: 6px;
+				padding: 7px 13px;				
+				color: #fff;
+				background: rgba(0,0,0,0.5);
+			}
+		</style>
+	</head>
+
+	<body>
+		<button id="pass">
+			跳过
+		</button>
+		<div class="mui-content">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide"><img src="../images/hello1.jpg" class="swiperImg" /></div>
+					<div class="swiper-slide"><img src="../images/hello2.jpg" class="swiperImg" /></div>
+					<div class="swiper-slide" ><img src="../images/hello3.jpg" class="swiperImg" /></div>	
+					<div class="swiper-slide" ><span id="join" class="iconfont icon-fight"></span><img src="../images/hello4.jpg" class="swiperImg" /></div>	
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			script(['../js/mui.min.js', '../js/lib/swiper-3.4.1.min.js']);
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			var mySwiper = new Swiper('.swiper-container', {
+				pagination: '.swiper-pagination'
+			});
+			mui.ready(function() {
+				mui(".swiper-wrapper").on("tap", "#join", function() {
+					localStorage.setItem("guide","yes");
+					window.location.href='main.html';
+				});
+				mui("body").on("tap", "#pass", function() {
+					localStorage.setItem("guide","yes");
+					window.location.href='main.html';
+				});
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+.kind span{
+	border-radius:5px ;
+	text-align: center;
+	display: inline-block;
+	width: 21%;
+	float: left;
+	margin:8px 2%;
+	font-size: 12px;
+	background: #f1f9ff;
+	color: #74858e;
+	padding: 3px 10px;
+/*	margin-left:3px ;*/
+	white-space: nowrap;
+}
+
+.kind{
+	position: relative;
+}
+
+.kind hr{
+	position: absolute;
+	width: 100%;
+	top: 67px;
+	border: none;
+	border-top:1px solid #f0f0f0 ;
+}

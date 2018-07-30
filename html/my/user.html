@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/reset.css']);
+		</script>
+		<style type="text/css">
+			.mui-bar-nav~.mui-content .mui-pull-top-pocket {
+				top: 0px;
+			}
+			#headimg{
+				background: #eee;
+			}
+			.bg {
+				height: 170px;
+				background: #4B9CF6;
+				/* 一些不支持背景渐变的浏览器 */
+				background: -moz-linear-gradient(top, #4B9CF6, rgba(111, 128, 251, 0.7));
+				background: -webkit-gradient(linear, 0 0, 0 bottom, from(#4B9CF6), to(rgba(111, 128, 251, 0.7)));
+				background: -o-linear-gradient(top, #4B9CF6, rgba(111, 128, 251, 0.7));
+				position: relative;
+			}	
+			.borf{
+				border: 3px solid #fff;
+			}
+			#editSignature{
+				width: 80%;
+				margin-left:10% ;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				position: relative;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav head-resetnavbar1">
+			<a class="iconfont icon-mymessage head-righticonbtn pstn-r cor-fff ckecklogin" data-loginevent="loginEvent.myMsg()" data-loginbackid="my/myMsg.html" id="myMsg">
+				<span class="" id="msgStatus"></span>
+			</a>
+		</header>
+
+		<div class="mui-content pt0 mui-scroll-wrapper" id="pullrefresh">
+			<div class="mui-scroll">
+				<ul class="mui-table-view mb1rem bg tblv-nl" style="position: relative;" >
+					<li class="mui-text-center ptb10" id="user_warp">
+						<div class="ckecklogin" id="goLogin" data-loginbackid="my/user.html" id="user_warp">
+							<img class="bor-r50p mt15 img50 borf" src="../../images/defuser.jpg" />
+							<h5 class="cor-fff lh30">请先登录/注册 </h5>
+						</div>						
+					</li>
+					<canvas id="canvas" height="105" style="position:absolute;bottom: 0;left:0px;z-index:-1;width: 100%;"></canvas>
+				</ul>
+				<ul class="mui-table-view mb1rem tblv-nl">
+					<li class="mui-table-view-cell">
+						<a id="myMatch" class="mui-navigate-right ckecklogin" data-loginevent="loginEvent.myMatch()" data-loginbackid="my/myMatch.html">我的比赛</a>
+					</li>
+				</ul>
+				<ul class="mui-table-view mb1rem tblv-nl">
+					<li class="mui-table-view-cell">
+						<a id="myFriends" class="mui-navigate-right ckecklogin" data-loginevent="loginEvent.myFriends()" data-loginbackid="my/myFriends.html">通讯录</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a id="myInfo" class="mui-navigate-right ckecklogin" data-loginevent="loginEvent.myInfo()" data-loginbackid="my/myInfo.html">个人信息</a>
+					</li>
+				</ul>
+				<ul class="mui-table-view mb1rem tblv-nl">
+					<li class="mui-table-view-cell">
+						<a id="mySetting" class="mui-navigate-right ckecklogin" data-loginevent="loginEvent.mySetting()" data-loginbackid="my/mySetting.html">设置</a>
+					</li>
+				</ul>
+				<!--<ul class="mui-table-view mb1rem tblv-nl">
+					<li class="mui-table-view-cell">
+						<a id="test">测试</a>
+					</li>
+				</ul>-->
+			</div>
+		</div>
+		<script type="text/html" id="user_view">
+			{{if data.IsLogin}}		
+				<div class="mui-text-center">
+					<img class="mt15 bor-r50p img50 borf ckecklogin" src="{{data.ImgUrl}}" id="headimg" data-loginevent="loginEvent.upload_headimg()" />
+				</div>
+				<h5 class="cor-fff fs17">{{data.NickName}}</h5>
+				<p class="ckecklogin cor-fff" id="editSignature" data-loginevent="loginEvent.editSignature()" data-loginbackid="my/user.html">{{data.Signature}} <i class="iconfont icon-edit"></i></p>
+		
+			{{else}}
+			<div class="ckecklogin" id="goLogin" data-loginbackid="my/user.html" id="user_warp">
+							<img class="bor-r50p mt15 img50 borf" src="../../images/defuser.jpg" />
+						<h5 class="cor-fff lh30">请先登录/注册 </h5>
+						</div>			{{/if}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/my/user.js']);
+		</script>
+	</body>
+
+</html>

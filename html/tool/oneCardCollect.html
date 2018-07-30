@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/tool/oneCardCollect.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">单卡收藏</h1>
+		    <a class="mui-icon iconfont icon-searchIcon1 mui-pull-right" id="search"></a>
+		</header>
+		<div class="mui-content mui-scroll-wrapper" id="pullrefresh">
+			<div class="mui-scroll">
+				<h5>全部（<span id="number"></span> 张）</h5>
+			    <ul class="mui-table-view tblv-nl" id="cardList">
+			        <!--<li class="mui-table-view-cell mui-media">
+			            <a href="javascript:;">
+			                <img class="mui-media-object mui-pull-left" src="../../images/image.png">
+			                <span class="mui-pull-right">6 <i class="iconfont icon-collect_select"></i></span>
+			                <div class="mui-media-body">
+			                    卡牌名称
+			                    <p class="mui-ellipsis">职阶：T</p>
+			                    
+			                </div>
+			            </a>
+			        </li>
+			        <li class="mui-table-view-cell mui-media">
+			            <a href="javascript:;">
+			            	<img class="mui-media-object mui-pull-left" src="../../images/image.png">
+			                <span class="mui-pull-right">7 <i class="iconfont icon-collect_select"></i></span>
+			                <div class="mui-media-body">
+			                    卡牌名称
+			                    <p class="mui-ellipsis">职阶：T</p>
+			                </div>
+			            </a>
+			        </li>
+			        <li class="mui-table-view-cell mui-media">
+			            <a href="javascript:;">
+			            	<img class="mui-media-object mui-pull-left" src="../../images/image.png">
+			                <span class="mui-pull-right">8 <i class="iconfont icon-collect_select"></i></span>
+			                <div class="mui-media-body">
+			                    卡牌名称
+			                    <p class="mui-ellipsis">职阶：T</p>
+			                </div>
+			            </a>
+			        </li>-->
+			    </ul>
+			</div>
+		</div>
+		<div class="none">
+			<img src="../../images/collectnothing.png"/>
+			<div class="mui-text-center">您还没有单卡收藏</div>
+		</div>
+		<script type="text/html" id="cardListTep1">
+			{{each data as value}}
+				<li class="mui-table-view-cell mui-media" data-page="{{value.page}}" data-cardid="{{value.CardId}}">
+		            <a href="javascript:;">
+		            	<img class="mui-media-object mui-pull-left loadthumb" data-url="{{value.ImgUrl}}" data-wh=",128" >
+		                {{if value.StarNum!=null}}
+		            		<span class="mui-pull-right">{{value.StarNum}} <i class="iconfont icon-collect_select"></i></span>
+		            	{{/if}}
+		                <div class="mui-media-body">
+		                    {{value.CardName}}
+		                    {{if value.JobName!=null}}
+		                    	<p class="mui-ellipsis">职阶：{{value.JobName}}</p>
+		                    {{/if}}
+		                </div>
+		            </a>
+		        </li>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/tool/oneCardCollect.js']);
+		</script>
+	</body>
+
+</html>

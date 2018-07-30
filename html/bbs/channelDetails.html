@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/bbs/bbsChannel.css','../../css/bbs/bbsIndex.css','../../css/bbs/channelDetails.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title" id="channelTitle"></h1>
+			<a class="mui-pull-right iconfont icon-searchIcon1 head-righticonbtn" id="search"></a>
+		</header>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper" style="top: 0;">
+			<div class="mui-scroll">
+				<ul class="mui-table-view" id="channelHead" style="min-height: 120px;">
+					<!--<li class="mui-table-view-cell mui-media tblv-nl">
+						<a class="channelHead">
+							<img class="mui-media-object mui-pull-left border_" src="http://placehold.it/40x30">
+							<div class="mui-media-body">
+								<p class="mui-ellipsis">主题数：222 <strong class="channelNum">6.7万+人已订阅</strong></p>
+								<p class="channelInfo">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.木屋，夏天挫冰吃瓜，冬天围炉取暖</p>
+							</div>
+						</a>
+						<button class="channelBtn" id="subscibe">订阅</button>
+					</li>
+					<div class="tagList">
+						<span class="active">标签1</span>
+						<span>标签2</span>
+						<span>标签3</span>
+						<span>标签4</span>
+						<span>标签5</span>
+						<span>标签1</span>
+						<span>标签2</span>
+						<span>标签3</span>
+						<span>标签4</span>
+						<span>标签5</span>
+					</div>-->
+				</ul>
+				<p class="flex2 bbsTitle" id="bbsHotListTitle">
+					<span class="padding_ col4b"><i class="sign"></i>置顶帖子</span>
+					<button id="channelBtn" style="padding: 0 10px;">收起</button>
+				</p>
+				<ul class="mui-table-view margin0" id="bbsHotList" style="min-height: 100px;">
+					<!--<li class="mui-table-view-cell mui-media bbsDetails">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-right loadthumb img_50 " src="../../images/banner.png">
+							<div class="mui-media-body bbsBody">
+								<strong>置顶</strong> 战火燃尽六月
+								<p class="mui-ellipsis top8">
+									<span class="mui-pull-left">
+				                		<img class="avatar mui-pull-left" src="../../images/defuser.jpg"/>
+				                		用户昵称
+				                	</span>
+									<span class="mui-pull-right">
+				                		<i class="iconfont icon-eye"> 0</i>&nbsp;&nbsp;&nbsp;
+				                		<i class="iconfont icon-comment"> 0</i>
+				                	</span>
+								</p>
+							</div>
+						</a>
+					</li>-->
+				</ul>
+				<p class="flex2 bbsTitle" id="bbsListTitle">
+					<span class="padding_ col4b"><i class="sign"></i>帖子列表</span>
+				</p>
+				<ul class="mui-table-view margin0" id="bbsList" style="min-height: 100px;">
+					<!--<li class="mui-table-view-cell mui-media bbsDetails">
+						<a href="javascript:;">
+							<img class="mui-media-object mui-pull-right" src="http://placehold.it/40x30">
+							<div class="mui-media-body">
+								战火燃尽六月
+								<p class="mui-ellipsis top8">
+									<span class="mui-pull-left">
+				                		<img class="avatar mui-pull-left" src="../../images/defuser.jpg"/>
+				                		用户昵称
+				                	</span>
+									<span class="mui-pull-right">
+				                		<i class="iconfont icon-eye"> 0</i>&nbsp;&nbsp;&nbsp;
+				                		<i class="iconfont icon-comment"> 0</i>
+				                	</span>
+								</p>
+							</div>
+						</a>
+					</li>-->
+				</ul>
+			</div>
+		</div>
+		<button type="button" id="newBbs" class="ckecklogin" data-loginevent="pkEvent.gonewBbs()" data-loginbackid="bbs/newBbs.html">发帖</button>
+		<script type="text/html" id="channelHeadTep1">
+			<li class="mui-table-view-cell mui-media tblv-nl">
+				<a class="channelHead">
+					<img class="mui-media-object mui-pull-left border_ loadthumb" data-url='{{category.ico}}' data-wh="128,128">
+					<div class="mui-media-body">
+						<p class="mui-ellipsis">主题数：{{category.listnum}} <strong class="channelNum">{{category.subscribes}}万+人已订阅</strong></p>
+						<p class="channelInfo">{{category.content}}</p>
+					</div>
+				</a>
+				{{if category.is_fav=='N'}}
+					<button class="channelBtn ckecklogin" id="subscibe" data-loginevent="pkEvent.subscibe({{category.node_id}})" data-loginbackid="bbsChannel.html/channelDetails.html">订阅</button>
+				{{else}}
+					<button class="channelBtn channelBtn_subscibe ckecklogin" id="subscibe" data-loginevent="pkEvent.subscibe({{category.node_id}})" data-loginbackid="bbsChannel.html/channelDetails.html">取消订阅</button>
+				{{/if}}
+			</li>
+			<div class="tagList">
+				{{each tag_list as value}}
+					<span>{{value}}</span>
+				{{/each}}
+			</div>
+		</script>
+		<script type="text/html" id="bbsHotListTep1">
+			{{each top_list as value}}
+				<li class="mui-table-view-cell mui-media bbsDetails" data-id='{{value.topic_id}}'>
+					<a href="javascript:;">
+						{{if value.topic_ico!=''}}
+			        		<div class="mui-media-object mui-pull-right imgbox50">
+			        		<img class="loadthumb" data-url='{{value.topic_ico}}' data-wh="128,">
+			        	</div>
+			        	{{/if}}
+						<div class="mui-media-body bbsBody">
+							<strong>置顶</strong> {{value.title}}
+							<p class="mui-ellipsis top8">
+								<span class="mui-pull-left">
+			                		<img class="avatar mui-pull-left loadthumb defuserimg" data-url='{{value.avatar}}' data-wh="128,128"/>
+			                		{{value.username}}
+			                	</span>
+								<span class="mui-pull-right">
+			                		<i class="iconfont icon-eye"> {{value.views}}</i>&nbsp;&nbsp;&nbsp;
+			                		<i class="iconfont icon-comment"> {{value.comments}}</i>
+			                	</span>
+							</p>
+						</div>
+					</a>
+				</li>
+			{{/each}}
+		</script>
+		<script type="text/html" id="bbsListTep1">
+			{{each topic_list as value}}
+				<li class="mui-table-view-cell mui-media bbsDetails" data-id='{{value.topic_id}}'>
+					<a href="javascript:;">
+						{{if value.topic_ico!=''}}
+			        		<div class="mui-media-object mui-pull-right imgbox50">
+			        		<img class="loadthumb" data-url='{{value.topic_ico}}' data-wh="128,">
+			        	</div>
+			        	{{/if}}
+						<div class="mui-media-body bbsBody">
+							{{value.title}}
+							<p class="mui-ellipsis top8">
+								<span class="mui-pull-left">
+			                		<img class="avatar mui-pull-left loadthumb defuserimg" data-url='{{value.avatar}}' data-wh="128,128"/>
+			                		{{value.username}}
+			                	</span>
+								<span class="mui-pull-right">
+			                		<i class="iconfont icon-eye"> {{value.views}}</i>&nbsp;&nbsp;&nbsp;
+			                		<i class="iconfont icon-comment"> {{value.comments}}</i>
+			                	</span>
+							</p>
+						</div>
+					</a>
+				</li>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js', '../../js/lib/md5.min.js','../../js/lib/artTemplate.js', '../../js/lib/common.js','../../js/bbs/channelDetails.js']);
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+.mui-content h5{
+	background: #fff;
+	margin: 0;
+	padding: 12px 0 7px 10px;
+	color: #333;
+}
+
+.mui-table-view {
+	background: transparent;
+}
+
+.mui-table-view li{
+	background: #fff;
+	margin: 10px 0 0 0;
+}
+
+.mui-media-body{
+	font-size: 16px;
+}
+
+.mui-table-view p{
+	font-size: 13px;
+	color: #666;
+}
+
+.mui-table-view p span{
+	color: #999;
+	font-size: 12px;
+}
+
+.kind .active{
+	background: #4B9CF6;
+	color: #fff;
+}
+
+.mui-table-view-cell:after,.mui-table-view:before,.mui-table-view:after {
+    height: 0;
+}
+
+/**
+ * 无记录
+ */
+
+.none{
+	width: 100%;
+	height: 100vh;
+	background: #f0f0f0;
+	position: absolute;
+	top: 0;
+	z-index: 9;
+	display: none;
+}
+
+.none img{
+	width: 50%;
+	height: auto;
+	display: block;
+	margin: 30vh auto 0 auto;
+}

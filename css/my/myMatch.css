@@ -1,0 +1,115 @@
+	.status {
+		position: absolute;
+		top: 35px;
+		right: 15px;
+	}
+	
+	.mui-slider-group {
+		top: 55px !important;
+	}
+	
+	.mui-slider-item {
+		border: none !important;
+	}
+	
+	.mui-segmented-control {
+		background-color: #fff;
+	}
+	
+	.mui-segmented-control a.mui-active {
+		color: #74B6ED !important;
+	}
+	
+	.mui-slider-progress-bar {
+		background: none !important;
+	}
+	
+	.mui-slider-progress-bar b {
+		background-color: #74B6ED;
+		display: block;
+		width: 80px;
+		height: 100%;
+		margin: auto;
+	}
+	
+	.mui-pull-top-tips {
+		position: absolute;
+		top: -20px;
+		left: 50%;
+		margin-left: -25px;
+		width: 40px;
+		height: 40px;
+		border-radius: 100%;
+	}
+	
+	.mui-pull-top-tips {
+		top: 24px;
+		z-index: 99999999;
+	}
+	
+	.mui-pull-top-wrapper {
+		width: 42px;
+		height: 42px;
+		display: block;
+		text-align: center;
+		background-color: #efeff4;
+		border: 1px solid #ddd;
+		border-radius: 25px;
+		background-clip: padding-box;
+		box-shadow: 0 4px 10px #bbb;
+		overflow: hidden;
+	}
+	
+	.mui-pull-top-tips.mui-transitioning {
+		-webkit-transition-duration: 200ms;
+		transition-duration: 200ms;
+	}
+	
+	.mui-pull-top-tips .mui-pull-loading {
+		/*-webkit-backface-visibility: hidden;
+				-webkit-transition-duration: 400ms;
+				transition-duration: 400ms;*/
+		margin: 0;
+	}
+	
+	.mui-pull-top-wrapper .mui-icon,
+	.mui-pull-top-wrapper .mui-spinner {
+		margin-top: 7px;
+	}
+	
+	.mui-pull-top-wrapper .mui-icon.mui-reverse {
+		/*-webkit-transform: rotate(180deg) translateZ(0);*/
+	}
+	
+	.mui-pull-bottom-tips {
+		text-align: center;
+		background-color: #efeff4;
+		font-size: 15px;
+		line-height: 40px;
+		color: #777;
+	}
+	
+	.mui-pull-top-canvas {
+		overflow: hidden;
+		background-color: #fafafa;
+		border-radius: 40px;
+		box-shadow: 0 4px 10px #bbb;
+		width: 40px;
+		height: 40px;
+		margin: 0 auto;
+	}
+	
+	.mui-pull-top-canvas canvas {
+		width: 40px;
+	}
+	
+	.mui-table-view .mui-media-object {
+		line-height: 55px;
+		max-width: 55px;
+		height: 55px;
+		position: relative;
+		top: 3px;
+	}
+	
+	
+	

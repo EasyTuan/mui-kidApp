@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>商品信息</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../css/mui.min.css', '../css/iconfont.css', '../css/popShare.css']);
+		</script>
+		<style type="text/css">
+			body {
+				background-color: rgba(0, 0, 0, .3);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div id="popMask" class="mui-backdrop mui-active m_close" style=""></div>
+			<div id="popshare" class="mui-popover sh-share mui-active" data-link='' style="">
+				<h3>分享到：</h3>
+				<ul class="sh-share-list clearfix">
+					<li class="shareTo" data-id='weixin' data-ex="WXSceneTimeline">
+						<a> <i class="iconfont icon-share_wechat" style="color: #02b90b;"></i>
+							<p>微信朋友圈</p>
+						</a>
+					</li>
+					<li class="shareTo" data-id="weixin" data-ex="WXSceneSession">
+						<a> <i class="iconfont icon-share_wechat" style="color: #02b90b;"></i>
+							<p>微信好友</p>
+						</a>
+					</li>
+					<li class="shareTo" data-id="qq" data-ex="">
+						<a> <i class="iconfont icon-share_qq" style="color: #addbf6;"></i>
+							<p>QQ好友</p>
+						</a>
+					</li>
+				</ul>
+				<a href="#" class="sh-share-footer m_close">取消</a>
+			</div>
+		</div>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../js/mui.min.js', '../js/lib/md5.min.js', '../js/lib/common.js','../js/immersed.js','../js/popShare.js','../js/app.js']);
+		</script>
+	</body>
+
+</html>

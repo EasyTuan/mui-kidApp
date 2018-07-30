@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+.mui-media-body{
+	line-height: 40px;
+}
+
+.mui-media-body span{
+	font-size: 14px;
+	color: #999;
+}
+
+.mui-table-view-cell{
+	padding: 13px 15px;
+}

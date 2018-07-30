@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/index/comment.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">发表评价</h1>
+		</header>
+		<div class="mui-content">
+			<div class="col"></div>
+		    <h5>
+		    	<span class="iconfont icon-shop"></span>
+		    	店铺评价&nbsp;&nbsp;
+		    	<i data-index="0" class="iconfont icon-collect_select star"></i>
+		    	<i data-index="1" class="iconfont icon-collect_select star"></i>
+		    	<i data-index="2" class="iconfont icon-collect_select star"></i>
+		    	<i data-index="3" class="iconfont icon-collect_select star"></i>
+		    	<i data-index="4" class="iconfont icon-collect_select star"></i>
+		    </h5>
+		    <textarea name="" rows="3" cols="" id="text" placeholder="此刻的想法..."></textarea>
+		    <div class="imgList">
+		    	<div id="addImg" class="mui-text-center">
+		    		<span class="iconfont icon-camera"></span><br />
+		    		添加图片
+		    	</div>
+		    </div>
+		    <div id="comment">
+		    	发表评论
+		    </div>
+		</div>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/lib/jquery.min.js','../../js/lib/cropper.js','../../js/lib/base64.js','../../js/lib/crypto.js','../../js/lib/hmac.js','../../js/lib/sha1.js', '../../js/index/comment.js']);
+		</script>		
+	</body>
+
+</html>

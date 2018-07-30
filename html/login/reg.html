@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/reset.css']);
+		</script>
+	</head>
+
+	<body class="bg-fff">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">注册</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper scroll">
+			<div class="mui-scroll">
+				<div class="loginformwarp">
+					<div class="m1rem">
+						<!--<div class="mui-text-center mb2rem">
+					<img class="wh140 bor-r10" src="../../images/logo.jpg" /><br />
+					<h5 class="cor-4c fs17">卡游精灵</h5>
+				</div>-->
+						<div class="input-group">
+							<div class="mui-input-row">
+								<input id='inpt_mobile' type="text" class="mui-input-clear mui-input bor-no bgc-f2" placeholder="请输入手机号">
+							</div>
+							<div class="mui-input-row clearr100">
+								<input id='inpt_validcode' type="text" class="mui-input-clear mui-input  bor-no bgc-f2" placeholder="请输入验证码">
+								<button id="btn_sendvalidcode" class="btn-rightwarp" >获取验证码</button>
+							</div>
+						</div>
+						<div>
+							<button id='btn_ok' class="mui-btn mui-btn-block btn-ok" >下一步</button>
+							<div class=" w100p">
+								<div class="mui-input-row mui-checkbox mui-left mlrauto" style="width: 160px;">
+									<label><a id="servicedesc">同意服务协议</a></label>
+									<input name="checkbox" type="checkbox" checked id="ckb_agree">
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<!--<div class="oauthwarp">
+						<div class="oauth-title"><span>快速注册会员</span></div>
+						<div id="oauth-area">
+						</div>
+					</div>-->
+				</div>
+
+			</div>
+
+		</div>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/login/reg.js']);
+		</script>
+	</body>
+
+</html>

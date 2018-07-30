@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+nav{
+	background: #fff;
+	height: 44px;
+	border-bottom: 1px solid #E6EBEF;
+}
+
+
+
+input[type=text]{
+    line-height: 21px;
+  
+    height: 25px;
+    padding: 5px 15px 5px 30px;
+    -webkit-user-select: text;
+    border: none;
+    border-radius: 3px;
+    outline: 0;
+    background-color: #f0f0f0;
+    -webkit-appearance: none;
+    font-size: 11px;
+    margin: 0 0 0 2vw;
+    width: 80vw;
+    position: relative;
+    top: 10px;
+}
+
+nav .mui-icon-search{
+	position: absolute;
+	top: 0;
+	color: #999;
+	font-size: 18px;
+	left: 4vw;
+	top: 12px;
+}
+
+nav h5{
+	font-size: 13px;
+	color: #999;
+	position: absolute;
+	top: 11px;
+	right: 4%;
+}
+
+.history{
+	border-top:1px solid #e6ebef ;
+	padding: 10px 10px;
+	height: calc(100vh - 59px);
+}
+
+.historyList {
+	clear: both;
+	padding: 10px 0 0 0;
+} 
+
+.historyList span{
+	display: inline-block;
+	margin-bottom:8px ;
+	font-size: 12px;
+	background: #f1f9ff;
+	color: #74858e;
+	padding: 3px 10px;
+	margin-left:3px ;
+	white-space: nowrap;
+}

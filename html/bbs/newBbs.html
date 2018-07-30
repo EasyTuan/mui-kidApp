@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/bbs/newBbs.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">发帖</h1>
+			<button type="button" class="mui-pull-right" id="release">发布</button>
+		</header>
+		<div class="mui-content bg-fff mui-scroll-wrapper">
+			<div class="mui-scroll">
+			    <input type="text" name="" id="bbsTitle" value="" placeholder="请输入标题" />
+			    <textarea name="" id="bbsMbody" rows="6" cols="" placeholder="请输入正文"></textarea>
+			    <div class="imgList">
+			    	<div id="addImg" class="mui-text-center">
+			    		<span class="iconfont icon-camera"></span><br />
+			    		添加图片
+			    	</div>
+			    </div>
+		    </div>
+		</div>
+	    <script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js', '../../js/lib/md5.min.js','../../js/lib/jquery.min.js','../../js/lib/cropper.js','../../js/lib/base64.js','../../js/lib/crypto.js','../../js/lib/hmac.js','../../js/lib/sha1.js', '../../js/lib/common.js','../../js/bbs/newBbs.js']);
+		</script>
+	</body>
+
+</html>

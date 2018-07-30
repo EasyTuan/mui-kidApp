@@ -1,0 +1,243 @@
+@charset "utf-8";
+.mui-scroll {
+	background: #002159;
+}
+
+.matchstatus {
+	position: fixed;
+	top: 44px;
+	right: 15px;
+	color: #fff;
+	width: 60px;
+	height: 50px;
+	line-height: 40px;
+	text-align: center;
+	background-size: 100% 100%;
+	background-position: center center;
+}
+
+.status1 {
+	background-image: url(../../images/matchstatus1.png);
+}
+
+.status2 {
+	background-image: url(../../images/matchstatus2.png);
+}
+
+.status3 {
+	background-image: url(../../images/matchstatus3.png);
+}
+
+.status4 {
+	background-image: url(../../images/matchstatus4.png);
+}
+
+.status5 {
+	background-image: url(../../images/matchstatus5.png);
+}
+
+.matchslogan {
+	background: #FFEA00;
+	line-height: 30px;
+	height: 30px;
+	border-radius: 15px;
+	width: auto;
+	display: inline-block;
+	padding: 0px 10px;
+	color: #842900;
+}
+
+#desc {
+	background: #00173E;
+	color: red;
+	margin: 15px;
+	line-height: 25px;
+}
+
+#tips {
+	margin-left: 15px;
+	margin-top: 10px;
+	height: 66px;
+	overflow: hidden;
+	margin-bottom: 15px;
+}
+
+#tips #tipscont_warp { margin-top: 34px;
+
+transition:all .5s;
+	-moz-transition:all .5s; /* Firefox 4 */
+	-webkit-transition:all .5s; /* Safari and Chrome */
+	-o-transition:all .5s; /* Opera */
+}
+
+#tips #tipscont_warp div {
+	line-height: 22px;
+	color: #D8C158;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+	height: 30px;
+	padding-top: 4px;
+	margin-bottom: 4px;
+	opacity: 0.3;
+	/*animation:mymove 5s 1;
+	-webkit-animation:mymove 5s 1; /*Safari and Chrome*/*/
+}
+
+#tips p {
+	padding: 0px 15px 0px 0px;
+	border-radius: 15px;
+	background: #334D7A;
+	display: inline-block;
+	color: #E9B82E;
+}
+
+#tips #tipscont_warp div.active {	
+	opacity: 1;
+}
+#tips #tipscont_warp div.activeend {	
+	transition:opacity 5s;
+	-moz-transition:opacity 5s; /* Firefox 4 */
+	-webkit-transition:opacity 5s; /* Safari and Chrome */
+	-o-transition:opacity 5s; /* Opera */
+	opacity: 0;
+}
+
+#tips #tipscont_warp img {
+	width: 30px !important;
+	height: 30px !important;
+	min-width: 30px;
+	min-height: 30px;
+	border-radius: 50%;
+	margin-top: -4px;
+	margin-bottom: -8px;
+	margin-right: 5px;
+}
+
+.nickname {
+	color: #02B90B;
+}
+
+.creatorname {
+	color: #00B4FF;
+}
+
+.pkbg {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-image: url(../../images/PKbg.png);
+}
+
+.container {
+	background-image: url(../../images/vs.png);
+	position: relative;
+	height: 100vw;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 30% 30%;
+	/*background-color:red ;	*/
+}
+
+#pullrefresh .mui-scroll {
+	padding-top: 15px;
+}
+
+.title h4 {
+	color: #000000;
+	line-height: 30px;
+	font-weight: normal;
+}
+
+.info {
+	margin-top: 15px;
+	line-height: 20px;
+	color: #2E6ECD;
+}
+
+.box {
+	position: absolute;
+	text-align: center;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+	top: 50%;
+	left: 50%;
+	width: 10px;
+	height: 10px;
+	/*margin-left: -60px;
+	margin-top: -60px;*/
+}
+
+.box .img {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 0px 0px 30px 0px;
+}
+
+.box img {
+	width: calc(100% - 30px);
+	height: 100%;
+	border-radius: 50%;
+	background-size: 100%;
+	border: 1px solid #fff;
+	1
+}
+
+.r1 img,
+.r2 img,
+.r3 img {
+	box-shadow: 0 0 0 1px #E9B82E;
+}
+
+.box span {
+	position: relative;
+	text-align: center;
+	color: #fff;
+	font-size: 11px;
+	top: -24px;
+	max-width: 100%;
+	width: 100%;
+}
+
+.r1 .ranking,
+.r2 .ranking,
+.r3 .ranking {
+	line-height: 1.8rem;
+	background-image: url(../../images/yellow.png);
+}
+
+.ranking {
+	font-style: normal;
+	position: absolute;
+	margin-top: -52px;
+	color: #fff;
+	background-image: url(../../images/blue.png);
+	background-size: 100%;
+	width: 2rem;
+	height: 2rem;
+	line-height: 2rem;
+	text-align: center;
+	display: block;
+	margin-left: calc(50% - 1rem);
+	font-size: 10px;
+}
+
+.imgwarp {
+	width: 100%;
+	padding: 10px 5px 5px 10px;
+	z-index: 99;
+	background: #F1F9FF;
+	border-top: 1px solid #E6EBEF;
+	white-space: nowrap;
+	overflow-x: scroll;
+}
+
+.imgwarp img {
+	max-height: 100px;
+	max-width: 100px;
+}
+
+.bottom_item {
+	padding: 0px 5px;
+	display: inline-block;
+}

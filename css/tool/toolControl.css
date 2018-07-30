@@ -1,0 +1,36 @@
+@charset "utf-8";
+.bg{
+	background: #fff;
+	padding: 10px 0px;
+	margin-top: 15px;
+}
+.bg>p{	
+	border-left: 5px solid #4B9CF6;
+	padding: 0px 0 0px 5px;
+	color: #4B9CF6;
+	margin: 0px 0px 0px 10px;
+	line-height: 16px;
+	height: 16px;
+	font-size: 16px;
+}
+.mui-table-view{
+	padding-top: 15px;
+}
+.mui-media .iconfont{
+	font-size: 20px;
+	position: relative;
+	top: 10px;	
+	color: #4B9CF6;
+}
+
+.mui-media img{
+	border-radius:5px ;
+	margin-left: 15px;
+	width: 50px;
+	max-width: 50px;
+}
+
+.mui-ellipsis{
+	color: #999;
+	font-size: 11px;
+}

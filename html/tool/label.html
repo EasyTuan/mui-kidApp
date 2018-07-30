@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/tool/oneCardMe.css','../../css/tool/events.css','../../css/tool/label.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">标签和备注</h1>   
+		    <a class="mui-pull-right" id="create">完成</a>
+		</header>
+		<div class="mui-content">
+		    <nav>
+		    	<span id="biaoqian">已有标签<i></i></span>
+		    	<span class="active" id="beizhu">备注<i></i></span>
+		    </nav>
+		    <textarea name="" rows="7" cols="" id="text" placeholder="最多输入80字哦..." ></textarea>
+		    <div id="label" style="display: none;">
+		    	<div class="contant">
+		    		<div class="col"></div>
+			    	<p>
+			    		<span class="mui-pull-left">标签</span>
+			    		<span class="mui-pull-right" id="newManag">编辑</span>
+			    	</p>
+			    	<div class="list" id="tap">
+			    		<div class="not">
+				    		请选择常用标签或新建标签
+				    	</div>
+				    	<div>
+				    		<b id="addTap">
+				    			+新建标签
+				    		</b>
+				    	</div>
+			    	</div>
+			    	<p style="clear: both;">
+			    		<span class="mui-pull-left">常用标签</span>
+			    		<span class="mui-pull-right" id="manag">编辑</span>
+			    	</p>
+			    	<div class="list" id="manage">
+			    	</div>
+			    </div>
+		    </div>
+		</div>
+		<!--<script type="text/html" id="tagTep1">
+			{{each tag as value}}
+				<span>
+	    			<i class="tagList">{{value.Tag}}</i><i data-id="{{value.ModuleTagId}}" class="iconfont icon-close close newClose"></i>
+	    		</span>
+			{{/each}}
+		</script>-->
+		<script type="text/html" id="manageTep1">
+			{{each data as value}}
+				<span>
+	    			<i class="manageList">{{value.Tag}}</i><i data-tag='{{value.Tag}}' data-id="{{value.ModuleTagId}}" class="iconfont icon-close close manageClose"></i>
+	    		</span>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/tool/label.js']);
+		</script>
+	</body>
+
+</html>

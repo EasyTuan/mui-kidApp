@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/tool/oneCardSearch.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">单卡查询</h1>
+		    <!--<a class="mui-icon iconfont icon-more mui-pull-right"></a>-->
+		</header>
+		<div class="mui-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll list" id="searchList">
+					<!--<h5>卡牌名称</h5>
+					<div class="group">
+						<input type="text" name="" id="cardName" value="" placeholder="卡牌名称，如：雷神" />
+						<span class="iconfont icon-edit" id="shuru1"></span>
+					</div>		
+					<h5>弹数</h5>
+					<div class="group">
+						<input type="text" name="" readonly="readonly" value="第十一弹：光影联盟"/>
+						<span class="sanj"></span>
+						<div class="mui-popover">
+							<ul>
+								<li data-text="第十一弹：光影联盟">
+									<a href="#">第十一弹：光影联盟</a>
+								</li>
+								<li data-text="第十二弹：光影激斗">
+									<a href="#">第十二弹：光影激斗</a>
+								</li>
+								<li data-text="第十三弹：光影相随">
+									<a href="#">第十三弹：光影相随</a>
+								</li>
+								<li data-text="第十一弹：光影联盟">
+									<a href="#">第十一弹：光影联盟</a>
+								</li>
+								<li data-text="第十二弹：光影激斗">
+									<a href="#">第十二弹：光影激斗</a>
+								</li>
+								<li data-text="第十三弹：光影相随">
+									<a href="#">第十三弹：光影相随</a>
+								</li>
+							</ul>
+						</div>
+					</div>	
+					<h5>特征</h5>
+					<div class="group">
+						<input type="text" name="" id="feature" value="" placeholder="输入特征名称，如：xx" />
+						<span class="iconfont icon-edit" id="shuru2"></span>
+					</div>	
+					<h5>卡牌种类</h5>
+					<div class="group kind">
+						<span>精灵卡</span>
+						<span>传奇精灵</span>
+						<span>英雄卡</span>
+						<span>武装卡</span>
+						<span>精灵卡</span>
+						<span>传奇精灵</span>
+						<span>英雄卡</span>
+						<span>武装卡</span>
+					</div>
+					<h5>职阶</h5>
+					<div class="group kind">
+						<span>T</span>
+						<span>A</span>
+						<span>H</span>
+					</div>
+					<h5>魂印</h5>
+					<div class="group kind">
+						<span>一级</span>
+						<span>二级</span>
+						<span>三级</span>
+					</div>
+					<h5>卡牌颜色</h5>
+					<div class="group kind">
+						<span>白</span>
+						<span>黑</span>
+						<span>红</span>
+						<span>绿</span>
+						<span>蓝</span>
+					</div>-->
+				</div>
+			</div>
+			<div class="search mui-text-center" id="searchBtn">搜索</div>
+		</div>
+		<script type="text/html" id="searchListTep1">
+			<!--输入-->
+			<h5>卡牌名称</h5>
+			<div class="group">
+				<input type="text" name="" id='cardname' value="" placeholder="卡牌名称，如：雷神" />
+				<span class="iconfont icon-edit" id="shuru1"></span>
+			</div>
+			{{each data as value}}
+				<!--下拉-->
+				{{if value.QueryLayoutType==1}}
+					<h5>{{value.CardBrandAttrName}}</h5>
+					<div class="group">
+						<input style="padding-left:10px ;" type="text" name="" class="pulldown" readonly="readonly" value="" data-brand="{{value.CardBrandAttrId}}" />
+						<span class="sanj"></span>
+						<div class="mui-popover">
+							<ul>
+								<b></b>
+								<li style="padding-left:10px ;" data-text="" data-id="">
+									<a href="#" style="opacity: 0;">.</a>
+								</li>
+								{{each value.ItemList as val}}
+									<li style="padding-left:10px ;" data-text="{{val.CardBrandAttrItemValue}}" data-id="{{val.CardBrandAttrItemId}}">
+										<a href="#">{{val.CardBrandAttrItemValue}}</a>
+									</li>
+								{{/each}}
+							</ul>
+						</div>
+					</div>
+				{{/if}}
+				<!--多选-->
+				{{if value.QueryLayoutType==2}}
+					<h5>{{value.CardBrandAttrName}}</h5>
+					<div class="group kind">
+						{{each value.ItemList as val}}
+							<span class="classify" data-id="{{val.CardBrandAttrItemId}}" data-brand="{{value.CardBrandAttrId}}">{{val.CardBrandAttrItemValue}}</span>
+						{{/each}}
+					</div>
+				{{/if}}	
+				<!--输入框-->
+				{{if value.QueryLayoutType==3}}
+					<h5>{{value.CardBrandAttrName}}</h5>
+					<div class="group">
+						<input type="text" name="" class="inputList" data-id='{{value.CardBrandAttrId}}' value="" placeholder="请输入{{value.CardBrandAttrName}}" />
+						<span class="iconfont icon-edit" id="shuru1"></span>
+					</div>
+				{{/if}}	
+			{{/each}}
+			<div style="height: 20px;clear: both;"></div>
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/tool/oneCardSearch.js']);
+		</script>
+	</body>
+
+</html>

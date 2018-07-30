@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+.mui-input-group:before,.mui-input-group:after{
+	height: 0;
+}
+
+.mui-popover{
+	max-height: 200px;
+	overflow: hidden;
+}
+
+.kidNav{
+	position: static;
+	border-bottom:1px solid #e6ebef ;
+}
+
+.kidNav b{
+	font-weight: normal;
+}
+
+.mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before {
+    color: #4e98d6;
+}
+
+.mui-checkbox input[type=checkbox]:before, .mui-radio input[type=radio]:before {
+    color: #4e98d6;
+}
+
+.group input[type=color], input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], select, textarea {
+	padding: 5px 15px 5px 10px;
+}
+
+.mui-popover ul li {
+    padding: 0 0 0 10px;
+}
+
+.mui-checkbox.mui-left label, .mui-radio.mui-left label {
+    padding-right: 15px;
+    padding-left: 48px;
+}
+
+.mui-checkbox.mui-left input[type=checkbox], .mui-radio.mui-left input[type=radio] {
+    left: 12px;
+}
+
+#matchName{
+	padding-left:35px !important;
+}
+
+#shuru1{
+	color: #4B9CF6;
+}
+
+.kindTime{
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 15px;
+	margin: 0;
+}
+
+.matchTime{
+	width: 20%;
+	background: #f1f9ff;
+	margin:5% 2.5% 0 2.5%;
+	padding: 0;
+	border-radius:5px ;
+	line-height: 24px;
+}
+
+.kindTime .active{
+	background: #4B9CF6;
+	color: #fff;
+}

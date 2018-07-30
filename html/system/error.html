@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<br/><br/>
+		<h5>出错了......</h5>
+		<button id="btn_try">再试一次</button>
+	</body>
+	<script type="text/javascript">
+		document.getElementById("btn_try").addEventListener("tap", function() {
+			var currPage = plus.webview.currentWebview();
+			var backid = currPage.info["errbackid"];
+			if(backid) {
+				currPage.addEventListener("close", closeWindow, false);
+				currPage.close('none');
+
+				function closeWindow(e) {
+					currPage.removeEventListener("close", closeWindow, false);
+					currPage = null;
+					var backPage = plus.webview.getWebviewById(backid);
+					if(backPage) {
+						mui.fire(backPage, 'refreshPage');
+					}
+				}
+			} else {
+				plus.runtime.restart();
+			}
+		});
+	</script>
+
+</html>

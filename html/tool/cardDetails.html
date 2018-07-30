@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/tool/oneCardMe.css','../../css/tool/oneCardMeCreate.css','../../css/tool/cardDetails.css']);
+		</script>
+		<style type="text/css">
+			.mui-bar-nav~.mui-content .mui-pull-top-pocket {
+			    top: 0px;
+			}
+			#create{
+				display: none;
+			}
+			.tags{
+				padding-top: 5px!important;
+				display: flex;
+				flex-wrap: wrap;
+			}
+			.tags span{
+			    width: 22%;
+			    text-align: center;
+			    background: #f1f9ff;
+			    font-size: 11px;
+			    color: #74858e;
+			    line-height: 30px;
+			    margin: 0 1% 2% 1%;
+			    border-radius: 5px;
+			}
+			.contant>p:nth-of-type(1){
+				height: 35px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">套牌详情</h1>
+		    <a class="mui-pull-right" href="#popover" id="openPopover">
+		    	<img src="../../images/picture_blue.svg"/>
+		    </a>
+		    <a class="mui-pull-right" id="create">编辑</a>
+		</header>
+		<div class="bottom mui-row mui-text-center" style="z-index: 997;">
+			<span class="mui-col-sm-3 mui-col-xs-3 ckecklogin" id="collect" data-loginevent="pkEvent.goInvitation()" data-loginbackid="tool/oneCardCollect.html">
+	    		<i class="iconfont icon-collect_defaut"></i><br />
+	    		<p>收藏</p>
+	    	</span>
+	    	<span class="mui-col-sm-3 mui-col-xs-3" id="starNumber">
+	    		<i class="iconfont icon-statistics"></i>
+	    		<p>查看星数比例</p>
+	    	</span>
+	    	<span class="mui-col-sm-3 mui-col-xs-3 ckecklogin" id="copy" data-loginevent="pkEvent.gocardDetails()" data-loginbackid="tool/cardDetails.html">
+	    		<i class="iconfont icon-copy"></i>
+	    		<p>复制套牌</p>
+	    	</span>
+	    	<span class="mui-col-sm-3 mui-col-xs-3" id="share">
+	    		<i class="iconfont icon-share"></i>
+	    		<p>分享套牌</p>
+	    	</span>
+	    </div>
+		<!--弹出图片-->
+		<div id="popover" class="mui-popover">
+			<img src="" id="savaImg"/>
+			<div class="mui-row mui-text-center">
+				<div class="mui-col-sm-6 mui-col-xs-6" id="share_">分享</div>
+				<div class="mui-col-sm-6 mui-col-xs-6" id="save">保存</div>
+			</div>
+			<span></span>
+		</div>
+		<div class="mui-content mui-scroll-wrapper" style="padding-bottom: 50px;">
+			<div class="mui-scroll"> 
+				<ul class="mui-table-view tblv-nl" id="cardDetailsTitle">
+			       
+			   </ul>
+			    <div class="contant">
+			    	<p style="border: none;">
+			    		<span class="mui-pull-left">标签</span>
+			    	</p>
+			    	<p class="tags" style="border: none;" id="cardTag">
+			    	</p>
+			    </div>
+				<div  id="cardList">
+					<!--<ul class="mui-table-view">
+				    	<h5>英雄卡</h5>
+				        <li class="mui-table-view-cell mui-media">
+				            <a href="javascript:;">
+				                <img class="mui-media-object mui-pull-left" src="../../images/image.png">
+				                <span class="mui-pull-right star">6 <i class="iconfont icon-collect_select"></i></span>
+				                <div class="mui-media-body">
+				                    卡牌名称
+				                    <p class="mui-ellipsis">职阶：T</p>
+				                    
+				                </div>
+				            </a>
+				        </li>
+				    </ul>-->
+				</div>
+			</div>
+		</div>
+		<script type="text/html" id="cardDetailsTitleTep1">
+			<li class="mui-table-view-cell mui-media cardName">
+	           <a href="javascript:;">
+	               <img class="mui-media-object mui-pull-right loadthumb" data-url="{{ImgUrl}}" data-wh="128,128">
+	               <div class="mui-media-body">
+	                   {{CardGroupName}}
+	                   <p class="mui-ellipsis">玩家：{{NickName}}</p>
+	                   <p class="mui-ellipsis">主牌：{{CardType1Num}}</p>
+	               </div>
+	           </a>
+	       </li>
+		</script>
+		<script type="text/html" id="cardTagTep1">
+			{{each TagList as value}}
+				<span>{{value.Tag}}</span>
+			{{/each}}
+		</script>
+		<script type="text/html" id="cardListTep1">
+			{{each CardList as value}}
+				<ul class="mui-table-view">
+			    	<h5>{{value.CardType}}</h5>
+			    	{{each value.CardList as val}}
+			    		<li class="mui-table-view-cell mui-media" data-id="{{val.CardId}}" data-page="{{val.page}}">
+				            <a href="javascript:;">
+				                <img class="mui-media-object mui-pull-left loadthumb" data-url="{{val.ImgUrl}}" data-wh=",64">
+				                {{if val.StarNum!=null}}
+				            		<span class="mui-pull-right star">{{val.StarNum}} <i class="iconfont icon-collect_select"></i></span>
+				            	{{/if}}
+				                <div class="mui-media-body">
+				                    {{val.CardName}} × {{val.CardNum}}
+				                    {{if val.JobName!=null}}
+				                    	<p class="mui-ellipsis">职阶：{{val.JobName}}</p>
+				                    {{/if}}
+				                </div>
+				            </a>
+				        </li>
+			    	{{/each}}
+			    </ul>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/tool/cardDetails.js']);
+		</script>
+	</body>
+
+</html>

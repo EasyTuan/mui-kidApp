@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/reset.css','../../css/imgpreview.css']);
+		</script>
+		<style type="text/css">
+				.status {
+				position: absolute;
+				top: 35px;
+				right: 15px;
+				color: #999;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">用户资料</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper" id="pullrefresh">
+			<div class="mui-scroll pb60">
+				<ul class="mui-table-view mt15 tblv-nl" id="info_warp">
+				</ul>
+				<div class="tblcell" id="setmark" style="display: none;">
+					<a>设置备注</a>
+				</div>
+				<h5 class="lh20 pl15">参与赛事</h5>
+				<ul class="mui-table-view tblv-nl" id="match_warp">
+				</ul>				
+				<div class="tblcell mui-text-center" id="more">
+					<a>查看更多赛事</a>
+				</div>				
+			</div>
+		</div>
+		<div class="btmbar-f mui-text-center bg-lan" id="btn_warp">
+			<a class="btn" id="onewar" style="display: none;">约战</a>
+			<a class="btn" id="addFriend" style="display: none;">添加好友</a>
+		</div>
+		<script type="text/html" id="info_view">
+			<li class="mui-table-view-cell mui-media">
+				<a>
+					<img class="mui-media-object mui-pull-left loadthumb img4r defuserimg" data-url="{{data.ImgUrl}}" data-wh="128,128" data-preview-src="{{data.ImgUrl}}">
+					<div class="mui-media-body">
+						<span class="fs16">{{ShowName}}</span>
+						<p class="mui-ellipsis">帐号：{{data.NickName}}</p>
+						<p class="mui-ellipsis">个性签名：{{data.SelfdomSign}}</p>
+					</div>
+				</a>
+				<!--<div class="mui-pull-right mt-40">
+					<span class="cor-999">距离500m</span>
+				</div>-->
+			</li>
+		</script>		
+		<script type="text/html" id="match_view">
+			{{if data.length==0}}
+			<li class="mui-text-center lh40 cor-999">
+				Ta还没有参与PK比赛
+			</li>
+			{{/if}} {{each data as item}}
+			
+				<li class="mui-table-view-cell mui-media detail" data-id="{{item.MatchId}}">
+					<a href="javascript:;" class="pstn-r">
+						<img class="mui-media-object mui-pull-left loadthumb img4r" data-url="{{item.ImgUrl}}" data-wh="128,128" >
+						<div class="mui-media-body">
+							{{item.MatchName}}
+							<p class="mui-ellipsis mui-row fs12">
+								<span class="mui-col-xs-6 mui-ellipsis">{{item.StoreName}}</span>
+								<span class="mui-col-xs-6 cor-lan  mui-ellipsis">{{item.vs}}</span>
+								<span class="mui-col-xs-6  mui-ellipsis">{{item.MatchBeginTime}}</span>
+								<span class="mui-col-xs-6  mui-ellipsis">参赛人数<strong>{{item.PlayerJoinNum}}</strong>/{{item.PlayerMaxNum}}</span>
+							</p>
+						</div>
+					</a>
+					{{if item.Status==4}}
+					<span class="status cor-lv">{{item.result}}</span> {{else}}
+					<span class="status">{{item.result}}</span> {{/if}}
+				</li>
+			
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js','../../js/mui.zoom.js','../../js/mui.previewimage.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/my/userInfo.js']);
+		</script>
+	</body>
+
+</html>

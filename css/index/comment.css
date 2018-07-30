@@ -1,0 +1,90 @@
+@charset "utf-8";
+
+.col{
+	background: #f0f0f0;
+	height: 10px;
+}
+
+.mui-content,body{
+	background: #fff;
+}
+
+h5{
+	padding: 5px 0 5px 15px;
+	font-size: 16px;
+	color: #333;
+}
+
+h5 span{
+	font-size: 16px!important;
+	color: #999;
+}
+
+h5 i{
+	font-size: 18px!important;
+	color: #999;
+}
+
+h5 .active{
+	color: #ffcf1c;
+}
+
+#text{
+	border: none;
+	font-size: 14px;
+}
+
+.imgList img{
+	margin:0 1vw 2vw 1vw;
+	width: calc(17vw - 1px);
+	height: calc(17vw - 1px);
+}
+
+
+#addImg{
+	width: 17vw;
+	height: 17vw;
+	border: 1px solid #ececec;
+	color: #999;
+	padding: 3vw 0 0 0;
+	font-size: 12px;
+	margin: 0 1vw;
+}
+
+.imgList{
+	display: flex;
+	flex-wrap:wrap ;
+	padding: 0 2.5vw 13px 2.5vw;
+	border-bottom:1px solid #ececec ;
+}
+
+#comment{
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	background: #4B9CF6;
+	position: fixed;
+	bottom: 0;
+	line-height: 50px;
+	font-size: 16px;
+	color: #fff;
+}
+
+.imgList>div{
+	position: relative;
+}
+
+.imgList>div i{
+	position: absolute;
+	top: -4px;
+	right: -1px;
+	color: #fff;
+	border-radius:50% ;
+	background: #666;
+	font-size: 12px;
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	line-height: 14px;
+	padding: 0 0 0 1px;
+}

@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css','../../css/pk/pk.css','../../css/pk/invitation.css']);
+		</script>
+	</head>
+
+	<body class="bg23">
+		<header class="mui-bar mui-bar-nav bg4b">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">受邀战帖</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper bg23" id="pullrefresh">
+			<div class="mui-scroll">
+			    <ul class="mui-table-view  tblv-nl" id="invitation">	
+			    <div class="nodata"></div>
+			    </ul>
+			</div>
+			<div class="none" id="no">
+				<img src="../../images/collectnothing.png"/>
+				<div class="mui-text-center">您还没有受邀战帖</div>
+			</div>
+		</div>
+			<script type="text/html" id="detail_view">
+			
+				<div class="detail" data-id="{{item.MatchId}}">
+					<img class="mui-media-object mui-pull-left img4r loadthumb defuserimg" data-url="{{item.ImgUrl}}" data-wh="128,128">
+					<div class="mui-media-body">
+						<h5 class="mui-col-xs-9 mui-ellipsis">{{item.MatchName}}</h5>
+						<p class="mui-row">
+							<span class="mui-col-xs-8  mui-ellipsis">{{item.MatchBeginTime}}</span>
+							<span class="mui-col-xs-8  mui-ellipsis">人数<strong>{{item.PlayerJoinNum}}</strong>/{{item.PlayerMaxNum}}</span>
+						</p>
+					</div>
+					<p class="mui-row">
+						<span class="mui-col-xs-12  mui-ellipsis">
+									<i class="iconfont icon-shop fs12"></i>
+									{{item.StoreName}} {{if item.distance}}
+									{{item.distance}}m									
+									{{/if}}
+									</span>
+					</p>
+
+				</div>
+				{{if item.JoinFriendNum>0}}
+					<div class="peoplewarp">
+						<div class="mui-col-xs-12 imgbox">
+							<span>{{item.JoinFriendNum}}个好友参加</span> {{each item.JoinFriend as playeritem}}
+							<a>
+								<img class="loadthumb defuserimg" data-url="{{playeritem.ImgUrl}}" data-wh="50,50" />
+							</a>
+							{{/each}}
+							<a class="names">
+								{{each item.JoinFriend as playeritem}} {{playeritem.ShowName}}、 {{/each}}
+							</a>
+						</div>
+					</div>
+				{{/if}}
+				<span class="status match_s{{item.Status}}">{{item.StatusName}}</span>
+				<div class="btn_warp">
+					{{if item.Status==1}} 
+						{{if (item.InviteStatus!="1" && item.WhetherJoin=="N" && item.IsFixed!="1") || (item.IsFixed=="1"&& item.IsCanJoin=="Y")}}
+						<button class="btnlan join ckecklogin" data-loginevent="pkEvent.joinPK({{item.MatchId}})" data-loginbackid="pk/pk.html">加入</button> 
+						{{else if item.InviteStatus=="1"}}
+						<button class="btnlan accept ckecklogin" data-loginevent="pkEvent.acceptPK({{item.MatchId}})" data-loginbackid="pk/pk.html">接受</button>
+						<button class="btndef refuse ckecklogin" data-loginevent="pkEvent.refusePK({{item.MatchId}})" data-loginbackid="pk/pk.html">拒绝</button> 
+						{{/if}} 
+					{{/if}}
+				</div>
+				{{if item.InviteStatus!=""}}
+				<div class="yqstatus yq_s{{item.InviteStatus}}">
+					{{if item.InviteStatus=="1"}}
+					<i>邀</i> {{else if item.InviteStatus=="2"}}
+					<i>接</i> {{else if item.InviteStatus=="3"}}
+					<i>拒</i> {{/if}}
+				</div>
+				{{/if}}
+			
+		</script>
+		<script type="text/html" id="invitationTep1">
+			{{each data as item}}
+			<li id="match_{{item.MatchId}}" class="mui-table-view-cell mui-media iscrt_{{item.IsNowPlayerCreate}}">
+				<div class="detail" data-id="{{item.MatchId}}">
+					<img class="mui-media-object mui-pull-left img4r loadthumb defuserimg" data-url="{{item.ImgUrl}}" data-wh="128,128">
+					<div class="mui-media-body">
+						<h5 class="mui-col-xs-9 mui-ellipsis">{{item.MatchName}}</h5>
+						<p class="mui-row">
+							<span class="mui-col-xs-8  mui-ellipsis">{{item.MatchBeginTime}}</span>
+							<span class="mui-col-xs-8  mui-ellipsis">人数<strong>{{item.PlayerJoinNum}}</strong>/{{item.PlayerMaxNum}}</span>
+						</p>
+					</div>
+					<p class="mui-row">
+						<span class="mui-col-xs-12  mui-ellipsis">
+									<i class="iconfont icon-shop fs12"></i>
+									{{item.StoreName}} {{if item.distance}}
+									{{item.distance}}m									
+									{{/if}}
+									</span>
+					</p>
+
+					
+				</div>
+				{{if item.JoinFriendNum>0}}
+					<div class="peoplewarp">
+						<div class="mui-col-xs-12 imgbox">
+							<span>{{item.JoinFriendNum}}个好友参加</span> {{each item.JoinFriend as playeritem}}
+							<a>
+								<img class="loadthumb defuserimg" data-url="{{playeritem.ImgUrl}}" data-wh="50,50" />
+							</a>
+							{{/each}}
+							<a class="names">
+								{{each item.JoinFriend as playeritem}} {{playeritem.ShowName}}、 {{/each}}
+							</a>
+						</div>
+					</div>
+				{{/if}}
+				<span class="status match_s{{item.Status}}">{{item.StatusName}}</span>
+				<div class="btn_warp">
+					{{if item.Status==1}} 
+						{{if (item.InviteStatus!="1" && item.WhetherJoin=="N" && item.IsFixed!="1") || (item.IsFixed=="1"&& item.IsCanJoin=="Y")}}
+						<button class="btnlan join ckecklogin" data-loginevent="pkEvent.joinPK({{item.MatchId}})" data-loginbackid="pk/pk.html">加入</button> 
+						{{else if item.InviteStatus=="1"}}
+						<button class="btnlan accept ckecklogin" data-loginevent="pkEvent.acceptPK({{item.MatchId}})" data-loginbackid="pk/pk.html">接受</button>
+						<button class="btndef refuse ckecklogin" data-loginevent="pkEvent.refusePK({{item.MatchId}})" data-loginbackid="pk/pk.html">拒绝</button> 
+						{{/if}} 
+					{{/if}}
+				</div>
+				{{if item.InviteStatus!=""}}
+				<div class="yqstatus yq_s{{item.InviteStatus}}">
+					{{if item.InviteStatus=="1"}}
+					<i>邀</i> {{else if item.InviteStatus=="2"}}
+					<i>接</i> {{else if item.InviteStatus=="3"}}
+					<i>拒</i> {{/if}}
+				</div>
+				{{/if}}
+			</li>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/pk/invitation.js']);
+		</script>
+	</body>
+
+</html>

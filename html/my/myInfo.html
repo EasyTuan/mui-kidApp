@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/reset.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">个人信息</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper scroll">
+			<div class="mui-scroll">
+			<h5 class="ml15 mt10 lh30">基本信息</h5>
+			<ul class="mui-table-view mb1rem tblv-nl" id="myinfo_warp">
+				<li class="mui-table-view-cell">
+					<a>昵称：<span id="nickname"></span></a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a id="mymatch" class="mui-navigate-right myedit" data-field="signature" data-val="我是你祖宗">个性签名：</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" id="myQRCode">我的二维码</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right myedit" data-field="gender" data-val="1">性别：</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right myedit" data-field="birthday" data-val="2016-07-01">生日：</a>
+				</li>
+				<!--<li class="mui-table-view-cell">
+					<a class="mui-navigate-right myedit" data-field="school" data-val="小学">学校：</a>
+				</li>-->
+			</ul>
+			<ul class="mui-table-view mb1rem tblv-nl">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" id="mySecurityCenter">隐私设置</a>
+				</li>
+			</ul>
+			</div>
+		</div>
+		<script type="text/html" id="myinfo_view">
+			<li class="mui-table-view-cell">
+				<a>昵称：{{data.NickName}}</a>
+			</li>
+			<li class="mui-table-view-cell">
+				<a id="mymatch" class="mui-navigate-right myedit" data-field="signature" data-val="{{data.SelfdomSign}}">个性签名：{{data.SelfdomSign}}</a>
+			</li>
+			<li class="mui-table-view-cell">
+				<a class="mui-navigate-right" id="myQRCode">我的二维码</a>
+			</li>
+			<li class="mui-table-view-cell">
+				<a class="mui-navigate-right myedit" data-field="gender" data-val="{{data.Sex}}">性别：{{data.SexName}}</a>
+			</li>
+			<li class="mui-table-view-cell">
+				<a class="mui-navigate-right myedit" data-field="birthday" data-val="{{data.Birthday}}">生日：{{data.Birthday}}</a>
+			</li>
+			<!--<li class="mui-table-view-cell">
+				<a class="mui-navigate-right myedit" data-field="school" data-val="{{data.SchoolName}}">学校：{{data.SchoolName}}</a>
+			</li>-->
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/my/myInfo.js']);
+		</script>
+	</body>
+
+</html>

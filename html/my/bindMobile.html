@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/reset.css']);
+		</script>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">绑定手机号</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper scroll">
+			<div class="mui-scroll">
+			<div class="mui-text-center mt40 mb1rem">
+				<div>
+					<span class="iconfont icon-phone1 wh50 cor-lan" style="font-size: 4rem !important;"></span><br>
+				</div>
+				<h5 class="lh20"><b class="cor-000">您的手机号：<span id="span_mobile"></span></b><br/>
+					<span>已启动手机通讯录匹配，如果您的通讯录中有朋友注册了卡游精灵，系统会通知你哟。</span>
+				</h5>
+			</div>
+			<!--<div class="mtb10">
+				<a class="mui-btn mui-btn-block bor-no" id="myMobileBook">查看手机通讯录</a>
+			</div>-->
+			<div class="mtb10">
+				<a class="mui-btn dis-b lh30 bor-no" id="changeMobile">更换手机号</a>
+			</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js', '../../js/lib/common.js','../../js/my/bindMobile.js']);
+		</script>
+	</body>
+
+</html>

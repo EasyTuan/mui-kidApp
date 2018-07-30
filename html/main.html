@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script type="text/javascript">
+			//打开引导
+			var firstGuide = localStorage.getItem("guide");
+			if(firstGuide != "yes"){
+				window.location.href='hello.html'; //启动引导页
+			}
+		</script>
+		<script type="text/javascript">
+			document.write('<script src="../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../css/mui.min.css', '../css/iconfont.css', '../css/common.css', '../css/main.css']);
+		</script>
+	</head>
+
+	<body>
+		<nav class="mui-bar mui-bar-tab">
+		    <a class="mui-tab-item mui-active" data-href="index/home.html" data-index="0">
+		        <span class="mui-icon iconfont icon-home"></span>
+		        <span class="mui-tab-label">首页</span>
+		    </a>
+		    <a class="mui-tab-item" data-href="tool/tool.html" data-index="1">
+		        <span class="mui-icon iconfont icon-tool"></span>
+		        <span class="mui-tab-label">工具</span>
+		    </a>
+		    <a class="mui-tab-item" data-href="pk/pk.html" style="overflow: visible;">
+		       <span class="mui-icon iconfont icon-pk_default"></span>
+		        <span class="mui-tab-label">约战</span>
+		    </a>
+		    <a class="mui-tab-item" data-href="bbs/bbs.html" data-index="3">
+		        <span class="mui-icon iconfont icon-forum"></span>
+		        <span class="mui-tab-label">论坛</span>
+		    </a>
+		    <a class="mui-tab-item" data-href="my/user.html" data-index="4">
+		        <span class="mui-icon iconfont icon-me1"></span>
+		        <span class="mui-tab-label">我的</span>
+		    </a>
+		</nav>
+	</body>
+	<script type="text/javascript">
+		//必须顺序加载
+		script(['../js/mui.min.js', '../js/lib/md5.min.js', '../js/lib/common.js','../js/main.js']);
+	</script>
+</html>

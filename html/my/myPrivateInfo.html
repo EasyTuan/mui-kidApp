@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/reset.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">隐私设置</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper scroll">
+			<div class="mui-scroll">
+				<ul class="mui-table-view mb1rem tblv-nl mt15" id="myprivateinfo_warp">
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">真实姓名：</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a>手机号：</a>
+					</li>
+					<li class="mui-table-view-cell oauth" data-id = "qq">
+						<a class="mui-navigate-right">QQ号：</a>
+					</li>
+					<li class="mui-table-view-cell oauth" data-id="weixin">
+						<a class="mui-navigate-right">微信号：</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">邮寄地址：</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/html" id="myprivateinfo_view">
+			<li class="mui-table-view-cell">
+				<a class="mui-navigate-right myedit" data-field="realname" data-val="{{data.RealName}}">真实姓名：{{data.RealName}}</a>
+			</li>
+			<li class="mui-table-view-cell">
+				<a>手机号：{{data.Mobile}}</a>
+			</li>
+			<li class="mui-table-view-cell">
+				<a class="mui-navigate-right oauth"  data-id = "qq">QQ号：{{data.QQ}}</a>
+			</li>
+			<li class="mui-table-view-cell oauth"  data-id = "weixin">
+				<a class="mui-navigate-right">微信号：{{data.WeChat}}</a>
+			</li>
+			<li class="mui-table-view-cell">
+
+				<a class="mui-navigate-right myedit" data-field="address" data-val='"ProvinceId":{{data.ProvinceId}},"CityId":{{data.CityId}},"DistrictId":{{data.DistrictId}},"ProvinceName":"{{data.ProvinceName}}","CityName":"{{data.CityName}}","DistrictName":"{{data.DistrictName}}","address":"{{data.Address}}"'>邮寄地址： {{if data.ProvinceId>0}} {{data.ProvinceName}}{{data.CityName}}{{data.DistrictName}}{{data.Address}} {{/if}}
+
+				</a>
+			</li>
+		</script>
+		<!---->
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/my/myPrivateInfo.js']);
+		</script>
+	</body>
+
+</html>

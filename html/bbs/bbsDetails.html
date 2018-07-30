@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/bbs/bbsDetails.css','../../css/bbs/imgLoad.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">帖子详情</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper" id="pullrefresh" style="padding-bottom:50px ;">
+			<div class="mui-scroll" id="bbsDetail">
+				<!--<header>
+					<h4>标题标题标题标题标题标题标题标题题标题标题标题标题</h4>
+					<p class="flex2">
+	                	<span>
+	                		<img class="avatar mui-pull-left" src="../../images/defuser.jpg"/>
+	                		用户昵称
+	                	</span>
+	                	<time>2017-05-06 12:00</time>
+	                </p>
+				</header>
+				<div class="mainBody">
+					第三届卡德加会卡死打算空间和大数据dash接口打算将很快打算将很快大事记开会第三届卡德加会卡死打算空间和大数据dash接口打算将很快打算将很快大事记开会
+					<img src="../../images/jinqian.png" alt="" />
+					第三届卡德加会卡死打算空间和大数据dash接口打算将很快打算将很快大事记开会
+				</div>
+				
+				<p class="commentTitle flex2">
+					<span><i class="sign"></i>评论17</span>
+					<button id="onlySee">只看作者回复</button>
+				</p>
+				<div id="commentList">
+					<div class="commentDetails">
+						<p class="bottom0 padding15 font12">
+	                		<img class="avatar2 mui-pull-left" src="../../images/defuser.jpg"/>
+	                		用户昵称
+	                		<p class="font12 posi">
+	                			8楼 09-12 6：00
+	                			<span class="font12 mui-pull-right">
+			                		<i class="iconfont icon-comment"></i> (12)
+			                	</span>
+	                		</p>
+						</p>
+						<p class="col333 commentText padding15">第三届卡德加会卡死打算空间和大数据dash接口打算将很快打算将很快大事记开会</p>
+						<p class="reply font12" data-contant='李小白: @七彩斑斓'>
+							<span class="col333">李小白: @</span><span class="col4b">七彩斑斓</span>
+							第三届卡德加会卡死打算空间和大数据dash接口打算将很快打算将很快大事记开会
+						</p>
+						<p class="reply font12" data-contant='李小白: @七彩斑斓'>
+							<span class="col333">李小白: @</span><span class="col4b">七彩斑斓</span>
+							第三届卡德加会卡死打算空间和大数据dash接口打算将很快打算将很快大事记开会
+						</p>
+						<p class="reply font12" data-contant='李小白: @七彩斑斓'>
+							<span class="col333">李小白: @</span><span class="col4b">七彩斑斓</span>
+							第三届卡德加会卡死打算空间和大数据dash接口打算将很快打算将很快大事记开会
+						</p>
+					</div>
+					<div class="commentDetails">
+						<p class="bottom0 padding15 font12">
+	                		<img class="avatar2 mui-pull-left" src="../../images/defuser.jpg"/>
+	                		用户昵称
+	                		<p class="font12 posi">
+	                			8楼 09-12 6：00
+	                			<span class="font12 mui-pull-right">
+			                		<i class="iconfont icon-comment"></i> (12)
+			                	</span>
+	                		</p>
+						</p>
+						<p class="col333 commentText padding15">第三届卡德加会卡死打算空间和大数据dash接口打算将很快打算将很快大事记开会</p>
+						<p class="reply font12" data-contant='小白: @七彩'>
+							<span class="col333">小白: @</span><span class="col4b">七彩</span>
+							第三届卡德加会卡死打算空间和大数据dash接口打算将很快打算将很快大事记开会
+						</p>
+						<p class="reply font12" data-contant='李小白: @七彩斑斓'>
+							<span class="col333">李小白: @</span><span class="col4b">七彩斑斓</span>
+							第三届卡德加会卡死打算空间和大数据dash接口打算将很快打算将很快大事记开会
+						</p>
+						<p class="reply font12" data-contant='白: @斓'>
+							<span class="col333">白: @</span><span class="col4b">斓</span>
+							第三届卡德加会卡死打算空间和大数据dash接口打算将很快打算将很快大事记开会
+						</p>
+					</div>
+				</div>-->
+			</div>
+		</div>
+		<div class="editComment bottom5 bg_ededed" id="commentInput">
+			<textarea class="editInput" id="edit" name="" rows="1" cols="" placeholder="写评论"></textarea>
+			<button type="button" class="commentBtn" id="submit">提交</button>
+			<span id="oneComment"></span>
+		</div>
+		<nav class="mui-bar mui-bar-tab bg_ededed" id="bottomTag">
+		    <a class="mui-tab-item mui-active" id="commentBtn">
+		        <span class="mui-icon iconfont icon-comment bottomBtn"></span>
+		        <span class="mui-tab-label" id="commentNum">评论</span>
+		    </a>
+		    <a class="mui-tab-item" id="share">
+		        <span class="mui-icon iconfont icon-share bottomBtn"></span>
+		        <span class="mui-tab-label">分享</span>
+		    </a>
+		</nav>
+		<script type="text/html" id="bbsDetailTep1">
+			<header>
+				<h4>{{topicdetail.title}}</h4>
+				<p class="flex2">
+                	<span>
+                		<img class="avatar mui-pull-left loadthumb defuserimg" data-url='{{topicdetail.avatar}}' data-wh="64,64">
+                		{{topicdetail.username}}
+                	</span>
+                	<time>{{topicdetail.addtime}}</time>
+                </p>
+			</header>
+			<div class="mainBody">
+				{{#topicdetail.content}}
+			</div>
+			
+			<!--评论区域-->
+			<p class="commentTitle flex2">
+				<span><i class="sign"></i>评论{{commentlist.length}}</span>
+				{{if bbsType==0}}
+					<button id="onlySee">只看作者回复</button>
+				{{else}}
+					<button id="onlySee">查看全部</button>
+				{{/if}}
+			</p>
+			<div id="commentList">
+				{{each commentlist as value}}
+					<div class="commentDetails">
+						<p class="bottom0 padding15 font12">
+	                		<img class="avatar2 mui-pull-left loadthumb defuserimg" data-url='{{value.avatar}}' data-wh="64,64"/>
+	                		{{value.username}}
+	                		<p class="font12 posi">
+	                			{{value.floor}}楼 {{value.replytime}}
+	                			<span class="font12 mui-pull-right reply" style="border: none;margin: 0;padding: 0;" data-contant='@{{value.username}}' data-pid='{{value.id}}'>
+			                		<i class="iconfont icon-comment" style="position: relative;top: 2px;"></i> ({{value.xiaji_comment_list.length}})
+			                	</span>
+	                		</p>
+						</p>
+						<p class="col333 commentText padding15">{{value.content}}</p>
+						{{each value.xiaji_comment_list as val}}
+							<p class="reply font12" data-contant='@{{val.username}}'  data-pid='{{value.id}}'>
+								<span class="col333">{{val.username}}</span><span class="col4b"></span>
+								{{val.content}}
+							</p>
+						{{/each}}
+					</div>
+				{{/each}}
+			</div>
+		</script>
+		<script type="text/html" id="commentListTep1">
+			{{each commentlist as value}}
+				<div class="commentDetails">
+					<p class="bottom0 padding15 font12">
+                		<img class="avatar2 mui-pull-left loadthumb" data-url='{{value.avatar}}' data-wh="64,64"/>
+                		{{value.username}}
+                		<p class="font12 posi">
+                			{{value.floor}}楼 {{value.replytime}}
+                			<span class="font12 mui-pull-right reply" style="border: none;margin: 0;padding: 0;" data-contant='@{{value.username}}' data-pid='{{value.pid}}'>
+		                		<i class="iconfont icon-comment"></i> ({{value.xiaji_comment_list.length}})
+		                	</span>
+                		</p>
+					</p>
+					<p class="col333 commentText padding15">{{value.content}}</p>
+					{{each value.xiaji_comment_list as val}}
+						<p class="reply font12" data-contant='@{{val.username}}'  data-pid='{{value.pid}}'>
+							<span class="col333">{{val.username}}</span><span class="col4b"></span>
+							{{val.content}}
+						</p>
+					{{/each}}
+				</div>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/mui.zoom.js','../../js/mui.previewimage.js', '../../js/lib/md5.min.js', '../../js/lib/artTemplate.js','../../js/lib/common.js','../../js/bbs/bbsDetails.js']);
+		</script>
+	</body>
+
+</html>

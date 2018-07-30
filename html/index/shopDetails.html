@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/swiper-3.4.2.min.css','../../css/index/shopDetails.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">店铺详情</h1>
+		    <a class="mui-icon iconfont icon-share  mui-pull-right" id="share"></a>
+		</header>
+		<div class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll" id="details">
+			</div>
+		</div>
+		<div id="publish" style="z-index: 9;" class="ckecklogin" data-loginevent="pkEvent.goComment()" data-loginbackid="index/comment.html">发表评价</div>
+		<script type="text/html" id="detailsTep1">
+			<div class="head">
+				<h4 class="shopName">{{data.storedata.StoreName}}</h4>
+				<p class="star">
+					<div class="scorewarp1">
+						<i style="width: calc({{data.storedata.Score}} * 13px);"></i>
+					</div>
+					<span>{{data.storedata.Score}}分</span>
+				</p>
+				<div class="imgList">
+					{{each data.storedata.ShowImg as value i}}
+						<span class="imgcontain">
+							<img data-index="i" data-url="{{value.ImgUrl}}" class="loadthumb" data-wh=",128" data-preview-src="" data-preview-group="1" />
+						</span>
+					{{/each}}
+				</div>
+				<div class="info">
+					<p><i class="iconfont icon-location"></i> {{data.storedata.Address}}</p>
+					<p><i class="iconfont icon-phone"></i><span id="phone"> {{data.storedata.Tel}}</span></p>
+					<p><i class="iconfont icon-time"></i> {{data.storedata.OpenTime}}-{{data.storedata.CloseTime}} {{data.storedata.OpenWeek}}</p>
+				</div>
+			</div>
+			<div class="ranking">
+				<h4 id="rankingMore" data-storeid="{{data.storedata.StoreId}}">排行榜<i class="mui-icon mui-icon-arrowright mui-pull-right" ></i></h4>
+				<div class="mui-row rankList">
+					{{each data.rankdata as val}}
+						<div class="mui-col-sm-2 mui-col-xs-2">
+							<img data-url="{{val.ImgUrl}}" class="loadthumb" data-wh="64,64"/>
+							<span class="mui-badge mui-badge-primary">{{val.WinCount}}</span>
+						</div>
+					{{/each}}
+				</div>
+			</div>
+			<div class="comment">
+				<h4 id="commentMore" data-storeid="{{data.storedata.StoreId}}">评论（{{countcomment}}）<i class="mui-icon mui-icon-arrowright mui-pull-right" ></i></h4>
+				<!--<div class="group">
+					<span class="active kind">全部</span>
+					<span class="kind">未完成</span>
+					<span class="kind">快攻</span>
+					<span class="kind">组合技能</span>
+					<span class="kind">吐槽</span>
+				</div>-->
+				<div class="commentList">
+					<ul class="mui-table-view tblv-nl">
+						{{each data.commentdata as rs j}}
+							<li class="mui-table-view-cell mui-media" data-commentid='{{rs.commentid}}'>
+						        <a href="javascript:;">
+						            <img class="mui-media-object mui-pull-left loadthumb defuserimg" data-url="{{rs.PlayerImgUrl}}" data-wh="128,128">
+						            <div class="mui-media-body">
+						                {{rs.PlayerName}}
+						                <p class="mui-ellipsis">{{rs.CreateTime}}</p>
+						            </div>
+						        </a>
+						        <p>{{rs.Content}}</p>
+						        <div class="commentImg">
+						        	{{each rs.ImgList as imgList i}}
+						        		<span class="imgcontain">
+						        			<img data-url="{{imgList.ImgUrl}}" class="loadthumb" data-preview-src="" data-preview-group="{{j}}+2" data-wh=",400" />
+						        		</span>
+						        	{{/each}}
+						        </div>
+						    </li>
+						{{/each}}
+					</ul>
+				</div>
+			</div>
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js','../../js/mui.zoom.js','../../js/mui.previewimage.js','../../js/lib/swiper-3.4.1.min.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/index/shopDetails.js']);
+		</script>
+	</body>
+
+</html>

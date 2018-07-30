@@ -1,0 +1,373 @@
+@charset "utf-8";
+
+.bg4b{
+	background: #4b9cf6!important;
+	border: none;
+}
+
+.bg23{
+	background: #2373cd!important;
+}
+
+.col4b{
+	color: #4B9CF6!important;
+}
+
+.mui-title,.mui-bar-nav a{
+	color: #fff;
+}
+
+.kidNav a {
+    color: #bedafd!important;
+}
+
+.kidNav .mui-active{
+	color: #fff000!important;
+}
+
+.kidNav .mui-active i {
+    background: #fff000;
+}
+
+.mui-table-view-cell{
+	margin: 5px 7px!important;
+	padding: 0;
+	border-radius:6px ;
+	background: rgba(255,255,255,0.9)!important;
+}
+
+.detail{
+	padding: 7px 15px;
+}
+
+.mui-table-view-cell:after,.mui-table-view-cell:before{
+	height: 0;
+}
+
+.mui-pull{
+	color: #bedafd!important;
+}
+
+.mui-table-view-cell{
+	border: none!important;
+}
+
+
+
+
+.mui-content{
+	padding-bottom: 0!important;
+	margin: 50px 0 0 0;
+}
+.mui-media-body .mui-row{
+	line-height: 20px;
+	margin-top: 8px;
+}
+.mui-row{
+	line-height: 25px;
+}
+.mui-table-view{
+	margin: 15px 0 0 0;
+	background: none;
+}
+.mui-table-view-cell{
+	background: #fff;
+	margin-bottom: 5px;
+	border-top:1px solid  #E3E3E5;
+}
+.mui-table-view-cell:after, .mui-table-view-cell:before{
+	height: 1px !important;
+}
+.mui-table-view .mui-ellipsis{
+	font-size: 12px;
+}
+
+.mui-table-view .mui-ellipsis span{
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.status{
+	position: absolute;
+	top: 12px;
+	right: 30px;
+	font-size: 13px;
+}
+.iscrt_Y{
+	background: #F6FBFF;
+}
+.apply{
+	color: #4ea463;
+}
+
+.join{
+	color: #74b6ed;
+	border: 1px solid #74b6ed;
+	border-radius:4px ;
+	padding: 0 15px;
+}
+
+.full{
+	color: #fab52f;
+}
+
+.mui-media-object {
+    line-height: 55px;
+    max-width: 55px;
+    height: 55px;
+    position: relative;
+    top: 3px;
+}
+.mui-media-body span{
+	font-size: 12px;
+}
+.mui-media-body h5{
+	color: #000;
+	font-size: 16px !important;
+}
+.mui-ellipsis strong{
+	font-weight: normal;
+	color: #4B9CF6;
+}
+
+.titleBg{
+	background: #1e5899;
+	border-radius:50% ;
+	width: 32px;
+	height: 32px;
+	margin: 8px 0 0 0;
+}
+
+
+#yaoqing{
+	width: 36px;
+	height: 36px;
+	background-position:center center; 
+	background-repeat:no-repeat ;
+	background-image: url(../../images/yaoqingdef.png);
+	background-size:100% ;
+	text-align: center;
+	z-index: 99;
+	position: relative;
+	top: -3px;
+	left: -2px;
+	
+}
+#yaoqing.active{
+	background-image: url(../../images/yaoqingactive.png);
+	 -webkit-animation: Tada 3s both infinite;
+    -moz-animation: Tada 3s both infinite;
+    -ms-animation: Tada 3s both infinite;
+    animation: Tada 3s both infinite;
+  transform-origin: bottom;
+}
+@-webkit-keyframes Tada {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+
+    70%,73% {
+        -webkit-transform: scale(0.9) rotate(-3deg);
+        transform: scale(0.9) rotate(-3deg)
+    }
+
+    77%,83%,90%,97% {
+        -webkit-transform: scale(1.1) rotate(3deg);
+        transform: scale(1.1) rotate(3deg)
+    }
+
+    80%,87%,93% {
+        -webkit-transform: scale(1.1) rotate(-3deg);
+        transform: scale(1.1) rotate(-3deg)
+    }
+
+    100% {
+        -webkit-transform: scale(1) rotate(0);
+        transform: scale(1) rotate(0)
+    }
+}
+
+@-moz-keyframes Tada {
+    0% {
+        -moz-transform: scale(1);
+        transform: scale(1)
+    }
+
+    70%,73% {
+        -moz-transform: scale(0.9) rotate(-3deg);
+        transform: scale(0.9) rotate(-3deg)
+    }
+
+    77%,83%,90%,97% {
+        -moz-transform: scale(1.1) rotate(3deg);
+        transform: scale(1.1) rotate(3deg)
+    }
+
+    80%,87%,93%{
+        -moz-transform: scale(1.1) rotate(-3deg);
+        transform: scale(1.1) rotate(-3deg)
+    }
+
+    100% {
+        -moz-transform: scale(1) rotate(0);
+        transform: scale(1) rotate(0)
+    }
+}
+
+@-ms-keyframes Tada {
+    0% {
+        -ms-transform: scale(1);
+        transform: scale(1)
+    }
+
+    70%,73% {
+        -ms-transform: scale(0.9) rotate(-3deg);
+        transform: scale(0.9) rotate(-3deg)
+    }
+
+    77%,83%,90%,97% {
+        -ms-transform: scale(1.1) rotate(3deg);
+        transform: scale(1.1) rotate(3deg)
+    }
+
+    80%,87%,93% {
+        -ms-transform: scale(1.1) rotate(-3deg);
+        transform: scale(1.1) rotate(-3deg)
+    }
+
+    100% {
+        -ms-transform: scale(1) rotate(0);
+        transform: scale(1) rotate(0)
+    }
+}
+
+@keyframes Tada {
+    0% {
+        transform: scale(1);
+        transform: scale(1)
+    }
+
+    70%,73%{
+        transform: scale(0.9) rotate(-3deg);
+        transform: scale(0.9) rotate(-3deg)
+    }
+
+    77%,83%,90%,97%  {
+        transform: scale(1.1) rotate(3deg);
+        transform: scale(1.1) rotate(3deg)
+    }
+
+    80%,87%,93%{
+        transform: scale(1.1) rotate(-3deg);
+        transform: scale(1.1) rotate(-3deg)
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+        transform: scale(1) rotate(0)
+    }
+}
+
+
+#war{
+	position: fixed;
+	bottom: 10px;
+	right: 15px;
+	width: 80px;
+	height: 80px;
+	background: url(../../images/dumb.png) 0 0 no-repeat;
+	background-size:100% ;
+	text-align: center;
+	line-height: 60px;
+	color: #fff;
+	font-weight: bold;
+	font-size: 16px;
+	z-index: 99;
+}
+.peoplewarp{
+	border-top:1px solid #eee ;
+	line-height: 37px;
+}
+
+.peoplewarp .imgbox{
+	display: flex;
+	padding: 0 15px;
+	width: 100%;
+	height: 35px;
+	background: #dce7fd;
+}
+.peoplewarp a{
+	display: table-cell;
+	max-width: 20px;
+	float: left;
+}
+.peoplewarp span{
+	color: #4B9CF7;
+	margin-right: 2px;
+}
+.peoplewarp .names{
+	color: #666;
+	margin-left: 10px;
+	max-width: none;
+}
+.peoplewarp img{	
+	border-radius:50% ;	
+	width: 26px !important;
+	height: 26px !important;	
+	max-width: initial;
+	max-height: 26px;
+	background: #eee;
+	border: 1px solid #fff;
+	margin: 4px 0 0 0;
+}
+.btn_warp{
+	text-align: center;
+	position: absolute;	
+	right: 15px;
+	top: 40px;
+}
+.btn_warp button{
+	line-height: 20px;
+	font-size: 14px;
+	padding: 2px 1rem;
+}
+.btnlan{
+	background: #4B9CF7;
+	color: #fff;
+	border: 1px solid #4B9CF7;
+}
+.btndef{
+	color: #4B9CF7;
+	border: 1px solid #4B9CF7;
+}
+.yqstatus:before{
+	position: absolute;
+	content: " ";
+	display: block;
+	 
+    border-bottom: 40px solid transparent;
+    border-left: 40px solid transparent;
+    top: 0px;
+right: 0px;
+z-index: 0;
+}
+.yqstatus{
+	color: #fff;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 40px;
+    height: 40px;
+	overflow: hidden;
+	text-align: center;
+	line-height: 23px;
+}
+.yqstatus i{
+	position: absolute;
+	font-style: normal;
+}
+
+#pullrefresh{
+	padding-bottom:60px !important;
+}

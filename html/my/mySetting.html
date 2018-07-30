@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css','../../css/reset.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">设置</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper scroll">
+			<div class="mui-scroll">
+				<div class="pawarp">
+					<h5 class="ml15 mt0 lh30">基本信息</h5>
+					<ul class="mui-table-view mb1rem tblv-nl">
+						<li class="mui-table-view-cell">
+							<a id="myAccount" class="mui-navigate-right">帐号与安全</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a id="aboutApp" class="mui-navigate-right">关于APP</a>
+						</li>
+					</ul>
+					<ul class="mui-table-view mb1rem tblv-nl">
+						<li class="mui-table-view-cell" id="clearCache">
+							<a class="mui-text-center">清除缓存</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+		<div class="btmbar-f mui-text-center bg-lan">
+			<a class="btn" id="loginOut">退出登录</a>
+		</div>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js', '../../js/lib/common.js','../../js/my/mySetting.js']);
+		</script>
+	</body>
+
+</html>

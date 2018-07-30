@@ -1,0 +1,28 @@
+@charset "utf-8";
+.history{
+	border-top:1px solid #e6ebef ;
+	padding: 10px 10px;
+	height: calc(100vh - 59px);
+}
+
+.historyList {
+	clear: both;
+	padding: 10px 0 0 0;
+} 
+
+.historyList span{
+	display: inline-block;
+	margin-bottom:8px ;
+	font-size: 12px;
+	background: #f1f9ff;
+	color: #74858e;
+	padding: 3px 10px;
+	margin-left:3px ;
+	white-space: nowrap;
+}
+	.status {
+		position: absolute;
+		top: 35px;
+		right: 15px;
+		color: #999;
+	}

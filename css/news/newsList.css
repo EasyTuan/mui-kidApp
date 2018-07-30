@@ -1,0 +1,37 @@
+@charset "utf-8";
+.newslist{
+	list-style: none;
+	position: relative;
+	padding: 0;
+}
+.newslist li{
+	background: #fff;
+	margin: 0 0 10px 0;
+	position: relative;
+}
+.newsimgbox{
+	max-width: 100%;
+	max-height: 200px;
+	text-align: center;
+	overflow: hidden;
+	background: #F7F2ED;
+}
+
+.newslist li img{
+	width: 100%;
+	height: auto;
+}
+
+.newslist li h5{
+	font-size:16px ;
+	color: #222;
+	padding: 0 15px;
+}
+
+.newslist li p{
+	line-height: 1.2;
+	font-size: 12px;
+	padding: 0 15px 15px 15px;
+}
+
+

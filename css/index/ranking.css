@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+.mui-content,body{
+	background: #fff;
+}
+
+.mui-content{
+	padding: 0 5px;
+}
+
+.rankList{
+	
+}
+
+.rankList>div{
+	float: left;
+	position: relative;
+	width: 20vw;
+	height: 20vw;
+	margin: 18px 2vw;
+}
+
+.rankList span:nth-of-type(1){
+	position: absolute;
+	top: -10px;
+	right: -4px;
+	z-index: 99;
+	background: #4B9CF6;
+}
+
+.rankList span:nth-of-type(2){
+	position: absolute;
+	bottom: -20px;
+	left: 0;
+	z-index: 99;
+	color: #999;
+	font-size: 12px;
+	display: inline-block;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.rankList img{
+	border-radius:4px ;
+	width: 20vw;
+	height: 20vw;
+}

@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/reset.css','../../css/cropper.css']);
+		</script>
+		<style>		
+			#photo {
+				position: absolute;								
+				width:100vw ;
+				height: calc(100vh - 84px);			
+				text-align: center;	
+			}		
+			.defimg{
+				position: relative;
+				top:50%;
+				margin-top: -50vw;
+			}	
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">头像上传</h1>
+			<a class="mui-pull-right iconfont icon-camera" style="font-size: 20px;" id="opensel"></a>
+		</header>
+		<div class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div id="canvas1" style="display: none;"></div>
+				<div class="c-group">
+					<div id="photo">						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="btmbar-f mui-text-center" id="save" style="display: none;">
+			<button class="btn bg-lan">保存</button>
+		</div>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/lib/jquery-1.11.0.min.js','../../js/lib/cropper.js','../../js/lib/base64.js','../../js/lib/crypto.js','../../js/lib/hmac.js','../../js/lib/sha1.js','../../js/my/uploadImg.js']);
+		</script>
+	</body>
+
+</html>

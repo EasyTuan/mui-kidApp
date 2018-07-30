@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/reset.css']);
+		</script>
+		<title></title>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">修改密码</h1>
+			<button class="head-button" id="btn_ok">保存</button>
+		</header>
+		<div class="mui-content mui-scroll-wrapper scroll">
+			<div class="mui-scroll">
+			<div class="mt15">
+				<ul class="mui-table-view mb1rem tblv-nl">
+					<li class="mui-table-view-cell p0">
+						<div class="mui-input-row">
+							<input  type="password" id="pwd" class="mui-input-clear mui-input bor-no fs14 mb0" placeholder="请输入6-16位登录密码">
+						</div>
+					</li>
+					<li class="mui-table-view-cell p0">
+						<div class="mui-input-row">
+							<input  type="password" id="repwd" class="mui-input-clear mui-input bor-no fs14  mb0" placeholder="请再次输入6-16位登录密码">
+						</div>
+					</li>
+				</ul>
+			</div>
+			</div>
+		</div>
+		</div>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/my/changePwd.js']);
+		</script>
+	</body>
+
+</html>

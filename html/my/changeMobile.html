@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/reset.css']);
+		</script>
+		<style>
+			.mgr1 {
+				margin: -12px 0px -12px -15px !important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">更换手机号</h1>
+			<button class="head-button" id="btn_ok" >提交</button>
+		</header>
+		<div class="mui-content mui-scroll-wrapper scroll">
+			<div class="mui-scroll">
+			<div class="mui-text-center mt40 mb1rem">
+				<h5 class="lh20">更换手机号后，下次登录可使用新手机号登录。<br />
+					当前手机号：	<span id="span_mobile"></span>
+				</h5>
+			</div>
+			<ul class="mui-table-view mb1rem tblv-nl">
+				<!--<li class="mui-table-view-cell">
+					<div class="mui-col-xs-3  mui-pull-left">国家/地区</div>
+					<span class="mui-pull-left">中国</span>
+				</li>-->
+				<li class="mui-table-view-cell ">
+					<label class="mui-col-xs-3 mui-pull-left lh18">+86</label>
+					<div class="mui-col-xs-9 mui-pull-left mgr1 ">
+						<div class="mui-input-row">
+							<input type="number" class="mb0 h40 fs14 mui-input-clear" style="border-width:0px ;border-radius: 0; border-left-width: 1px;" placeholder="请填写更换手机号" maxLength="11" id="inpt_mobile" />
+						</div>
+
+					</div>
+				</li>
+				<li class="mui-table-view-cell pstn-r" id="codewarp">
+					<label class="mui-col-xs-3 mui-pull-left lh18">验证码</label>
+					<div class="mui-col-xs-9 mui-pull-left mgr1">
+						<div class="mui-input-row clearr100">
+							<input type="text" class="bor-no mb0 h40 fs14 mui-input-clear" placeholder="请输入6位验证码" maxLength="6" id="inpt_validcode" />
+						</div>
+					</div>
+					<button id="btn_sendvalidcode" class="btn-rightwarp h40" >获取验证码</button>
+				</li>
+			</ul>
+			<!--<div class="pstn-f b0 mui-text-center w100p bg-lan lh40" >
+				<a class="fw" style="color: #384247;">提交</a>
+			</div>-->
+		</div>
+		</div>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/my/changeMobile.js']);
+		</script>
+	</body>
+
+</html>

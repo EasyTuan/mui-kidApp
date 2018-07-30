@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/tool/oneCardSearch.css','../../css/tool/cardSelect.css']);
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">套牌筛选</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll list">
+					<div class="group">
+						<h5>套牌名称</h5>
+						<input type="text" name="" id="cardName" value="" placeholder="卡牌名称，如：雷神" />
+						<span class="iconfont icon-edit" id="shuru1" style="top: 45px;"></span>
+					</div>		
+					<div class="group kind" id="tap">
+						<h5 style="border: none;">热门赛事卡表</h5>
+						<!--数据区-->
+					</div>
+				</div>
+			</div>
+			<div class="search mui-text-center" id="searchBtn">搜索</div>
+		</div>
+		<script type="text/html" id="tapTep1">
+			{{each CardGroupTag as value}}
+				<span data-id="{{value.tagId}}">{{value.tagName}}</span>
+			{{/each}}
+			<hr />
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/tool/cardSelect.js']);
+		</script>
+	</body>
+
+</html>

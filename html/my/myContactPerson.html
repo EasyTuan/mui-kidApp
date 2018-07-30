@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/reset.css']);
+		</script>
+		<style>
+			.linkman{
+				float: left;
+				width: 25%;				
+				padding: .5rem .5rem;
+			}
+			.linkman div{
+				max-width:80px ;
+				max-height:80px ;
+				width: 100%;	
+				height: 80px;			
+				overflow: hidden;
+				position: relative;
+			}
+			.linkman i{
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				width: 1.5rem;
+				height: 1.5rem;
+				background: #000;
+				opacity: 0.8;
+				display: block;
+				text-align: center;
+				line-height: 1.5rem;
+				color: #fff;
+			}
+			.addlinkman{
+				border: 1px solid #74B6ED;
+				text-align: center;
+				line-height: 80px;
+				color: #74B6ED;
+			}
+			.linkman img{
+				height: 80px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">应急联系人</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-text-center mt40 mb1rem">
+				<div>
+					<span class="iconfont icon-linkman wh50 cor-lan" style="font-size: 4rem !important;"></span><br>
+				</div>
+				<h5 class="lh20"><b class="cor-000">应急联系人</b><br/>
+					<span>从通讯录里选择3-5位你可以随时电话联系的朋友添加成为应急联系人。</span>
+				</h5>
+			</div>
+			<div class="mt10 bg-fff mui-clearfix p1r" style="padding: .5rem;">
+				<div class="linkman">
+					<div>
+						<img src="../../../images/logo.jpg">
+						<i class="iconfont icon-close"></i>
+					</div>
+				</div>
+				<div class="linkman">
+					<div>
+						<img src="../../images/logo.jpg">
+						<i class="iconfont icon-close"></i>
+					</div>
+				</div>
+				<div class="linkman">
+					<div>
+						<img src="../../images/logo.jpg">
+						<i class="iconfont icon-close"></i>
+					</div>
+				</div>
+				<div class="linkman">
+					<div>
+						<img src="../../images/logo.jpg">
+						<i class="iconfont icon-close"></i>
+					</div>
+				</div>
+				<div class="linkman">
+					<div>
+						<img src="../../images/logo.jpg">
+						<i class="iconfont icon-close"></i>
+					</div>
+				</div>
+				<div class="linkman">
+					<div>
+						<img src="../../images/logo.jpg">
+						<i class="iconfont icon-close"></i>
+					</div>
+				</div>
+				<div class="linkman">
+					<div class="addlinkman">						
+						<em class="iconfont icon-close"></em>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js', '../../js/myinfo.min.js']);
+		</script>
+	</body>
+
+</html>

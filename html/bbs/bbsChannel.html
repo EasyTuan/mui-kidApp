@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/bbs/bbsChannel.css']);
+		</script>
+	</head>
+
+	<body>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper" style="top: 0;">
+			<div class="mui-scroll">
+				<p class="channelTitle" id="subscribed">已订阅</p>
+				<ul class="mui-table-view tblv-nl" id="fav_list">
+				    <!--<li class="mui-table-view-cell mui-media">
+				        <a class="mui-navigate-right">
+				            <img class="mui-media-object mui-pull-left border" src="http://placehold.it/40x30">
+				            <div class="mui-media-body">
+				                幸福
+				                <p class="mui-ellipsis top8">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+				            </div>
+				        </a>
+				    </li>-->
+				</ul>
+				<p class="channelTitle" id="recommend">推荐</p>
+				<ul class="mui-table-view tblv-nl" id="nofav_list">
+				    <!--<li class="mui-table-view-cell mui-media">
+				        <a>
+				            <img class="mui-media-object mui-pull-left border" src="http://placehold.it/40x30">
+				            <div class="mui-media-body">
+				                木屋
+				                <p class="mui-ellipsis top8">主题数：222 <strong class="channelNum">6.7万+人已订阅</strong></p>
+				                <p class="mui-ellipsis">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+				            </div>
+				        </a>
+				        <button class="channelBtn">订阅</button>
+				    </li>-->
+				</ul>
+			</div>
+		</div>
+		<script type="text/html" id="fav_listTep1">
+			{{each fav_list as value}}
+				<li class="mui-table-view-cell mui-media">
+			        <a class="mui-navigate-right"  data-nodeid='{{value.node_id}}'>
+			            <img class="mui-media-object mui-pull-left border loadthumb" data-url='{{value.ico}}' data-wh="128,128">
+			            <div class="mui-media-body">
+			                {{value.cname}}
+			                <p class="mui-ellipsis top8">{{value.content}}</p>
+			            </div>
+			        </a>
+			    </li>
+		    {{/each}}
+		</script>
+		<script type="text/html" id="nofav_listTep1">
+			{{each nofav_list as value}}
+				<li class="mui-table-view-cell mui-media">
+			        <a data-nodeid='{{value.node_id}}'>
+			        	<img class="mui-media-object mui-pull-left border loadthumb" data-url='{{value.ico}}' data-wh="128,128">
+			            <div class="mui-media-body">
+			                {{value.cname}}
+			                <p class="mui-ellipsis top8">主题数：{{value.listnum}} <strong class="channelNum">{{value.subscribes}}万+人已订阅</strong></p>
+			                <p class="mui-ellipsis">{{value.content}}</p>
+			            </div>
+			        </a>
+			        <button class="channelBtn ckecklogin" data-nodeid='{{value.node_id}}' data-loginevent="pkEvent.subscribe({{value.node_id}})" data-loginbackid="bbs/bbsChannel.html">订阅</button>
+			    </li>
+			{{/each}}
+		</script>
+		<script type="text/javascript">
+			//必须顺序加载
+			script(['../../js/mui.min.js', '../../js/lib/md5.min.js', '../../js/lib/artTemplate.js','../../js/lib/common.js','../../js/bbs/bbsChannel.js']);
+		</script>
+	</body>
+</html>

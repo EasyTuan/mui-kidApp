@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
+		</script>
+		<script type="text/javascript">
+			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css']);
+		</script>
+		<style type="text/css">
+			.kidNav .mui-active i {
+			    display: inline-block;
+			    width: 66%;
+			    height: 2px;
+			    background: #4B9CF6;
+			    position: absolute;
+			    bottom: 5px;
+			    left: 17%;
+			}
+			.icon-searchIcon1{
+				position: fixed;
+				top: 13px;
+				right: 15px;
+				z-index: 9;
+				font-size: 20px;
+			}
+			#searchBtn{
+				border: none;
+				top: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<nav class="mui-bar mui-bar-tab kidNav" style="top: 0;">
+			<div style="width: 50%;margin: 0 auto;">
+				<a class="mui-tab-item mui-active" data-href="bbs/bbsIndex.html">
+			        <span class="mui-tab-label">主页<i></i></span>
+			    </a>
+			    <a class="mui-tab-item" data-href="bbs/bbsChannel.html" id="bbsChannel">
+			        <span class="mui-tab-label">频道<i></i></span>
+			    </a>
+			</div>
+			<button class="iconfont icon-searchIcon1" id="searchBtn"></button>
+		</nav>
+	</body>
+	<script type="text/javascript">
+		//必须顺序加载
+		script(['../../js/mui.min.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/bbs/bbs.js']);
+	</script>
+
+</html>
