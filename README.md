@@ -18,6 +18,40 @@ git clone https://github.com/EasyTuan/mui-kidApp.git
 
 运行=>真机运行(需要usb连接手机)
 
+# 目标功能
+- [x] 定位功能 -- 完成
+- [x] 选择城市 -- 完成
+- [x] 展示所选地址附近商家列表 -- 完成
+- [x] 搜索文章，赛事 -- 完成
+- [x] 商家列表页 -- 完成
+- [x] 店铺评价页面 -- 完成
+- [x] 单张卡牌详情页面 -- 完成
+- [x] 商家详情页 -- 完成
+- [x] 登录、注册 -- 完成
+- [x] 三方微信、QQ登陆 -- 完成
+- [x] 修改密码 -- 完成
+- [x] 个人中心 -- 完成
+- [x] 发送短信、语音验证 -- 完成
+- [x] 赛事列表 -- 完成
+- [x] 赛事详情 -- 完成
+- [x] 添加、删除、修改收货地址 -- 完成
+- [x] 帐户信息 -- 完成
+- [x] 服务中心 -- 完成
+- [x] 红包 -- 完成
+- [x] 上传头像 -- 完成
+- [x] 卡牌对战发起 -- 完成
+
+## 部分截图展示
+
+<img src="unpackage/1.jpg" width="375px" height="667px" />
+<img src="unpackage/2.jpg" width="375px" height="667px" />
+<img src="unpackage/3.jpg" width="375px" height="667px" />
+<img src="unpackage/4.jpg" width="375px" height="667px" />
+<img src="unpackage/5.jpg" width="375px" height="667px" />
+<img src="unpackage/6.jpg" width="375px" height="667px" />
+<img src="unpackage/7.jpg" width="375px" height="667px" />
+<img src="unpackage/8.jpg" width="375px" height="667px" />
+
 # 说明
 
 >  如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
