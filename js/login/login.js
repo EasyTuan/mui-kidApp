@@ -19,7 +19,7 @@ mui.plusReady(function() {
 	var inpt_pwd = document.getElementById("inpt_pwd");
 
 	storageUser = kidstorageuser.getInstance();
-	inpt_mobile.value = storageUser.UserName;
+//	inpt_mobile.value = storageUser.UserName;
 	
 	
 	//弹出软键盘
@@ -45,6 +45,21 @@ mui.plusReady(function() {
 	
 
 	btn_login.addEventListener("tap", function() {
+		//模拟登陆
+		var data= {
+			PlayerId: 1,
+			Mobile: 13800000000,
+			NickName: 'admin',
+			imgurl: "../../images/defuser.jpg",
+			SelfdomSign: '',
+			//cityid:data.CityId
+		}
+		
+		storageUser.login(data);
+		storageUser.log();
+		appPage.loginBack(backid,backurl);
+		return;
+		
 		if(inpt_mobile.value.trim() == "") {
 			appUI.showTopTip("请输入手机号");
 			//mui.toast("请输入手机号");
@@ -57,6 +72,7 @@ mui.plusReady(function() {
 			//mui.toast("请输入密码");
 			//inpt_pwd.focus();
 		} else {
+			
 			var md5pwd = md5(inpt_pwd.value || "");
 			appUI.setDisabled(btn_login);
 			request("/Base/login", {

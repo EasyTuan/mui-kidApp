@@ -1,9 +1,17 @@
 //api连接前缀
-var APP_DOMAIN = //'http://121.196.216.44/public/?_url='; 
-	'http://kidapi.kayou110.com/public/?_url=';
-//'http://172.16.4.102/public/?_url=';
-var debug = //true;
-false;
+var APP_DOMAIN = '';
+
+//为true输出日志
+var debug = true;
+
+
+
+
+
+
+
+
+
 //页面回弹
 var sw = document.getElementsByClassName(".mui-scroll-wrapper.scroll");
 if(sw) {
@@ -1057,30 +1065,17 @@ function md5sign(parm) {
  * @param {Object} parm 提交的参数
  * */
 function request(method, parm, callback, showwait, errcallback, shownetmsg) {
-	//log(showwait)
 	showwait = showwait == undefined ? false : showwait; //若需要显示等到，传递true
 	shownetmsg = shownetmsg == undefined ? true : shownetmsg;
 	if(showwait)
 		appUI.showWaiting();
-	//log(showwait)
 	parm.hmac = md5sign(parm);
-	//	log(parm)
-	//	mui.getJSON(APP_DOMAIN + method, parm, function(data) {
-	//		log(APP_DOMAIN + method);
-	//		log(data)
-	//	});
-
 	mui.ajax(APP_DOMAIN + method, {
 		data: parm,
-		//		crossDomain: true,
-		//		xhrFields: {
-		//			withCredentials: true
-		//		},
 		dataType: 'json', //要求服务器返回json格式数据
-		type: 'post', //HTTP请求类型，要和服务端对应，要么GET,要么POST
+		type: 'GET', //HTTP请求类型，要和服务端对应，要么GET,要么POST
 		timeout: 60000, //超时时间设置为6秒；
 		beforeSend: function() {
-			log(mklog() + '【AJAX:-->】【' + APP_DOMAIN + method + '】开始');
 			log(mklog() + '【AJAX:-->】【' + method + '】【P=' + JSON.stringify(parm) + '】');
 			setRequestMsg("加载中...");
 		},
@@ -1141,7 +1136,7 @@ function getPayData(payType, parm, callback) {
 	mui.ajax(PAY_DOMAIN + payType, {
 		data: parm,
 		dataType: 'json', //要求服务器返回json格式数据
-		type: 'post', //HTTP请求类型，要和服务端对应，要么GET,要么POST
+		type: 'GET', //HTTP请求类型，要和服务端对应，要么GET,要么POST
 		timeout: 5000, //超时时间设置为3秒；
 		beforeSend: function() {
 			log(mklog() + '【AJAX:-->】【U=' + PAY_DOMAIN + payType + '】');

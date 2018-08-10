@@ -186,17 +186,17 @@ function getList(isnextpage, isreload) {
 
 function checkInvitation() {
 	if(storageUser.UId > 0) {
-		request("/Match/checkWhetherHaveInviteMatch", {
-			playerid: storageUser.UId
-		}, function(json) {
-			if(json.code == 0) {
-				if(json.countinvite > 0) { //包含受邀
-					document.getElementById("yaoqing").setAttribute("class", "active ckecklogin");
-				} else { //不包含受邀
-					document.getElementById("yaoqing").setAttribute("class", "ckecklogin");
-				}
-			}
-		}, false, function() {}, false);
+//		request("/Match/checkWhetherHaveInviteMatch", {
+//			playerid: storageUser.UId
+//		}, function(json) {
+//			if(json.code == 0) {
+//				if(json.countinvite > 0) { //包含受邀
+//					document.getElementById("yaoqing").setAttribute("class", "active ckecklogin");
+//				} else { //不包含受邀
+//					document.getElementById("yaoqing").setAttribute("class", "ckecklogin");
+//				}
+//			}
+//		}, false, function() {}, false);
 	}
 }
 //下拉刷新具体业务实现

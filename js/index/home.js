@@ -15,23 +15,25 @@ mui.plusReady(function() {
 	//注册登录事件
 	appPage.registerCheckLoginEvent();
 	
-	if(!storageLocation.Lon || storageLocation.Lon == "") { //未拿到定位信息
-		plus.nativeUI.showWaiting("定位中...");
-		plus.geolocation.getCurrentPosition(function(position) {
-			plus.nativeUI.closeWaiting();
-			storageLocation.refreshData(position);
-			storageLocation.log();
-			initPage();				
-		}, function(e) {
-			plus.nativeUI.closeWaiting();
-			mui.alert(JSON.stringify(e));
-			//appUI.showTopTip("定位失败，请手动选择位置"+JSON.stringify(e));
-		}, {
-			geocode: true
-		});
-	} else {
-		initPage();
-	}
+	initPage();
+	
+//	if(!storageLocation.Lon || storageLocation.Lon == "") { //未拿到定位信息
+//		plus.nativeUI.showWaiting("定位中...");
+//		plus.geolocation.getCurrentPosition(function(position) {
+//			plus.nativeUI.closeWaiting();
+//			storageLocation.refreshData(position);
+//			storageLocation.log();
+//			initPage();				
+//		}, function(e) {
+//			plus.nativeUI.closeWaiting();
+//			mui.alert(JSON.stringify(e));
+//			//appUI.showTopTip("定位失败，请手动选择位置"+JSON.stringify(e));
+//		}, {
+//			geocode: true
+//		});
+//	} else {
+//		initPage();
+//	}
 	
 	//赛事详情页
 	mui("body").on("tap", ".matchInfo", function() {
@@ -145,7 +147,7 @@ function pulldownRefresh() {
 }
 //一次性拉取数据
 function loadData() {
-	request("/Index/getIndexList", {
+	request("/Index/getIndexLis", {
 		lon: lon,
 		lat: lat,
 		cityid: storageLocation.CityId

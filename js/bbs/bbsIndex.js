@@ -90,36 +90,36 @@ function spread(){
 //获取数据
 function getList(){
 	storageUser=kidstorageuser.getInstance();
-	request('/Index/getBBSHomeList',{
-		playerid: storageUser.UId
-	},function(r){
-		log(r);
-		if(!swiper) {
-			render("#banner_warp", "banner_view", r.data);
-			swiper = new Swiper('.swiper-container', {
-				autoplay: 3000, //可选选项，自动滑动
-				pagination: '.swiper-pagination',
-				loop: true,
-				autoplayDisableOnInteraction: false,
-			});
-		} else {
-			swiper.stopAutoplay();
-			swiper.removeAllSlides();		
-			var item,str;
-			for (var i=0;i<r.data.banner_list.length;i++) {
-				item=r.data.banner_list[i];
-				str='<div class="swiper-slide bannerImg" data-href="'+item.HrefUrl+'" data-param=\''+item.HrefParam+'\'><img class="loadthumb" data-url="'+item.ImgUrl+'" data-wh=",320" />';
-				swiper.appendSlide(str);
-			}
-			swiper.startAutoplay();
-		}
-		
-		render('#bbsList','bbsListTep1',r.data);
-		render('#channelList','channelListTep1',r.data);
-		appPage.imgInit();
-		channelNum=r.data.subscribe_list.length;
-		spread();
-	},true)
+//	request('/Index/getBBSHomeList',{
+//		playerid: storageUser.UId
+//	},function(r){
+//		log(r);
+//		if(!swiper) {
+//			render("#banner_warp", "banner_view", r.data);
+//			swiper = new Swiper('.swiper-container', {
+//				autoplay: 3000, //可选选项，自动滑动
+//				pagination: '.swiper-pagination',
+//				loop: true,
+//				autoplayDisableOnInteraction: false,
+//			});
+//		} else {
+//			swiper.stopAutoplay();
+//			swiper.removeAllSlides();		
+//			var item,str;
+//			for (var i=0;i<r.data.banner_list.length;i++) {
+//				item=r.data.banner_list[i];
+//				str='<div class="swiper-slide bannerImg" data-href="'+item.HrefUrl+'" data-param=\''+item.HrefParam+'\'><img class="loadthumb" data-url="'+item.ImgUrl+'" data-wh=",320" />';
+//				swiper.appendSlide(str);
+//			}
+//			swiper.startAutoplay();
+//		}
+//		
+//		render('#bbsList','bbsListTep1',r.data);
+//		render('#channelList','channelListTep1',r.data);
+//		appPage.imgInit();
+//		channelNum=r.data.subscribe_list.length;
+//		spread();
+//	},true)
 }
 
 
