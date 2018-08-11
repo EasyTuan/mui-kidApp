@@ -52,14 +52,14 @@ git clone https://github.com/EasyTuan/mui-kidApp.git
 
 目录结构
 
-    ├── css              		//css样式文件
-    ├── fonts               		//字体图标
-    ├── html                    //页面
-    ├── images                  //图片
-    ├── js                   	//js
-    │   └── lib                 		//js第三方库
-    ├── unpackage               //App图标、启动页
-    └── manifest.json           //App配置文件
+    ├── css						//css样式文件
+    ├── fonts					//字体图标
+    ├── html						//页面
+    ├── images					//图片
+    ├── js						//js
+    │    └── lib						//js第三方库
+    ├── unpackage				//App图标、启动页
+    └── manifest.json			//App配置文件
 
 ## 部分截图展示
 
