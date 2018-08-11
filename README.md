@@ -80,6 +80,9 @@ git clone https://github.com/EasyTuan/mui-kidApp.git
 
 >  如有问题请直接在 Issues 中提，或者您发现问题并有非常好的解决方案，欢迎 PR 👍
 
+# 友情链接
+
+[该项目基于Ionic3.x的实现](https://github.com/EasyTuan/ionic-cordova-demo)
 
 # License
 
