@@ -9,7 +9,7 @@
 			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
 		</script>
 		<script type="text/javascript">
-			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/news/newsList.css']);
+			link(['../../css/news/newsList.css']);
 		</script>
 	</head>
 
@@ -22,7 +22,30 @@
 		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll mt15">
 				<ul class="newslist" id="list_warp">
-					<div class="nodata"></div>					
+					<li class="detail" data-id="1">
+						<div class="newsimgbox">
+						<img class="loadthumb" src="../../images/banner1.png" data-wh=",220" />	
+						</div>				
+						<h5>模拟数据</h5>
+						<p>啦啦啦啦啦啦啦啦啦</p>
+						<span class="newtype news_m1">比赛</span>
+					</li>	
+					<li class="detail" data-id="1">
+						<div class="newsimgbox">
+						<img class="loadthumb" src="../../images/banner2.png" data-wh=",220" />	
+						</div>				
+						<h5>模拟数据</h5>
+						<p>啦啦啦啦啦啦啦啦啦</p>
+						<span class="newtype news_m2">话题</span>
+					</li>	
+					<li class="detail" data-id="1">
+						<div class="newsimgbox">
+						<img class="loadthumb" src="../../images/banner3.png" data-wh=",220" />	
+						</div>				
+						<h5>模拟数据</h5>
+						<p>啦啦啦啦啦啦啦啦啦</p>
+						<span class="newtype news_m1">比赛</span>
+					</li>	
 				</ul>
 			</div>
 		</div>
@@ -44,7 +67,7 @@
 		</script>
 		<script type="text/javascript">
 			//必须顺序加载
-			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/news/newsList.js']);
+			script(['../../js/news/newsList.js']);
 		</script>
 	</body>
 

@@ -9,7 +9,7 @@
 			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
 		</script>
 		<script type="text/javascript">
-			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/reset.css','../../css/my/myFriends.css']);
+			link(['../../css/reset.css','../../css/my/myFriends.css']);
 		</script>
 
 	</head>
@@ -38,24 +38,31 @@
 									<a>
 										<span class="iconfont icon-manage bg-huang icon22"></span>
 										<span class="ml10 lh22r">
-							新的朋友
-						</span>
+											新的朋友
+										</span>
 									</a>
 								</li>
-								<!--<li class="mui-table-view-cell">
-								<a>
-									<span class="iconfont icon-share_address bg-lan1 icon22"></span>
-									<span class="ml10 lh22r">
-							标签
-						</span>
-								</a>
-							</li>-->
 							</ul>
 						</div>
 						<div class="mui-indexed-list-inner">
 							<div class="mui-indexed-list-empty-alert">没有数据</div>
 							<ul class="mui-table-view tblv-nl" id="list_warp">	
-				
+								<li class="mui-table-view-cell userinfo" data-id="{{subitem.FriendId}}" data-value="{{subitem.ShowName}}{{subitem.NickName}}{{subitem.PinyinName}}{{subitem.Mobile}}" data-pinyin="{{subitem.PinyinName}}" data-mobile="{{subitem.Mobile}}">
+									<a>
+										<img src="../../images/defuser.jpg" class="img22" />
+										<p class="ml42 lh35">
+											<span class=" cor-000 fs16 ">好友1</span>
+										</p>
+									</a>
+								</li>
+								<li class="mui-table-view-cell userinfo" data-id="{{subitem.FriendId}}" data-value="{{subitem.ShowName}}{{subitem.NickName}}{{subitem.PinyinName}}{{subitem.Mobile}}" data-pinyin="{{subitem.PinyinName}}" data-mobile="{{subitem.Mobile}}">
+									<a>
+										<img src="../../images/defuser.jpg" class="img22" />
+										<p class="ml42 lh35">
+											<span class=" cor-000 fs16 ">好友2</span>
+										</p>
+									</a>
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -85,8 +92,7 @@
 			{{/each}} {{/each}}
 		</script>
 		<script type="text/javascript">
-			//必须顺序加载
-			script(['../../js/mui.min.js','../../js/lib/artTemplate.js','../../js/mui.indexedlist.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/my/myFriends.js']);
+			script(['../../js/mui.indexedlist.js','../../js/my/myFriends.js']);
 		</script>
 	</body>
 

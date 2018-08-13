@@ -9,7 +9,7 @@
 			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
 		</script>
 		<script type="text/javascript">
-			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/pk/pk.css']);
+			link(['../../css/pk/pk.css']);
 		</script>
 		
 		<style type="text/css">
@@ -48,14 +48,14 @@
 				<ul class="mui-table-view tblv-nl" id="list_warp">		
 					<div class="nodata"></div>
 					
-					<!--<li id="match_{{item.MatchId}}" class="mui-table-view-cell mui-media iscrt_{{item.IsNowPlayerCreate}}">
+					<li id="match_{{item.MatchId}}" class="mui-table-view-cell mui-media iscrt_{{item.IsNowPlayerCreate}}">
 						<div class="detail" data-id="{{item.MatchId}}">
 							<img class="mui-media-object mui-pull-left img4r loadthumb" data-url="{{item.ImgUrl}}" data-wh="128,128">
 							<div class="mui-media-body">
-								<h5 class="mui-col-xs-9 mui-ellipsis col4b">{{item.MatchName}}</h5>
+								<h5 class="mui-col-xs-9 mui-ellipsis col4b">一起来战斗吧!</h5>
 								<p class="mui-row">
-									<span class="mui-col-xs-8  mui-ellipsis">{{item.MatchBeginTime}}</span>
-									<span class="mui-col-xs-8  mui-ellipsis">人数<strong>{{item.PlayerJoinNum}}</strong>/{{item.PlayerMaxNum}}</span>
+									<span class="mui-col-xs-8  mui-ellipsis">2018-6-10 15:25:08</span>
+									<span class="mui-col-xs-8  mui-ellipsis">人数<strong>3</strong>/10</span>
 								</p>
 							</div>
 							<p class="mui-row">
@@ -71,11 +71,39 @@
 									<img src="../../images/1v.png" class="loadthumb" data-url="{{playeritem.ImgUrl}}" data-wh="50,50" />
 								</a>
 								<a class="names">
-									福建省快点发货斯蒂芬空间斯蒂芬斯柯达放声大哭恢复送到客户
+									马上开始
 								</a>
 							</div>
 						</div>
-					</li>-->
+					</li>
+					<li id="match_{{item.MatchId}}" class="mui-table-view-cell mui-media iscrt_{{item.IsNowPlayerCreate}}">
+						<div class="detail" data-id="{{item.MatchId}}">
+							<img class="mui-media-object mui-pull-left img4r loadthumb" data-url="{{item.ImgUrl}}" data-wh="128,128">
+							<div class="mui-media-body">
+								<h5 class="mui-col-xs-9 mui-ellipsis col4b">一起来战斗吧!</h5>
+								<p class="mui-row">
+									<span class="mui-col-xs-8  mui-ellipsis">2018-6-10 15:25:08</span>
+									<span class="mui-col-xs-8  mui-ellipsis">人数<strong>3</strong>/10</span>
+								</p>
+							</div>
+							<p class="mui-row">
+								<span class="mui-col-xs-12  mui-ellipsis">
+									<i class="iconfont icon-shop fs12"></i>
+								</span>
+							</p>
+						</div>
+						<div class="peoplewarp">
+							<div class="imgbox">
+								<span>5个好友参加</span>
+								<a>
+									<img src="../../images/1v.png" class="loadthumb" data-url="{{playeritem.ImgUrl}}" data-wh="50,50" />
+								</a>
+								<a class="names">
+									马上开始
+								</a>
+							</div>
+						</div>
+					</li>
 					
 					
 				</ul>
@@ -199,7 +227,7 @@
 		</script>
 		<script type="text/javascript">
 			//必须顺序加载
-			script(['../../js/mui.min.js','../../js/lib/artTemplate.js', '../../js/lib/md5.min.js','../../js/lib/plus.js', '../../js/lib/common.js','../../js/pk/pk.js']);
+			script(['../../js/lib/plus.js', '../../js/pk/pk.js']);
 		</script>
 	</body>
 

@@ -9,7 +9,7 @@
 			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
 		</script>
 		<script type="text/javascript">
-			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/swiper-3.4.2.min.css','../../css/common.css','../../css/index/home.css','../../css/news/newsList.css']);
+			link(['../../css/swiper-3.4.2.min.css','../../css/index/home.css','../../css/news/newsList.css']);
 		</script>
 	</head>
 
@@ -23,6 +23,9 @@
 				</nav>
 				<div class="swiper-container">
 					<div class="swiper-wrapper" id="banner_warp">
+						<div class="swiper-slide"><img src="../../images/banner1.png" /></div>
+						<div class="swiper-slide"><img src="../../images/banner2.png" /></div>
+						<div class="swiper-slide"><img src="../../images/banner3.png" /></div>
 					</div>
 					<div class="swiper-pagination"></div>
 				</div>
@@ -48,7 +51,7 @@
 					<div class="nodata"></div>
 					<img class="matchLogo" src="http://kid-test.oss-cn-shanghai.aliyuncs.com/Brand/20170817172122475roihf.jpg"/>
 					<div class="matchDetails">
-						<h4 class="mui-text-center">多管制大家哈萨克计划</h4>
+						<h4 class="mui-text-center">一起来战吧!!!</h4>
 						<p class="mui-text-center"><b id="timer_h">11</b>:<b id="timer_m">01</b>:<b id="timer_s">00</b></p>
 						<img class="matchBtn" src="../../images/matchBtn.png"/>
 						<div class="mui-text-center">距离你100m</div>
@@ -63,12 +66,12 @@
 						</div>
 						<ul class="mui-table-view mui-text-left" id="newmatch_warp" style="min-height: 120px;">
 							<div class="nodata"></div>
-						    <!--<li class="mui-table-view-cell mui-media matchList">
+						    <li class="mui-table-view-cell mui-media matchList">
 						        <a href="javascript:;">
 						            <img class="mui-media-object mui-pull-left" src="../../images/1v.png">
 						            <div class="mui-media-body">
 						                <b>报名中</b>幸福
-						                <p class="mui-ellipsis"><i class="iconfont icon-shop"></i> 能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+						                <p class="mui-ellipsis"><i class="iconfont icon-shop"></i> 我已经发起来一场比赛</p>
 						                <p class="imgList">
 						                	<img class="" src="../../images/defuser.jpg"/>
 						                	<img src="../../images/defuser.jpg"/>
@@ -82,7 +85,7 @@
 						            	<time>6-12 12：00</time>
 						            </div>
 						        </a>
-						    </li>-->
+						    </li>
 						</ul>
 					</div>
 				</div>
@@ -98,12 +101,30 @@
 						</div>
 						<div class="mui-row mui-text-left recommend" id="nearstore_warp" style="overflow: hidden;">
 							<div class="nodata"></div>
-							<!--<div class="mui-col-sm-6 mui-col-xs-6 storeinfo" data-id="{{item.StoreId}}">
+							<div class="mui-col-sm-6 mui-col-xs-6 storeinfo" data-id="{{item.StoreId}}">
 								<p class="star mui-pull-left">
 									<span class="scorewarp1">
 										<i style="width: calc(4.6 * 13px);"></i> 
-									</span> 4.6<br />
-									<span class="storeName">店铺</span>
+									</span> 2.6<br />
+									<span class="storeName">小红文具店</span>
+								</p>
+								<img class="mui-pull-left loadthumb storeImg" data-url="{{item.ImgUrl}}" data-wh=",200"/>
+							</div>
+							<div class="mui-col-sm-6 mui-col-xs-6 storeinfo" data-id="{{item.StoreId}}">
+								<p class="star mui-pull-left">
+									<span class="scorewarp1">
+										<i style="width: calc(4.6 * 13px);"></i> 
+									</span> 4.7<br />
+									<span class="storeName">晨光文具店</span>
+								</p>
+								<img class="mui-pull-left loadthumb storeImg" data-url="{{item.ImgUrl}}" data-wh=",200"/>
+							</div>
+							<div class="mui-col-sm-6 mui-col-xs-6 storeinfo" data-id="{{item.StoreId}}">
+								<p class="star mui-pull-left">
+									<span class="scorewarp1">
+										<i style="width: calc(4.6 * 13px);"></i> 
+									</span> 3.6<br />
+									<span class="storeName">青青草原</span>
 								</p>
 								<img class="mui-pull-left loadthumb storeImg" data-url="{{item.ImgUrl}}" data-wh=",200"/>
 							</div>
@@ -112,28 +133,10 @@
 									<span class="scorewarp1">
 										<i style="width: calc(4.6 * 13px);"></i> 
 									</span> 4.6<br />
-									<span class="storeName">店铺</span>
+									<span class="storeName">啦啦啦</span>
 								</p>
 								<img class="mui-pull-left loadthumb storeImg" data-url="{{item.ImgUrl}}" data-wh=",200"/>
 							</div>
-							<div class="mui-col-sm-6 mui-col-xs-6 storeinfo" data-id="{{item.StoreId}}">
-								<p class="star mui-pull-left">
-									<span class="scorewarp1">
-										<i style="width: calc(4.6 * 13px);"></i> 
-									</span> 4.6<br />
-									<span class="storeName">店铺</span>
-								</p>
-								<img class="mui-pull-left loadthumb storeImg" data-url="{{item.ImgUrl}}" data-wh=",200"/>
-							</div>
-							<div class="mui-col-sm-6 mui-col-xs-6 storeinfo" data-id="{{item.StoreId}}">
-								<p class="star mui-pull-left">
-									<span class="scorewarp1">
-										<i style="width: calc(4.6 * 13px);"></i> 
-									</span> 4.6<br />
-									<span class="storeName">店铺</span>
-								</p>
-								<img class="mui-pull-left loadthumb storeImg" data-url="{{item.ImgUrl}}" data-wh=",200"/>
-							</div>-->
 						</div>
 					</h5>
 				</div>
@@ -254,7 +257,7 @@
 		</script>
 		<script type="text/javascript">
 			//必须顺序加载
-			script(['../../js/mui.min.js','../../js/lib/artTemplate.js','../../js/lib/swiper-3.4.1.min.js', '../../js/lib/md5.min.js', '../../js/lib/common.js','../../js/index/home.js']);
+			script(['../../js/lib/swiper-3.4.1.min.js','../../js/index/home.js']);
 		</script>
 	</body>
 

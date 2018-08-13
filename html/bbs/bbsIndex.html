@@ -9,7 +9,7 @@
 			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
 		</script>
 		<script type="text/javascript">
-			link(['../../css/mui.min.css', '../../css/common.css', '../../css/iconfont.css','../../css/swiper-3.4.2.min.css','../../css/bbs/bbsIndex.css']);
+			link(['../../css/swiper-3.4.2.min.css','../../css/bbs/bbsIndex.css']);
 		</script>
 	</head>
 
@@ -29,13 +29,13 @@
 							<button class="mui-pull-right" id="channelBtn">展开</button>
 						</p>
 						<div class="channelList" id="channelList">
-							<!--<b id="addchannel">+添加订阅</b>-->
-							<!--<span>玩家杂谈</span>
-							<span>玩家杂谈</span>-->
+							<b id="addchannel">+添加订阅</b>
+							<span>玩家杂谈</span>
+							<span>玩家杂谈</span>
 						</div>
 					</div>
 					<ul class="mui-table-view" id="bbsList">
-					    <!--<li class="mui-table-view-cell mui-media">
+					    <li class="mui-table-view-cell mui-media">
 					        <a href="javascript:;">
 					        	<div class="mui-media-object mui-pull-right imgbox50">
 					            <img class="" src="http://kid-test.oss-cn-shanghai.aliyuncs.com/player/commentimg/5_1505985391377.png">
@@ -54,7 +54,7 @@
 					                </p>
 					            </div>
 					        </a>
-					    </li>-->
+					    </li>
 					</ul>
 				</div>
 			</div>
@@ -127,8 +127,7 @@
 			{{/each}}
 		</script>
 		<script type="text/javascript">
-			//必须顺序加载
-			script(['../../js/mui.min.js', '../../js/lib/md5.min.js', '../../js/lib/artTemplate.js','../../js/lib/common.js','../../js/lib/swiper-3.4.1.min.js','../../js/bbs/bbsIndex.js']);
+			script(['../../js/lib/swiper-3.4.1.min.js','../../js/bbs/bbsIndex.js']);
 		</script>
 	</body>
 

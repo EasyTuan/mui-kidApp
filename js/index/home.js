@@ -139,6 +139,12 @@ function initPage() {
 	lat = storageLocation.Lat;
 	city = storageLocation.City;
 	document.getElementById("city").innerText = city;
+	swiper = new Swiper('.swiper-container', {
+		autoplay: 3000, //可选选项，自动滑动
+		pagination: '.swiper-pagination',
+		loop: true,
+		autoplayDisableOnInteraction: false,
+	});
 	loadData();
 }
 //下拉刷新具体业务实现
