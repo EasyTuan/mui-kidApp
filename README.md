@@ -63,9 +63,17 @@ git clone https://github.com/EasyTuan/mui-kidApp.git
 
 ## 部分截图展示
 
+### 首页展示
+
 <img src="unpackage/1.jpg" width="375px" height="667px" /> <img src="unpackage/2.jpg" width="375px" height="667px" />
+### 对战发起 && 套牌详情
+
 <img src="unpackage/3.jpg" width="375px" height="667px" /> <img src="unpackage/4.jpg" width="375px" height="667px" />
+### 单卡明细 && 筛选
+
 <img src="unpackage/5.jpg" width="375px" height="667px" /> <img src="unpackage/6.jpg" width="375px" height="667px" />
+### 比赛 && 三方分享
+
 <img src="unpackage/7.jpg" width="375px" height="667px" /> <img src="unpackage/8.jpg" width="375px" height="667px" />
 
 # 说明
