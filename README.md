@@ -5,12 +5,16 @@ mui是一款接近原生App体验的前端框架，只需要掌握前端技术�
 
 该项目以mui为开发框架，artTemplate.js作为js模版引擎，没有繁琐的配置和编译过程，拿来就可以上手，适合刚接触mui的同学参考和学习
 
+如遇网络不佳，请移步[国内镜像加速节点](https://gitee.com/easytuan/mui-kidApp)
 
 ## 项目运行
 
-
 ```
+
 git clone https://github.com/EasyTuan/mui-kidApp.git
+
+# 国内镜像加速节点
+git clone git@gitee.com:easytuan/mui-kidApp.git
 
 ```
 
