@@ -13,8 +13,7 @@ mui是一款接近原生App体验的前端框架，只需要掌握前端技术�
 
 git clone https://github.com/EasyTuan/mui-kidApp.git
 
-国内镜像加速节点
-git clone git@gitee.com:easytuan/mui-kidApp.git
+# 国内镜像加速节点:git@gitee.com:easytuan/mui-kidApp.git
 
 ```
 
