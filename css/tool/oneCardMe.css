@@ -1,47 +1,46 @@
 @charset "utf-8";
-
 .kind .active {
-    background: #4B9CF6;
-    color: #fff;
+	background: #4B9CF6;
+	color: #fff;
 }
 
-#pullrefresh{
+#pullrefresh {
 	top: 195px;
 }
 
 .mui-bar-nav~.mui-content .mui-pull-top-pocket {
-    top: 0px;
+	top: 0px;
 }
 
-#create{
+#create {
 	margin: 11px 0 0 0;
 	background: #4B9CF6;
 	color: #fff!important;
 	font-size: 13px;
 	padding: 3px 8px 1px 8px;
-	border-radius:4px ;
+	border-radius: 4px;
 	border: none;
 }
 
-nav{
+nav {
 	background: #fff;
 	line-height: 40px;
 	font-size: 13px;
 	/*border-bottom:1px solid #c8c7cc ;*/
 }
 
-nav span{
+nav span {
 	display: inline-block;
 	height: 40px;
 	margin: 0 12px;
 	position: relative;
 }
 
-.active{
+.active {
 	color: #4B9CF6;
 }
 
-.active i{
+.active i {
 	display: inline-block;
 	width: 70%;
 	height: 2px;
@@ -56,10 +55,10 @@ nav span{
 	width: 100%;
 	padding: 8px;
 	height: 62px;
-	padding-top:15px ;
+	padding-top: 15px;
 }
 
-.kind span{
+.kind span {
 	float: left;
 	display: inline-block;
 	width: 18%;
@@ -69,14 +68,14 @@ nav span{
 	color: #74858e;
 	line-height: 30px;
 	margin: 0 1%;
-	border-radius:5px ;
+	border-radius: 5px;
 }
 
-.contant{
+.contant {
 	clear: both;
 }
 
-.contant>p{
+.contant>p {
 	height: 30px;
 	margin: 10px 0 0 0;
 	padding: 5px 10px;
@@ -85,32 +84,34 @@ nav span{
 	color: #333;
 }
 
-.contant>p span:nth-of-type(2){
+.contant>p span:nth-of-type(2) {
 	color: #74b6ed;
 }
 
-.mui-table-view:before,.mui-table-view:after{
+.mui-table-view:before,
+.mui-table-view:after {
 	height: 0;
 }
+
 
 /**
  * 没有数据
  */
 
-.none{
+.none {
 	display: none;
 	height: 50vh;
 	margin: 190px 0 0 0;
 }
 
-.none img{
+.none img {
 	width: 50%;
 	height: auto;
 	display: block;
 	margin: 10vh auto 0 auto;
 }
 
-.none p{
+.none p {
 	font-size: 16px;
 	margin: 10px 0 0 0;
 }

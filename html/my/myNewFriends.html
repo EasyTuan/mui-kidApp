@@ -9,7 +9,7 @@
 			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
 		</script>
 		<script type="text/javascript">
-			link(['../../css/reset.css','../../css/my/myFriends.css']);
+			link(['../../css/reset.css', '../../css/my/myFriends.css']);
 		</script>
 
 	</head>
@@ -56,7 +56,7 @@
 
 						<div class="mui-indexed-list-inner">
 							<div class="mui-indexed-list-empty-alert">没有数据</div>
-							<ul class="mui-table-view tblv-nl" id="list_warp">								
+							<ul class="mui-table-view tblv-nl" id="list_warp">
 							</ul>
 						</div>
 					</div>
@@ -72,7 +72,7 @@
 			{{each data as item}}
 			<li class="mui-indexed-list-group" data-group="{{item.group}}">{{item.group}}</li>
 			{{each item.list as subitem}}
-			<li class="mui-table-view-cell" data-value="{{subitem.NickName}}{{subitem.PinyinName}}{{subitem.Mobile}}" data-pinyin="{{subitem.PinyinName}}" data-mobile="{{subitem.Mobile}}" >
+			<li class="mui-table-view-cell" data-value="{{subitem.NickName}}{{subitem.PinyinName}}{{subitem.Mobile}}" data-pinyin="{{subitem.PinyinName}}" data-mobile="{{subitem.Mobile}}">
 				<a class="userinfo mr60" data-id="{{subitem.FriendId}}">
 					{{if subitem.ImgUrl==null}}
 					<img src="../../images/defuser.jpg" class="img3r" /> {{else}}
@@ -92,7 +92,7 @@
 		</script>
 		<script type="text/javascript">
 			//必须顺序加载
-			script(['../../js/mui.indexedlist.js','../../js/my/myNewFriends.js']);
+			script(['../../js/mui.indexedlist.js', '../../js/my/myNewFriends.js']);
 		</script>
 	</body>
 

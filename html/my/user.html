@@ -15,9 +15,11 @@
 			.mui-bar-nav~.mui-content .mui-pull-top-pocket {
 				top: 0px;
 			}
-			#headimg{
+			
+			#headimg {
 				background: #eee;
 			}
+			
 			.bg {
 				height: 170px;
 				background: #4B9CF6;
@@ -26,13 +28,15 @@
 				background: -webkit-gradient(linear, 0 0, 0 bottom, from(#4B9CF6), to(rgba(111, 128, 251, 0.7)));
 				background: -o-linear-gradient(top, #4B9CF6, rgba(111, 128, 251, 0.7));
 				position: relative;
-			}	
-			.borf{
+			}
+			
+			.borf {
 				border: 3px solid #fff;
 			}
-			#editSignature{
+			
+			#editSignature {
 				width: 80%;
-				margin-left:10% ;
+				margin-left: 10%;
 				overflow: hidden;
 				white-space: nowrap;
 				text-overflow: ellipsis;
@@ -50,12 +54,12 @@
 
 		<div class="mui-content pt0 mui-scroll-wrapper" id="pullrefresh">
 			<div class="mui-scroll">
-				<ul class="mui-table-view mb1rem bg tblv-nl" style="position: relative;" >
+				<ul class="mui-table-view mb1rem bg tblv-nl" style="position: relative;">
 					<li class="mui-text-center ptb10" id="user_warp">
 						<div class="ckecklogin" id="goLogin" data-loginbackid="my/user.html" id="user_warp">
 							<img class="bor-r50p mt15 img50 borf" src="../../images/defuser.jpg" />
 							<h5 class="cor-fff lh30">请先登录/注册 </h5>
-						</div>						
+						</div>
 					</li>
 					<canvas id="canvas" height="105" style="position:absolute;bottom: 0;left:0px;z-index:-1;width: 100%;"></canvas>
 				</ul>
@@ -85,18 +89,18 @@
 			</div>
 		</div>
 		<script type="text/html" id="user_view">
-			{{if data.IsLogin}}		
-				<div class="mui-text-center">
-					<img class="mt15 bor-r50p img50 borf ckecklogin" src="{{data.ImgUrl}}" id="headimg" data-loginevent="loginEvent.upload_headimg()" />
-				</div>
-				<h5 class="cor-fff fs17">{{data.NickName}}</h5>
-				<p class="ckecklogin cor-fff" id="editSignature" data-loginevent="loginEvent.editSignature()" data-loginbackid="my/user.html">{{data.Signature}} <i class="iconfont icon-edit"></i></p>
-		
+			{{if data.IsLogin}}
+			<div class="mui-text-center">
+				<img class="mt15 bor-r50p img50 borf ckecklogin" src="{{data.ImgUrl}}" id="headimg" data-loginevent="loginEvent.upload_headimg()" />
+			</div>
+			<h5 class="cor-fff fs17">{{data.NickName}}</h5>
+			<p class="ckecklogin cor-fff" id="editSignature" data-loginevent="loginEvent.editSignature()" data-loginbackid="my/user.html">{{data.Signature}} <i class="iconfont icon-edit"></i></p>
+
 			{{else}}
 			<div class="ckecklogin" id="goLogin" data-loginbackid="my/user.html" id="user_warp">
-							<img class="bor-r50p mt15 img50 borf" src="../../images/defuser.jpg" />
-						<h5 class="cor-fff lh30">请先登录/注册 </h5>
-						</div>			{{/if}}
+				<img class="bor-r50p mt15 img50 borf" src="../../images/defuser.jpg" />
+				<h5 class="cor-fff lh30">请先登录/注册 </h5>
+			</div> {{/if}}
 		</script>
 		<script type="text/javascript">
 			//必须顺序加载

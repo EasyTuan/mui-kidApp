@@ -62,12 +62,15 @@
 	margin-bottom: 15px;
 }
 
-#tips #tipscont_warp { margin-top: 34px;
-
-transition:all .5s;
-	-moz-transition:all .5s; /* Firefox 4 */
-	-webkit-transition:all .5s; /* Safari and Chrome */
-	-o-transition:all .5s; /* Opera */
+#tips #tipscont_warp {
+	margin-top: 34px;
+	transition: all .5s;
+	-moz-transition: all .5s;
+	/* Firefox 4 */
+	-webkit-transition: all .5s;
+	/* Safari and Chrome */
+	-o-transition: all .5s;
+	/* Opera */
 }
 
 #tips #tipscont_warp div {
@@ -80,7 +83,8 @@ transition:all .5s;
 	margin-bottom: 4px;
 	opacity: 0.3;
 	/*animation:mymove 5s 1;
-	-webkit-animation:mymove 5s 1; /*Safari and Chrome*/*/
+	-webkit-animation:mymove 5s 1; /*Safari and Chrome*/
+	*/
 }
 
 #tips p {
@@ -91,14 +95,18 @@ transition:all .5s;
 	color: #E9B82E;
 }
 
-#tips #tipscont_warp div.active {	
+#tips #tipscont_warp div.active {
 	opacity: 1;
 }
-#tips #tipscont_warp div.activeend {	
-	transition:opacity 5s;
-	-moz-transition:opacity 5s; /* Firefox 4 */
-	-webkit-transition:opacity 5s; /* Safari and Chrome */
-	-o-transition:opacity 5s; /* Opera */
+
+#tips #tipscont_warp div.activeend {
+	transition: opacity 5s;
+	-moz-transition: opacity 5s;
+	/* Firefox 4 */
+	-webkit-transition: opacity 5s;
+	/* Safari and Chrome */
+	-o-transition: opacity 5s;
+	/* Opera */
 	opacity: 0;
 }
 

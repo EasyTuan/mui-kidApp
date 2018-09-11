@@ -15,13 +15,13 @@
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title" id="cardName"></h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title" id="cardName"></h1>
 		</header>
 		<div class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll" id="detail">
-			    <!--<h5 class="cardName">卡牌名称</h5>-->
-			    <!--<img src="../../images/image_card.png" class="card" />
+				<!--<h5 class="cardName">卡牌名称</h5>-->
+				<!--<img src="../../images/image_card.png" class="card" />
 			    <div class="mui-row">
 			    	<div class="mui-col-sm-3 mui-col-xs-3">军衔：</div>
 			    	<div class="mui-col-sm-3 mui-col-xs-3">准尉</div><br />
@@ -52,58 +52,45 @@
 			    </div>-->
 			</div>
 			<div class="none">
-				<img src="../../images/searchnothing.png"/>
+				<img src="../../images/searchnothing.png" />
 				<div class="mui-text-center">未获取到数据或数据已删除</div>
 			</div>
 		</div>
 		<nav class="mui-bar mui-bar-tab" id="bottom">
-		    <span class="mui-pull-left ckecklogin" id="collect" data-loginevent="pkEvent.goInvitation()" data-loginbackid="tool/oneCardDetail.html">
+			<span class="mui-pull-left ckecklogin" id="collect" data-loginevent="pkEvent.goInvitation()" data-loginbackid="tool/oneCardDetail.html">
 		    	<i class="iconfont icon-collect_defaut"></i><br />
 		    	<span>收藏</span>
-		    </span>
-		    <span class="mui-pull-left" id="correlationCard">
+			</span>
+			<span class="mui-pull-left" id="correlationCard">
 		    	<i class="iconfont icon-relatedcard"></i><br />
 		    	相关套牌
 		    </span>
-		    <div class="select mui-pull-right">
-		    	<i class="mui-icon mui-icon-arrowleft" id="arrowleft"></i>
-		    	<span id="page"></span>
-		    	<i class="mui-icon mui-icon-arrowright" id="arrowright"></i>
-		    </div>
+			<div class="select mui-pull-right">
+				<i class="mui-icon mui-icon-arrowleft" id="arrowleft"></i>
+				<span id="page"></span>
+				<i class="mui-icon mui-icon-arrowright" id="arrowright"></i>
+			</div>
 		</nav>
 		<script type="text/html" id="detailTep1">
-			{{each data as val}}
-				{{if val!=''}}
-					<p></p>
-					<img data-url="{{val.ImgUrl}}" class="card loadthumb" data-preview-src="" data-preview-group="1" data-wh=",600"  />
-				    <div class="mui-row">
-						{{each val.AttrList as value}}
-							{{if value.CardAttrValue!=null}}
-								{{if value.CardAttrValue!=''}}
-									{{if value.ViewLayoutType==1}}
-										<div class="mui-col-sm-3 mui-col-xs-3">{{value.CardAttrName}}：</div>
-									    <div class="mui-col-sm-3 mui-col-xs-3">{{value.CardAttrValue}}</div>
-								    {{/if}}
-							    {{/if}}
-						    {{/if}}
-						{{/each}}
-					</div>
-					{{each val.AttrList as value}}
-						{{if value.ViewLayoutType==2}}
-							{{if value.CardAttrValue!=''}}
-								<div class="effect">
-							    	<h5>{{value.CardAttrName}}：</h5>
-							    	<p style="white-space: normal;font-size: 14px;">{{#value.CardAttrValue}}</p>
-							    </div>
-						    {{/if}}
-						{{/if}}
-					{{/each}}
-				{{/if}}
-			{{/each}}
+			{{each data as val}} {{if val!=''}}
+			<p></p>
+			<img data-url="{{val.ImgUrl}}" class="card loadthumb" data-preview-src="" data-preview-group="1" data-wh=",600" />
+			<div class="mui-row">
+				{{each val.AttrList as value}} {{if value.CardAttrValue!=null}} {{if value.CardAttrValue!=''}} {{if value.ViewLayoutType==1}}
+				<div class="mui-col-sm-3 mui-col-xs-3">{{value.CardAttrName}}：</div>
+				<div class="mui-col-sm-3 mui-col-xs-3">{{value.CardAttrValue}}</div>
+				{{/if}} {{/if}} {{/if}} {{/each}}
+			</div>
+			{{each val.AttrList as value}} {{if value.ViewLayoutType==2}} {{if value.CardAttrValue!=''}}
+			<div class="effect">
+				<h5>{{value.CardAttrName}}：</h5>
+				<p style="white-space: normal;font-size: 14px;">{{#value.CardAttrValue}}</p>
+			</div>
+			{{/if}} {{/if}} {{/each}} {{/if}} {{/each}}
 		</script>
 		<script type="text/javascript">
 			//必须顺序加载
-			script(['../../js/mui.zoom.js','../../js/mui.previewimage.js','../../js/tool/oneCardDetail.js']);
+			script(['../../js/mui.zoom.js', '../../js/mui.previewimage.js', '../../js/tool/oneCardDetail.js']);
 		</script>
 	</body>
 

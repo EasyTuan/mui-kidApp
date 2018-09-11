@@ -35,9 +35,9 @@ function loadData() {
 		} else {
 			var arr = document.getElementsByClassName("nodata");
 			for(var i = 0; i < arr.length; i++) {
-				arr[i].innerText = "记录不存在";				
+				arr[i].innerText = "记录不存在";
 			}
-			
+
 		}
 	});
 

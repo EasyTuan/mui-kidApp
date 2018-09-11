@@ -9,7 +9,7 @@
 			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
 		</script>
 		<script type="text/javascript">
-			link(['../../css/bbs/bbsChannel.css','../../css/bbs/bbsIndex.css','../../css/bbs/channelDetails.css']);
+			link(['../../css/bbs/bbsChannel.css', '../../css/bbs/bbsIndex.css', '../../css/bbs/channelDetails.css']);
 		</script>
 	</head>
 
@@ -105,67 +105,64 @@
 					</div>
 				</a>
 				{{if category.is_fav=='N'}}
-					<button class="channelBtn ckecklogin" id="subscibe" data-loginevent="pkEvent.subscibe({{category.node_id}})" data-loginbackid="bbsChannel.html/channelDetails.html">订阅</button>
-				{{else}}
-					<button class="channelBtn channelBtn_subscibe ckecklogin" id="subscibe" data-loginevent="pkEvent.subscibe({{category.node_id}})" data-loginbackid="bbsChannel.html/channelDetails.html">取消订阅</button>
-				{{/if}}
+				<button class="channelBtn ckecklogin" id="subscibe" data-loginevent="pkEvent.subscibe({{category.node_id}})" data-loginbackid="bbsChannel.html/channelDetails.html">订阅</button> {{else}}
+				<button class="channelBtn channelBtn_subscibe ckecklogin" id="subscibe" data-loginevent="pkEvent.subscibe({{category.node_id}})" data-loginbackid="bbsChannel.html/channelDetails.html">取消订阅</button> {{/if}}
 			</li>
 			<div class="tagList">
 				{{each tag_list as value}}
-					<span>{{value}}</span>
-				{{/each}}
+				<span>{{value}}</span> {{/each}}
 			</div>
 		</script>
 		<script type="text/html" id="bbsHotListTep1">
 			{{each top_list as value}}
-				<li class="mui-table-view-cell mui-media bbsDetails" data-id='{{value.topic_id}}'>
-					<a href="javascript:;">
-						{{if value.topic_ico!=''}}
-			        		<div class="mui-media-object mui-pull-right imgbox50">
-			        		<img class="loadthumb" data-url='{{value.topic_ico}}' data-wh="128,">
-			        	</div>
-			        	{{/if}}
-						<div class="mui-media-body bbsBody">
-							<strong>置顶</strong> {{value.title}}
-							<p class="mui-ellipsis top8">
-								<span class="mui-pull-left">
+			<li class="mui-table-view-cell mui-media bbsDetails" data-id='{{value.topic_id}}'>
+				<a href="javascript:;">
+					{{if value.topic_ico!=''}}
+					<div class="mui-media-object mui-pull-right imgbox50">
+						<img class="loadthumb" data-url='{{value.topic_ico}}' data-wh="128,">
+					</div>
+					{{/if}}
+					<div class="mui-media-body bbsBody">
+						<strong>置顶</strong> {{value.title}}
+						<p class="mui-ellipsis top8">
+							<span class="mui-pull-left">
 			                		<img class="avatar mui-pull-left loadthumb defuserimg" data-url='{{value.avatar}}' data-wh="128,128"/>
 			                		{{value.username}}
 			                	</span>
-								<span class="mui-pull-right">
+							<span class="mui-pull-right">
 			                		<i class="iconfont icon-eye"> {{value.views}}</i>&nbsp;&nbsp;&nbsp;
 			                		<i class="iconfont icon-comment"> {{value.comments}}</i>
 			                	</span>
-							</p>
-						</div>
-					</a>
-				</li>
+						</p>
+					</div>
+				</a>
+			</li>
 			{{/each}}
 		</script>
 		<script type="text/html" id="bbsListTep1">
 			{{each topic_list as value}}
-				<li class="mui-table-view-cell mui-media bbsDetails" data-id='{{value.topic_id}}'>
-					<a href="javascript:;">
-						{{if value.topic_ico!=''}}
-			        		<div class="mui-media-object mui-pull-right imgbox50">
-			        		<img class="loadthumb" data-url='{{value.topic_ico}}' data-wh="128,">
-			        	</div>
-			        	{{/if}}
-						<div class="mui-media-body bbsBody">
-							{{value.title}}
-							<p class="mui-ellipsis top8">
-								<span class="mui-pull-left">
+			<li class="mui-table-view-cell mui-media bbsDetails" data-id='{{value.topic_id}}'>
+				<a href="javascript:;">
+					{{if value.topic_ico!=''}}
+					<div class="mui-media-object mui-pull-right imgbox50">
+						<img class="loadthumb" data-url='{{value.topic_ico}}' data-wh="128,">
+					</div>
+					{{/if}}
+					<div class="mui-media-body bbsBody">
+						{{value.title}}
+						<p class="mui-ellipsis top8">
+							<span class="mui-pull-left">
 			                		<img class="avatar mui-pull-left loadthumb defuserimg" data-url='{{value.avatar}}' data-wh="128,128"/>
 			                		{{value.username}}
 			                	</span>
-								<span class="mui-pull-right">
+							<span class="mui-pull-right">
 			                		<i class="iconfont icon-eye"> {{value.views}}</i>&nbsp;&nbsp;&nbsp;
 			                		<i class="iconfont icon-comment"> {{value.comments}}</i>
 			                	</span>
-							</p>
-						</div>
-					</a>
-				</li>
+						</p>
+					</div>
+				</a>
+			</li>
 			{{/each}}
 		</script>
 		<script type="text/javascript">

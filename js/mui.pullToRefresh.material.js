@@ -26,13 +26,13 @@
 		},
 		initPullDownTips: function() {
 			var self = this;
-			if ($.isFunction(self.options.down.callback)) {
+			if($.isFunction(self.options.down.callback)) {
 				self.pullDownTips = (function() {
 					var element = document.querySelector('.' + CLASS_PULL_TOP_TIPS);
-					if (element) {
+					if(element) {
 						element.parentNode.removeChild(element);
 					}
-					if (!element) {
+					if(!element) {
 						element = document.createElement('div');
 						element.classList.add(CLASS_PULL_TOP_TIPS);
 						element.innerHTML = '<div class="mui-pull-top-wrapper"><div class="mui-pull-top-canvas"><canvas id="pullDownTips" width="' + self.options.down.tips.size + '" height="' + self.options.down.tips.size + '"></canvas></div></div>';
@@ -74,7 +74,7 @@
 		beforeChangeOffset: function(deltaY) {},
 		afterChangeOffset: function(deltaY) {},
 		dragEndAfterChangeOffset: function(isNeedRefresh) {
-			if (isNeedRefresh) {
+			if(isNeedRefresh) {
 				this.canvasUtils.startSpin();
 				this.pullDownLoading();
 			} else {
@@ -106,7 +106,7 @@
 			}
 
 			function easeInOutQuad(currentIteration, startValue, changeInValue, totalIterations) {
-				if ((currentIteration /= totalIterations / 2) < 1) {
+				if((currentIteration /= totalIterations / 2) < 1) {
 					return changeInValue / 2 * currentIteration * currentIteration + startValue;
 				}
 				return -changeInValue / 2 * ((--currentIteration) * (currentIteration - 2) - 1) + startValue;
@@ -115,20 +115,20 @@
 			function minmax(value, v0, v1) {
 				var min = Math.min(v0, v1);
 				var max = Math.max(v0, v1);
-				if (value < min)
+				if(value < min)
 					return min;
-				if (value > max)
+				if(value > max)
 					return min;
 				return value;
 			}
 			var drawHead = function(ctx, x0, y0, x1, y1, x2, y2, style) {
 				'use strict';
-				if (typeof(x0) == 'string') x0 = parseInt(x0);
-				if (typeof(y0) == 'string') y0 = parseInt(y0);
-				if (typeof(x1) == 'string') x1 = parseInt(x1);
-				if (typeof(y1) == 'string') y1 = parseInt(y1);
-				if (typeof(x2) == 'string') x2 = parseInt(x2);
-				if (typeof(y2) == 'string') y2 = parseInt(y2);
+				if(typeof(x0) == 'string') x0 = parseInt(x0);
+				if(typeof(y0) == 'string') y0 = parseInt(y0);
+				if(typeof(x1) == 'string') x1 = parseInt(x1);
+				if(typeof(y1) == 'string') y1 = parseInt(y1);
+				if(typeof(x2) == 'string') x2 = parseInt(x2);
+				if(typeof(y2) == 'string') y2 = parseInt(y2);
 				var radius = 3;
 				var twoPI = 2 * Math.PI;
 				ctx.save();
@@ -136,7 +136,7 @@
 				ctx.moveTo(x0, y0);
 				ctx.lineTo(x1, y1);
 				ctx.lineTo(x2, y2);
-				switch (style) {
+				switch(style) {
 					case 0:
 						var backdist = Math.sqrt(((x2 - x0) * (x2 - x0)) + ((y2 - y0) * (y2 - y0)));
 						ctx.arcTo(x1, y1, x0, y0, .55 * backdist);
@@ -162,7 +162,7 @@
 					case 4:
 						var cp1x, cp1y, cp2x, cp2y, backdist;
 						var shiftamt = 5;
-						if (x2 == x0) {
+						if(x2 == x0) {
 							backdist = y2 - y0;
 							cp1x = (x1 + x0) / 2;
 							cp2x = (x1 + x0) / 2;
@@ -202,11 +202,11 @@
 				ctx.arc(x, y, r, startangle, endangle, anticlockwise);
 				ctx.stroke();
 				var sx, sy, lineangle, destx, desty;
-				if (which & 1) {
+				if(which & 1) {
 					sx = Math.cos(startangle) * r + x;
 					sy = Math.sin(startangle) * r + y;
 					lineangle = Math.atan2(x - sx, sy - y);
-					if (anticlockwise) {
+					if(anticlockwise) {
 						destx = sx + 10 * Math.cos(lineangle);
 						desty = sy + 10 * Math.sin(lineangle);
 					} else {
@@ -215,11 +215,11 @@
 					}
 					drawArrow(ctx, sx, sy, destx, desty, style, 2, angle, d);
 				}
-				if (which & 2) {
+				if(which & 2) {
 					sx = Math.cos(endangle) * r + x;
 					sy = Math.sin(endangle) * r + y;
 					lineangle = Math.atan2(x - sx, sy - y);
-					if (anticlockwise) {
+					if(anticlockwise) {
 						destx = sx - 10 * Math.cos(lineangle);
 						desty = sy - 10 * Math.sin(lineangle);
 					} else {
@@ -232,10 +232,10 @@
 			}
 			var drawArrow = function(ctx, x1, y1, x2, y2, style, which, angle, d) {
 				'use strict';
-				if (typeof(x1) == 'string') x1 = parseInt(x1);
-				if (typeof(y1) == 'string') y1 = parseInt(y1);
-				if (typeof(x2) == 'string') x2 = parseInt(x2);
-				if (typeof(y2) == 'string') y2 = parseInt(y2);
+				if(typeof(x1) == 'string') x1 = parseInt(x1);
+				if(typeof(y1) == 'string') y1 = parseInt(y1);
+				if(typeof(x2) == 'string') x2 = parseInt(x2);
+				if(typeof(y2) == 'string') y2 = parseInt(y2);
 				style = typeof(style) != 'undefined' ? style : 3;
 				which = typeof(which) != 'undefined' ? which : 1;
 				angle = typeof(angle) != 'undefined' ? angle : Math.PI / 8;
@@ -244,14 +244,14 @@
 				var dist = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 				var ratio = (dist - d / 3) / dist;
 				var tox, toy, fromx, fromy;
-				if (which & 1) {
+				if(which & 1) {
 					tox = Math.round(x1 + (x2 - x1) * ratio);
 					toy = Math.round(y1 + (y2 - y1) * ratio);
 				} else {
 					tox = x2;
 					toy = y2;
 				}
-				if (which & 2) {
+				if(which & 2) {
 					fromx = x1 + (x2 - x1) * (1 - ratio);
 					fromy = y1 + (y2 - y1) * (1 - ratio);
 				} else {
@@ -264,7 +264,7 @@
 				ctx.stroke();
 				var lineangle = Math.atan2(y2 - y1, x2 - x1);
 				var h = Math.abs(d / Math.cos(angle));
-				if (which & 1) {
+				if(which & 1) {
 					var angle1 = lineangle + Math.PI + angle;
 					var topx = x2 + Math.cos(angle1) * h;
 					var topy = y2 + Math.sin(angle1) * h;
@@ -273,7 +273,7 @@
 					var boty = y2 + Math.sin(angle2) * h;
 					toDrawHead(ctx, topx, topy, x2, y2, botx, boty, style);
 				}
-				if (which & 2) {
+				if(which & 2) {
 					var angle1 = lineangle + angle;
 					var topx = x1 + Math.cos(angle1) * h;
 					var topy = y1 + Math.sin(angle1) * h;
@@ -286,7 +286,7 @@
 
 			var spinColors = function(currentIteration, totalIterations) {
 				var step = currentIteration % totalIterations;
-				if (step < oldStep)
+				if(step < oldStep)
 					colors.push(colors.shift());
 				var c0 = colors[0],
 					c1 = colors[1],
@@ -300,7 +300,7 @@
 
 			var spin = function(t) {
 				var timeCurrent = t || (new Date).getTime();
-				if (!startTime) {
+				if(!startTime) {
 					startTime = timeCurrent;
 				}
 				tick = timeCurrent - startTime;

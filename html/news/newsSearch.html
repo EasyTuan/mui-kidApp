@@ -9,7 +9,7 @@
 			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
 		</script>
 		<script type="text/javascript">
-			link(['../../css/reset.css','../../css/news/newsList.css']);
+			link(['../../css/reset.css', '../../css/news/newsList.css']);
 		</script>
 	</head>
 
@@ -25,26 +25,26 @@
 			<a class="mui-action-back mui-pull-right head-rightbtn" id="backBtn">取消</a>
 			<a class="mui-pull-right head-rightbtn" id="searchBtn" style="display: none;">搜索</a>
 		</header>
-		
-			<div class="mt15 mui-content" id="history_warp">
-				
-					<div class="history bg-fff">
-						<p>
-							<span class="mui-pull-left">历史记录</span>
-							<span class="iconfont icon-delete mui-pull-right" id="clear"></span>
-						</p>
-						<div class="historyList" id="historylist_warp">
-						</div>
-					</div>
-				
-			</div>
-			<div class="mt15 mui-content mui-scroll-wrapper" id="pullrefresh" style="display: none;">
-				<div class="mui-scroll">
-					<ul class="mui-table-view tblv-nl newslist" id="searchresult_warp">
-					</ul>
+
+		<div class="mt15 mui-content" id="history_warp">
+
+			<div class="history bg-fff">
+				<p>
+					<span class="mui-pull-left">历史记录</span>
+					<span class="iconfont icon-delete mui-pull-right" id="clear"></span>
+				</p>
+				<div class="historyList" id="historylist_warp">
 				</div>
 			</div>
-	
+
+		</div>
+		<div class="mt15 mui-content mui-scroll-wrapper" id="pullrefresh" style="display: none;">
+			<div class="mui-scroll">
+				<ul class="mui-table-view tblv-nl newslist" id="searchresult_warp">
+				</ul>
+			</div>
+		</div>
+
 		<script type="text/html" id="historylist_view">
 			{{each data as item}}
 			<span>{{item}}</span> {{/each}}
@@ -52,18 +52,16 @@
 		<script type="text/html" id="searchresult_view">
 			{{if data==null||data.length==0}}
 			<div class="nodata">暂无内容</div>
-			{{else}}
-			{{each data as item}}
+			{{else}} {{each data as item}}
 			<li class="detail" data-id="{{item.NewsId}}">
 				<div class="newsimgbox">
-				<img class="loadthumb" data-url="{{item.ImgUrl}}" data-wh=",220" />	
-				</div>				
+					<img class="loadthumb" data-url="{{item.ImgUrl}}" data-wh=",220" />
+				</div>
 				<h5>{{item.Subject}}</h5>
 				<p>{{item.Summary}}</p>
 				<span class="newtype news_m{{item.ModuleId}}">{{item.ModuleName}}</span>
 			</li>
-			{{/each}}
-			{{/if}}
+			{{/each}} {{/if}}
 		</script>
 		<script type="text/javascript">
 			//必须顺序加载

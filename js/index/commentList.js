@@ -2,13 +2,13 @@ mui.init({
 	pullRefresh: {
 		container: '#pullrefresh',
 		down: { //下拉刷新
-				callback: pulldownRefresh,
-				style:mui.os.android?"circle":"default"
+			callback: pulldownRefresh,
+			style: mui.os.android ? "circle" : "default"
 		},
 		up: {
 			contentinit: '',
 			contentrefresh: '正在加载...',
-			contentnomore:'没有更多了',
+			contentnomore: '没有更多了',
 			callback: pullupRefresh
 		}
 	}
@@ -19,75 +19,73 @@ var pageCount = 0; //总页数
 var storeid;
 mui.previewImage();
 
-mui.plusReady(function(){
+mui.plusReady(function() {
 	storage.init();
-	var self=plus.webview.currentWebview();
-	storeid=self.info.storeid;
-	
+	var self = plus.webview.currentWebview();
+	storeid = self.info.storeid;
+
 	//注册登录事件
 	appPage.registerCheckLoginEvent();
-	
+
 	//获取评论列表
-	request('/Store/getStoreCommentList',{
-		storeid:storeid,
-		pageindex:1
-	},function(r){
+	request('/Store/getStoreCommentList', {
+		storeid: storeid,
+		pageindex: 1
+	}, function(r) {
 		log(r);
-		r.code==0?render('#commentList','commentListTep1',r):appUI.showTopTip(r.msg);
-		pageCount=r.pagecount;
+		r.code == 0 ? render('#commentList', 'commentListTep1', r) : appUI.showTopTip(r.msg);
+		pageCount = r.pagecount;
 		appPage.imgInit();
-	},true);
-	
+	}, true);
+
 	//分类单选
-	mui(".group").on("tap",".kind",function(){
-		var kind=document.getElementsByClassName("kind");
-		for(var i=0;i<kind.length;i++){
-			kind[i].setAttribute('class','kind');
+	mui(".group").on("tap", ".kind", function() {
+		var kind = document.getElementsByClassName("kind");
+		for(var i = 0; i < kind.length; i++) {
+			kind[i].setAttribute('class', 'kind');
 		}
-		this.setAttribute('class','kind active');
+		this.setAttribute('class', 'kind active');
 	})
-	
+
 	//评价
-	document.getElementById("publish").addEventListener("tap",function(){
-		if(storageUser.UId!=0){
-			openNew("comment.html",{
-				storeid:storeid
+	document.getElementById("publish").addEventListener("tap", function() {
+		if(storageUser.UId != 0) {
+			openNew("comment.html", {
+				storeid: storeid
 			});
 		}
 	})
 
 })
 
-
 //自定义监听评论
-window.addEventListener('uploadComment',function(){
-	request('/Store/getStoreCommentList',{
-		storeid:storeid,
-		pageindex:1
-	},function(r){
+window.addEventListener('uploadComment', function() {
+	request('/Store/getStoreCommentList', {
+		storeid: storeid,
+		pageindex: 1
+	}, function(r) {
 		log(r);
-		r.code==0?render('#commentList','commentListTep1',r):appUI.showTopTip(r.msg);
+		r.code == 0 ? render('#commentList', 'commentListTep1', r) : appUI.showTopTip(r.msg);
 		appPage.imgInit();
-	},true);
+	}, true);
 })
-
 
 //下拉刷新具体业务实现
 function pulldownRefresh() {
 	setTimeout(function() {
-		request('/Store/getStoreCommentList',{
-			storeid:storeid,
-			pageindex:1
-		},function(r){
+		request('/Store/getStoreCommentList', {
+			storeid: storeid,
+			pageindex: 1
+		}, function(r) {
 			log(r);
-			r.code==0?render('#commentList','commentListTep1',r):appUI.showTopTip(r.msg);
-			pageCount=r.pagecount;
+			r.code == 0 ? render('#commentList', 'commentListTep1', r) : appUI.showTopTip(r.msg);
+			pageCount = r.pagecount;
 			appPage.imgInit();
 			//下拉刷新结束
 			mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
 			//重置上拉加载
 			mui('#pullrefresh').pullRefresh().refresh(true);
-		},true);
+		}, true);
 		//下拉刷新结束
 		mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
 		//重置上拉加载
@@ -101,17 +99,17 @@ function pulldownRefresh() {
 function pullupRefresh() {
 	if(pageCount > page) {
 		setTimeout(function() {
-			request('/Store/getStoreCommentList',{
-				storeid:storeid,
-				pageindex:1
-			},function(r){
+			request('/Store/getStoreCommentList', {
+				storeid: storeid,
+				pageindex: 1
+			}, function(r) {
 				log(r);
-				r.code==0?render('#commentList','commentListTep1',r):appUI.showTopTip(r.msg);
-				pageCount=r.pagecount;
+				r.code == 0 ? render('#commentList', 'commentListTep1', r) : appUI.showTopTip(r.msg);
+				pageCount = r.pagecount;
 				appPage.imgInit();
 				mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
-			},false,function(){
-				appPage.endPullRefresh(true);		
+			}, false, function() {
+				appPage.endPullRefresh(true);
 			});
 			page++;
 			log(mklog() + '上拉加载结束！！')
@@ -122,7 +120,6 @@ function pullupRefresh() {
 	}
 
 }
-
 
 var pkEvent = {
 	goComment: function() {

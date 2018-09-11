@@ -32,12 +32,12 @@ h4 {
 	margin: 0 0 0 10px;
 }
 
-.imgList{
+.imgList {
 	display: flex;
 	flex-wrap: wrap;
 }
 
-.imgList .imgcontain{
+.imgList .imgcontain {
 	display: flex;
 	align-items: center;
 	width: calc(25vw - 10px);
@@ -124,17 +124,18 @@ h4 i {
 	color: #fff;
 }
 
-.mui-icon-arrowright{
+.mui-icon-arrowright {
 	position: relative;
 	top: 1px;
 }
+
 .commentImg {
 	margin: 10px 0 0 0;
 	display: flex;
-	flex-wrap:wrap ;
+	flex-wrap: wrap;
 }
 
-.commentImg .imgcontain{
+.commentImg .imgcontain {
 	display: flex;
 	align-items: center;
 	width: calc(33.33vw - 14px);

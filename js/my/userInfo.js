@@ -9,9 +9,9 @@ mui.init({
 		}
 	},
 	beforeback: function() {
-		var xx=plus.webview.getWebviewById('index/richScan.html');
+		var xx = plus.webview.getWebviewById('index/richScan.html');
 		if(xx)
-		plus.webview.close(xx);
+			plus.webview.close(xx);
 	}
 });
 //下拉刷新具体业务实现
@@ -19,7 +19,7 @@ function pulldownRefresh() {
 	loadData();
 }
 
-var friendNickName='';
+var friendNickName = '';
 
 mui.plusReady(function() {
 	storage.init();
@@ -50,10 +50,10 @@ mui.plusReady(function() {
 		log(pwc.id + "刷新页面");
 		loadData();
 	});
-	
+
 	var old_back = mui.back;
-	mui.back = function(){
-		mui.fire(plus.webview.getWebviewById('my/myFriends.html'),'refreshPage');
+	mui.back = function() {
+		mui.fire(plus.webview.getWebviewById('my/myFriends.html'), 'refreshPage');
 		old_back();
 	}
 })
@@ -66,14 +66,14 @@ function loadData() {
 		if(json.code == 0) {
 			var json1 = {},
 				json2 = {};
-			friendNickName=json.data.uinfodata.NickName;
+			friendNickName = json.data.uinfodata.NickName;
 			json1.data = json.data.uinfodata;
 			json1.ShowName = json.showname;
-			mark=json1.data.MarkName;
+			mark = json1.data.MarkName;
 			log(JSON.stringify(json1));
 			render("#info_warp", "info_view", json1);
 			mui.previewImage();
-			
+
 			if(json1.data.IsMutual == 1) { //互为好友
 				document.getElementById("onewar").removeAttribute("style");
 				document.getElementById("setmark").removeAttribute("style");
@@ -82,8 +82,8 @@ function loadData() {
 				document.getElementById("onewar").addEventListener("tap", function() {
 					openNew("../pk/war.html", {
 						friendid: friendid,
-						imgurl:json1.data.ImgUrl,
-						friendNickName:friendNickName
+						imgurl: json1.data.ImgUrl,
+						friendNickName: friendNickName
 					});
 				})
 				//设置备注
@@ -105,7 +105,7 @@ function loadData() {
 					});
 				})
 			}
-			if(storageUser.UId==friendid){
+			if(storageUser.UId == friendid) {
 				document.getElementById("onewar").setAttribute("style", "display: none;");
 				document.getElementById("setmark").setAttribute("style", "display: none;");
 				document.getElementById("addFriend").setAttribute("style", "display: none;");
@@ -117,8 +117,7 @@ function loadData() {
 		}
 		appPage.imgInit();
 		appPage.endPullRefresh();
-	},false,function(){
+	}, false, function() {
 		appPage.endPullRefresh();
 	});
 }
-

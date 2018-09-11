@@ -1,6 +1,6 @@
 mui.init({
 	beforeback: function() {
-		var backpage = plus.webview.getWebviewById("my/myFriends.html");		
+		var backpage = plus.webview.getWebviewById("my/myFriends.html");
 		if(backpage) {
 			mui.fire(backpage, 'initPage')
 		}
@@ -10,7 +10,6 @@ mui.init({
 mui.plusReady(function() {
 	storage.init();
 	initPage();
-
 
 	document.getElementById("myMobileBook").addEventListener("tap", function() {
 		mui.toast("宝宝，这个暂未开通呢，敬请期待:-D...");
@@ -46,7 +45,8 @@ mui.plusReady(function() {
 		agreeAdd(id);
 	});
 });
-function agreeAdd(fid){
+
+function agreeAdd(fid) {
 	request("/Player/acceptPlayerFriendApply", {
 		playerid: storageUser.UId,
 		friendid: fid
@@ -60,6 +60,7 @@ function agreeAdd(fid){
 		}
 	});
 }
+
 function initPage() {
 	request("/Player/getPlayerFriendList", {
 		step: 2,
@@ -74,7 +75,7 @@ function initPage() {
 		} else {
 			mui.toast(json.msg);
 		}
-	},true);
+	}, true);
 }
 
 function initIndexList() {

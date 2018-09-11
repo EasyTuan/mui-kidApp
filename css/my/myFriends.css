@@ -17,6 +17,7 @@ body {
 	border: none;
 }
 
+
 /*.mui-indexed-list-inner::-webkit-scrollbar {
 	width: 0px;
 	height: 0px;
@@ -78,7 +79,7 @@ body {
 .mui-indexed-list-bar {
 	/*background: #00A9F2;*/
 	width: 40px;
-	position:fixed;
+	position: fixed;
 	height: 100%;
 	z-index: 10;
 	right: 0px;
@@ -93,7 +94,7 @@ body {
 	padding: 0px;
 	margin: 0px;
 	line-height: 25px;
-	color: #aaa;	
+	color: #aaa;
 }
 
 .mui-indexed-list-bar.active a {

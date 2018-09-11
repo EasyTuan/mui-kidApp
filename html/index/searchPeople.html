@@ -12,7 +12,7 @@
 			link(['../../css/reset.css']);
 		</script>
 		<style type="text/css">
-			.liRight{
+			.liRight {
 				position: absolute;
 				top: 26px;
 				right: 10px;
@@ -20,29 +20,31 @@
 				color: #999;
 			}
 			
-			.liRight span:nth-of-type(2){
+			.liRight span:nth-of-type(2) {
 				border: 1px solid #4B9CF6;
 				color: #4B9CF6;
 				padding: 2px 4px;
-				border-radius:4px ;
+				border-radius: 4px;
 				margin: 0 0 0 5px;
 				font-size: 14px;
 			}
 			
-			.mui-content{
+			.mui-content {
 				margin: 10px 0 0 0;
 			}
 			
 			.mui-table-view .mui-media-object {
-			    line-height: 42px;
-			    max-width: 42px;
-			    height: 42px;
-			    border-radius:50% ;
+				line-height: 42px;
+				max-width: 42px;
+				height: 42px;
+				border-radius: 50%;
 			}
-			#shopList{
+			
+			#shopList {
 				display: none;
 			}
-			.mui-media-body{
+			
+			.mui-media-body {
 				overflow: hidden;
 				text-overflow: ellipsis;
 				padding: 0 35% 0 0;
@@ -70,29 +72,29 @@
 						<span class="iconfont icon-delete mui-pull-right" id="clear"></span>
 					</p>
 					<div class="historyList">
-						
+
 					</div>
 				</div>
 				<ul class="mui-table-view tblv-nl" id="peopleList">
-					
-			    </ul>
+
+				</ul>
 			</div>
 		</div>
 		<script type="text/html" id="peopleListTep1">
 			{{each data as value}}
-				<li class="mui-table-view-cell mui-media">
-		            <a href="javascript:;" class="details" data-playerid="{{value.PlayerId}}">
-		                <img class="mui-media-object mui-pull-left loadthumb" data-url="{{value.ImgUrl}}" data-wh="128,128">
-		                <div class="mui-media-body">
-		                    {{value.NickName}}
-		                    <p class="mui-ellipsis">{{value.SelfdomSign}}</p>
-		                </div>
-		            </a>
-		            <div class="liRight">
-	                	<span>距离{{value.distance}}m</span>
-	                	<span class="war" data-playerid="{{value.PlayerId}}" data-imgurl="{{value.ImgUrl}}" data-nickname="{{value.NickName}}">约战</span>
-	                </div>
-		        </li>
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;" class="details" data-playerid="{{value.PlayerId}}">
+					<img class="mui-media-object mui-pull-left loadthumb" data-url="{{value.ImgUrl}}" data-wh="128,128">
+					<div class="mui-media-body">
+						{{value.NickName}}
+						<p class="mui-ellipsis">{{value.SelfdomSign}}</p>
+					</div>
+				</a>
+				<div class="liRight">
+					<span>距离{{value.distance}}m</span>
+					<span class="war" data-playerid="{{value.PlayerId}}" data-imgurl="{{value.ImgUrl}}" data-nickname="{{value.NickName}}">约战</span>
+				</div>
+			</li>
 			{{/each}}
 		</script>
 		<script type="text/javascript">

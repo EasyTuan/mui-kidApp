@@ -59,8 +59,6 @@ mui.plusReady(function() {
 				return;
 			}
 
-			
-
 			//auth.logout(function(e) {
 			oauthlogin(id);
 			//			}, function(e) {
@@ -100,8 +98,8 @@ function initPage() {
 			json.data.ProvinceId = json.data.ProvinceId || 0;
 			json.data.CityId = json.data.CityId || 0;
 			json.data.DistrictId = json.data.DistrictId || 0;
-			json.data.QQ=json.data.BindQQ=="Y"?"已绑定":"未绑定";
-			json.data.WeChat=json.data.BindWeChat=="Y"?"已绑定":"未绑定";
+			json.data.QQ = json.data.BindQQ == "Y" ? "已绑定" : "未绑定";
+			json.data.WeChat = json.data.BindWeChat == "Y" ? "已绑定" : "未绑定";
 			render("#myprivateinfo_warp", "myprivateinfo_view", json);
 
 		} else {
@@ -114,7 +112,7 @@ function oauthlogin(id) {
 	appUI.showWaiting();
 	var auth = auths[id];
 	var thirdpartyid = 1,
-			userinfo, authinfo, imgurl, nickname;
+		userinfo, authinfo, imgurl, nickname;
 	auth.login(function() {
 		if(auth.id == "qq") {
 			thirdpartyid = 1;
@@ -131,20 +129,20 @@ function oauthlogin(id) {
 			nickname = userinfo.nickname;
 			if(userinfo) { //获取到信息
 				request("/Base/UpdateThirdParty", {
-					PlayerId:storageUser.UId,
+					PlayerId: storageUser.UId,
 					ThirdPartyId: thirdpartyid,
 					OpenId: authinfo.openid,
-					Memo:JSON.stringify(userinfo)
+					Memo: JSON.stringify(userinfo)
 				}, function(json) {
 					appUI.showTopTip(json.msg);
 					if(json.code == 0) {
 						initPage();
 					} else {
-						
+
 					}
 				});
 			}
-			
+
 		}, function(e) {
 			appUI.closeWaiting();
 			plus.nativeUI.toast("获取用户信息失败：" + e.message);

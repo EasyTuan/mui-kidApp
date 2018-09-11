@@ -9,7 +9,7 @@
 			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
 		</script>
 		<script type="text/javascript">
-			link(['../../css/reset.css','../../css/my/myMatchSearch.css']);
+			link(['../../css/reset.css', '../../css/my/myMatchSearch.css']);
 		</script>
 	</head>
 
@@ -20,7 +20,7 @@
 		</header>
 		<div class="mui-content mui-scroll-wrapper" id="pullrefresh">
 			<div class="mui-scroll">
-				<ul class="mui-table-view tblv-nl mt15" id="searchresult_warp">					
+				<ul class="mui-table-view tblv-nl mt15" id="searchresult_warp">
 				</ul>
 			</div>
 		</div>
@@ -28,7 +28,7 @@
 			{{each data as item}}
 			<li class="mui-table-view-cell mui-media detail" data-id="{{item.MatchId}}">
 				<a href="javascript:;" class="pstn-r">
-					<img class="mui-media-object mui-pull-left loadthumb img4r defuserimg" data-url="{{item.ImgUrl}}" data-wh="128,128" >
+					<img class="mui-media-object mui-pull-left loadthumb img4r defuserimg" data-url="{{item.ImgUrl}}" data-wh="128,128">
 					<div class="mui-media-body">
 						{{item.MatchName}}
 						<p class="mui-ellipsis mui-row fs12">

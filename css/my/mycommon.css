@@ -30,11 +30,15 @@
 	right: 100px !important;
 }
 
+
 /*暂无数据*/
-.nodata{
+
+.nodata {
 	width: 100vw;
 	height: 100vh;
 }
+
+
 /*margin*/
 
 .m1rem {
@@ -44,9 +48,11 @@
 .mtb10 {
 	margin: 10px 0px;
 }
+
 .mtb15 {
 	margin: 15px 0px;
 }
+
 .mlr10 {
 	margin: 0px 10px;
 }
@@ -66,9 +72,11 @@
 .mr10 {
 	margin-right: 10px;
 }
-.mr20{
-	margin-right: 20px  !important;
+
+.mr20 {
+	margin-right: 20px !important;
 }
+
 .ml10 {
 	margin-left: 10px;
 }
@@ -80,10 +88,15 @@
 .ml60 {
 	margin-left: 60px;
 }
-.mr60{margin-right: 60px !important;}
+
+.mr60 {
+	margin-right: 60px !important;
+}
+
 .ml58 {
 	margin-left: 58px;
 }
+
 .m0 {
 	margin: 0px;
 }
@@ -172,7 +185,11 @@
 .pb5 {
 	padding-bottom: 5px;
 }
-.pb60{padding-bottom: 60px;}
+
+.pb60 {
+	padding-bottom: 60px;
+}
+
 .p12-15 {
 	padding: 12px 15px;
 }
@@ -275,16 +292,23 @@
 	-webkit-box-shadow: none;
 	border-bottom: none;
 }
+
 .head-resetnavbar2 {
 	box-shadow: none;
 	background-color: #3A90F0;
 	-webkit-box-shadow: none;
 	border-bottom: none;
 }
-.head-resetnavbar2 a{
+
+.head-resetnavbar2 a {
 	color: #fff !important;
 }
-.head-resetnavbar2 h1{color: #fff !important;}
+
+.head-resetnavbar2 h1 {
+	color: #fff !important;
+}
+
+
 /*border*/
 
 .bor-no {
@@ -436,10 +460,16 @@
 .cor-000 {
 	color: #000;
 }
-.cor-hong{color: #d6204b;}
-.cor-red{
+
+.cor-hong {
+	color: #d6204b;
+}
+
+.cor-red {
 	color: red;
 }
+
+
 /*font-size*/
 
 .fs12 {
@@ -473,9 +503,11 @@
 .fw {
 	font-weight: bold;
 }
-.fwn{
+
+.fwn {
 	font-weight: normal;
 }
+
 
 /*top*/
 
@@ -613,6 +645,7 @@
 	float: left;
 	line-height: 2.2rem;
 }
+
 .img3r {
 	width: 3rem;
 	height: 3rem;
@@ -620,6 +653,7 @@
 	float: left;
 	line-height: 3rem;
 }
+
 .redbadge {
 	position: absolute;
 	background: red;
@@ -746,13 +780,16 @@
 	padding: 11px 15px;
 	background: #fff;
 }
-.tblcell a{
+
+.tblcell a {
 	color: #000000;
 }
 
+
 /*历史记录*/
-.history{
-	border-top:1px solid #e6ebef ;
+
+.history {
+	border-top: 1px solid #e6ebef;
 	padding: 10px 10px;
 	height: calc(100vh - 59px);
 }
@@ -760,21 +797,22 @@
 .historyList {
 	clear: both;
 	padding: 10px 0 0 0;
-} 
+}
 
-.historyList span{
+.historyList span {
 	display: inline-block;
-	margin-bottom:8px ;
+	margin-bottom: 8px;
 	font-size: 12px;
 	background: #f1f9ff;
 	color: #74858e;
 	padding: 3px 10px;
-	margin-left:3px ;
+	margin-left: 3px;
 	white-space: nowrap;
 }
-	.status {
-		position: absolute;
-		top: 35px;
-		right: 15px;
-		color: #999;
-	}
+
+.status {
+	position: absolute;
+	top: 35px;
+	right: 15px;
+	color: #999;
+}

@@ -1,10 +1,9 @@
 @charset "utf-8";
-
-.mui-ellipsis i{
+.mui-ellipsis i {
 	font-size: 10px;
 }
 
-.grade{
+.grade {
 	margin: 0 0 0 2px;
 	font-size: 12px;
 	color: #999;
@@ -12,6 +11,6 @@
 	top: -1px;
 }
 
-.mui-ellipsis .active{
+.mui-ellipsis .active {
 	color: #ffcf1c;
 }

@@ -20,19 +20,19 @@ mui.init({
 	}
 });
 //下拉刷新具体业务实现
-function pulldownRefresh() {	
+function pulldownRefresh() {
 	//重置页码
 	pageno = 1;
 	loadData();
 }
 
 // 上拉加载具体业务实现
-function pullupRefresh() {	
+function pullupRefresh() {
 	loadData(true);
 }
 mui.plusReady(function() {
-	storage.init();	
-	friendid=appPage.getParam("id");
+	storage.init();
+	friendid = appPage.getParam("id");
 	loadData();
 	//详情页
 	mui("#pullrefresh").on("tap", ".detail", function() {
@@ -41,8 +41,8 @@ mui.plusReady(function() {
 		openNew("../match/detail.html", {
 			id: id
 		});
-	})	
-	
+	})
+
 });
 
 //function initEvent() {
@@ -55,7 +55,7 @@ mui.plusReady(function() {
 //	})
 //}
 
-function loadData(isnextpage, isreload) {	
+function loadData(isnextpage, isreload) {
 	if(isnextpage) { //加载下一页
 		pageno++;
 	} else if(isreload) { //重新加载当前页
@@ -74,17 +74,17 @@ function loadData(isnextpage, isreload) {
 	}
 	request("/Player/getPlayerFriendMatchMore", {
 		playerid: storageUser.UId,
-		friendid:friendid,
+		friendid: friendid,
 		pageindex: pageno
 	}, function(json) {
-		var nomore=true;
+		var nomore = true;
 		if(json.code == 0) {
 			pagecount = json.pagecount; //总页码			
-			nomore = pageno >= json.pagecount;			
+			nomore = pageno >= json.pagecount;
 		} else {
 			mui.toast(json.msg);
-		}	
-		render("#searchresult_warp", "searchresult_view", json,isappend);
+		}
+		render("#searchresult_warp", "searchresult_view", json, isappend);
 		appPage.imgInit();
 		appPage.endPullRefresh(nomore);
 	});

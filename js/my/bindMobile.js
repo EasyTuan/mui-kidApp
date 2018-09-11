@@ -1,7 +1,7 @@
 mui.init({
 	beforeback: function() {
 		var backid = "my/myAccount.html";
-		var backurl = backid.replace("my/","");
+		var backurl = backid.replace("my/", "");
 		var backpage = plus.webview.getWebviewById(backid);
 		log("backid=" + backid + " backurl" + backurl);
 		if(backpage) {

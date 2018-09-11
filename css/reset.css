@@ -34,7 +34,6 @@
 /*暂无数据*/
 
 
-
 /*margin*/
 
 .m1rem {
@@ -88,9 +87,11 @@
 .mr60 {
 	margin-right: 60px !important;
 }
+
 .ml42 {
 	margin-left: 42px;
 }
+
 .ml58 {
 	margin-left: 58px;
 }
@@ -110,9 +111,11 @@
 .mt15 {
 	margin-top: 15px;
 }
+
 .mt59 {
 	margin-top: 59px;
 }
+
 .mt7 {
 	margin-top: 7px;
 }
@@ -156,7 +159,12 @@
 .pl30 {
 	padding-left: 30px !important;
 }
-.plr15{padding-left:15px ; padding-right: 15px;}
+
+.plr15 {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
 .pl15 {
 	padding-left: 15px !important;
 }
@@ -343,9 +351,11 @@
 .lh30 {
 	line-height: 30px !important;
 }
+
 .lh35 {
 	line-height: 35px !important;
 }
+
 .lh45 {
 	line-height: 45px !important;
 }
@@ -498,9 +508,11 @@
 
 
 /*top*/
+
 .t44 {
 	top: 44px !important;
 }
+
 .t55 {
 	top: 55px !important;
 }
@@ -581,11 +593,6 @@
 	background-color: #ddd;
 }
 
-
-
-
-
-
 .redbadge {
 	position: absolute;
 	background: #FF5353;
@@ -663,7 +670,7 @@
 	height: 30px;
 	width: 90%;
 	padding-left: 30px;
-	margin-left:10px ;
+	margin-left: 10px;
 	-webkit-user-select: text;
 	border: none;
 	border-radius: 3px;
@@ -673,7 +680,8 @@
 	margin-bottom: 0px;
 }
 
-#backBtn,#searchBtn{
+#backBtn,
+#searchBtn {
 	position: absolute;
 	top: 0;
 	right: 8px;
@@ -692,10 +700,12 @@
 	top: 5px !important;
 }
 
-.mui-bar .mui-input-row .mui-input-clear~.mui-icon-clear, .mui-bar .mui-input-row .mui-input-speech~.mui-icon-speech {
-    top: 0;
-    right: 30px;
+.mui-bar .mui-input-row .mui-input-clear~.mui-icon-clear,
+.mui-bar .mui-input-row .mui-input-speech~.mui-icon-speech {
+	top: 0;
+	right: 30px;
 }
+
 
 /*底部固定按钮*/
 
@@ -771,5 +781,10 @@
 	right: 15px;
 	color: #999;
 }
+
+
 /*搜索页*/
-.mt59 .mui-pull-top-pocket{top:-15px !important;}
+
+.mt59 .mui-pull-top-pocket {
+	top: -15px !important;
+}

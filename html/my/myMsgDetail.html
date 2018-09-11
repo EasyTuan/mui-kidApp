@@ -40,15 +40,15 @@
 				request("/Player/getPlayerSysNotifyDetail", {
 					playerid: storageUser.UId,
 					notifyid: appPage.getParam("id")
-				}, function(json) {					
+				}, function(json) {
 					if(json.code == 0) {
-						document.getElementById("title").innerText=json.data.Title;
-						document.getElementById("content").innerHTML=json.data.Content;
+						document.getElementById("title").innerText = json.data.Title;
+						document.getElementById("content").innerHTML = json.data.Content;
 					} else {
 						appUI.showTopTip(json.msg);
 						//mui.toast(json.msg);
-					}					
-				},true);
+					}
+				}, true);
 			})
 		</script>
 	</body>

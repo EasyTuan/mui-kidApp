@@ -20,7 +20,7 @@ mui.plusReady(function() {
 			id: id
 		});
 	});
-	
+
 	window.addEventListener('initPage', function(event) {
 		var pwc = plus.webview.currentWebview();
 		log(pwc.id + "不是新开的");
@@ -31,7 +31,7 @@ mui.plusReady(function() {
 		log(pwc.id + "刷新页面");
 		initPage();
 	});
-	
+
 	//appPage.closeLogin();
 });
 
@@ -49,7 +49,7 @@ function initPage() {
 		} else {
 			appUI.showTopTip(json.msg);
 		}
-	},true);
+	}, true);
 }
 
 function initIndexList() {

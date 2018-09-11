@@ -39,8 +39,7 @@
 			<div class="bg">
 				<p>更多工具</p>
 				<ul class="mui-table-view tblv-nl" id="moreTool">
-					
-					
+
 					<!--<li class="mui-table-view-cell mui-media">
 		            <a href="javascript:;">
 		            	<span class="mui-icon mui-icon-plus mui-pull-left"></span>
@@ -53,31 +52,31 @@
 				</ul>
 			</div>
 		</div>
-		<script type="text/html" id="selectedToolTep1">			
+		<script type="text/html" id="selectedToolTep1">
 			{{each FavBrandList as value}}
 			<li class="mui-table-view-cell mui-media" data-id="{{value.BrandId}}">
-						<a href="javascript:;">
-							<span class="iconfont icon-subtract mui-pull-left"></span>
-							<img class="mui-media-object mui-pull-left loadthumb" data-url="{{value.ImgUrl}}" data-wh=",64">
-							<div class="mui-media-body" style="position: relative;top: 12px;">
-								{{value.BrandName}}
-								<!--<p class="mui-ellipsis">{{value.BrandDesc}}</p>-->
-							</div>
-						</a>
+				<a href="javascript:;">
+					<span class="iconfont icon-subtract mui-pull-left"></span>
+					<img class="mui-media-object mui-pull-left loadthumb" data-url="{{value.ImgUrl}}" data-wh=",64">
+					<div class="mui-media-body" style="position: relative;top: 12px;">
+						{{value.BrandName}}
+						<!--<p class="mui-ellipsis">{{value.BrandDesc}}</p>-->
+					</div>
+				</a>
 			</li>
 			{{/each}}
 		</script>
-		<script type="text/html" id="moreToolTep1">			
+		<script type="text/html" id="moreToolTep1">
 			{{each NoFavBrandList as value}}
 			<li class="mui-table-view-cell mui-media" data-id="{{value.BrandId}}">
-						<a href="javascript:;">
-							<span class="iconfont icon-increseblue mui-pull-left"></span>
-							<img class="mui-media-object mui-pull-left loadthumb" data-url="{{value.ImgUrl}}" data-wh=",64">
-							<div class="mui-media-body" style="position: relative;top: 12px;">
-								{{value.BrandName}}
-								<p class="mui-ellipsis">{{value.BrandDesc}}</p>
-							</div>
-						</a>
+				<a href="javascript:;">
+					<span class="iconfont icon-increseblue mui-pull-left"></span>
+					<img class="mui-media-object mui-pull-left loadthumb" data-url="{{value.ImgUrl}}" data-wh=",64">
+					<div class="mui-media-body" style="position: relative;top: 12px;">
+						{{value.BrandName}}
+						<p class="mui-ellipsis">{{value.BrandDesc}}</p>
+					</div>
+				</a>
 			</li>
 			{{/each}}
 		</script>

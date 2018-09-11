@@ -2,13 +2,13 @@ mui.init({
 	pullRefresh: {
 		container: '#pullrefresh',
 		down: { //下拉刷新
-				callback: pulldownRefresh,
-				style:mui.os.android?"circle":"default"
+			callback: pulldownRefresh,
+			style: mui.os.android ? "circle" : "default"
 		},
 		up: {
 			contentinit: '',
 			contentrefresh: '正在加载...',
-			contentnomore:'没有更多了',
+			contentnomore: '没有更多了',
 			callback: pullupRefresh
 		}
 	}
@@ -17,14 +17,12 @@ mui.init({
 var page = 1; //初始页码
 var pageCount = 0; //总页数
 
-
-mui.plusReady(function(){
+mui.plusReady(function() {
 	//打开二级
-	mui(".infoList").on("tap","li",function(){
+	mui(".infoList").on("tap", "li", function() {
 		openNew("companyEventsDetails.html");
 	})
 })
-
 
 //下拉刷新具体业务实现
 function pulldownRefresh() {

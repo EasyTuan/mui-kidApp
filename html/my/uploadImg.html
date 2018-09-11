@@ -9,20 +9,21 @@
 			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
 		</script>
 		<script type="text/javascript">
-			link(['../../css/reset.css','../../css/cropper.css']);
+			link(['../../css/reset.css', '../../css/cropper.css']);
 		</script>
-		<style>		
+		<style>
 			#photo {
-				position: absolute;								
-				width:100vw ;
-				height: calc(100vh - 84px);			
-				text-align: center;	
-			}		
-			.defimg{
+				position: absolute;
+				width: 100vw;
+				height: calc(100vh - 84px);
+				text-align: center;
+			}
+			
+			.defimg {
 				position: relative;
-				top:50%;
+				top: 50%;
 				margin-top: -50vw;
-			}	
+			}
 		</style>
 	</head>
 
@@ -36,7 +37,7 @@
 			<div class="mui-scroll">
 				<div id="canvas1" style="display: none;"></div>
 				<div class="c-group">
-					<div id="photo">						
+					<div id="photo">
 					</div>
 				</div>
 			</div>
@@ -45,7 +46,7 @@
 			<button class="btn bg-lan">保存</button>
 		</div>
 		<script type="text/javascript">
-			script(['../../js/lib/jquery-1.11.0.min.js','../../js/lib/cropper.js','../../js/lib/base64.js','../../js/lib/crypto.js','../../js/lib/hmac.js', '../../js/lib/sha1.js', '../../js/my/uploadImg.js']);
+			script(['../../js/lib/jquery-1.11.0.min.js', '../../js/lib/cropper.js', '../../js/lib/base64.js', '../../js/lib/crypto.js', '../../js/lib/hmac.js', '../../js/lib/sha1.js', '../../js/my/uploadImg.js']);
 		</script>
 	</body>
 

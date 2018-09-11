@@ -13,7 +13,7 @@ mui.plusReady(function() {
 				remark: document.getElementById("inpt_val").value.trim()
 			},
 			function(json) {
-				if(json.code == 0) {	
+				if(json.code == 0) {
 					mui.toast(json.msg);
 					mui.back();
 				} else {

@@ -19,8 +19,8 @@ mui.plusReady(function() {
 					if(json.code == 0) {
 						openNew("changePwd.html");
 					} else {
-						mui.alert('密码错误，请重新输入。如果忘记密码，可通过短信验证登录APP后重新设置密码',  function() {
-							
+						mui.alert('密码错误，请重新输入。如果忘记密码，可通过短信验证登录APP后重新设置密码', function() {
+
 						});
 						//mui.toast(json.msg);
 					}

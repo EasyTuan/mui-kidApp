@@ -19,14 +19,14 @@ mui.init({
 });
 mui.plusReady(function() {
 	storage.init();
-	loadData();	
+	loadData();
 	//二级
 	mui("#list_warp").on("tap", ".detail", function() {
 		openNew("newsDetail.html", {
 			id: this.dataset.id
 		});
 	})
-	
+
 	//搜索
 	document.getElementById("search").addEventListener("tap", function() {
 		mui.openWindow({
@@ -43,7 +43,7 @@ mui.plusReady(function() {
 			}
 		})
 	})
-	
+
 });
 //下拉刷新具体业务实现
 function pulldownRefresh() {
@@ -77,7 +77,7 @@ function loadData(isnextpage, isreload) {
 
 	request("/News/getNewsList", {
 		cityid: storageLocation.CityId,
-		pageindex:pageno
+		pageindex: pageno
 	}, function(json) {
 		var nomore = true;
 		if(json.code == 0) {
@@ -88,7 +88,7 @@ function loadData(isnextpage, isreload) {
 		} else {
 			appUI.showTopTip(json.msg);
 		}
-		appPage.endPullRefresh(nomore);		
+		appPage.endPullRefresh(nomore);
 	}, false, function() {
 		appPage.endPullRefresh();
 	});

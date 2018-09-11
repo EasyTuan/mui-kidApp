@@ -9,10 +9,10 @@
 			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
 		</script>
 		<script type="text/javascript">
-			link(['../../css/reset.css','../../css/imgpreview.css']);
+			link(['../../css/reset.css', '../../css/imgpreview.css']);
 		</script>
 		<style type="text/css">
-				.status {
+			.status {
 				position: absolute;
 				top: 35px;
 				right: 15px;
@@ -35,10 +35,10 @@
 				</div>
 				<h5 class="lh20 pl15">参与赛事</h5>
 				<ul class="mui-table-view tblv-nl" id="match_warp">
-				</ul>				
+				</ul>
 				<div class="tblcell mui-text-center" id="more">
 					<a>查看更多赛事</a>
-				</div>				
+				</div>
 			</div>
 		</div>
 		<div class="btmbar-f mui-text-center bg-lan" id="btn_warp">
@@ -59,37 +59,37 @@
 					<span class="cor-999">距离500m</span>
 				</div>-->
 			</li>
-		</script>		
+		</script>
 		<script type="text/html" id="match_view">
 			{{if data.length==0}}
 			<li class="mui-text-center lh40 cor-999">
 				Ta还没有参与PK比赛
 			</li>
 			{{/if}} {{each data as item}}
-			
-				<li class="mui-table-view-cell mui-media detail" data-id="{{item.MatchId}}">
-					<a href="javascript:;" class="pstn-r">
-						<img class="mui-media-object mui-pull-left loadthumb img4r" data-url="{{item.ImgUrl}}" data-wh="128,128" >
-						<div class="mui-media-body">
-							{{item.MatchName}}
-							<p class="mui-ellipsis mui-row fs12">
-								<span class="mui-col-xs-6 mui-ellipsis">{{item.StoreName}}</span>
-								<span class="mui-col-xs-6 cor-lan  mui-ellipsis">{{item.vs}}</span>
-								<span class="mui-col-xs-6  mui-ellipsis">{{item.MatchBeginTime}}</span>
-								<span class="mui-col-xs-6  mui-ellipsis">参赛人数<strong>{{item.PlayerJoinNum}}</strong>/{{item.PlayerMaxNum}}</span>
-							</p>
-						</div>
-					</a>
-					{{if item.Status==4}}
-					<span class="status cor-lv">{{item.result}}</span> {{else}}
-					<span class="status">{{item.result}}</span> {{/if}}
-				</li>
-			
+
+			<li class="mui-table-view-cell mui-media detail" data-id="{{item.MatchId}}">
+				<a href="javascript:;" class="pstn-r">
+					<img class="mui-media-object mui-pull-left loadthumb img4r" data-url="{{item.ImgUrl}}" data-wh="128,128">
+					<div class="mui-media-body">
+						{{item.MatchName}}
+						<p class="mui-ellipsis mui-row fs12">
+							<span class="mui-col-xs-6 mui-ellipsis">{{item.StoreName}}</span>
+							<span class="mui-col-xs-6 cor-lan  mui-ellipsis">{{item.vs}}</span>
+							<span class="mui-col-xs-6  mui-ellipsis">{{item.MatchBeginTime}}</span>
+							<span class="mui-col-xs-6  mui-ellipsis">参赛人数<strong>{{item.PlayerJoinNum}}</strong>/{{item.PlayerMaxNum}}</span>
+						</p>
+					</div>
+				</a>
+				{{if item.Status==4}}
+				<span class="status cor-lv">{{item.result}}</span> {{else}}
+				<span class="status">{{item.result}}</span> {{/if}}
+			</li>
+
 			{{/each}}
 		</script>
 		<script type="text/javascript">
 			//必须顺序加载
-			script(['../../js/mui.zoom.js','../../js/mui.previewimage.js', '../../js/my/userInfo.js']);
+			script(['../../js/mui.zoom.js', '../../js/mui.previewimage.js', '../../js/my/userInfo.js']);
 		</script>
 	</body>
 

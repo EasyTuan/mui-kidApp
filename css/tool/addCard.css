@@ -1,5 +1,4 @@
 @charset "utf-8";
-
 #create {
 	margin: 11px 0 0 0;
 	background: #4B9CF6;
@@ -10,20 +9,22 @@
 	border: none;
 }
 
-.icon-subtract,.icon-increse,.icon-increseblue{
-	font-size:19px;
+.icon-subtract,
+.icon-increse,
+.icon-increseblue {
+	font-size: 19px;
 }
 
-.mui-media span:nth-of-type(1){
+.mui-media span:nth-of-type(1) {
 	margin: 0 0 0 20px;
 }
 
-.mui-media span:nth-of-type(2){
+.mui-media span:nth-of-type(2) {
 	color: #4B9CF6;
 	margin: 10px 0 0 0;
 }
 
-.mui-media span:nth-of-type(1) b{
+.mui-media span:nth-of-type(1) b {
 	display: inline-block;
 	margin: 8px 0 0 0;
 	font-size: 16px;
@@ -32,20 +33,21 @@
 	position: relative;
 }
 
-.mui-media span:nth-of-type(1) button{
+.mui-media span:nth-of-type(1) button {
 	color: #4B9CF6;
 	border: none;
-	padding:3px 7px;
+	padding: 3px 7px;
 	margin: 4px 0 0 0;
 }
 
-.mui-content h5{
+.mui-content h5 {
 	background: #fff;
 	margin: 10px 0 0 0;
 	padding: 7px 15px;
 	color: #333;
 }
 
-#hero,#arms{
+#hero,
+#arms {
 	display: none;
 }

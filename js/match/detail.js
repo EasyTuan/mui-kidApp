@@ -231,15 +231,15 @@ function loadData() {
 			//			json.data.player.push(json.data.player[0])
 			//			json.data.player.push(json.data.player[0])
 			//			json.data.player.push(json.data.player[0])
-			if(json.data.match.IsFixed=="1"&&json.data.player.length==1&&json.data.fixeddata&&json.data.fixeddata.PlayerId>0){//定向赛，玩家列表数量为1，则把被邀请人数据填充到玩家列表里
-				json.data.fixeddata.IsNoJoin=true;
+			if(json.data.match.IsFixed == "1" && json.data.player.length == 1 && json.data.fixeddata && json.data.fixeddata.PlayerId > 0) { //定向赛，玩家列表数量为1，则把被邀请人数据填充到玩家列表里
+				json.data.fixeddata.IsNoJoin = true;
 				json.data.player.push(json.data.fixeddata);
 				//alert(JSON.stringify(json.data.player))
 			}
-			
+
 			render("#detail_warp", "detail_view", json.data); //详细信息
 			var divcont = document.getElementById("boxcont");
-					divcont.setAttribute("style","background-image: url("+json.data.match.PKImgUrl+");")
+			divcont.setAttribute("style", "background-image: url(" + json.data.match.PKImgUrl + ");")
 			if(json1.Status == 1) {
 				var needDefJoinPlayer = json.data.match.PlayerMaxNum - json.data.player.length;
 				//alert(needDefJoinPlayer)
@@ -335,12 +335,11 @@ function showDesc() {
 }
 //加载滚动赛事tip
 function loadTipData() {
-	request("/Match/getMatchDetailRoll", {			
-		},
+	request("/Match/getMatchDetailRoll", {},
 		function(json) {
 			render("#tipscont_warp", "tipscont_view", json);
 			appPage.imgInit();
-			initTip();			
+			initTip();
 		});
 }
 var tips, prevIndex = 0,
@@ -430,9 +429,8 @@ var pkEvent = {
 	}
 };
 
-
 //自定义监听刷新
-window.addEventListener('uploadList',function(event){
-	matchid=event.detail.id;
+window.addEventListener('uploadList', function(event) {
+	matchid = event.detail.id;
 	loadData();
 })

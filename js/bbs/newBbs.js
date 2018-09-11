@@ -1,4 +1,5 @@
-var _path = "", _cropper;
+var _path = "",
+	_cropper;
 
 var accessid = 'vfxh68Hrfv8Wi6mt';
 var accesskey = '8z2BWHdOZG8HokmyMhVrHmlTJy2yXd';
@@ -17,107 +18,106 @@ mui.init({
 	}
 })
 
-var imgNum=[],      //上传图片数
-	nodeid='';
+var imgNum = [], //上传图片数
+	nodeid = '';
 
 mui('.mui-scroll-wrapper').scroll({
 	deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
 });
 
-mui.plusReady(function(){
+mui.plusReady(function() {
 	storage.init();
-	nodeid=plus.storage.getItem('nodeid');
+	nodeid = plus.storage.getItem('nodeid');
 
-	scroll = mui('.mui-scroll-wrapper').scroll(); 
-    document.querySelector('.mui-scroll-wrapper' ).addEventListener('scroll', function (e ) { 
-      console.log(scroll.y); 
-    }) 
-	
+	scroll = mui('.mui-scroll-wrapper').scroll();
+	document.querySelector('.mui-scroll-wrapper').addEventListener('scroll', function(e) {
+		console.log(scroll.y);
+	})
+
 	//弹出键盘
 	var showKeyboard = function() {
 		if(mui.os.ios) {
 			var webView = plus.webview.currentWebview().nativeInstanceObject();
-		    webView.plusCallMethod({"setKeyboardDisplayRequiresUserAction":false});
-		    setTimeout(function(){
-		    	document.getElementById("bbsTitle").focus();
-		    },100);
+			webView.plusCallMethod({
+				"setKeyboardDisplayRequiresUserAction": false
+			});
+			setTimeout(function() {
+				document.getElementById("bbsTitle").focus();
+			}, 100);
 		} else {
 			var Context = plus.android.importClass("android.content.Context");
-		    var InputMethodManager = plus.android.importClass("android.view.inputmethod.InputMethodManager");
-		    var main = plus.android.runtimeMainActivity();
-		    var imm = main.getSystemService(Context.INPUT_METHOD_SERVICE);
-		    imm.toggleSoftInput(0,InputMethodManager.SHOW_FORCED);
-		    setTimeout(function(){
-		    	document.getElementById("bbsTitle").focus();
-		    },100);
+			var InputMethodManager = plus.android.importClass("android.view.inputmethod.InputMethodManager");
+			var main = plus.android.runtimeMainActivity();
+			var imm = main.getSystemService(Context.INPUT_METHOD_SERVICE);
+			imm.toggleSoftInput(0, InputMethodManager.SHOW_FORCED);
+			setTimeout(function() {
+				document.getElementById("bbsTitle").focus();
+			}, 100);
 		}
 	};
-	
+
 	showKeyboard();
-	
+
 	//删除照片
-	mui('.imgList').on('tap','.icon-close',function(){
+	mui('.imgList').on('tap', '.icon-close', function() {
 		this.parentNode.parentNode.removeChild(this.parentNode);
 	})
-	
+
 	//添加图片
-	mui('.imgList').on("tap", '#addImg',function() {
+	mui('.imgList').on("tap", '#addImg', function() {
 		document.getElementById("bbsTitle").blur();
 		document.getElementById("bbsMbody").blur();
 		actionSheet();
 	});
-	
+
 	//发帖
-	mui('body').on("tap",'#release',function(){
-		var title=document.getElementById("bbsTitle").value;
-		if(bbsTitle==''){
+	mui('body').on("tap", '#release', function() {
+		var title = document.getElementById("bbsTitle").value;
+		if(bbsTitle == '') {
 			appUI.showTopTip('请输入标题');
 			return;
 		}
-		var bbsMbody=document.getElementById("bbsMbody").value;
-		if(bbsMbody==''){
+		var bbsMbody = document.getElementById("bbsMbody").value;
+		if(bbsMbody == '') {
 			appUI.showTopTip('请输入正文');
 			return;
 		}
-		imgUrl=[];
-		mui('.commentImg').each(function(){
-			var imgUrl=this.getAttribute('src');
+		imgUrl = [];
+		mui('.commentImg').each(function() {
+			var imgUrl = this.getAttribute('src');
 			//imgNum.push(imgUrl);
-			bbsMbody=bbsMbody+"<img data-preview-src='' data-preview-group='2' src='"+imgUrl+"'/>";
+			bbsMbody = bbsMbody + "<img data-preview-src='' data-preview-group='2' src='" + imgUrl + "'/>";
 		})
-		
-		var topicico='';
-		try{
-			if(document.getElementsByClassName('commentImg')){
-				topicico=document.getElementsByClassName('commentImg')[0].getAttribute('src');
+
+		var topicico = '';
+		try {
+			if(document.getElementsByClassName('commentImg')) {
+				topicico = document.getElementsByClassName('commentImg')[0].getAttribute('src');
 			}
-		}catch(e){
+		} catch(e) {
 			//TODO handle the exception
 		}
-		
-		
-		
-		log(bbsMbody);
-//		request('/Topic/addTopic',{
-//			nodeid:nodeid,
-//			title:title,
-//			content:bbsMbody,
-//			topicico:topicico,
-//			playerid:storageUser.UId
-//		},function(r){
-//			if(r.code==0){
-//				mui.fire(plus.webview.getWebviewById('bbs/channelDetails.html'),'uploadList');
-//				mui.fire(plus.webview.getWebviewById('bbs/bbsIndex.html'),'uploadList');
-//				mui.toast(r.msg);
-//				mui.back();
-//			}else{
-//				appUI.showTopTip(r.msg);
-//			}
-//		})
-	})
-	
-})
 
+		log(bbsMbody);
+		//		request('/Topic/addTopic',{
+		//			nodeid:nodeid,
+		//			title:title,
+		//			content:bbsMbody,
+		//			topicico:topicico,
+		//			playerid:storageUser.UId
+		//		},function(r){
+		//			if(r.code==0){
+		//				mui.fire(plus.webview.getWebviewById('bbs/channelDetails.html'),'uploadList');
+		//				mui.fire(plus.webview.getWebviewById('bbs/bbsIndex.html'),'uploadList');
+		//				mui.toast(r.msg);
+		//				mui.back();
+		//			}else{
+		//				appUI.showTopTip(r.msg);
+		//			}
+		//		})
+	})
+
+})
 
 function actionSheet() {
 	if(mui.os.plus) {
@@ -150,19 +150,19 @@ function getImage() {
 	var c = plus.camera.getCamera();
 	c.captureImage(function(e) {
 		plus.io.resolveLocalFileSystemURL(e, function(entry) {
-			var url=entry.toLocalURL();
+			var url = entry.toLocalURL();
 			plus.zip.compressImage({
 				src: entry.toLocalURL(),
-				dst:entry.toLocalURL(),
+				dst: entry.toLocalURL(),
 				quality: 60,
 				overwrite: true
 			}, function(e) {
 				log("压缩成功!");
 				compressImage(entry.toLocalURL());
-			},function(){
+			}, function() {
 				log("压缩失败!");
 			})
-			
+
 		}, function(e) {
 			mui.toast("获取图片失败")
 		});
@@ -173,23 +173,23 @@ function getImage() {
 
 function galleryImg() {
 	plus.gallery.pick(function(e) {
-		var url='';
-		for(var i=0;i<e.files.length;i++){
-	    	url=e.files[i];
-	    	compressImage(zip(url));
-    	}
+		var url = '';
+		for(var i = 0; i < e.files.length; i++) {
+			url = e.files[i];
+			compressImage(zip(url));
+		}
 	}, function(err) {
 		var code = err.code; // 错误编码
 		var message = err.message; // 错误描述信息
 		//$.toast(message)
 	}, {
-		filter:"image",
-		multiple:true
+		filter: "image",
+		multiple: true
 	});
 
 };
 
-function zip(url){
+function zip(url) {
 	plus.zip.compressImage({
 		src: url,
 		dst: url,
@@ -198,12 +198,11 @@ function zip(url){
 	}, function(e) {
 		log("压缩成功");
 		return url;
-	},function(){
+	}, function() {
 		log("压缩失败");
 	})
 	return url;
 }
-
 
 function compressImage(path) {
 	log(path);
@@ -211,8 +210,7 @@ function compressImage(path) {
 	start(path);
 }
 
-
-function start(path) {	
+function start(path) {
 	var policyBase64 = Base64.encode(JSON.stringify(policyText))
 	var message = policyBase64;
 	var bytes = Crypto.HMAC(Crypto.SHA1, message, accesskey, {
@@ -220,13 +218,13 @@ function start(path) {
 	});
 	var signature = Crypto.util.bytesToBase64(bytes);
 	var ossSaveName = 'player/commentimg/' + storageUser.UId + '_' + new Date().getTime() + ".png";
-	var task='task'+path;
+	var task = 'task' + path;
 	//创建上传任务
 	task = plus.uploader.createUpload(osshost, {
 			method: "POST",
 			blocksize: 0,
 			priority: 10,
-			timeout:10
+			timeout: 10
 		},
 		function(t, status) {
 			plus.nativeUI.closeWaiting();
@@ -235,8 +233,8 @@ function start(path) {
 				mui.toast("上传成功");
 				var url = osshost + ossSaveName;
 				log(url);
-				var imgList=document.getElementsByClassName("imgList")[0].innerHTML;
-				document.getElementsByClassName("imgList")[0].innerHTML="<div class='imgbox'><img class='commentImg' src='"+url+"'/><i class='iconfont icon-close'></i></div>"+imgList;
+				var imgList = document.getElementsByClassName("imgList")[0].innerHTML;
+				document.getElementsByClassName("imgList")[0].innerHTML = "<div class='imgbox'><img class='commentImg' src='" + url + "'/><i class='iconfont icon-close'></i></div>" + imgList;
 			} else {
 				mui.toast("上传失败");
 			}

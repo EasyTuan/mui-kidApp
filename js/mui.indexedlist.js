@@ -21,7 +21,7 @@
 			var self = this;
 			self.options = options || {};
 			self.box = holder;
-			if (!self.box) {
+			if(!self.box) {
 				throw "实例 IndexedList 时需要指定 element";
 			}
 			self.createDom();
@@ -51,14 +51,14 @@
 		},
 		caleLayout: function() {
 			var self = this;
-			var mt=((25*self.el.barItems.length)/2)+'px';
-			var a=self.el.bar.offsetHeight;		
-			self.el.bar.style.marginTop="-"+mt;			
+			var mt = ((25 * self.el.barItems.length) / 2) + 'px';
+			var a = self.el.bar.offsetHeight;
+			self.el.bar.style.marginTop = "-" + mt;
 		},
 		scrollTo: function(group) {
 			var self = this;
 			var groupElement = self.el.inner.querySelector('[data-group="' + group + '"]');
-			if (!groupElement || (self.hiddenGroups && self.hiddenGroups.indexOf(groupElement) > -1)) {
+			if(!groupElement || (self.hiddenGroups && self.hiddenGroups.indexOf(groupElement) > -1)) {
 				return;
 			}
 			self.box.scrollTop = groupElement.offsetTop;
@@ -68,16 +68,16 @@
 			var self = this;
 			var pointElement = null;
 			var findStart = function(event) {
-				if (pointElement) {
+				if(pointElement) {
 					pointElement.classList.remove('active');
 					pointElement = null;
 				}
 				self.el.bar.classList.add('active');
 				var point = event.changedTouches ? event.changedTouches[0] : event;
 				pointElement = document.elementFromPoint(point.pageX, point.pageY);
-				if (pointElement) {
+				if(pointElement) {
 					var group = pointElement.innerText;
-					if (group && group.length == 1) {
+					if(group && group.length == 1) {
 						pointElement.classList.add('active');
 						self.el.alert.innerText = group;
 						self.el.alert.classList.add('active');
@@ -89,7 +89,7 @@
 			var findEnd = function(event) {
 				self.el.alert.classList.remove('active');
 				self.el.bar.classList.remove('active');
-				if (pointElement) {
+				if(pointElement) {
 					pointElement.classList.remove('active');
 					pointElement = null;
 				}
@@ -117,7 +117,7 @@
 			var itemTotal = liArray.length;
 			self.hiddenGroups = [];
 			var checkGroup = function(currentIndex, last) {
-				if (itemCount >= currentIndex - groupIndex - (last ? 0 : 1)) {
+				if(itemCount >= currentIndex - groupIndex - (last ? 0 : 1)) {
 					selectorBuffer.push(classSelector('indexed-list-inner li') + ':nth-child(' + (groupIndex + 1) + ')');
 					self.hiddenGroups.push(liArray[groupIndex]);
 				};
@@ -126,26 +126,26 @@
 			}
 			liArray.forEach(function(item) {
 				var currentIndex = liArray.indexOf(item);
-				if (item.classList.contains($.className('indexed-list-group'))) {
+				if(item.classList.contains($.className('indexed-list-group'))) {
 					checkGroup(currentIndex, false);
 				} else {
 					var text = (item.innerText || '').toLowerCase();
 					var value = (item.getAttribute('data-value') || '').toLowerCase();
 					var tags = (item.getAttribute('data-tags') || '').toLowerCase();
-					if (keyword && text.indexOf(keyword) < 0 &&
+					if(keyword && text.indexOf(keyword) < 0 &&
 						value.indexOf(keyword) < 0 &&
 						tags.indexOf(keyword) < 0) {
 						selectorBuffer.push(classSelector('indexed-list-inner li') + ':nth-child(' + (currentIndex + 1) + ')');
 						itemCount++;
 					}
-					if (currentIndex >= itemTotal - 1) {
+					if(currentIndex >= itemTotal - 1) {
 						checkGroup(currentIndex, true);
 					}
 				}
 			});
-			if (selectorBuffer.length >= itemTotal) {
+			if(selectorBuffer.length >= itemTotal) {
 				self.el.inner.classList.add('empty');
-			} else if (selectorBuffer.length > 0) {
+			} else if(selectorBuffer.length > 0) {
 				self.el.inner.classList.remove('empty');
 				self.el.styleForSearch.innerText = selectorBuffer.join(', ') + "{display:none;}";
 			} else {
@@ -174,7 +174,7 @@
 	$.fn.indexedList = function(options) {
 		//遍历选择的元素
 		this.each(function(i, element) {
-			if (element.indexedList) return;
+			if(element.indexedList) return;
 			element.indexedList = new IndexedList(element, options);
 		});
 		return this[0] ? this[0].indexedList : null;

@@ -9,7 +9,7 @@
 			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
 		</script>
 		<script type="text/javascript">
-			link(['../../css/swiper-3.4.2.min.css','../../css/bbs/bbsIndex.css']);
+			link(['../../css/swiper-3.4.2.min.css', '../../css/bbs/bbsIndex.css']);
 		</script>
 	</head>
 
@@ -19,7 +19,7 @@
 				<div class="mui-scroll">
 					<div class="swiper-container">
 						<div class="swiper-wrapper" id="banner_warp">
-							
+
 						</div>
 						<div class="swiper-pagination"></div>
 					</div>
@@ -35,91 +35,85 @@
 						</div>
 					</div>
 					<ul class="mui-table-view" id="bbsList">
-					    <li class="mui-table-view-cell mui-media">
-					        <a href="javascript:;">
-					        	<div class="mui-media-object mui-pull-right imgbox50">
-					            <img class="" src="http://kid-test.oss-cn-shanghai.aliyuncs.com/player/commentimg/5_1505985391377.png">
-					            </div>
-					            <div class="mui-media-body bbsBody">
-					            	<strong>置顶</strong> 战火燃尽六月战火燃尽六月战火燃尽六月战火燃尽六月
-					                <p class="mui-ellipsis top8">
-					                	<span class="mui-pull-left">
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<div class="mui-media-object mui-pull-right imgbox50">
+									<img class="" src="http://kid-test.oss-cn-shanghai.aliyuncs.com/player/commentimg/5_1505985391377.png">
+								</div>
+								<div class="mui-media-body bbsBody">
+									<strong>置顶</strong> 战火燃尽六月战火燃尽六月战火燃尽六月战火燃尽六月
+									<p class="mui-ellipsis top8">
+										<span class="mui-pull-left">
 					                		<img class="avatar mui-pull-left" src="../../images/defuser.jpg"/>
 					                		用户昵称
 					                	</span>
-					                	<span class="mui-pull-right">
+										<span class="mui-pull-right">
 					                		<i class="iconfont icon-eye"> 0</i>&nbsp;&nbsp;&nbsp;
 					                		<i class="iconfont icon-comment"> 0</i>
 					                	</span>
-					                </p>
-					            </div>
-					        </a>
-					    </li>
+									</p>
+								</div>
+							</a>
+						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 		<script type="text/html" id="channelListTep1">
-			{{if subscribe_list.length>0}}
-				{{each subscribe_list as value}}
-					<span data-nodeid='{{value.node_id}}'>{{value.cname}}</span>
-				{{/each}}
-			{{else}}
-				<b id="addchannel">+添加订阅</b>
-			{{/if}}
+			{{if subscribe_list.length>0}} {{each subscribe_list as value}}
+			<span data-nodeid='{{value.node_id}}'>{{value.cname}}</span> {{/each}} {{else}}
+			<b id="addchannel">+添加订阅</b> {{/if}}
 		</script>
 		<script type="text/html" id="bbsListTep1">
 			{{each is_top_list as value}}
-				<li class="mui-table-view-cell mui-media" data-id='{{value.topic_id}}'>
-			        <a href="javascript:;">
-			        	{{if value.topic_ico!=''}}
-			        	<div class="mui-media-object mui-pull-right imgbox50">
-			        		<img class="loadthumb" data-url='{{value.topic_ico}}' data-wh="128,">
-			        	</div>
-			        	{{/if}}
-			            <div class="mui-media-body bbsBody">
-			            	<strong>置顶</strong> {{value.title}}
-			                <p class="mui-ellipsis top8">
-			                	<span class="mui-pull-left">
+			<li class="mui-table-view-cell mui-media" data-id='{{value.topic_id}}'>
+				<a href="javascript:;">
+					{{if value.topic_ico!=''}}
+					<div class="mui-media-object mui-pull-right imgbox50">
+						<img class="loadthumb" data-url='{{value.topic_ico}}' data-wh="128,">
+					</div>
+					{{/if}}
+					<div class="mui-media-body bbsBody">
+						<strong>置顶</strong> {{value.title}}
+						<p class="mui-ellipsis top8">
+							<span class="mui-pull-left">
 			                		<img class="avatar mui-pull-left loadthumb defuserimg" data-url='{{value.avatar}}' data-wh="32,32"/>
 			                		{{value.username}}
 			                	</span>
-			                	<span class="mui-pull-right">
+							<span class="mui-pull-right">
 			                		<i class="iconfont icon-eye"> {{value.views}}</i>&nbsp;&nbsp;&nbsp;
 			                		<i class="iconfont icon-comment"> {{value.comments}}</i>
 			                	</span>
-			                </p>
-			            </div>
-			        </a>
-			    </li>
-		    {{/each}}
-		    {{each not_top_list as value}}
-		    	<li class="mui-table-view-cell mui-media" data-id='{{value.topic_id}}'>
-			        <a href="javascript:;">
-			            {{if value.topic_ico!=''}}
-			        		<div class="mui-media-object mui-pull-right imgbox50">
-			        		<img class="loadthumb" data-url='{{value.topic_ico}}' data-wh="128,">
-			        	</div>
-			        	{{/if}}
-			            <div class="mui-media-body bbsBody">
-			            	{{value.title}}
-			                <p class="mui-ellipsis top8">
-			                	<span class="mui-pull-left">
+						</p>
+					</div>
+				</a>
+			</li>
+			{{/each}} {{each not_top_list as value}}
+			<li class="mui-table-view-cell mui-media" data-id='{{value.topic_id}}'>
+				<a href="javascript:;">
+					{{if value.topic_ico!=''}}
+					<div class="mui-media-object mui-pull-right imgbox50">
+						<img class="loadthumb" data-url='{{value.topic_ico}}' data-wh="128,">
+					</div>
+					{{/if}}
+					<div class="mui-media-body bbsBody">
+						{{value.title}}
+						<p class="mui-ellipsis top8">
+							<span class="mui-pull-left">
 			                		<img class="avatar mui-pull-left loadthumb defuserimg" data-url='{{value.avatar}}' data-wh="32,32"/>
 			                		{{value.username}}
 			                	</span>
-			                	<span class="mui-pull-right">
+							<span class="mui-pull-right">
 			                		<i class="iconfont icon-eye"> {{value.views}}</i>&nbsp;&nbsp;&nbsp;
 			                		<i class="iconfont icon-comment"> {{value.comments}}</i>
 			                	</span>
-			                </p>
-			            </div>
-			        </a>
-			    </li>
-		    {{/each}}
-		    {{if is_top_list.length>0 && not_top_list.length}}
-		    	<p class="mui-text-center cor-999" style="background: #efeff4;padding: 5px 0;">~到底了~</p>
-		    {{/if}}
+						</p>
+					</div>
+				</a>
+			</li>
+			{{/each}} {{if is_top_list.length>0 && not_top_list.length}}
+			<p class="mui-text-center cor-999" style="background: #efeff4;padding: 5px 0;">~到底了~</p>
+			{{/if}}
 		</script>
 		<script type="text/html" id="banner_view">
 			{{each banner_list as item}}
@@ -127,7 +121,7 @@
 			{{/each}}
 		</script>
 		<script type="text/javascript">
-			script(['../../js/lib/swiper-3.4.1.min.js','../../js/bbs/bbsIndex.js']);
+			script(['../../js/lib/swiper-3.4.1.min.js', '../../js/bbs/bbsIndex.js']);
 		</script>
 	</body>
 

@@ -2,12 +2,15 @@ html,
 body {
 	height: 100%;
 }
-#list .mui-table-view-cell{
+
+#list .mui-table-view-cell {
 	padding: 11px 25px 11px 15px;
 }
-#list .mui-btn{
+
+#list .mui-btn {
 	right: 25px;
 }
+
 .mui-indexed-list {
 	position: relative;
 	overflow-y: auto;
@@ -80,7 +83,7 @@ body {
 
 .mui-indexed-list-bar {
 	width: 23px;
-	position:fixed;
+	position: fixed;
 	height: 100%;
 	z-index: 10;
 	right: 20px;

@@ -1,23 +1,22 @@
 @charset "utf-8";
-
-.mui-content{
+.mui-content {
 	background: #fff;
 }
 
-#selet{
-	font-size:12px;
-	line-height:50px;
-	color:#666;
+#selet {
+	font-size: 12px;
+	line-height: 50px;
+	color: #666;
 	margin: 0 10px 0 0;
 }
 
-.mui-table-view{
+.mui-table-view {
 	width: 80%;
 	margin: 0 0 0 20%;
-	border-left:1px solid #c8c7cc ;
+	border-left: 1px solid #c8c7cc;
 }
 
-.star{
+.star {
 	background: #fff;
 	width: 20%;
 	float: left;
@@ -26,18 +25,18 @@
 	list-style: none;
 }
 
-.star li{
+.star li {
 	height: 55px;
 	line-height: 55px;
 	color: #4B9CF6;
-	border-bottom:1px solid #c8c7cc ;
+	border-bottom: 1px solid #c8c7cc;
 }
 
-.col{
+.col {
 	background: #f0f0f0;
 	height: 10px;
 }
 
-.star .active{
+.star .active {
 	background: #f1f9ff;
 }

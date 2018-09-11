@@ -15,11 +15,11 @@
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">排行榜</h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">排行榜</h1>
 		</header>
 		<div class="mui-content">
-		    <div class="rankList" id="rank">
+			<div class="rankList" id="rank">
 				<!--<div>
 					<img src="../../images/tx2.png"/>
 					<span class="mui-badge mui-badge-primary">1</span>
@@ -29,11 +29,11 @@
 		</div>
 		<script type="text/html" id="rankTep1">
 			{{each data as value}}
-				<div>
-					<img data-url="{{value.ImgUrl}}" class="loadthumb" data-wh="128,128" />
-					<span class="mui-badge mui-badge-primary">{{value.WinCount}}</span>
-					<span>{{value.NickName}}</span>
-				</div>
+			<div>
+				<img data-url="{{value.ImgUrl}}" class="loadthumb" data-wh="128,128" />
+				<span class="mui-badge mui-badge-primary">{{value.WinCount}}</span>
+				<span>{{value.NickName}}</span>
+			</div>
 			{{/each}}
 		</script>
 		<script type="text/javascript">

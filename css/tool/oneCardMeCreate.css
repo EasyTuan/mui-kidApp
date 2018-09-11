@@ -1,6 +1,5 @@
 @charset "utf-8";
-
-.bottom{
+.bottom {
 	width: 100%;
 	position: fixed;
 	bottom: 0;
@@ -10,60 +9,60 @@
 	padding: 5px 0;
 }
 
-.bottom p{
+.bottom p {
 	font-size: 11px;
 	margin: 0;
 	line-height: 1;
 	color: #999;
 }
 
-nav h5{
+nav h5 {
 	color: #333;
-	font-size:16px ;
+	font-size: 16px;
 	position: relative;
 	top: 15px;
 	padding: 0 0 0 10px;
 }
 
-nav span{
+nav span {
 	color: #4B9CF6;
 	font-size: 20px!important;
 	position: relative;
 	left: -7px;
 }
 
-nav p{
+nav p {
 	line-height: 1;
 	font-size: 12px;
 	padding: 0 0 15px 10px;
 }
 
-.contant>p{
+.contant>p {
 	height: 35px;
-	padding-top:10px ;
+	padding-top: 10px;
 	margin: 0;
 	/*border-bottom:1px solid #e6ebef;*/
 }
 
-.contant>p span:nth-last-of-type(1){
+.contant>p span:nth-last-of-type(1) {
 	color: #4B9CF6;
 }
 
-.lable{
+.lable {
 	background: #fff;
 	padding: 0 0 10px 10px;
 }
 
-.lable span{
+.lable span {
 	display: inline-block;
 	color: #fff!important;
 	background: #4B9CF6;
 	padding: 0 5px;
-	border-radius:5px ;
+	border-radius: 5px;
 	margin: 8px 4px 0 0;
 }
 
-.remark{
+.remark {
 	background: #fff;
 	padding: 0 10px;
 	overflow: hidden;
@@ -71,7 +70,7 @@ nav p{
 	text-overflow: ellipsis;
 }
 
-.remarkActive{
+.remarkActive {
 	padding: 0 10px;
 	overflow: visible;
 	white-space: normal;
@@ -79,7 +78,7 @@ nav p{
 	line-height: 28px;
 }
 
-#moreBtn{
+#moreBtn {
 	background: #ccc;
 	color: #999;
 	line-height: 24px;

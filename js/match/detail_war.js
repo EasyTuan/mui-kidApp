@@ -56,27 +56,27 @@ function loadData() {
 	showDesc();
 	calcPosition();
 	//打开第三方地图
-//	document.getElementById("openmap").addEventListener("tap", function() {
-//		
-//		if('Android' === plus.os.name && navigator.userAgent.indexOf('StreamApp') > 0) {
-//			plus.nativeUI.toast('当前环境暂不支持地图插件');			
-//			return;
-//		}
-//		// 设置目标位置坐标点和其实位置坐标点
-//		var dst = new plus.maps.Point(116.39131928, 39.90793074); // 天安门 
-//		var src = new plus.maps.Point(116.335, 39.966); // 大钟寺
-//		
-//		// 调用系统地图显示 
-//		plus.maps.openSysMap(dst, "天安门", src);
-//	});
+	//	document.getElementById("openmap").addEventListener("tap", function() {
+	//		
+	//		if('Android' === plus.os.name && navigator.userAgent.indexOf('StreamApp') > 0) {
+	//			plus.nativeUI.toast('当前环境暂不支持地图插件');			
+	//			return;
+	//		}
+	//		// 设置目标位置坐标点和其实位置坐标点
+	//		var dst = new plus.maps.Point(116.39131928, 39.90793074); // 天安门 
+	//		var src = new plus.maps.Point(116.335, 39.966); // 大钟寺
+	//		
+	//		// 调用系统地图显示 
+	//		plus.maps.openSysMap(dst, "天安门", src);
+	//	});
 	//完成
-	var pkType=1;
+	var pkType = 1;
 	document.getElementById("btn_save").addEventListener("tap", function() {
 		var btnArray = ['否', '是'];
 		mui.confirm('确定要发起这场对战吗？', '', btnArray, function(e) {
 			if(e.index == 1) {
-				if(pkType==1){
-					pkType=0;
+				if(pkType == 1) {
+					pkType = 0;
 					if(desctype == 1) {
 						request("/Match/addMatch", {
 							playerid: storageUser.UId,
@@ -86,7 +86,7 @@ function loadData() {
 							matchname: json.data.matchname,
 							storeid: json.data.storeid,
 							slogan: json.data.slogan,
-							matchtime: json.data.matchtime+ ':00',
+							matchtime: json.data.matchtime + ':00',
 							matchplayernum: json.data.matchplayernum
 						}, function(json) {
 							if(json.code == 0) {
@@ -106,7 +106,7 @@ function loadData() {
 							matchname: json.data.matchname,
 							storeid: json.data.storeid,
 							slogan: json.data.slogan,
-							matchtime: json.data.matchtime+ ':00',
+							matchtime: json.data.matchtime + ':00',
 							matchplayernum: json.data.matchplayernum,
 							friendid: json.data.friendid,
 							type: 'player'
@@ -121,9 +121,9 @@ function loadData() {
 						})
 					}
 				}
-				setTimeout(function(){
-					pkType=1;
-				},1000)
+				setTimeout(function() {
+					pkType = 1;
+				}, 1000)
 
 			}
 		})

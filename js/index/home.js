@@ -1,4 +1,6 @@
-var lon, lat, city, timerobj, timer, bannerjson, singlematchjson, newmatchjson, nearstorejson, cardgroupjson, newsjson, newmatchpage=2, nearstorepage=2, swiper,hottopicjson;
+var lon, lat, city, timerobj, timer, bannerjson, singlematchjson, newmatchjson, nearstorejson, cardgroupjson, newsjson, newmatchpage = 2,
+	nearstorepage = 2,
+	swiper, hottopicjson;
 mui.init({
 	pullRefresh: {
 		container: '#pullrefresh',
@@ -9,32 +11,31 @@ mui.init({
 	}
 });
 
-
 mui.plusReady(function() {
 	storage.init();
 	//注册登录事件
 	appPage.registerCheckLoginEvent();
-	
+
 	initPage();
-	
-//	if(!storageLocation.Lon || storageLocation.Lon == "") { //未拿到定位信息
-//		plus.nativeUI.showWaiting("定位中...");
-//		plus.geolocation.getCurrentPosition(function(position) {
-//			plus.nativeUI.closeWaiting();
-//			storageLocation.refreshData(position);
-//			storageLocation.log();
-//			initPage();				
-//		}, function(e) {
-//			plus.nativeUI.closeWaiting();
-//			mui.alert(JSON.stringify(e));
-//			//appUI.showTopTip("定位失败，请手动选择位置"+JSON.stringify(e));
-//		}, {
-//			geocode: true
-//		});
-//	} else {
-//		initPage();
-//	}
-	
+
+	//	if(!storageLocation.Lon || storageLocation.Lon == "") { //未拿到定位信息
+	//		plus.nativeUI.showWaiting("定位中...");
+	//		plus.geolocation.getCurrentPosition(function(position) {
+	//			plus.nativeUI.closeWaiting();
+	//			storageLocation.refreshData(position);
+	//			storageLocation.log();
+	//			initPage();				
+	//		}, function(e) {
+	//			plus.nativeUI.closeWaiting();
+	//			mui.alert(JSON.stringify(e));
+	//			//appUI.showTopTip("定位失败，请手动选择位置"+JSON.stringify(e));
+	//		}, {
+	//			geocode: true
+	//		});
+	//	} else {
+	//		initPage();
+	//	}
+
 	//赛事详情页
 	mui("body").on("tap", ".matchInfo", function() {
 		var id = this.getAttribute("data-id");
@@ -67,18 +68,18 @@ mui.plusReady(function() {
 		});
 	})
 	//热门头条详情页
-	document.getElementById("topic_warp").addEventListener('tap',function() {
+	document.getElementById("topic_warp").addEventListener('tap', function() {
 		openNew("../news/newsDetail.html", {
 			id: this.dataset.id
 		});
 	})
 
 	//城市选择
-		document.getElementById("city").addEventListener("tap", function() {
-			openNew("citySelect.html", {
-				city: this.innerHTML
-			});
+	document.getElementById("city").addEventListener("tap", function() {
+		openNew("citySelect.html", {
+			city: this.innerHTML
 		});
+	});
 
 	//搜索
 	document.getElementById("search").addEventListener("tap", function() {
@@ -104,12 +105,12 @@ mui.plusReady(function() {
 		}
 	})
 	//轮播跳转
-	mui("#banner_warp").on("tap", ".addetail", function() {		
+	mui("#banner_warp").on("tap", ".addetail", function() {
 		if(this.dataset.href) {
-			log(this.dataset.href+" | "+this.dataset.param)
-			var jsonstr=this.dataset.param;
+			log(this.dataset.href + " | " + this.dataset.param)
+			var jsonstr = this.dataset.param;
 			log(jsonstr)
-			var param =JSON.parse(jsonstr);// JSON.parse(jsonstr);
+			var param = JSON.parse(jsonstr); // JSON.parse(jsonstr);
 			log(JSON.stringify(param));
 			openNew(this.dataset.href, param);
 		}
@@ -159,10 +160,10 @@ function loadData() {
 		cityid: storageLocation.CityId
 	}, function(json) {
 		if(json.code == "0") {
-			newmatchpage=2, nearstorepage=2;
+			newmatchpage = 2, nearstorepage = 2;
 			bannerjson = {};
 			bannerjson.data = json.data.bannerdata;
-			
+
 			if(!swiper) {
 				render("#banner_warp", "banner_view", bannerjson);
 				swiper = new Swiper('.swiper-container', {
@@ -173,17 +174,17 @@ function loadData() {
 				});
 			} else {
 				swiper.stopAutoplay();
-				swiper.removeAllSlides();		
-				var item,str;
-				for (var i=0;i<bannerjson.data.length;i++) {
-					item=bannerjson.data[i];
-					str='<div class="swiper-slide addetail" data-href="'+item.HrefUrl+'" data-param=\''+item.HrefParam+'\'><img class="loadthumb" data-url="'+item.ImgUrl+'" data-wh=",320" />';
+				swiper.removeAllSlides();
+				var item, str;
+				for(var i = 0; i < bannerjson.data.length; i++) {
+					item = bannerjson.data[i];
+					str = '<div class="swiper-slide addetail" data-href="' + item.HrefUrl + '" data-param=\'' + item.HrefParam + '\'><img class="loadthumb" data-url="' + item.ImgUrl + '" data-wh=",320" />';
 					//log(str);
 					swiper.appendSlide(str);
 				}
-				
+
 				//render("#banner_warp", "banner_view", bannerjson,true);
-//				swiper.appendSlide("<div class='swiper-slide'><img src='../../images/banner.png' /></div>"+"<div class='swiper-slide'><img src='../../images/banner.png' /></div>"+"<div class='swiper-slide'><img src='../../images/banner.png' /></div>"+"<div class='swiper-slide'><img src='../../images/banner.png' /></div>");
+				//				swiper.appendSlide("<div class='swiper-slide'><img src='../../images/banner.png' /></div>"+"<div class='swiper-slide'><img src='../../images/banner.png' /></div>"+"<div class='swiper-slide'><img src='../../images/banner.png' /></div>"+"<div class='swiper-slide'><img src='../../images/banner.png' /></div>");
 				swiper.startAutoplay();
 			}
 
@@ -206,11 +207,11 @@ function loadData() {
 			newsjson = {};
 			newsjson.data = json.data.newestnewsdata;
 			render("#news_warp", "news_view", newsjson);
-			
-			hottopicjson={};
+
+			hottopicjson = {};
 			hottopicjson.data = json.data.hottopicdata;
-			document.getElementById("topic_warp").setAttribute('data-id',hottopicjson.data.NewsId)
-			
+			document.getElementById("topic_warp").setAttribute('data-id', hottopicjson.data.NewsId)
+
 			appPage.imgInit();
 		} else {
 			appUI.showTopTip(json.msg)
@@ -235,7 +236,7 @@ function loadData_SigleMatch() {
 		singlematchjson.data = json.data.matchDdistanceMin;
 		showSigleMatch();
 		appPage.imgInit();
-	},false,function(){},false);
+	}, false, function() {}, false);
 }
 //赛事换一组
 function loadData_NewMatch() {
@@ -253,7 +254,7 @@ function loadData_NewMatch() {
 		} else {
 			log("空赛事" + json.msg)
 		}
-	},true);
+	}, true);
 }
 //店铺换一组
 function loadData_NearStore() {
@@ -266,19 +267,19 @@ function loadData_NearStore() {
 		if(json.code == 0) {
 			nearstorejson = {};
 			nearstorejson.data = json.data;
-			nearstorepage=json.pageindex;			
+			nearstorepage = json.pageindex;
 			showNearStore();
 			appPage.imgInit();
 		} else {
 			log("空店铺" + json.msg)
 		}
-	},true);
+	}, true);
 }
 //单条报名中赛事绑定显示
 function showSigleMatch() {
 	render("#siglematch_warp", "siglematch_view", singlematchjson);
 	if(singlematchjson.data != null) {
-		document.getElementById("siglematch_warp").style.display='block';
+		document.getElementById("siglematch_warp").style.display = 'block';
 		timerobj = appUI.countDown(singlematchjson.data.MatchBeginTime || "2017-1-1 00:00:00");
 		if(timerobj.hour == "0" && timerobj.minute == "0" && timerobj.second == "0") { //倒计时结束
 			window.clearInterval(timer); //清除定时器	
@@ -298,8 +299,8 @@ function showSigleMatch() {
 			document.getElementById("timer_m").innerText = timerobj.minute < 10 ? "0" + timerobj.minute : timerobj.minute;
 			document.getElementById("timer_s").innerText = timerobj.second < 10 ? "0" + timerobj.second : timerobj.second;
 		}, 1000);
-	}else{
-		document.getElementById("siglematch_warp").style.display='none';
+	} else {
+		document.getElementById("siglematch_warp").style.display = 'none';
 	}
 }
 //赛事绑定显示

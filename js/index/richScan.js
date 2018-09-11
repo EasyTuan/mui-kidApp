@@ -35,8 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }, false);
 
 //解析URL
-function getQueryString(url)
-{
+function getQueryString(url) {
 	var pattern = /(\w+)=(\w+)/ig;
 	var parames = {};
 	url.replace(pattern, function(a, b, c) {
@@ -47,37 +46,35 @@ function getQueryString(url)
 
 // 二维码扫描成功
 function onmarked(type, result, file) {
-	switch(type) 
-	{
+	switch(type) {
 		case plus.barcode.QR:
 			type = 'QR';
 			break;
 		case plus.barcode.EAN13:
 			type = 'EAN13';
-			return ;
+			return;
 		case plus.barcode.EAN8:
 			type = 'EAN8';
-			return ;
+			return;
 		default:
 			type = '其它' + type;
-			return ;
+			return;
 	}
 	var parames = getQueryString(result);
-	if(parames['playerid']){
-		openNew('../my/userInfo.html',{
-			id:parames['playerid']
+	if(parames['playerid']) {
+		openNew('../my/userInfo.html', {
+			id: parames['playerid']
 		})
-	}else{
+	} else {
 		alert('无效的二维码！');
 		mui.back();
 	}
 }
 
 //打开外部浏览器
-function openUrl(result)
-{
-	var url=getQueryString(result,"url");
-	var scene=getQueryString(result,"scene");
+function openUrl(result) {
+	var url = getQueryString(result, "url");
+	var scene = getQueryString(result, "scene");
 	plus.runtime.openURL(url);
 }
 

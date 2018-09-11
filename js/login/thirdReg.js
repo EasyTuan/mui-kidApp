@@ -3,7 +3,7 @@ var backurl = "../" + backid;
 var openid, thirdpartyid, memo;
 mui.init({
 	beforeback: function() {
-		appPage.loginBack(backid,backurl)
+		appPage.loginBack(backid, backurl)
 	}
 });
 mui.plusReady(function() {
@@ -95,7 +95,7 @@ mui.plusReady(function() {
 						NickName: nickname,
 						ImgUrl: imgurl,
 						//LoginPwd:
-						cityid:storageLocation.CityId
+						cityid: storageLocation.CityId
 					}, function(json) {
 						appUI.removeDisabled(btn_ok);
 						if(json.code == 0) {

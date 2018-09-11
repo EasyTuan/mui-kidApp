@@ -71,23 +71,22 @@ mui.plusReady(function() {
 		})
 	}
 	//防止键盘挡住输入框
-	if(mui.os.android){
-		document.getElementById("manifesto").addEventListener('focus',function(){
-			setTimeout(function(){
+	if(mui.os.android) {
+		document.getElementById("manifesto").addEventListener('focus', function() {
+			setTimeout(function() {
 				mui('.mui-scroll-wrapper').scroll().scrollToBottom();
-			},300)
+			}, 300)
 		})
 	}
-	
 
 	noneTime();
 
 	if(friendid) { //1v1
 		document.getElementById("one").style.backgroundImage = "url(" + storageUser.ImgUrl + ")";
 		document.getElementById("one").innerHTML = "<span>" + '我' + "</span>"
-		friendheadimg==''?document.getElementById("two").style.backgroundImage = "url(../../images/defuser.jpg)":document.getElementById("two").style.backgroundImage = "url(" + friendheadimg + ")";
+		friendheadimg == '' ? document.getElementById("two").style.backgroundImage = "url(../../images/defuser.jpg)" : document.getElementById("two").style.backgroundImage = "url(" + friendheadimg + ")";
 		document.getElementById("two").innerHTML = "<span>" + friendNickName + "</span>";
-		document.getElementById("gameNum").style.display='none';
+		document.getElementById("gameNum").style.display = 'none';
 		matchplayernum = 'solo';
 		imgwarp.setAttribute("style", "");
 	} else {
@@ -141,21 +140,21 @@ mui.plusReady(function() {
 			//打开地图
 			mui("body").on("tap", ".openMap", function() {
 				openNew("pkMap.html");
-//				if(plus.storage.getItem('location')){
-//					openNew("pkMap.html");
-//				}else{
-//					mui.toast('定位服务未开启，无法打开地图！');
-//				}
+				//				if(plus.storage.getItem('location')){
+				//					openNew("pkMap.html");
+				//				}else{
+				//					mui.toast('定位服务未开启，无法打开地图！');
+				//				}
 			})
 
 			if(json.data.storedata && json.data.storedata.length > 0) {
-				var storeobj=json.data.storedata[0];
+				var storeobj = json.data.storedata[0];
 				document.getElementById("place").value = storeobj.StoreName;
 				document.getElementById("place").setAttribute('data-id', storeobj.StoreId);
 				document.getElementById("storeaddress").innerHTML = storeobj.Address;
 
 				storeName = storeobj.StoreName;
-				storeAddressStr = storeobj.ProvinceName+storeobj.CityName+storeobj.DistrictName+storeobj.Address;
+				storeAddressStr = storeobj.ProvinceName + storeobj.CityName + storeobj.DistrictName + storeobj.Address;
 			}
 
 			//matchnamedataIndex = json.data.matchnamedata[0];
@@ -243,7 +242,7 @@ mui.plusReady(function() {
 		this.setAttribute("class", "matchTime active");
 		var d = new Date();
 		d.setDate(d.getDate() + date);
-		matchTime = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + ' ' + this.innerText ;
+		matchTime = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + ' ' + this.innerText;
 		document.getElementById("manifesto").setAttribute('data-time', matchTime);
 		log("时间：" + matchTime);
 	})

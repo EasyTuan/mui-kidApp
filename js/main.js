@@ -47,10 +47,10 @@ mui.plusReady(function() {
 	mui('.mui-bar-tab').on('tap', 'a', function(e) {
 		targetTab = this.dataset.href;
 		tabindex = this.dataset.index;
-		if(targetTab=='my/user.html'){
+		if(targetTab == 'my/user.html') {
 			plus.navigator.setStatusBarBackground('#4B9CF6');
 			plus.navigator.setStatusBarStyle('light');
-		}else{
+		} else {
 			plus.navigator.setStatusBarBackground('#fff');
 			plus.navigator.setStatusBarStyle('dark');
 		}
@@ -78,11 +78,10 @@ mui.plusReady(function() {
 	})
 
 	//1分钟刷新一次位置
-	setTimeout(function(){
+	setTimeout(function() {
 		storageLocation.timeRefresh(0);
-	},3000);
+	}, 3000);
 	storageLocation.timeRefresh(1 * 60 * 1000);
-	
 
 	//首页返回键处理 逻辑：1秒内，连续两次按返回键，则退出应用；
 	var first = null;
@@ -109,22 +108,22 @@ mui.plusReady(function() {
 	};
 
 	// 获取本地应用资源版本号
-//	plus.runtime.getProperty(plus.runtime.appid, function(inf) {
-//		storageUser.refreshVersion(inf.version);
-//		if(storageUser.IsLogin) {
-//			request("/Player/editPlayerDeviceNum", {
-//				playerid: storageUser.UId,
-//				devicenum: JSON.stringify(inf)
-//			}, function(json) {
-//				log(json)
-//			})
-//		}
-//		log("当前应用版本：" + JSON.stringify(inf));
-//		setTimeout(function() {
-//			//alert(inf.version)
-//			checkUpdate(inf.version)
-//		}, 10000)
-//	});
+	//	plus.runtime.getProperty(plus.runtime.appid, function(inf) {
+	//		storageUser.refreshVersion(inf.version);
+	//		if(storageUser.IsLogin) {
+	//			request("/Player/editPlayerDeviceNum", {
+	//				playerid: storageUser.UId,
+	//				devicenum: JSON.stringify(inf)
+	//			}, function(json) {
+	//				log(json)
+	//			})
+	//		}
+	//		log("当前应用版本：" + JSON.stringify(inf));
+	//		setTimeout(function() {
+	//			//alert(inf.version)
+	//			checkUpdate(inf.version)
+	//		}, 10000)
+	//	});
 	var needwait = localStorage.getItem("needwait");
 	var ck = needwait != null && mui.os.android;
 	//alert(needwait+","+mui.os.android+","+ck);
@@ -338,13 +337,13 @@ function createPKBtn() {
 }
 
 function updatePKBtn(type) {
-//	if(type == 1) { //显示活动
-//		pkbtn_def.hide();
-//		pkbtn_activity.show();
-//	} else { //显示默认
-//		pkbtn_def.show();
-//		pkbtn_activity.hide();
-//	}
+	//	if(type == 1) { //显示活动
+	//		pkbtn_def.hide();
+	//		pkbtn_activity.show();
+	//	} else { //显示默认
+	//		pkbtn_def.show();
+	//		pkbtn_activity.hide();
+	//	}
 }
 
 // 检测更新
@@ -419,19 +418,19 @@ function downWgt(wgtUrl) {
 			log("下载资源成功：" + d.filename);
 			installWgt(d.filename); // 安装wgt包
 		} else {
-			mui.alert("下载升级文件失败！请检查网络再试！",'',function(){});
+			mui.alert("下载升级文件失败！请检查网络再试！", '', function() {});
 			//plus.nativeUI.alert("更新资源失败！");
 		}
 		plus.nativeUI.closeWaiting();
 	});
 	var totalSize = 0; //总大小
-	var downloadedSize=0;
+	var downloadedSize = 0;
 	task.addEventListener("statechanged", function(download, status) {
-		if(download.downloadedSize!=0){
-			downloadedSize=Math.floor(download.downloadedSize / 1048576 * 100) / 100;
+		if(download.downloadedSize != 0) {
+			downloadedSize = Math.floor(download.downloadedSize / 1048576 * 100) / 100;
 		}
-		if(download.totalSize!=0){
-			totalSize=Math.floor(download.totalSize / 1048576 * 100) / 100;
+		if(download.totalSize != 0) {
+			totalSize = Math.floor(download.totalSize / 1048576 * 100) / 100;
 		}
 		wgtWaiting.setTitle("已下载 " + downloadedSize + 'M /' + totalSize + "M");
 	});

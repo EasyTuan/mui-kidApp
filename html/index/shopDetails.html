@@ -9,15 +9,15 @@
 			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
 		</script>
 		<script type="text/javascript">
-			link(['../../css/swiper-3.4.2.min.css','../../css/index/shopDetails.css']);
+			link(['../../css/swiper-3.4.2.min.css', '../../css/index/shopDetails.css']);
 		</script>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">店铺详情</h1>
-		    <a class="mui-icon iconfont icon-share  mui-pull-right" id="share"></a>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">店铺详情</h1>
+			<a class="mui-icon iconfont icon-share  mui-pull-right" id="share"></a>
 		</header>
 		<div class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll" id="details">
@@ -35,10 +35,9 @@
 				</p>
 				<div class="imgList">
 					{{each data.storedata.ShowImg as value i}}
-						<span class="imgcontain">
+					<span class="imgcontain">
 							<img data-index="i" data-url="{{value.ImgUrl}}" class="loadthumb" data-wh=",128" data-preview-src="" data-preview-group="1" />
-						</span>
-					{{/each}}
+						</span> {{/each}}
 				</div>
 				<div class="info">
 					<p><i class="iconfont icon-location"></i> {{data.storedata.Address}}</p>
@@ -50,10 +49,10 @@
 				<h4 id="rankingMore" data-storeid="{{data.storedata.StoreId}}">排行榜<i class="mui-icon mui-icon-arrowright mui-pull-right" ></i></h4>
 				<div class="mui-row rankList">
 					{{each data.rankdata as val}}
-						<div class="mui-col-sm-2 mui-col-xs-2">
-							<img data-url="{{val.ImgUrl}}" class="loadthumb" data-wh="64,64"/>
-							<span class="mui-badge mui-badge-primary">{{val.WinCount}}</span>
-						</div>
+					<div class="mui-col-sm-2 mui-col-xs-2">
+						<img data-url="{{val.ImgUrl}}" class="loadthumb" data-wh="64,64" />
+						<span class="mui-badge mui-badge-primary">{{val.WinCount}}</span>
+					</div>
 					{{/each}}
 				</div>
 			</div>
@@ -69,23 +68,22 @@
 				<div class="commentList">
 					<ul class="mui-table-view tblv-nl">
 						{{each data.commentdata as rs j}}
-							<li class="mui-table-view-cell mui-media" data-commentid='{{rs.commentid}}'>
-						        <a href="javascript:;">
-						            <img class="mui-media-object mui-pull-left loadthumb defuserimg" data-url="{{rs.PlayerImgUrl}}" data-wh="128,128">
-						            <div class="mui-media-body">
-						                {{rs.PlayerName}}
-						                <p class="mui-ellipsis">{{rs.CreateTime}}</p>
-						            </div>
-						        </a>
-						        <p>{{rs.Content}}</p>
-						        <div class="commentImg">
-						        	{{each rs.ImgList as imgList i}}
-						        		<span class="imgcontain">
+						<li class="mui-table-view-cell mui-media" data-commentid='{{rs.commentid}}'>
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left loadthumb defuserimg" data-url="{{rs.PlayerImgUrl}}" data-wh="128,128">
+								<div class="mui-media-body">
+									{{rs.PlayerName}}
+									<p class="mui-ellipsis">{{rs.CreateTime}}</p>
+								</div>
+							</a>
+							<p>{{rs.Content}}</p>
+							<div class="commentImg">
+								{{each rs.ImgList as imgList i}}
+								<span class="imgcontain">
 						        			<img data-url="{{imgList.ImgUrl}}" class="loadthumb" data-preview-src="" data-preview-group="{{j}}+2" data-wh=",400" />
-						        		</span>
-						        	{{/each}}
-						        </div>
-						    </li>
+						        		</span> {{/each}}
+							</div>
+						</li>
 						{{/each}}
 					</ul>
 				</div>
@@ -93,7 +91,7 @@
 		</script>
 		<script type="text/javascript">
 			//必须顺序加载
-			script(['../../js/mui.zoom.js','../../js/mui.previewimage.js','../../js/lib/swiper-3.4.1.min.js', '../../js/index/shopDetails.js']);
+			script(['../../js/mui.zoom.js', '../../js/mui.previewimage.js', '../../js/lib/swiper-3.4.1.min.js', '../../js/index/shopDetails.js']);
 		</script>
 	</body>
 

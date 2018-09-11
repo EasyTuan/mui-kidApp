@@ -19,7 +19,7 @@
 	proto.init = function() {
 		var options = this.options;
 		var el = document.getElementById(this.options.id);
-		if (!el) {
+		if(!el) {
 			div.innerHTML = template.replace(/\{\{id\}\}/g, this.options.id).replace('{{header}}', options.header).replace('{{footer}}', options.footer);
 			document.body.appendChild(div.firstElementChild);
 			el = document.getElementById(this.options.id);
@@ -29,7 +29,7 @@
 		this.scroller = this.element.querySelector($.classSelector('.slider-group'));
 		this.indicator = this.element.querySelector($.classSelector('.preview-indicator'));
 		this.loader = this.element.querySelector($.classSelector('.preview-loading'));
-		if (options.footer) {
+		if(options.footer) {
 			this.element.querySelector($.classSelector('.preview-footer')).classList.remove($.className('hidden'));
 		}
 		this.addImages();
@@ -37,7 +37,7 @@
 	proto.initEvent = function() {
 		var self = this;
 		$(document.body).on('tap', 'img[data-preview-src]', function() {
-			if (self.isAnimationing()) {
+			if(self.isAnimationing()) {
 				return false;
 			}
 			self.open(this);
@@ -53,13 +53,13 @@
 			}, 300));
 		};
 		this.scroller.addEventListener('doubletap', function() {
-			if (laterClose) {
+			if(laterClose) {
 				laterClose.cancel();
 				laterClose = null;
 			}
 		});
 		this.element.addEventListener('webkitAnimationEnd', function() {
-			if (self.element.classList.contains($.className('preview-out'))) { //close
+			if(self.element.classList.contains($.className('preview-out'))) { //close
 				self.element.style.display = 'none';
 				self.element.classList.remove($.className('preview-out'));
 				laterClose = null;
@@ -70,9 +70,9 @@
 			self.isInAnimation = false;
 		});
 		this.element.addEventListener('slide', function(e) {
-			if (self.options.zoom) {
+			if(self.options.zoom) {
 				var lastZoomerEl = self.element.querySelector('.mui-zoom-wrapper:nth-child(' + (self.lastIndex + 1) + ')');
-				if (lastZoomerEl) {
+				if(lastZoomerEl) {
 					$(lastZoomerEl).zoom().setZoom(1);
 				}
 			}
@@ -84,7 +84,7 @@
 		});
 	};
 	proto.isAnimationing = function() {
-		if (this.isInAnimation) {
+		if(this.isInAnimation) {
 			return true;
 		}
 		this.isInAnimation = true;
@@ -93,8 +93,8 @@
 	proto.addImages = function(group, index) {
 		this.groups = {};
 		var imgs = [];
-		if (group) {
-			if (group === defaultGroupName) {
+		if(group) {
+			if(group === defaultGroupName) {
 				imgs = document.querySelectorAll("img[data-preview-src]:not([data-preview-group])");
 			} else {
 				imgs = document.querySelectorAll("img[data-preview-src][data-preview-group='" + group + "']");
@@ -102,8 +102,8 @@
 		} else {
 			imgs = document.querySelectorAll("img[data-preview-src]");
 		}
-		if (imgs.length) {
-			for (var i = 0, len = imgs.length; i < len; i++) {
+		if(imgs.length) {
+			for(var i = 0, len = imgs.length; i < len; i++) {
 				this.addImage(imgs[i]);
 			}
 		}
@@ -111,15 +111,15 @@
 	proto.addImage = function(img) {
 		var group = img.getAttribute('data-preview-group');
 		group = group || defaultGroupName;
-		if (!this.groups[group]) {
+		if(!this.groups[group]) {
 			this.groups[group] = [];
 		}
 		var src = img.getAttribute('src');
-		if (img.__mui_img_data && img.__mui_img_data.src === src) { //已缓存且图片未变化
+		if(img.__mui_img_data && img.__mui_img_data.src === src) { //已缓存且图片未变化
 			this.groups[group].push(img.__mui_img_data);
 		} else {
 			var lazyload = img.getAttribute('data-preview-src');
-			if (!lazyload) {
+			if(!lazyload) {
 				lazyload = src;
 			}
 			var imgObj = {
@@ -138,12 +138,11 @@
 		}
 	};
 
-
 	proto.empty = function() {
 		this.scroller.innerHTML = '';
 	};
 	proto._initImgData = function(itemData, imgEl) {
-		if (!itemData.sWidth) {
+		if(!itemData.sWidth) {
 			var img = itemData.el;
 			itemData.sWidth = img.offsetWidth;
 			itemData.sHeight = img.offsetHeight;
@@ -159,7 +158,7 @@
 		var scaleX = from.width / to.width;
 		var scaleY = from.height / to.height;
 		var scale = 1;
-		if (scaleX <= scaleY) {
+		if(scaleX <= scaleY) {
 			scale = from.height / (to.height * scaleX);
 		} else {
 			scale = from.width / (to.width * scaleY);
@@ -176,13 +175,13 @@
 		var itemData = this.currentGroup[index];
 		var imgEl = itemEl.querySelector('img');
 		this._initImgData(itemData, imgEl);
-		if (isOpening) {
+		if(isOpening) {
 			var posi = this._getPosition(itemData);
 			imgEl.style.webkitTransitionDuration = '0ms';
 			imgEl.style.webkitTransform = 'translate3d(' + posi.x + 'px,' + posi.y + 'px,0) scale(' + itemData.sScale + ')';
 			imgEl.offsetHeight;
 		}
-		if (!itemData.loaded && imgEl.getAttribute('data-preview-lazyload')) {
+		if(!itemData.loaded && imgEl.getAttribute('data-preview-lazyload')) {
 			var self = this;
 			self.loader.classList.add($.className('active'));
 			//移动位置动画
@@ -212,23 +211,23 @@
 	};
 	proto._preloadItem = function(index) {
 		var itemEl = this.scroller.querySelector($.classSelector('.slider-item:nth-child(' + (index + 1) + ')'));
-		if (itemEl) {
+		if(itemEl) {
 			var itemData = this.currentGroup[index];
-			if (!itemData.sWidth) {
+			if(!itemData.sWidth) {
 				var imgEl = itemEl.querySelector('img');
 				this._initImgData(itemData, imgEl);
 			}
 		}
 	};
 	proto._initZoom = function(zoomWrapperEl, zoomerWidth, zoomerHeight) {
-		if (!this.options.zoom) {
+		if(!this.options.zoom) {
 			return;
 		}
-		if (zoomWrapperEl.getAttribute('data-zoomer')) {
+		if(zoomWrapperEl.getAttribute('data-zoomer')) {
 			return;
 		}
 		var zoomEl = zoomWrapperEl.querySelector($.classSelector('.zoom'));
-		if (zoomEl.tagName === 'IMG') {
+		if(zoomEl.tagName === 'IMG') {
 			var self = this;
 			var maxZoom = self._getScale({
 				width: zoomWrapperEl.offsetWidth,
@@ -299,14 +298,14 @@
 		var itemStr = '';
 		var wWidth = window.innerWidth;
 		var wHeight = window.innerHeight;
-		for (var i = 0; from < to; from++, i++) {
+		for(var i = 0; from < to; from++, i++) {
 			var itemData = groupArray[from];
 			var style = '';
-			if (itemData.sWidth) {
+			if(itemData.sWidth) {
 				style = '-webkit-transform:translate3d(0,0,0) scale(' + itemData.sScale + ');transform:translate3d(0,0,0) scale(' + itemData.sScale + ')';
 			}
 			itemStr = itemTemplate.replace('{{src}}', itemData.src).replace('{{lazyload}}', itemData.lazyload).replace('{{style}}', style);
-			if (from === index) {
+			if(from === index) {
 				currentIndex = i;
 				className = $.className('active');
 			} else {
@@ -328,10 +327,10 @@
 		this.refresh(index, this.groups[group]);
 	};
 	proto.open = function(index, group) {
-		if (this.element.classList.contains($.className('preview-in'))) {
+		if(this.element.classList.contains($.className('preview-in'))) {
 			return;
 		}
-		if (typeof index === "number") {
+		if(typeof index === "number") {
 			group = group || defaultGroupName;
 			this.addImages(group, index); //刷新当前group
 			this.openByGroup(index, group);
@@ -347,18 +346,18 @@
 		this.element.classList.add($.className('preview-out'));
 		var itemEl = this.scroller.querySelector($.classSelector('.slider-item:nth-child(' + (this.lastIndex + 1) + ')'));
 		var imgEl = itemEl.querySelector('img');
-		if (imgEl) {
+		if(imgEl) {
 			imgEl.classList.add($.className('transitioning'));
 			var itemData = this.currentGroup[this.lastIndex];
 			var posi = this._getPosition(itemData);
 			var sLeft = posi.left;
 			var sTop = posi.top;
-			if (sTop > window.innerHeight || sLeft > window.innerWidth || sTop < 0 || sLeft < 0) { //out viewport
+			if(sTop > window.innerHeight || sLeft > window.innerWidth || sTop < 0 || sLeft < 0) { //out viewport
 				imgEl.style.opacity = 0;
 				imgEl.style.webkitTransitionDuration = '0.5s';
 				imgEl.style.webkitTransform = 'scale(' + itemData.sScale + ')';
 			} else {
-				if (this.options.zoom) {
+				if(this.options.zoom) {
 					$(imgEl.parentNode.parentNode).zoom().toggleZoom(0);
 				}
 				imgEl.style.webkitTransitionDuration = '0.5s';
@@ -366,7 +365,7 @@
 			}
 		}
 		var zoomers = this.element.querySelectorAll($.classSelector('.zoom-wrapper'));
-		for (var i = 0, len = zoomers.length; i < len; i++) {
+		for(var i = 0, len = zoomers.length; i < len; i++) {
 			$(zoomers[i]).zoom().destory();
 		}
 		//		$(this.element).slider().destory();
@@ -378,7 +377,7 @@
 
 	var previewImageApi = null;
 	$.previewImage = function(options) {
-		if (!previewImageApi) {
+		if(!previewImageApi) {
 			previewImageApi = new PreviewImage(options);
 		}
 		return previewImageApi;

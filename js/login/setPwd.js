@@ -48,7 +48,7 @@ mui.plusReady(function() {
 				pwd: md5(val_pwdinpt || ""),
 				repwd: md5(val_repwdinpt || ""),
 				nickname: val_nickname,
-				cityid:storageLocation.CityId
+				cityid: storageLocation.CityId
 			}, function(json) {
 				appUI.removeDisabled(btn_ok);
 				if(json.code == 0) {

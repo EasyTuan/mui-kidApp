@@ -2,10 +2,10 @@ mui.init()
 
 mui.plusReady(function() {
 	log('popshare mplusready');
-	
+
 	//分享模块
 	//kidInitShareSerivces();
-	
+
 	//关闭窗口
 	mui('.mui-content').on('tap', '.m_close', function() {
 		mui.back()
@@ -14,7 +14,7 @@ mui.plusReady(function() {
 	mui('#popshare').on('tap', 'li', function() {
 		mui.toast("分享功能敬请期待！");
 		return;
-		
+
 		var shid = this.getAttribute('data-id'),
 			shex = this.getAttribute('data-ex');
 		kidShareAction(shid, shex);
@@ -42,8 +42,8 @@ function kidSendShareMessage(s, ex) {
 		href: "http://www.baidu.com",
 		title: "标题",
 		content: "这是分享的内容",
-		thumbs: ['http://jhbadminupload.oss-cn-hangzhou.aliyuncs.com/Upload/20170418/20170418095933254pejcu.jpg'],    //缩略图
-		pictures: 'http://jhbadminupload.oss-cn-hangzhou.aliyuncs.com/Upload/20170418/20170418095933254pejcu.jpg',			//大图
+		thumbs: ['http://jhbadminupload.oss-cn-hangzhou.aliyuncs.com/Upload/20170418/20170418095933254pejcu.jpg'], //缩略图
+		pictures: 'http://jhbadminupload.oss-cn-hangzhou.aliyuncs.com/Upload/20170418/20170418095933254pejcu.jpg', //大图
 		extra: {
 			scene: ex
 		}

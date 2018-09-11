@@ -17,7 +17,7 @@ var codtArr = [];
 
 var brandList = [];
 
-var StoreId, StoreName, Lon, Lat,distance;
+var StoreId, StoreName, Lon, Lat, distance;
 
 mui.plusReady(function() {
 	storage.init();
@@ -27,7 +27,7 @@ mui.plusReady(function() {
 	StoreName = self.info.StoreName;
 	Lon = self.info.Lon;
 	Lat = self.info.Lat;
-	distance=self.info.distance;
+	distance = self.info.distance;
 
 	//拖动结束
 	document.getElementById("map").addEventListener('dragend', function() {
@@ -170,7 +170,7 @@ gdMap = {
 		})
 		mapObj.setMapStyle("fresh");
 		mapObj.setFeatures(['road', 'point', 'bg']) //多个种类要素显示
-		mapObj.setLimitBounds(mapObj.getBounds());  //限制地图显示区域
+		mapObj.setLimitBounds(mapObj.getBounds()); //限制地图显示区域
 	},
 	setLocalMarker: function(coordinate) { //打本地点
 		coordinate = coordinate || ''
@@ -219,19 +219,19 @@ gdMap = {
 		log(mklog() + '进入批量打点：filter=' + JSON.stringify(filter))
 		//						filter.city = '上海市'
 		isMarkedCity.push(filter.city); //记录已经打过点的城市
-		request('/Store/getStoreDetail',{
-			storeid:StoreId
-		},function(r){
+		request('/Store/getStoreDetail', {
+			storeid: StoreId
+		}, function(r) {
 			mapObj.remove(markers);
-			markers=[];
+			markers = [];
 			var markerPosition = JSON.parse('[' + Lon + ',' + Lat + ']');
 			//var classstatus = "amp-mk" + k.status;
 			var iconUrl = "../../images/amp-mk" + 1 + ".svg";
-			var storeImg='';
-			if(r.data.storedata.ShowImg.length>0){
-				storeImg=r.data.storedata.ShowImg[0].ImgUrl;
+			var storeImg = '';
+			if(r.data.storedata.ShowImg.length > 0) {
+				storeImg = r.data.storedata.ShowImg[0].ImgUrl;
 			}
-			var Shopstatus=0;
+			var Shopstatus = 0;
 			//if(k.IsHaveMatch=='Y')Shopstatus=1;
 			var marker = new AMap.Marker({
 				position: markerPosition,
@@ -243,16 +243,16 @@ gdMap = {
 				"extData": {
 					"id": StoreId,
 					"name": StoreName,
-					"distance":distance,
-					'status':Shopstatus,
-					"Score":r.data.storedata.Score,
-					"ImgUrl":storeImg
+					"distance": distance,
+					'status': Shopstatus,
+					"Score": r.data.storedata.Score,
+					"ImgUrl": storeImg
 				},
-	
+
 			}) //marker end
-	
+
 			markers.push(marker);
-	
+
 			if(markers.length) {
 				log(mklog() + '【debug】点数量:' + markers.length)
 				gdMap.addClusterToMap(markers) //执行一次
@@ -277,8 +277,8 @@ gdMap = {
 			} else {
 				mui.each(r.data, function(j, k) {
 					var markerPosition = JSON.parse('[' + k.Lon + ',' + k.Lat + ']');
-					var Shopstatus=0;
-					if(k.IsHaveMatch=='Y')Shopstatus=1;
+					var Shopstatus = 0;
+					if(k.IsHaveMatch == 'Y') Shopstatus = 1;
 					var iconUrl = "../../images/amp-mk" + k.Status + ".svg";
 					var marker = new AMap.Marker({
 						position: markerPosition,
@@ -361,21 +361,20 @@ function gdMapMarkerClick(extData) {
 	var status = selectMaker.status
 	var mkid = selectMaker.id;
 	if(mkid != undefined) { //防止点击当前位置
-		render("#mainPopoverEl","popoverTep1",extData);
+		render("#mainPopoverEl", "popoverTep1", extData);
 		appUI.closeWaiting();
 		mui('#mainPopoverEl').popover('show');
 		//右上角关闭
-		mui('body').on('tap','.icon-close',function(){
+		mui('body').on('tap', '.icon-close', function() {
 			mui('#mainPopoverEl').popover('hide');
 		})
 		//查看战帖
-		document.getElementById("lookFight").addEventListener("tap",function(){
+		document.getElementById("lookFight").addEventListener("tap", function() {
 			mui('#mainPopoverEl').popover('hide');
-			openNew("shopMatch.html",{
-				storeid:this.dataset.id,
-				shopname:this.dataset.shopname
+			openNew("shopMatch.html", {
+				storeid: this.dataset.id,
+				shopname: this.dataset.shopname
 			});
 		})
 	}
 }
-

@@ -9,7 +9,7 @@
 			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
 		</script>
 		<script type="text/javascript">
-			link(['../../css/reset.css','../../css/my/myFriends.css']);
+			link(['../../css/reset.css', '../../css/my/myFriends.css']);
 		</script>
 
 	</head>
@@ -21,25 +21,25 @@
 		</header>
 		<div class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll">
-			<div class="pstn-r">
-				<div class="mui-indexed-list-bar" id="barwarp"></div>
+				<div class="pstn-r">
+					<div class="mui-indexed-list-bar" id="barwarp"></div>
 					<div class="mui-indexed-list-alert" id="baralert"></div>
-				<div id="list" class="mui-indexed-list">
-					<div class="mui-indexed-list-search ">
-						<div class="mtb10 ml10 mr10">
-							<div class="mui-input-row">
-								<span class="iconfont icon-searchIcon1 pstn-a l10 t10 fs18"></span>
-								<input type="text" class="mui-input-clear mui-indexed-list-search-input pl30" placeholder="搜索">
+					<div id="list" class="mui-indexed-list">
+						<div class="mui-indexed-list-search ">
+							<div class="mtb10 ml10 mr10">
+								<div class="mui-input-row">
+									<span class="iconfont icon-searchIcon1 pstn-a l10 t10 fs18"></span>
+									<input type="text" class="mui-input-clear mui-indexed-list-search-input pl30" placeholder="搜索">
+								</div>
 							</div>
-						</div>						
-					</div>					
-					<div class="mui-indexed-list-inner">
-						<div class="mui-indexed-list-empty-alert">没有数据</div>
-						<ul class="mui-table-view tblv-nl" id="listwarp">
-						</ul>
+						</div>
+						<div class="mui-indexed-list-inner">
+							<div class="mui-indexed-list-empty-alert">没有数据</div>
+							<ul class="mui-table-view tblv-nl" id="listwarp">
+							</ul>
+						</div>
 					</div>
 				</div>
-			</div>
 			</div>
 		</div>
 		<script type="text/html" id="bar_view">
@@ -54,14 +54,12 @@
 			<li class="mui-table-view-cell userinfo" data-id="{{subitem.value}}" data-value="{{subitem.value}}" data-tags="{{subitem.tag}}">
 				<a>
 					<img src="{{subitem.imgurl}}" class="img22" />
-					<span class="ml10 cor-000 lh22r">{{subitem.notename}}</span>
-					{{if subitem.status==1}}
-					<span class="mui-pull-right cor-999 lh22r">已接受</span>
-					{{else if subitem.status==0}}
+					<span class="ml10 cor-000 lh22r">{{subitem.notename}}</span> {{if subitem.status==1}}
+					<span class="mui-pull-right cor-999 lh22r">已接受</span> {{else if subitem.status==0}}
 					<a class="mui-btn mui-btn-outlined mui-btn-green">接受</a>
 					{{/if}}
 				</a>
-				
+
 			</li>
 			{{/each}} {{/each}}
 		</script>

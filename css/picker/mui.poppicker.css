@@ -10,34 +10,42 @@
 	bottom: 0px;
 	-webkit-transform: translateY(300px);
 }
+
 .mui-poppicker.mui-active {
 	-webkit-transform: translateY(0px);
 }
+
 .mui-android-5-1 .mui-poppicker {
 	bottom: -300px;
 	-webkit-transition-property: bottom;
 	-webkit-transform: none;
 }
+
 .mui-android-5-1 .mui-poppicker.mui-active {
 	bottom: 0px;
 	-webkit-transition-property: bottom;
 	-webkit-transform: none;
 }
+
 .mui-poppicker-header {
 	padding: 6px;
 	font-size: 14px;
 	color: #888;
 }
+
 .mui-poppicker-header .mui-btn {
 	font-size: 12px;
 	padding: 5px 10px;
 }
+
 .mui-poppicker-btn-cancel {
 	float: left;
 }
+
 .mui-poppicker-btn-ok {
 	float: right;
 }
+
 .mui-poppicker-clear {
 	clear: both;
 	height: 0px;
@@ -45,6 +53,7 @@
 	font-size: 0px;
 	overflow: hidden;
 }
+
 .mui-poppicker-body {
 	position: relative;
 	width: 100%;
@@ -55,6 +64,7 @@
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;*/
 }
+
 .mui-poppicker-body .mui-picker {
 	width: 100%;
 	height: 100%;

@@ -2,13 +2,13 @@ mui.init({
 	pullRefresh: {
 		container: '#pullrefresh',
 		down: { //下拉刷新
-				callback: pulldownRefresh,
-				style:mui.os.android?"circle":"default"
+			callback: pulldownRefresh,
+			style: mui.os.android ? "circle" : "default"
 		},
 		up: {
 			contentinit: '',
 			contentrefresh: '正在加载...',
-			contentnomore:'没有更多了',
+			contentnomore: '没有更多了',
 			//auto:true,
 			callback: pullupRefresh
 		}
@@ -29,23 +29,23 @@ function pulldownRefresh() {
 function pullupRefresh() {
 	getList(true);
 }
-mui.plusReady(function(){
-	storage.init();	
+mui.plusReady(function() {
+	storage.init();
 	getList();
 	appPage.registerCheckLoginEvent();
 	//二级
-	mui("#invitation").on("tap", ".detail", function() {		
+	mui("#invitation").on("tap", ".detail", function() {
 		openNew("../match/detail.html", {
 			id: this.dataset.id,
 			getMatchDetail: 'getMatchDetail' //说明从战帖列表页来的
 		});
 	});
-		
+
 })
 
 //渲染列表
 function getList(isnextpage, isreload) {
-	
+
 	if(isnextpage) { //加载下一页
 		pageno++;
 	} else if(isreload) { //重新加载当前页
@@ -62,8 +62,8 @@ function getList(isnextpage, isreload) {
 	var isappend = pageno > 1 ? true : false;
 
 	request("/Match/inviteMatchList", {
-		playerid:storageUser.UId,
-		pageindex:pageno
+		playerid: storageUser.UId,
+		pageindex: pageno
 	}, function(json) {
 		var nomore = true;
 		if(json.code == 0) {
@@ -88,7 +88,7 @@ function refreshDetail(matchid) {
 		lat: storageLocation.Lat
 	}, function(json) {
 		if(json.code == 0) {
-			json.item=json.data;
+			json.item = json.data;
 			render("#match_" + matchid, "detail_view", json);
 			appPage.imgInit();
 		} else {
@@ -96,7 +96,7 @@ function refreshDetail(matchid) {
 		}
 	});
 }
-var pkEvent = {	
+var pkEvent = {
 	acceptPK: function(matchid) {
 		mui.confirm('确定接受这场PK？', '', ['否', '是'], function(e) {
 			if(e.index == 1) {

@@ -12,7 +12,7 @@
 			link(['../../css/reset.css']);
 		</script>
 		<style type="text/css">
-			.liRight{
+			.liRight {
 				position: absolute;
 				top: 34px;
 				right: 10px;
@@ -20,32 +20,35 @@
 				color: #999;
 			}
 			
-			.liRight span:nth-of-type(2){
+			.liRight span:nth-of-type(2) {
 				border: 1px solid #4B9CF6;
 				color: #4B9CF6;
 				padding: 0px 4px 2px 4px;
-				border-radius:4px ;
+				border-radius: 4px;
 				margin: 0 0 0 5px;
 				font-size: 14px;
 			}
 			
-			.mui-content{
+			.mui-content {
 				margin: 10px 0 0 0;
 			}
 			
 			.mui-table-view .mui-media-object {
-			    line-height: 42px;
-			    max-width: 42px;
-			    height: 42px;
-			    border-radius:50% ;
+				line-height: 42px;
+				max-width: 42px;
+				height: 42px;
+				border-radius: 50%;
 			}
-			#shopList{
+			
+			#shopList {
 				display: none;
 			}
-			.mui-media-body{
+			
+			.mui-media-body {
 				text-overflow: ellipsis;
 			}
-			.mui-table-view-cell{
+			
+			.mui-table-view-cell {
 				padding: 13px 15px;
 			}
 		</style>
@@ -71,11 +74,11 @@
 						<span class="iconfont icon-delete mui-pull-right" id="clear"></span>
 					</p>
 					<div class="historyList">
-						
+
 					</div>
 				</div>
 				<ul class="mui-table-view tblv-nl" id="shopList" style="display: block;">
-			        <!--<li class="mui-table-view-cell mui-media">
+					<!--<li class="mui-table-view-cell mui-media">
 			            <a href="javascript:;" class="details">
 			                <img class="mui-media-object mui-pull-left" src="../../images/tx1.png">
 			                <div class="mui-media-body">
@@ -93,29 +96,29 @@
 		                	<span class="war">查看对战</span>
 		                </div>
 			        </li>-->
-			    </ul>
+				</ul>
 			</div>
 		</div>
 		<script type="text/html" id="shopListTep1">
 			{{each data as value}}
-				<li class="mui-table-view-cell mui-media">
-		            <a href="javascript:;" class="details" data-storeid="{{value.StoreId}}">
-		                <img class="mui-media-object mui-pull-left loadthumb" src="{{value.ImgUrl}}" data-wh="32,32" >
-		                <div class="mui-media-body">
-		                    {{value.StoreName}}
-		                    <p class="mui-ellipsis">
-		                    	<div class="scorewarp1">
-									<i style="width: calc({{value.Score}} * 13px);"></i>
-								</div>
-		                    	<span class="grade">{{value.Score}}分</span>
-		                    </p>
-		                </div>
-		            </a>
-		            <div class="liRight">
-	                	<span style="position: relative;top: 5px;">距离{{value.distance}}m</span>
-	                	<span style="position: relative;top: 5px;" class="war" data-id="{{value.StoreId}}" data-shopname="{{value.StoreName}}">查看对战</span>
-	                </div>
-		        </li>
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;" class="details" data-storeid="{{value.StoreId}}">
+					<img class="mui-media-object mui-pull-left loadthumb" src="{{value.ImgUrl}}" data-wh="32,32">
+					<div class="mui-media-body">
+						{{value.StoreName}}
+						<p class="mui-ellipsis">
+							<div class="scorewarp1">
+								<i style="width: calc({{value.Score}} * 13px);"></i>
+							</div>
+							<span class="grade">{{value.Score}}分</span>
+						</p>
+					</div>
+				</a>
+				<div class="liRight">
+					<span style="position: relative;top: 5px;">距离{{value.distance}}m</span>
+					<span style="position: relative;top: 5px;" class="war" data-id="{{value.StoreId}}" data-shopname="{{value.StoreName}}">查看对战</span>
+				</div>
+			</li>
 			{{/each}}
 		</script>
 		<script type="text/javascript">

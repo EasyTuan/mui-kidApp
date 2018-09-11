@@ -1,7 +1,7 @@
 var pageno = 1,
 	pagecount = 1,
-	keyword="",
-	pullrefresh ;
+	keyword = "",
+	pullrefresh;
 mui.init({
 	pullRefresh: {
 		container: '#pullrefresh',
@@ -22,7 +22,7 @@ mui.init({
 });
 //下拉刷新具体业务实现
 function pulldownRefresh() {
-	if(pullrefresh.style.display=="none"){		
+	if(pullrefresh.style.display == "none") {
 		appPage.endPullRefresh(true);
 		return;
 	}
@@ -33,7 +33,7 @@ function pulldownRefresh() {
 
 // 上拉加载具体业务实现
 function pullupRefresh() {
-	if(pullrefresh.style.display=="none"){	
+	if(pullrefresh.style.display == "none") {
 		appPage.endPullRefresh(true);
 		return;
 	}
@@ -62,45 +62,45 @@ mui.plusReady(function() {
 	//详情页
 	mui("#searchresult_warp").on("tap", ".detail", function() {
 		var id = this.getAttribute("data-id")
-		
+
 		openNew("../match/detail.html", {
 			id: id
 		});
 	})
-	
+
 	//输入框变化
-	document.getElementById("inpt_search").addEventListener("input",function(e){
-		if(this.value==""){
-			document.getElementById("backBtn").style.display="block";
-			document.getElementById("searchBtn").style.display="none";
+	document.getElementById("inpt_search").addEventListener("input", function(e) {
+		if(this.value == "") {
+			document.getElementById("backBtn").style.display = "block";
+			document.getElementById("searchBtn").style.display = "none";
 			return;
 		}
-		document.getElementById("backBtn").style.display="none";
-		document.getElementById("searchBtn").style.display="block";
+		document.getElementById("backBtn").style.display = "none";
+		document.getElementById("searchBtn").style.display = "block";
 	})
 	//清空
 	mui(".searchbar").on("tap", "span.mui-icon-clear", function() {
-		if(inpt_search.value==""){
-			document.getElementById("backBtn").style.display="block";
-			document.getElementById("searchBtn").style.display="none";
+		if(inpt_search.value == "") {
+			document.getElementById("backBtn").style.display = "block";
+			document.getElementById("searchBtn").style.display = "none";
 			return;
 		}
 	})
-	
+
 	inpt_search.addEventListener("focus", function() {
 		showWarp(1);
 		loadHistoryData()
 	});
 	document.getElementById("searchBtn").addEventListener("tap", function() {
-		var val = document.getElementById("inpt_search").value.trim();		
+		var val = document.getElementById("inpt_search").value.trim();
 		if(val != "") {
 			appSearchHistory.searchMatch.update(val);
-		}		
+		}
 		showWarp(2);
-		var kw=document.getElementById("inpt_search").value.trim();
-		if(kw==keyword)
-			return;	
-		keyword=kw;	
+		var kw = document.getElementById("inpt_search").value.trim();
+		if(kw == keyword)
+			return;
+		keyword = kw;
 		loadData();
 	});
 
@@ -124,15 +124,15 @@ function loadHistoryData() {
 	mui("#historylist_warp").on("tap", "span", function() {
 		var _keyword = this.innerText;
 		document.getElementById("inpt_search").value = _keyword;
-		showWarp(2);		
-		if(_keyword==keyword)
-			return;	
-		keyword=_keyword;	
+		showWarp(2);
+		if(_keyword == keyword)
+			return;
+		keyword = _keyword;
 		loadData();
 	})
 }
 //加载数据
-function loadData(isnextpage, isreload) {	
+function loadData(isnextpage, isreload) {
 	if(isnextpage) { //加载下一页
 		pageno++;
 	} else if(isreload) { //重新加载当前页
@@ -151,34 +151,34 @@ function loadData(isnextpage, isreload) {
 	}
 	request("/Player/searchPlayerMatchList", {
 		playerid: storageUser.UId,
-		keyword: keyword, 
+		keyword: keyword,
 		pageindex: pageno
 	}, function(json) {
-		var nomore=true;
+		var nomore = true;
 		if(json.code == 0) {
 			pagecount = json.pagecount; //总页码			
-			nomore = pageno >= json.pagecount;			
+			nomore = pageno >= json.pagecount;
 		} else {
 			appUI.showTopTip(json.msg);
 			//mui.toast(json.msg);
-		}	
-		render("#searchresult_warp", "searchresult_view", json,isappend);
+		}
+		render("#searchresult_warp", "searchresult_view", json, isappend);
 		appPage.imgInit();
 		appPage.endPullRefresh(nomore);
-	},true,function(){
+	}, true, function() {
 		appPage.endPullRefresh(true);
 	});
 }
 //设置显示区域
-function showWarp(type){
-	if(type==1)//显示搜索历史
+function showWarp(type) {
+	if(type == 1) //显示搜索历史
 	{
 		history_warp.style.display = "block";
 		pullrefresh.style.display = "none";
-		appPage.enablePullRefresh(false);//禁用上拉下拉
-	}else{//显示搜索结果
+		appPage.enablePullRefresh(false); //禁用上拉下拉
+	} else { //显示搜索结果
 		history_warp.style.display = "none";
 		pullrefresh.style.display = "block";
-		appPage.enablePullRefresh(true);//启用上拉下拉
+		appPage.enablePullRefresh(true); //启用上拉下拉
 	}
 }

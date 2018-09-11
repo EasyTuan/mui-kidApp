@@ -61,20 +61,20 @@ mui.plusReady(function() {
 					//appUI.showWaiting();
 					storageUser.loginOut(); //退出
 					plus.storage.clear();
-					
+
 					plus.oauth.getServices(function(services) {
 						for(var i in services) {
 							var service = services[i];
 							log("我是" + service.id)
 							if(service.id == "qq" || service.id == "weixin") {
 								log(service.id)
-//								var isInstalled = plusIsInstalled(service.id);
-//								if(isInstalled) {
-									service.logout(function(e) {
-										log("注销成功")
-									}, function(e) {
-										log("注销失败")
-									});
+								//								var isInstalled = plusIsInstalled(service.id);
+								//								if(isInstalled) {
+								service.logout(function(e) {
+									log("注销成功")
+								}, function(e) {
+									log("注销失败")
+								});
 								//}
 
 							}

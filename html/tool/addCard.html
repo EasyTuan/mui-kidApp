@@ -15,15 +15,15 @@
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">添加单卡</h1>
-		    <button type="button" class="mui-pull-right" id="create">下一步</button>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">添加单卡</h1>
+			<button type="button" class="mui-pull-right" id="create">下一步</button>
 		</header>
 		<div class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll">
 				<h5 id="hero">英雄卡</h5>
-			    <ul class="mui-table-view tblv-nl" id="kid1">
-			        <!--<li class="mui-table-view-cell mui-media">
+				<ul class="mui-table-view tblv-nl" id="kid1">
+					<!--<li class="mui-table-view-cell mui-media">
 			            <a href="javascript:;">
 			                <img class="mui-media-object mui-pull-left" src="../../images/image.png">
 			                <span class="mui-pull-right">
@@ -55,10 +55,10 @@
 			                </div>
 			            </a>
 			        </li>-->
-			    </ul>
-			    <h5 id="arms">武装卡</h5>
-			    <ul class="mui-table-view tblv-nl" id="kid2">
-			        <!--<li class="mui-table-view-cell mui-media">
+				</ul>
+				<h5 id="arms">武装卡</h5>
+				<ul class="mui-table-view tblv-nl" id="kid2">
+					<!--<li class="mui-table-view-cell mui-media">
 			            <a href="javascript:;">
 			                <img class="mui-media-object mui-pull-left" src="../../images/image.png">
 			                <span class="mui-pull-right">
@@ -74,54 +74,47 @@
 			                </div>
 			            </a>
 			        </li>-->
-			    </ul>
+				</ul>
 			</div>
 		</div>
 		<script type="text/html" id="cardListTep1">
-			{{each data as value}}
-				{{if value.CardType=="英雄卡"}}
-					<li class="mui-table-view-cell mui-media">
-			            <a href="javascript:;">
-			            	<img class="mui-media-object mui-pull-left loadthumb" data-url="{{value.ImgUrl}}" data-wh=",128">
-			            	<span class="mui-pull-right">
+			{{each data as value}} {{if value.CardType=="英雄卡"}}
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<img class="mui-media-object mui-pull-left loadthumb" data-url="{{value.ImgUrl}}" data-wh=",128">
+					<span class="mui-pull-right">
 			                	<button type="button" class="iconfont icon-subtract remove"></button>
 			                	<b class="num" data-cardid="{{value.CardId}}" data-type="{{value.CardType}}" data-url="{{value.ImgUrl}}">{{value.CardNum}}</b>
 			                	<button type="button" class="iconfont icon-increseblue add"></button>
-			                </span>
-			                {{if value.StarNum!=null}}
-			                	<span class="mui-pull-right">{{value.StarNum}} <i class="iconfont icon-collect_select"></i></span>
-			                {{/if}}
-			                <div class="mui-media-body">
-				                {{value.CardName}}
-				                {{if value.JobName!=null}}
-				                   	<p class="mui-ellipsis">阶级：{{value.JobName}}</p>
-				                {{/if}}
-			                </div>
-			            </a>
-			        </li>
-			    {{/if}}
-			{{/each}}
+			                </span> {{if value.StarNum!=null}}
+					<span class="mui-pull-right">{{value.StarNum}} <i class="iconfont icon-collect_select"></i></span> {{/if}}
+					<div class="mui-media-body">
+						{{value.CardName}} {{if value.JobName!=null}}
+						<p class="mui-ellipsis">阶级：{{value.JobName}}</p>
+						{{/if}}
+					</div>
+				</a>
+			</li>
+			{{/if}} {{/each}}
 		</script>
 		<script type="text/html" id="cardListTep2">
-			{{each data as value}}
-				{{if value.CardType=="武装卡"}}
-					<li class="mui-table-view-cell mui-media">
-			            <a href="javascript:;">
-			            	<img class="mui-media-object mui-pull-left loadthumb" data-url="{{value.ImgUrl}}" data-wh=",128">
-			            	<span class="mui-pull-right">
+			{{each data as value}} {{if value.CardType=="武装卡"}}
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<img class="mui-media-object mui-pull-left loadthumb" data-url="{{value.ImgUrl}}" data-wh=",128">
+					<span class="mui-pull-right">
 			                	<button type="button" class="iconfont icon-subtract remove"></button>
 			                	<b class="num" data-cardid="{{value.CardId}}" data-type="{{value.CardType}}">{{value.CardNum}}</b>
 			                	<button type="button" class="iconfont icon-increseblue add"></button>
 			                </span>
-			                <span class="mui-pull-right">{{value.StarNum}} <i class="iconfont icon-collect_select"></i></span>
-			                <div class="mui-media-body">
-			                   {{value.CardName}}
-			                    <p class="mui-ellipsis">阶级：{{value.JobName}}</p>
-			                </div>
-			            </a>
-			        </li>
-			    {{/if}}
-			{{/each}}
+					<span class="mui-pull-right">{{value.StarNum}} <i class="iconfont icon-collect_select"></i></span>
+					<div class="mui-media-body">
+						{{value.CardName}}
+						<p class="mui-ellipsis">阶级：{{value.JobName}}</p>
+					</div>
+				</a>
+			</li>
+			{{/if}} {{/each}}
 		</script>
 		<script type="text/javascript">
 			//必须顺序加载

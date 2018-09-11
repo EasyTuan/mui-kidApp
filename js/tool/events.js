@@ -3,12 +3,12 @@ mui.init({
 		container: '#pullrefresh',
 		down: {
 			callback: pulldownRefresh,
-			style:mui.os.android?"circle":"default"
+			style: mui.os.android ? "circle" : "default"
 		},
 		up: {
 			contentinit: '',
 			contentrefresh: '正在加载...',
-			contentnomore:'没有更多了',
+			contentnomore: '没有更多了',
 			callback: pullupRefresh
 		}
 	}
@@ -16,105 +16,106 @@ mui.init({
 
 var page = 1; //初始页码
 var pageCount = 0; //总页数
-var CardGroupPlazaId='';
-var cardname='';
-var keyword='';
-var tagid='';
+var CardGroupPlazaId = '';
+var cardname = '';
+var keyword = '';
+var tagid = '';
 
-mui.plusReady(function(){
-	var self=plus.webview.currentWebview();
-	CardGroupPlazaId=self.info.CardGroupPlazaId;
-	cardname=self.info.cardname;
-	keyword=self.info.keyword;
-	tagid=self.info.tagid;
+mui.plusReady(function() {
+	var self = plus.webview.currentWebview();
+	CardGroupPlazaId = self.info.CardGroupPlazaId;
+	cardname = self.info.cardname;
+	keyword = self.info.keyword;
+	tagid = self.info.tagid;
 	//document.getElementById("cardName").innerHTML=cardname;
-	if(CardGroupPlazaId==""){
+	if(CardGroupPlazaId == "") {
 		//CardGroupPlazaId为空说明从cardSelect搜索页来的
-		request("/Card/getCardGroupListByCondition",{
-			keyword:keyword,
-			tagid:tagid
-		},function(r){
+		request("/Card/getCardGroupListByCondition", {
+			keyword: keyword,
+			tagid: tagid
+		}, function(r) {
 			log(r);
 			//没有数据
-			if(r.code==-1){
+			if(r.code == -1) {
 				appUI.showTopTip(r.msg);
-				document.getElementsByClassName("none")[0].style.display="block";
+				document.getElementsByClassName("none")[0].style.display = "block";
 				return;
 			}
-			render("#events","eventsTep1",r);
+			render("#events", "eventsTep1", r);
 			appPage.imgInit();
-			pageCount=r.pagecount;
-		},true)
-	}else{
-		request("/Card/getCardGroupListByCardGroupPlazaId",{
-			cardgroupplazaid:CardGroupPlazaId
-		},function(r){
+			pageCount = r.pagecount;
+		}, true)
+	} else {
+		request("/Card/getCardGroupListByCardGroupPlazaId", {
+			cardgroupplazaid: CardGroupPlazaId
+		}, function(r) {
 			log(r);
 			//没有数据
-			if(r.code==-1){
+			if(r.code == -1) {
 				appUI.showTopTip(r.msg);
-				document.getElementsByClassName("none")[0].style.display="block";
+				document.getElementsByClassName("none")[0].style.display = "block";
 				return;
 			}
-			render("#events","eventsTep1",r);
+			render("#events", "eventsTep1", r);
 			appPage.imgInit();
-			pageCount=r.pagecount;
-		},true)
+			pageCount = r.pagecount;
+		}, true)
 	}
-	
+
 	//打开二级
-	mui("#events").on("tap","li",function(){
-		openNew("cardDetails.html",{CardGroupId:this.dataset.id});
+	mui("#events").on("tap", "li", function() {
+		openNew("cardDetails.html", {
+			CardGroupId: this.dataset.id
+		});
 	})
 })
-
 
 //下拉刷新具体业务实现
 function pulldownRefresh() {
 	setTimeout(function() {
-		if(CardGroupPlazaId==""){
-			request("/Card/getCardGroupListByCondition",{
-				keyword:keyword,
-				tagid:tagid
-			},function(r){
+		if(CardGroupPlazaId == "") {
+			request("/Card/getCardGroupListByCondition", {
+				keyword: keyword,
+				tagid: tagid
+			}, function(r) {
 				log(r);
 				//没有数据
-				if(r.code==-1){
+				if(r.code == -1) {
 					appUI.showTopTip(r.msg);
-					document.getElementsByClassName("none")[0].style.display="block";
+					document.getElementsByClassName("none")[0].style.display = "block";
 					return;
 				}
-				render("#events","eventsTep1",r);
+				render("#events", "eventsTep1", r);
 				appPage.imgInit();
-				pageCount=r.pagecount;
+				pageCount = r.pagecount;
 				//下拉刷新结束
 				mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
 				//重置上拉加载
 				mui('#pullrefresh').pullRefresh().refresh(true);
 				//重置页码
 				page = 1;
-			},true)
-		}else{
-			request("/Card/getCardGroupListByCardGroupPlazaId",{
-				cardgroupplazaid:CardGroupPlazaId
-			},function(r){
+			}, true)
+		} else {
+			request("/Card/getCardGroupListByCardGroupPlazaId", {
+				cardgroupplazaid: CardGroupPlazaId
+			}, function(r) {
 				log(r);
 				//没有数据
-				if(r.code==-1){
+				if(r.code == -1) {
 					appUI.showTopTip(r.msg);
-					document.getElementsByClassName("none")[0].style.display="block";
+					document.getElementsByClassName("none")[0].style.display = "block";
 					return;
 				}
-				render("#events","eventsTep1",r);
+				render("#events", "eventsTep1", r);
 				appPage.imgInit();
-				pageCount=r.pagecount;
+				pageCount = r.pagecount;
 				//下拉刷新结束
 				mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
 				//重置上拉加载
 				mui('#pullrefresh').pullRefresh().refresh(true);
 				//重置页码
 				page = 1;
-			},true)
+			}, true)
 		}
 		//下拉刷新结束
 		mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
@@ -130,45 +131,45 @@ function pullupRefresh() {
 	if(pageCount > page) {
 		log(mklog() + '上拉加载开始！！');
 		setTimeout(function() {
-			if(CardGroupPlazaId==""){
-				request("/Card/getCardGroupListByCondition",{
-					keyword:keyword,
-					tagid:tagid,
+			if(CardGroupPlazaId == "") {
+				request("/Card/getCardGroupListByCondition", {
+					keyword: keyword,
+					tagid: tagid,
 					pageno: page + 1
-				},function(r){
+				}, function(r) {
 					log(r);
 					//没有数据
-					if(r.code==-1){
+					if(r.code == -1) {
 						appUI.showTopTip(r.msg);
-						document.getElementsByClassName("none")[0].style.display="block";
+						document.getElementsByClassName("none")[0].style.display = "block";
 						return;
 					}
-					render("#events","eventsTep1",r,true);
+					render("#events", "eventsTep1", r, true);
 					appPage.imgInit();
-					pageCount=r.pagecount;
+					pageCount = r.pagecount;
 					//停止上拉加载，参数为true代表没有更多数据了。
 					mui('#pullrefresh').pullRefresh().endPullupToRefresh((page >= pageCount));
-				},false,function(){
+				}, false, function() {
 					appPage.endPullRefresh(true);
 				})
-			}else{
-				request("/Card/getCardGroupListByCardGroupPlazaId",{
-					cardgroupplazaid:CardGroupPlazaId,
+			} else {
+				request("/Card/getCardGroupListByCardGroupPlazaId", {
+					cardgroupplazaid: CardGroupPlazaId,
 					pageno: page + 1
-				},function(r){
+				}, function(r) {
 					log(r);
 					//没有数据
-					if(r.code==-1){
+					if(r.code == -1) {
 						appUI.showTopTip(r.msg);
-						document.getElementsByClassName("none")[0].style.display="block";
+						document.getElementsByClassName("none")[0].style.display = "block";
 						return;
 					}
-					render("#events","eventsTep1",r,true);
+					render("#events", "eventsTep1", r, true);
 					appPage.imgInit();
-					pageCount=r.pagecount;
+					pageCount = r.pagecount;
 					//停止上拉加载，参数为true代表没有更多数据了。
 					mui('#pullrefresh').pullRefresh().endPullupToRefresh((page >= pageCount));
-				},false,function(){
+				}, false, function() {
 					appPage.endPullRefresh(true);
 				})
 			}

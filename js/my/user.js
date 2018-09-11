@@ -135,11 +135,11 @@ var loginEvent = {
 
 function checkMsg() {
 	if(storageUser.UId > 0) {
-//		request('/Player/getPlayerNoReadNotify', {
-//			playerid: storageUser.UId
-//		}, function(r) {
-//			r.code == 0 ? document.getElementById("msgStatus").setAttribute('class', 'redbadge') : document.getElementById("msgStatus").setAttribute('class', '')
-//		}, false, function() {}, false);
+		//		request('/Player/getPlayerNoReadNotify', {
+		//			playerid: storageUser.UId
+		//		}, function(r) {
+		//			r.code == 0 ? document.getElementById("msgStatus").setAttribute('class', 'redbadge') : document.getElementById("msgStatus").setAttribute('class', '')
+		//		}, false, function() {}, false);
 	}
 }
 
@@ -170,8 +170,8 @@ function loop() {
 		ctx.fillStyle = lines[j];
 		//每个矩形的角度都不同，每个之间相差45度  
 		var angle = (step + j * 90) * Math.PI / 180;
-		var deltaHeight = Math.sin(angle) * 50+30;
-		var deltaHeightRight = Math.cos(angle) * 50+30;
+		var deltaHeight = Math.sin(angle) * 50 + 30;
+		var deltaHeightRight = Math.cos(angle) * 50 + 30;
 		ctx.beginPath();
 		ctx.moveTo(0, canvas.height / 2 + deltaHeight);
 		ctx.bezierCurveTo(canvas.width / 2, canvas.height / 2 + deltaHeight, canvas.width / 2, canvas.height / 2 + deltaHeightRight, canvas.width, canvas.height / 2 + deltaHeightRight);

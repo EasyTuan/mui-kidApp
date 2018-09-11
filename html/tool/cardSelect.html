@@ -9,14 +9,14 @@
 			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
 		</script>
 		<script type="text/javascript">
-			link(['../../css/tool/oneCardSearch.css','../../css/tool/cardSelect.css']);
+			link(['../../css/tool/oneCardSearch.css', '../../css/tool/cardSelect.css']);
 		</script>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">套牌筛选</h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">套牌筛选</h1>
 		</header>
 		<div class="mui-content">
 			<div class="mui-scroll-wrapper">
@@ -25,7 +25,7 @@
 						<h5>套牌名称</h5>
 						<input type="text" name="" id="cardName" value="" placeholder="卡牌名称，如：雷神" />
 						<span class="iconfont icon-edit" id="shuru1" style="top: 45px;"></span>
-					</div>		
+					</div>
 					<div class="group kind" id="tap">
 						<h5 style="border: none;">热门赛事卡表</h5>
 						<!--数据区-->
@@ -36,8 +36,7 @@
 		</div>
 		<script type="text/html" id="tapTep1">
 			{{each CardGroupTag as value}}
-				<span data-id="{{value.tagId}}">{{value.tagName}}</span>
-			{{/each}}
+			<span data-id="{{value.tagId}}">{{value.tagName}}</span> {{/each}}
 			<hr />
 		</script>
 		<script type="text/javascript">

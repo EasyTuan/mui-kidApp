@@ -9,7 +9,7 @@
 			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
 		</script>
 		<script type="text/javascript">
-			link(['../../css/reset.css','../../css/index/search.css']);
+			link(['../../css/reset.css', '../../css/index/search.css']);
 		</script>
 	</head>
 
@@ -39,7 +39,7 @@
 		<div class="mt15 mui-content mui-scroll-wrapper" id="pullrefresh" style="display: none;">
 			<div class="mui-scroll">
 				<ul class="mui-table-view tblv-nl" id="searchresult_warp">
-					
+
 				</ul>
 			</div>
 		</div>
@@ -49,8 +49,7 @@
 			<span>{{item}}</span> {{/each}}
 		</script>
 		<script type="text/html" id="searchresult_view">
-			{{if data!=null&& data.length>0}}
-			{{each data as item}} {{if item.TypeId==1}}
+			{{if data!=null&& data.length>0}} {{each data as item}} {{if item.TypeId==1}}
 			<li class="mui-table-view-cell newsdetail" data-id="{{item.Id}}">
 				<p class="cor-000">
 					<span class="newtype news_m{{item.ModuleId}}">{{item.ModuleName}}</span> {{item.Name}}
@@ -82,8 +81,7 @@
 					</p>
 				</div>
 			</li>
-			{{/if}} {{/each}}
-			{{else}}
+			{{/if}} {{/each}} {{else}}
 			<div class="nodata">暂无内容</div>
 			{{/if}}
 		</script>

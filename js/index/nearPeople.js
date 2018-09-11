@@ -2,13 +2,13 @@ mui.init({
 	pullRefresh: {
 		container: '#pullrefresh',
 		down: { //下拉刷新
-				callback: pulldownRefresh,
-				style:mui.os.android?"circle":"default"
+			callback: pulldownRefresh,
+			style: mui.os.android ? "circle" : "default"
 		},
 		up: {
 			contentinit: '',
 			contentrefresh: '正在加载...',
-			contentnomore:'没有更多了',
+			contentnomore: '没有更多了',
 			callback: pullupRefresh
 		}
 	},
@@ -20,83 +20,75 @@ mui.init({
 var page = 1; //初始页码
 var pageCount = 0; //总页数
 
-mui.plusReady(function(){
+mui.plusReady(function() {
 	storage.init();
-	
-	
+
 	getList();
-	
+
 	//打开地图
-	mui(".mui-bar-nav").on("tap",".icon-map",function(){
+	mui(".mui-bar-nav").on("tap", ".icon-map", function() {
 		openNew("mapPeople.html");
-//		if(plus.storage.getItem('location')){
-//			openNew("mapPeople.html");
-//		}else{
-//			mui.toast('定位服务未开启，无法打开地图！');
-//		}
+		//		if(plus.storage.getItem('location')){
+		//			openNew("mapPeople.html");
+		//		}else{
+		//			mui.toast('定位服务未开启，无法打开地图！');
+		//		}
 	})
-	
+
 	//打开用户资料
-	mui(".mui-table-view").on("tap",".details",function(){
-		openNew("../my/userInfo.html",{
-			id:this.dataset.playerid
+	mui(".mui-table-view").on("tap", ".details", function() {
+		openNew("../my/userInfo.html", {
+			id: this.dataset.playerid
 		});
 	})
-	
+
 	//打开搜索
-	document.getElementById("search").addEventListener("tap",function(){
+	document.getElementById("search").addEventListener("tap", function() {
 		mui.openWindow({
-		    url:"searchPeople.html",
-		    id:"searchPeople.html",
-		    show:{
-		      autoShow:true,//页面loaded事件发生后自动显示，默认为true
-		      aniShow:"none",//页面显示动画，默认为”slide-in-right“；
-		      event:'titleUpdate',//页面显示时机，默认为titleUpdate事件时显示
-		      extras:{}//窗口动画是否使用图片加速
-		    },
-		    waiting:{
-		      autoShow:false,//自动显示等待框，默认为true
-		    }
+			url: "searchPeople.html",
+			id: "searchPeople.html",
+			show: {
+				autoShow: true, //页面loaded事件发生后自动显示，默认为true
+				aniShow: "none", //页面显示动画，默认为”slide-in-right“；
+				event: 'titleUpdate', //页面显示时机，默认为titleUpdate事件时显示
+				extras: {} //窗口动画是否使用图片加速
+			},
+			waiting: {
+				autoShow: false, //自动显示等待框，默认为true
+			}
 		})
 	})
-	
+
 	//约战
-	mui(".mui-table-view").on("tap",".war",function(){
-		openNew("../pk/war.html",{
+	mui(".mui-table-view").on("tap", ".war", function() {
+		openNew("../pk/war.html", {
 			friendid: this.dataset.playerid,
-			imgurl:this.dataset.imgurl,
-			friendNickName:this.dataset.nickname
+			imgurl: this.dataset.imgurl,
+			friendNickName: this.dataset.nickname
 		});
 	})
 })
 
-
-
-
-
-
 //拉取列表
-function getList(){
-	request("/Player/getNearbyPlayer",{
+function getList() {
+	request("/Player/getNearbyPlayer", {
 		playerid: storageUser.UId,
-		lon : storageLocation.Lon,
-		lat : storageLocation.Lat,
-		pageindex:1
-	},function(r){
+		lon: storageLocation.Lon,
+		lat: storageLocation.Lat,
+		pageindex: 1
+	}, function(r) {
 		log(r);
-		if(r.code==-1){
-			document.getElementsByClassName("none")[0].style.display='block';
+		if(r.code == -1) {
+			document.getElementsByClassName("none")[0].style.display = 'block';
 			appUI.showTopTip(r.msg);
 			return;
 		}
-		document.getElementsByClassName("none")[0].style.display='none';
-		render("#peopleList","peopleListTep1",r)
+		document.getElementsByClassName("none")[0].style.display = 'none';
+		render("#peopleList", "peopleListTep1", r)
 		appPage.imgInit();
-		pageCount=r.pagecount;
-	},true)
+		pageCount = r.pagecount;
+	}, true)
 }
-
-
 
 //下拉刷新具体业务实现
 function pulldownRefresh() {
@@ -116,20 +108,20 @@ function pullupRefresh() {
 	if(pageCount > page) {
 		log(mklog() + '上拉加载开始！！');
 		setTimeout(function() {
-			request("/Player/getNearbyPlayer",{
+			request("/Player/getNearbyPlayer", {
 				playerid: storageUser.UId,
-				lon : storageLocation.Lon,
-				lat : storageLocation.Lat,
-				pageindex:1
-			},function(r){
+				lon: storageLocation.Lon,
+				lat: storageLocation.Lat,
+				pageindex: 1
+			}, function(r) {
 				log(r);
-				render("#peopleList","peopleListTep1",r,true)
+				render("#peopleList", "peopleListTep1", r, true)
 				appPage.imgInit();
-				pageCount=r.pagecount;
+				pageCount = r.pagecount;
 				//停止上拉加载，参数为true代表没有更多数据了。
 				mui('#pullrefresh').pullRefresh().endPullupToRefresh((page >= pageCount));
-			},false,function(){
-				appPage.endPullRefresh(true);		
+			}, false, function() {
+				appPage.endPullRefresh(true);
 			})
 			page++;
 			log(mklog() + '上拉加载结束！！')

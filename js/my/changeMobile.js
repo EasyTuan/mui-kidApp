@@ -90,6 +90,7 @@ mui.plusReady(function() {
 	//		btnDisabled(false);
 	//	})
 });
+
 function initPage() {
 	storageUser = kidstorageuser.getInstance();
 	document.getElementById("span_mobile").innerText = storageUser.Mobile;

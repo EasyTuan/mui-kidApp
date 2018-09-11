@@ -12,16 +12,19 @@ body {
 img {
 	max-width: 100%;
 }
-.imgbox50{
+
+.imgbox50 {
 	width: 50px;
 	height: 50px;
 	overflow: hidden;
 	line-height: 50px;
 }
-.imgbox50 img{
+
+.imgbox50 img {
 	min-width: 50px !important;
 }
-.img_50{
+
+.img_50 {
 	min-width: 50px;
 	/*line-height: 50px!important;
  
@@ -255,7 +258,7 @@ img.loadok {
 	float: right;
 }
 
-.sign{
+.sign {
 	display: inline-block;
 	width: 4px;
 	height: 14px;
@@ -265,19 +268,19 @@ img.loadok {
 	margin: 0 4px 0 0;
 }
 
-.col333{
+.col333 {
 	color: #333;
 }
 
-.col4b{
+.col4b {
 	color: #4B9CF6;
 }
 
-.col999{
+.col999 {
 	color: #999;
 }
 
-.margin0{
+.margin0 {
 	margin: 0!important;
 }
 

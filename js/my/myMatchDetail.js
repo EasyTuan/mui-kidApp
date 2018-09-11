@@ -12,11 +12,11 @@ mui.init({
 });
 
 mui.plusReady(function() {
-	storage.init();	
+	storage.init();
 	matchid = appPage.getParam("id");
 	loadData();
 	mui("#detail_warp").on("tap", ".userinfo", function() {
-		var id = this.getAttribute("data-uid");		
+		var id = this.getAttribute("data-uid");
 		openNew("userInfo.html", {
 			id: id
 		});

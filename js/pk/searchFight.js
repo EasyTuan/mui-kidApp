@@ -1,7 +1,7 @@
 var pageno = 1,
 	pagecount = 1,
-	keyword="",
-	lon,lat;
+	keyword = "",
+	lon, lat;
 mui.init({
 	pullRefresh: {
 		container: '#pullrefresh',
@@ -26,7 +26,7 @@ mui.init({
 
 //下拉刷新具体业务实现
 function pulldownRefresh() {
-	if(pullrefresh.style.display=="none"){		
+	if(pullrefresh.style.display == "none") {
 		appPage.endPullRefresh(true);
 		return;
 	}
@@ -37,7 +37,7 @@ function pulldownRefresh() {
 
 // 上拉加载具体业务实现
 function pullupRefresh() {
-	if(pullrefresh.style.display=="none"){	
+	if(pullrefresh.style.display == "none") {
 		appPage.endPullRefresh(true);
 		return;
 	}
@@ -45,8 +45,8 @@ function pullupRefresh() {
 }
 mui.plusReady(function() {
 	storage.init();
-	lat=storageLocation.Lat;
-	lon=storageLocation.Lon;
+	lat = storageLocation.Lat;
+	lon = storageLocation.Lon;
 	loadHistoryData();
 	var inpt_search = document.getElementById("inpt_search");
 	var history_warp = document.getElementById("history_warp");
@@ -67,45 +67,45 @@ mui.plusReady(function() {
 	});
 	//详情页
 	mui("#searchresult_warp").on("tap", ".detail", function() {
-		var id = this.getAttribute("data-id")		
+		var id = this.getAttribute("data-id")
 		openNew("../match/detail.html", {
 			id: id
 		});
 	})
-	
+
 	//输入框变化
-	document.getElementById("inpt_search").addEventListener("input",function(e){
-		if(this.value==""){
-			document.getElementById("backBtn").style.display="block";
-			document.getElementById("searchBtn").style.display="none";
+	document.getElementById("inpt_search").addEventListener("input", function(e) {
+		if(this.value == "") {
+			document.getElementById("backBtn").style.display = "block";
+			document.getElementById("searchBtn").style.display = "none";
 			return;
 		}
-		document.getElementById("backBtn").style.display="none";
-		document.getElementById("searchBtn").style.display="block";
+		document.getElementById("backBtn").style.display = "none";
+		document.getElementById("searchBtn").style.display = "block";
 	})
 	//清空
 	mui(".searchbar").on("tap", "span.mui-icon-clear", function() {
-		if(inpt_search.value==""){
-			document.getElementById("backBtn").style.display="block";
-			document.getElementById("searchBtn").style.display="none";
+		if(inpt_search.value == "") {
+			document.getElementById("backBtn").style.display = "block";
+			document.getElementById("searchBtn").style.display = "none";
 			return;
 		}
 	})
-		
+
 	inpt_search.addEventListener("focus", function() {
 		showWarp(1);
 		loadHistoryData()
 	});
 	document.getElementById("searchBtn").addEventListener("tap", function() {
-		var val = document.getElementById("inpt_search").value.trim();		
+		var val = document.getElementById("inpt_search").value.trim();
 		if(val != "") {
 			appSearchHistory.searchFight.update(val);
-		}		
+		}
 		showWarp(2);
-		var kw=document.getElementById("inpt_search").value.trim();
-		if(kw==keyword)
-			return;	
-		keyword=kw;	
+		var kw = document.getElementById("inpt_search").value.trim();
+		if(kw == keyword)
+			return;
+		keyword = kw;
 		loadData();
 	});
 
@@ -123,15 +123,15 @@ function loadHistoryData() {
 	mui("#historylist_warp").on("tap", "span", function() {
 		var _keyword = this.innerText;
 		document.getElementById("inpt_search").value = _keyword;
-		showWarp(2);		
-		if(_keyword==keyword)
-			return;	
-		keyword=_keyword;	
+		showWarp(2);
+		if(_keyword == keyword)
+			return;
+		keyword = _keyword;
 		loadData();
 	})
 }
 //加载数据
-function loadData(isnextpage, isreload) {	
+function loadData(isnextpage, isreload) {
 	if(isnextpage) { //加载下一页
 		pageno++;
 	} else if(isreload) { //重新加载当前页
@@ -150,37 +150,37 @@ function loadData(isnextpage, isreload) {
 	}
 	request("/Match/searchMatchList", {
 		playerid: storageUser.UId,
-		keyword: keyword, 
+		keyword: keyword,
 		pageindex: pageno,
 		lon: lon,
 		lat: lat
 	}, function(json) {
-		var nomore=true;
+		var nomore = true;
 		if(json.code == 0) {
 			pagecount = json.pagecount; //总页码			
-			nomore = pageno >= json.pagecount;			
+			nomore = pageno >= json.pagecount;
 		} else {
 			appUI.showTopTip(json.msg);
 			//mui.toast(json.msg);
-		}	
-		render("#searchresult_warp", "searchresult_view", json,isappend);
+		}
+		render("#searchresult_warp", "searchresult_view", json, isappend);
 		appPage.imgInit();
 		appPage.endPullRefresh(nomore);
-	},true,function(){
+	}, true, function() {
 		appPage.endPullRefresh(true);
 	});
 }
 //设置显示区域
-function showWarp(type){
-	if(type==1)//显示搜索历史
+function showWarp(type) {
+	if(type == 1) //显示搜索历史
 	{
 		history_warp.style.display = "block";
 		pullrefresh.style.display = "none";
-		appPage.enablePullRefresh(false);//禁用上拉下拉
-	}else{//显示搜索结果
+		appPage.enablePullRefresh(false); //禁用上拉下拉
+	} else { //显示搜索结果
 		history_warp.style.display = "none";
 		pullrefresh.style.display = "block";
-		appPage.enablePullRefresh(true);//启用上拉下拉
+		appPage.enablePullRefresh(true); //启用上拉下拉
 	}
 }
 //刷新单条详情
@@ -192,7 +192,7 @@ function refreshDetail(matchid) {
 		lat: lat
 	}, function(json) {
 		if(json.code == 0) {
-			json.item=json.data;
+			json.item = json.data;
 			render("#match_" + matchid, "detail_view", json);
 			appPage.imgInit();
 		} else {
@@ -200,7 +200,7 @@ function refreshDetail(matchid) {
 		}
 	});
 }
-var pkEvent = {	
+var pkEvent = {
 	joinPK: function(matchid) {
 		mui.confirm('确定加入这场PK？', '', ['否', '是'], function(e) {
 			if(e.index == 1) {
@@ -209,7 +209,7 @@ var pkEvent = {
 					matchid: matchid,
 					lon: lon,
 					lat: lat
-				}, function(json) {					
+				}, function(json) {
 					appUI.showTopTip(json.msg);
 					openNew("../match/detail.html", {
 						id: matchid,
@@ -219,18 +219,18 @@ var pkEvent = {
 			}
 		})
 	},
-	acceptPK:function(matchid){
+	acceptPK: function(matchid) {
 		mui.confirm('确定接受这场PK？', '', ['否', '是'], function(e) {
-			if (e.index == 1) {
-				request("/Match/inviteMatchYorN",{
-					playerid:storageUser.UId,
-					matchid:matchid,
-					type:'Y',
-					lon:storageLocation.Lon,
-					lat:storageLocation.Lat
-				},function(json){					
+			if(e.index == 1) {
+				request("/Match/inviteMatchYorN", {
+					playerid: storageUser.UId,
+					matchid: matchid,
+					type: 'Y',
+					lon: storageLocation.Lon,
+					lat: storageLocation.Lat
+				}, function(json) {
 					appUI.showTopTip(json.msg);
-//刷新单条状态
+					//刷新单条状态
 					refreshDetail(matchid);
 					//进入详情页
 					openNew("../match/detail.html", {
@@ -241,16 +241,16 @@ var pkEvent = {
 			}
 		})
 	},
-	refusePK:function(matchid){
+	refusePK: function(matchid) {
 		mui.confirm('确定拒绝这场PK？', '', ['否', '是'], function(e) {
-			if (e.index == 1) {
-				request("/Match/inviteMatchYorN",{
-					playerid:storageUser.UId,
-					matchid:matchid,
-					type:'N',
-					lon:storageLocation.Lon,
-					lat:storageLocation.Lat
-				},function(json){					
+			if(e.index == 1) {
+				request("/Match/inviteMatchYorN", {
+					playerid: storageUser.UId,
+					matchid: matchid,
+					type: 'N',
+					lon: storageLocation.Lon,
+					lat: storageLocation.Lat
+				}, function(json) {
 					appUI.showTopTip(json.msg);
 					//刷新单条状态
 					refreshDetail(matchid);

@@ -2,22 +2,22 @@ var inpt_search = document.getElementById("inpt_search");
 var keyword = "";
 mui.init();
 mui.plusReady(function() {
-storage.init();
+	storage.init();
 	//输入框变化
-	document.getElementById("inpt_search").addEventListener("input",function(e){
-		if(this.value==""){
-			document.getElementById("backBtn").style.display="block";
-			document.getElementById("searchBtn").style.display="none";
+	document.getElementById("inpt_search").addEventListener("input", function(e) {
+		if(this.value == "") {
+			document.getElementById("backBtn").style.display = "block";
+			document.getElementById("searchBtn").style.display = "none";
 			return;
 		}
-		document.getElementById("backBtn").style.display="none";
-		document.getElementById("searchBtn").style.display="block";
+		document.getElementById("backBtn").style.display = "none";
+		document.getElementById("searchBtn").style.display = "block";
 	})
 	//清空
 	mui(".searchbar").on("tap", "span.mui-icon-clear", function() {
-		if(inpt_search.value==""){
-			document.getElementById("backBtn").style.display="block";
-			document.getElementById("searchBtn").style.display="none";
+		if(inpt_search.value == "") {
+			document.getElementById("backBtn").style.display = "block";
+			document.getElementById("searchBtn").style.display = "none";
 			return;
 		}
 	})
@@ -30,9 +30,9 @@ storage.init();
 		loadData();
 	});
 	mui("#list_warp").on("tap", ".userinfo", function() {
-//		for(var i in this){
-//			log(i+"="+this[i])
-//		}
+		//		for(var i in this){
+		//			log(i+"="+this[i])
+		//		}
 		var id = this.getAttribute("data-id");
 		openNew("userInfo.html", {
 			id: id

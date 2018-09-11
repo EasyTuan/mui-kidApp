@@ -1,6 +1,7 @@
-var _path = "", _cropper,
+var _path = "",
+	_cropper,
 	_bitmapPath = "../../userfile/headimg/headimg.",
-	_bitmapSuffix="jpeg";
+	_bitmapSuffix = "jpeg";
 var accessid = 'vfxh68Hrfv8Wi6mt';
 var accesskey = '8z2BWHdOZG8HokmyMhVrHmlTJy2yXd';
 var osshost = 'http://kid-test.oss-cn-shanghai.aliyuncs.com/';
@@ -12,83 +13,79 @@ var policyText = {
 	]
 };
 
-
 mui.init({
 	beforeback: function() {
 		appPage.closeLogin();
 	}
 })
 
-var storeid='',   //店铺id
-	starNum=0,		//星数
-	imgNum=[],      //上传图片数
-	imgNumber=0;   
-	
+var storeid = '', //店铺id
+	starNum = 0, //星数
+	imgNum = [], //上传图片数
+	imgNumber = 0;
 
-mui.plusReady(function(){
-	var self=plus.webview.currentWebview();
-	storeid=self.info.storeid;
+mui.plusReady(function() {
+	var self = plus.webview.currentWebview();
+	storeid = self.info.storeid;
 	storage.init();
-	
+
 	//评价星级
-	mui(".mui-content").on("tap",".star",function(){
-		var index=Number(this.dataset.index);
-		var star=document.getElementsByClassName("star");
-		for(var i=0;i<star.length;i++){
-			star[i].setAttribute("class","iconfont icon-collect_select star");
+	mui(".mui-content").on("tap", ".star", function() {
+		var index = Number(this.dataset.index);
+		var star = document.getElementsByClassName("star");
+		for(var i = 0; i < star.length; i++) {
+			star[i].setAttribute("class", "iconfont icon-collect_select star");
 		}
-		for(var i=0;i<index+1;i++){
-			star[i].setAttribute("class","iconfont icon-collect_select star active");
+		for(var i = 0; i < index + 1; i++) {
+			star[i].setAttribute("class", "iconfont icon-collect_select star active");
 		}
-		starNum=index+1;
-		log('当前星数：'+starNum);
+		starNum = index + 1;
+		log('当前星数：' + starNum);
 	})
-	
+
 	//删除照片
-	mui('.imgList').on('tap','.icon-close',function(){
+	mui('.imgList').on('tap', '.icon-close', function() {
 		this.parentNode.parentNode.removeChild(this.parentNode);
 		imgNumber--;
 	})
-	
-	mui('.imgList').on("tap", '#addImg',function() {
+
+	mui('.imgList').on("tap", '#addImg', function() {
 		document.getElementById("text").focus();
-		imgNumber<5?actionSheet():appUI.showTopTip('最多添加五张图片！');
+		imgNumber < 5 ? actionSheet() : appUI.showTopTip('最多添加五张图片！');
 	});
-	
+
 	//提交评论
-	document.getElementById("comment").addEventListener("tap",function(){
-		var text=document.getElementById("text").value;
-		if(text==''){
+	document.getElementById("comment").addEventListener("tap", function() {
+		var text = document.getElementById("text").value;
+		if(text == '') {
 			appUI.showTopTip('请写下您的想法吧');
 			return;
 		}
-		imgUrl=[];
-		mui('.commentImg').each(function(){
-			var imgUrl=this.getAttribute('src');
+		imgUrl = [];
+		mui('.commentImg').each(function() {
+			var imgUrl = this.getAttribute('src');
 			imgNum.push(imgUrl);
 		})
 		log(imgNum.join(","));
-		request('/Store/addStoreComment',{
-			playerid:storageUser.UId,
-			storeid:storeid,
-			content:text,
-			score:starNum,
-			imgurl:imgNum.join(",")
-		},function(r){
-			if(r.code==0){
-				mui.fire(plus.webview.getWebviewById('index/shopDetails.html'),'uploadComment');
-				mui.fire(plus.webview.getWebviewById('index/commentList.html'),'uploadComment');
+		request('/Store/addStoreComment', {
+			playerid: storageUser.UId,
+			storeid: storeid,
+			content: text,
+			score: starNum,
+			imgurl: imgNum.join(",")
+		}, function(r) {
+			if(r.code == 0) {
+				mui.fire(plus.webview.getWebviewById('index/shopDetails.html'), 'uploadComment');
+				mui.fire(plus.webview.getWebviewById('index/commentList.html'), 'uploadComment');
 				mui.toast(r.msg);
 				mui.back();
-			}else{
+			} else {
 				appUI.showTopTip(r.msg);
 			}
 		})
 	})
-	
-	
-})
 
+})
 
 function actionSheet() {
 	if(mui.os.plus) {
@@ -121,19 +118,19 @@ function getImage() {
 	var c = plus.camera.getCamera();
 	c.captureImage(function(e) {
 		plus.io.resolveLocalFileSystemURL(e, function(entry) {
-			var url=entry.toLocalURL();
+			var url = entry.toLocalURL();
 			plus.zip.compressImage({
 				src: entry.toLocalURL(),
-				dst:entry.toLocalURL(),
+				dst: entry.toLocalURL(),
 				quality: 35,
 				overwrite: true
 			}, function(e) {
 				log("压缩成功!");
 				compressImage(entry.toLocalURL());
-			},function(){
+			}, function() {
 				log("压缩失败!");
 			})
-			
+
 		}, function(e) {
 			mui.toast("获取图片失败")
 		});
@@ -144,7 +141,7 @@ function getImage() {
 
 function galleryImg() {
 	plus.gallery.pick(function(path) {
-		var url=path;
+		var url = path;
 		plus.zip.compressImage({
 			src: path,
 			dst: path,
@@ -153,7 +150,7 @@ function galleryImg() {
 		}, function(e) {
 			log("压缩成功");
 			compressImage(url);
-		},function(){
+		}, function() {
 			log("压缩失败");
 		})
 	}, function(err) {
@@ -168,13 +165,12 @@ function galleryImg() {
 
 function compressImage(path) {
 	log(path);
-	
+
 	plus.nativeUI.showWaiting("上传图片...");
 	start(path);
 }
 
-
-function start(path) {	
+function start(path) {
 	var policyBase64 = Base64.encode(JSON.stringify(policyText))
 	var message = policyBase64;
 	var bytes = Crypto.HMAC(Crypto.SHA1, message, accesskey, {
@@ -187,7 +183,7 @@ function start(path) {
 			method: "POST",
 			blocksize: 0,
 			priority: 10,
-			timeout:10
+			timeout: 10
 		},
 		function(t, status) {
 			plus.nativeUI.closeWaiting();
@@ -197,8 +193,8 @@ function start(path) {
 				mui.toast("上传成功");
 				var url = osshost + ossSaveName;
 				log(url);
-				var imgList=document.getElementsByClassName("imgList")[0].innerHTML;
-				document.getElementsByClassName("imgList")[0].innerHTML="<div class='imgbox'><img class='commentImg' src='"+url+"'/><i class='iconfont icon-close'></i></div>"+imgList;
+				var imgList = document.getElementsByClassName("imgList")[0].innerHTML;
+				document.getElementsByClassName("imgList")[0].innerHTML = "<div class='imgbox'><img class='commentImg' src='" + url + "'/><i class='iconfont icon-close'></i></div>" + imgList;
 				imgNumber++;
 			} else {
 				mui.toast("上传失败");

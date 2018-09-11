@@ -8,7 +8,7 @@
 	var EVENT_PINCH_START = 'pinchstart';
 	var EVENT_PINCH = 'pinch';
 	var EVENT_PINCH_END = 'pinchend';
-	if ('ongesturestart' in window) {
+	if('ongesturestart' in window) {
 		EVENT_PINCH_START = 'gesturestart';
 		EVENT_PINCH = 'gesturechange';
 		EVENT_PINCH_END = 'gestureend';
@@ -46,7 +46,7 @@
 			target[action]('touchend', zoom.onTouchEnd);
 
 			target[action]('drag', function(e) {
-				if (imageIsMoved || isGesturing) {
+				if(imageIsMoved || isGesturing) {
 					e.stopPropagation();
 				}
 			});
@@ -92,15 +92,15 @@
 			isGesturing = true;
 		};
 		zoom.onPinch = function(e) {
-			if (!isScaling) {
+			if(!isScaling) {
 				zoom.zoomerTransition(0);
 				isScaling = true;
 			}
 			scale = (e.detail ? e.detail.scale : e.scale) * currentScale;
-			if (scale > zoom.options.maxZoom) {
+			if(scale > zoom.options.maxZoom) {
 				scale = zoom.options.maxZoom - 1 + Math.pow((scale - zoom.options.maxZoom + 1), 0.5);
 			}
-			if (scale < zoom.options.minZoom) {
+			if(scale < zoom.options.minZoom) {
 				scale = zoom.options.minZoom + 1 - Math.pow((zoom.options.minZoom - scale + 1), 0.5);
 			}
 			zoom.zoomerTransform(scale);
@@ -117,35 +117,35 @@
 			zoom.zoomerTransition(zoom.options.speed).zoomerTransform(scale);
 		};
 		zoom.toggleZoom = function(position, speed) {
-			if (typeof position === 'number') {
+			if(typeof position === 'number') {
 				speed = position;
 				position = undefined;
 			}
 			speed = typeof speed === 'undefined' ? zoom.options.speed : speed;
-			if (scale && scale !== 1) {
+			if(scale && scale !== 1) {
 				scale = currentScale = 1;
 				zoom.scrollerTransition(speed).scrollerTransform(0, 0);
 			} else {
 				scale = currentScale = zoom.options.maxZoom;
-				if (position) {
+				if(position) {
 					var offset = $.offset(zoom.zoomer);
 					var top = offset.top;
 					var left = offset.left;
 					var offsetX = (position.x - left) * scale;
 					var offsetY = (position.y - top) * scale;
 					this._cal();
-					if (offsetX >= imageMaxX && offsetX <= (imageMaxX + wrapperWidth)) { //center
+					if(offsetX >= imageMaxX && offsetX <= (imageMaxX + wrapperWidth)) { //center
 						offsetX = imageMaxX - offsetX + wrapperWidth / 2;
-					} else if (offsetX < imageMaxX) { //left
+					} else if(offsetX < imageMaxX) { //left
 						offsetX = imageMaxX - offsetX + wrapperWidth / 2;
-					} else if (offsetX > (imageMaxX + wrapperWidth)) { //right
+					} else if(offsetX > (imageMaxX + wrapperWidth)) { //right
 						offsetX = imageMaxX + wrapperWidth - offsetX - wrapperWidth / 2;
 					}
-					if (offsetY >= imageMaxY && offsetY <= (imageMaxY + wrapperHeight)) { //middle
+					if(offsetY >= imageMaxY && offsetY <= (imageMaxY + wrapperHeight)) { //middle
 						offsetY = imageMaxY - offsetY + wrapperHeight / 2;
-					} else if (offsetY < imageMaxY) { //top
+					} else if(offsetY < imageMaxY) { //top
 						offsetY = imageMaxY - offsetY + wrapperHeight / 2;
-					} else if (offsetY > (imageMaxY + wrapperHeight)) { //bottom
+					} else if(offsetY > (imageMaxY + wrapperHeight)) { //bottom
 						offsetY = imageMaxY + wrapperHeight - offsetY - wrapperHeight / 2;
 					}
 					offsetX = Math.min(Math.max(offsetX, imageMinX), imageMaxX);
@@ -183,8 +183,8 @@
 		};
 		zoom.onTouchMove = function(e) {
 			e.preventDefault();
-			if (!imageIsTouched) return;
-			if (!imageIsMoved) {
+			if(!imageIsTouched) return;
+			if(!imageIsMoved) {
 				wrapperWidth = zoom.wrapper.offsetWidth;
 				wrapperHeight = zoom.wrapper.offsetHeight;
 				imageWidth = zoom.zoomer.offsetWidth;
@@ -197,7 +197,7 @@
 			var scaledWidth = imageWidth * scale;
 			var scaledHeight = imageHeight * scale;
 
-			if (scaledWidth < wrapperWidth && scaledHeight < wrapperHeight) return;
+			if(scaledWidth < wrapperWidth && scaledHeight < wrapperHeight) return;
 
 			imageMinX = Math.min((wrapperWidth / 2 - scaledWidth / 2), 0);
 			imageMaxX = -imageMinX;
@@ -207,10 +207,10 @@
 			imageTouchesCurrent.x = e.type === 'touchmove' ? e.targetTouches[0].pageX : e.pageX;
 			imageTouchesCurrent.y = e.type === 'touchmove' ? e.targetTouches[0].pageY : e.pageY;
 
-			if (!imageIsMoved && !isScaling) {
+			if(!imageIsMoved && !isScaling) {
 				//				if (Math.abs(imageTouchesCurrent.y - imageTouchesStart.y) < Math.abs(imageTouchesCurrent.x - imageTouchesStart.x)) {
 				//TODO 此处需要优化，当遇到长图，需要上下滚动时，下列判断会导致滚动不流畅
-				if (
+				if(
 					(Math.floor(imageMinX) === Math.floor(imageStartX) && imageTouchesCurrent.x < imageTouchesStart.x) ||
 					(Math.floor(imageMaxX) === Math.floor(imageStartX) && imageTouchesCurrent.x > imageTouchesStart.x)
 				) {
@@ -223,28 +223,28 @@
 			imageCurrentX = imageTouchesCurrent.x - imageTouchesStart.x + imageStartX;
 			imageCurrentY = imageTouchesCurrent.y - imageTouchesStart.y + imageStartY;
 
-			if (imageCurrentX < imageMinX) {
+			if(imageCurrentX < imageMinX) {
 				imageCurrentX = imageMinX + 1 - Math.pow((imageMinX - imageCurrentX + 1), 0.8);
 			}
-			if (imageCurrentX > imageMaxX) {
+			if(imageCurrentX > imageMaxX) {
 				imageCurrentX = imageMaxX - 1 + Math.pow((imageCurrentX - imageMaxX + 1), 0.8);
 			}
 
-			if (imageCurrentY < imageMinY) {
+			if(imageCurrentY < imageMinY) {
 				imageCurrentY = imageMinY + 1 - Math.pow((imageMinY - imageCurrentY + 1), 0.8);
 			}
-			if (imageCurrentY > imageMaxY) {
+			if(imageCurrentY > imageMaxY) {
 				imageCurrentY = imageMaxY - 1 + Math.pow((imageCurrentY - imageMaxY + 1), 0.8);
 			}
 
 			//Velocity
-			if (!velocityPrevPositionX) velocityPrevPositionX = imageTouchesCurrent.x;
-			if (!velocityPrevPositionY) velocityPrevPositionY = imageTouchesCurrent.y;
-			if (!velocityPrevTime) velocityPrevTime = $.now();
+			if(!velocityPrevPositionX) velocityPrevPositionX = imageTouchesCurrent.x;
+			if(!velocityPrevPositionY) velocityPrevPositionY = imageTouchesCurrent.y;
+			if(!velocityPrevTime) velocityPrevTime = $.now();
 			velocityX = (imageTouchesCurrent.x - velocityPrevPositionX) / ($.now() - velocityPrevTime) / 2;
 			velocityY = (imageTouchesCurrent.y - velocityPrevPositionY) / ($.now() - velocityPrevTime) / 2;
-			if (Math.abs(imageTouchesCurrent.x - velocityPrevPositionX) < 2) velocityX = 0;
-			if (Math.abs(imageTouchesCurrent.y - velocityPrevPositionY) < 2) velocityY = 0;
+			if(Math.abs(imageTouchesCurrent.x - velocityPrevPositionX) < 2) velocityX = 0;
+			if(Math.abs(imageTouchesCurrent.y - velocityPrevPositionY) < 2) velocityY = 0;
 			velocityPrevPositionX = imageTouchesCurrent.x;
 			velocityPrevPositionY = imageTouchesCurrent.y;
 			velocityPrevTime = $.now();
@@ -252,10 +252,10 @@
 			zoom.scrollerTransform(imageCurrentX, imageCurrentY);
 		};
 		zoom.onTouchEnd = function(e) {
-			if (!e.touches.length) {
+			if(!e.touches.length) {
 				isGesturing = false;
 			}
-			if (!imageIsTouched || !imageIsMoved) {
+			if(!imageIsTouched || !imageIsMoved) {
 				imageIsTouched = false;
 				imageIsMoved = false;
 				return;
@@ -269,8 +269,8 @@
 			var momentumDistanceY = velocityY * momentumDurationY;
 			var newPositionY = imageCurrentY + momentumDistanceY;
 
-			if (velocityX !== 0) momentumDurationX = Math.abs((newPositionX - imageCurrentX) / velocityX);
-			if (velocityY !== 0) momentumDurationY = Math.abs((newPositionY - imageCurrentY) / velocityY);
+			if(velocityX !== 0) momentumDurationX = Math.abs((newPositionX - imageCurrentX) / velocityX);
+			if(velocityY !== 0) momentumDurationY = Math.abs((newPositionY - imageCurrentY) / velocityY);
 			var momentumDuration = Math.max(momentumDurationX, momentumDurationY);
 
 			imageCurrentX = newPositionX;
@@ -306,7 +306,7 @@
 			var zoomApi = null;
 			var self = this;
 			var id = self.getAttribute('data-zoomer');
-			if (!id) {
+			if(!id) {
 				id = ++$.uuid;
 				$.data[id] = zoomApi = new $.Zoom(self, options);
 				self.setAttribute('data-zoomer', id);

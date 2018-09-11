@@ -14,7 +14,7 @@ body,
 
 #addTap {
 	display: inline-block;
-	margin-top:8px ;
+	margin-top: 8px;
 	float: left;
 	font-weight: normal;
 	border: 1px dashed #999;
@@ -31,7 +31,7 @@ body,
  * 已有标签
  */
 
-.col{
+.col {
 	background: #efefef;
 	height: 15px;
 	margin: 0 0 15px 0;

@@ -5,7 +5,6 @@ mui.init({
 	}
 });
 
-
 var self = null, //当前wv
 	gdMap = null, //高德地图总函数
 	mapObj = null, //创建的地图对象
@@ -14,25 +13,24 @@ var self = null, //当前wv
 	selectMaker = null, //选择了的地图上的点，用于打开popover传参
 	isMarkedCity = [], //已经打过点的城市
 	noNetworkDom = document.getElementById("noNetwork");
-var codtArr=[];
+var codtArr = [];
 
 var brandList = [];
-
 
 mui.plusReady(function() {
 	storage.init();
 	//拖动结束
-	document.getElementById("map").addEventListener('dragend',function(){
-		document.getElementsByClassName("center")[0].setAttribute('class','center centerAnimation');
-		setTimeout(function(){
-			document.getElementsByClassName("center")[0].setAttribute('class','center');
-		},500)
+	document.getElementById("map").addEventListener('dragend', function() {
+		document.getElementsByClassName("center")[0].setAttribute('class', 'center centerAnimation');
+		setTimeout(function() {
+			document.getElementsByClassName("center")[0].setAttribute('class', 'center');
+		}, 500)
 	})
-	
+
 	//搜索
-	document.getElementById("searchBtn").addEventListener("tap",function(){
-		var keyword=document.getElementById("search").value;
-		if(keyword==''){
+	document.getElementById("searchBtn").addEventListener("tap", function() {
+		var keyword = document.getElementById("search").value;
+		if(keyword == '') {
 			mui.toast('请输入玩家昵称！');
 			return;
 		}
@@ -40,7 +38,6 @@ mui.plusReady(function() {
 		gdMap.setLocalMarker(codtArr);
 		gdMap.setMarkersBySearchResult(keyword);
 	})
-	
 
 	self = plus.webview.currentWebview()
 	//	在Android5以上设备， 如果默认没有开启硬件加速， 则强制设置开启
@@ -68,7 +65,7 @@ mui.plusReady(function() {
 			//将用户当前位置存入storage
 			localStorage.setItem("longitude", p.coords.longitude);
 			localStorage.setItem("latitude", p.coords.latitude);
-			codtArr =[p.coords.longitude,p.coords.latitude];
+			codtArr = [p.coords.longitude, p.coords.latitude];
 			log('【当前位置：codtArr =[' + p.coords.longitude + ',' + p.coords.latitude + ']】')
 			//初始化高德地图
 			gdMap.mapInit(codtArr)
@@ -95,7 +92,7 @@ mui.plusReady(function() {
 					localStorage.setItem("city", city);
 				})
 			})
-			
+
 			//打当前位置点
 			document.getElementById("location").addEventListener('tap', function() {
 				gdMap.mapInit(codtArr);
@@ -109,7 +106,7 @@ mui.plusReady(function() {
 					latitude: codtArr[1]
 				});
 			})
-			
+
 		}, function(e) {
 			mui.toast(e.message)
 			noNetworkDom.innerHTML = "地图初始化失败！点击重试"
@@ -118,7 +115,7 @@ mui.plusReady(function() {
 				plus.webview.currentWebview().reload(true) //TODO 先用reload顶上，应重新初始化地图
 			})
 		}) //H5定位 end
-		
+
 	} else {
 		log(mklog() + 'main:网络异常');
 		plus.nativeUI.toast('当前设备未联网，先打开WIFI/2G/3G/4G信号');
@@ -132,22 +129,16 @@ mui.plusReady(function() {
 	document.getElementById("reload").addEventListener('tap', function() {
 		plus.webview.currentWebview().reload(true) //TODO 先用reload顶上，应重新初始化地图
 	})
-	
+
 	//自定义放大缩小
-	document.getElementById("add").addEventListener("tap",function(){
+	document.getElementById("add").addEventListener("tap", function() {
 		gdMap.moveCamera(mapObj.zoomIn());
 	})
-	document.getElementById("subtract").addEventListener("tap",function(){
+	document.getElementById("subtract").addEventListener("tap", function() {
 		gdMap.moveCamera(mapObj.zoomOut());
 	})
 
 }) //plusReady end
-
-
-
-
-
-
 
 //高德地图相关
 //初始化：mapInit(null)
@@ -165,7 +156,7 @@ gdMap = {
 		})
 		mapObj.setMapStyle("fresh");
 		mapObj.setFeatures(['road', 'point', 'bg']) //多个种类要素显示
-		mapObj.setLimitBounds(mapObj.getBounds());  //限制地图显示区域
+		mapObj.setLimitBounds(mapObj.getBounds()); //限制地图显示区域
 	},
 	setLocalMarker: function(coordinate) { //打本地点
 		coordinate = coordinate || ''
@@ -186,7 +177,7 @@ gdMap = {
 		mapObj.plugin(["AMap.CitySearch"], function() {
 			//实例化城市查询类
 			var citysearch = new AMap.CitySearch();
-			
+
 			//自动获取用户IP，返回当前城市
 			citysearch.getLocalCity();
 			AMap.event.addListener(citysearch, "complete", function(result) {
@@ -215,29 +206,29 @@ gdMap = {
 		//						filter.city = '上海市'
 		isMarkedCity.push(filter.city); //记录已经打过点的城市
 		request('/Player/getNearbyPlayer', {
-			lon : storageLocation.Lon,
-			lat : storageLocation.Lat,
-			pageindex:1,
+			lon: storageLocation.Lon,
+			lat: storageLocation.Lat,
+			pageindex: 1,
 			playerid: storageUser.UId
-		},function(r) {
+		}, function(r) {
 			mapObj.remove(markers);
-			markers=[];
+			markers = [];
 			mui.each(r.data, function(j, k) {
 				var markerPosition = JSON.parse('[' + k.Lon + ',' + k.Lat + ']');
 				var iconUrl = "../../images/amps-mk" + 1 + ".svg";
 				var marker = new AMap.Marker({
 					position: markerPosition,
 					"content": "<div class='experience-image'>" +
-						"<span class='map-icon-url' data_id='" + k.PlayerId + "' data_name='" + k.NickName + "' style='position:absolute;border-radius:6px ;width:90px;height:20px;text-align: center;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-size:12px;color:#666;left:50%;bottom:50px;margin-left:-45px;border-radio:25%;background: #fff;'>"+k.NickName+"</span>" +
-						"<img src='" + iconUrl + "'/>"+
-						"<img class='defuserimg' style='position: absolute;bottom: 14px;left: 5px;width: 30px;height: 30px;border: 1px solid #fff;border-radius:50% ;' src='" + k.ImgUrl + "'/>"+
+						"<span class='map-icon-url' data_id='" + k.PlayerId + "' data_name='" + k.NickName + "' style='position:absolute;border-radius:6px ;width:90px;height:20px;text-align: center;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-size:12px;color:#666;left:50%;bottom:50px;margin-left:-45px;border-radio:25%;background: #fff;'>" + k.NickName + "</span>" +
+						"<img src='" + iconUrl + "'/>" +
+						"<img class='defuserimg' style='position: absolute;bottom: 14px;left: 5px;width: 30px;height: 30px;border: 1px solid #fff;border-radius:50% ;' src='" + k.ImgUrl + "'/>" +
 						"</div>",
 					"extData": {
 						"PlayerId": k.PlayerId,
 						"NickName": k.NickName,
-						"ImgUrl":k.ImgUrl,
+						"ImgUrl": k.ImgUrl,
 						"distance": k.distance,
-						"SelfdomSign":k.SelfdomSign
+						"SelfdomSign": k.SelfdomSign
 					},
 
 				}) //marker end
@@ -259,16 +250,16 @@ gdMap = {
 		mapObj.remove(markers);
 		markers = []; //fix 重复打点
 		request('/Player/getNearbyPlayer', {
-			lon : storageLocation.Lon,
-			lat : storageLocation.Lat,
-			pageindex:1,
-			keyword:dataParm,
+			lon: storageLocation.Lon,
+			lat: storageLocation.Lat,
+			pageindex: 1,
+			keyword: dataParm,
 			playerid: storageUser.UId
 		}, function(r) {
-			if(r.code==-1) {
+			if(r.code == -1) {
 				appUI.showTopTip(r.msg);
 				return;
-			}  else {
+			} else {
 				mui.each(r.data, function(j, k) {
 					var markerPosition = JSON.parse('[' + k.Lon + ',' + k.Lat + ']');
 
@@ -276,18 +267,18 @@ gdMap = {
 					var marker = new AMap.Marker({
 						position: markerPosition,
 						"content": "<div class='experience-image'>" +
-							"<span class='map-icon-url' data_id='" + k.PlayerId + "' data_name='" + k.NickName + "' style='position:absolute;border-radius:6px ;width:90px;height:20px;text-align: center;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-size:12px;color:#666;left:50%;bottom:50px;margin-left:-45px;border-radio:25%;background: #fff;'>"+k.NickName+"</span>" +
-							"<img src='" + iconUrl + "'/>"+
-							"<img class='defuserimg' style='position: absolute;bottom: 14px;left: 5px;width: 30px;height: 30px;border: 1px solid #fff;border-radius:50% ;' src='" + k.ImgUrl + "'/>"+
+							"<span class='map-icon-url' data_id='" + k.PlayerId + "' data_name='" + k.NickName + "' style='position:absolute;border-radius:6px ;width:90px;height:20px;text-align: center;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-size:12px;color:#666;left:50%;bottom:50px;margin-left:-45px;border-radio:25%;background: #fff;'>" + k.NickName + "</span>" +
+							"<img src='" + iconUrl + "'/>" +
+							"<img class='defuserimg' style='position: absolute;bottom: 14px;left: 5px;width: 30px;height: 30px;border: 1px solid #fff;border-radius:50% ;' src='" + k.ImgUrl + "'/>" +
 							"</div>",
 						"extData": {
 							"PlayerId": k.PlayerId,
 							"NickName": k.NickName,
-							"ImgUrl":k.ImgUrl,
+							"ImgUrl": k.ImgUrl,
 							"distance": k.distance,
-							"SelfdomSign":k.SelfdomSign
+							"SelfdomSign": k.SelfdomSign
 						},
-	
+
 					}) //marker end
 					markers.push(marker);
 					log(marker.getContent());
@@ -353,23 +344,21 @@ function gdMapMarkerClick(extData) {
 	selectMaker = extData; //用于openwindow传参
 	var status = selectMaker.status
 	var mkid = selectMaker.id;
-	render("#mainPopoverEl","popoverTep1",extData);
+	render("#mainPopoverEl", "popoverTep1", extData);
 	appUI.closeWaiting();
 	appPage.imgInit();
 	mui('#mainPopoverEl').popover('show');
 	//右上角关闭
-	mui('body').on('tap','.icon-close',function(){
+	mui('body').on('tap', '.icon-close', function() {
 		mui('#mainPopoverEl').popover('hide');
 	})
 	//约战
-	document.getElementById("war").addEventListener("tap",function(){
+	document.getElementById("war").addEventListener("tap", function() {
 		mui('#mainPopoverEl').popover('hide');
 		openNew("../pk/war.html", {
 			friendid: this.dataset.id,
-			imgurl:this.dataset.imgurl,
-			friendNickName:this.dataset.nickname
+			imgurl: this.dataset.imgurl,
+			friendNickName: this.dataset.nickname
 		});
 	})
 }
-
-

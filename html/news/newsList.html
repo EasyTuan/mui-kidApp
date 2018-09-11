@@ -24,46 +24,44 @@
 				<ul class="newslist" id="list_warp">
 					<li class="detail" data-id="1">
 						<div class="newsimgbox">
-						<img class="loadthumb" src="../../images/banner1.png" data-wh=",220" />	
-						</div>				
+							<img class="loadthumb" src="../../images/banner1.png" data-wh=",220" />
+						</div>
 						<h5>模拟数据</h5>
 						<p>啦啦啦啦啦啦啦啦啦</p>
 						<span class="newtype news_m1">比赛</span>
-					</li>	
+					</li>
 					<li class="detail" data-id="1">
 						<div class="newsimgbox">
-						<img class="loadthumb" src="../../images/banner2.png" data-wh=",220" />	
-						</div>				
+							<img class="loadthumb" src="../../images/banner2.png" data-wh=",220" />
+						</div>
 						<h5>模拟数据</h5>
 						<p>啦啦啦啦啦啦啦啦啦</p>
 						<span class="newtype news_m2">话题</span>
-					</li>	
+					</li>
 					<li class="detail" data-id="1">
 						<div class="newsimgbox">
-						<img class="loadthumb" src="../../images/banner3.png" data-wh=",220" />	
-						</div>				
+							<img class="loadthumb" src="../../images/banner3.png" data-wh=",220" />
+						</div>
 						<h5>模拟数据</h5>
 						<p>啦啦啦啦啦啦啦啦啦</p>
 						<span class="newtype news_m1">比赛</span>
-					</li>	
+					</li>
 				</ul>
 			</div>
 		</div>
 		<script type="text/html" id="list_view">
 			{{if data==null||data.length==0}}
 			<div class="nodata">暂无内容</div>
-			{{else}}
-			{{each data as item}}
+			{{else}} {{each data as item}}
 			<li class="detail" data-id="{{item.NewsId}}">
 				<div class="newsimgbox">
-				<img class="loadthumb" data-url="{{item.ImgUrl}}" data-wh=",220" />	
-				</div>				
+					<img class="loadthumb" data-url="{{item.ImgUrl}}" data-wh=",220" />
+				</div>
 				<h5>{{item.Subject}}</h5>
 				<p>{{item.Summary}}</p>
 				<span class="newtype news_m{{item.ModuleId}}">{{item.ModuleName}}</span>
 			</li>
-			{{/each}}
-			{{/if}}
+			{{/each}} {{/if}}
 		</script>
 		<script type="text/javascript">
 			//必须顺序加载

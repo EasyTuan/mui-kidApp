@@ -95,7 +95,7 @@ mui.plusReady(function() {
 					log(data);
 					storageUser.login(data);
 					storageUser.log();
-					appPage.loginBack(backid,backurl);
+					appPage.loginBack(backid, backurl);
 				} else {
 					appUI.showTopTip(json.msg);
 					//mui.toast(json.msg);

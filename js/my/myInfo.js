@@ -1,6 +1,6 @@
 var QrCodeUrl;
 mui.init({
-	beforeback: function() {		
+	beforeback: function() {
 		appPage.closeLogin();
 	}
 });
@@ -54,7 +54,7 @@ function initPage() {
 		if(json.code == 0) {
 			if(json.data.Sex == 2) {
 				json.data.SexName = "女";
-			} else if(json.data.Sex == 1){
+			} else if(json.data.Sex == 1) {
 				json.data.SexName = "男";
 			}
 			QrCodeUrl = json.data.QrCodeUrl;
@@ -63,5 +63,5 @@ function initPage() {
 		} else {
 			mui.toast(json.msg);
 		}
-	},true);
+	}, true);
 }

@@ -1,5 +1,5 @@
 mui.init();
-mui.plusReady(function(){	
+mui.plusReady(function() {
 	var elements = document.getElementsByClassName("findbythree");
 	for(var i = 0; i < elements.length; i++) {
 		elements[i].addEventListener("tap", function() {
@@ -11,5 +11,5 @@ mui.plusReady(function(){
 			openNew("findAccountByThree.html", param);
 		})
 	};
-	
+
 });

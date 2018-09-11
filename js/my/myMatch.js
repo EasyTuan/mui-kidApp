@@ -15,17 +15,19 @@ mui.plusReady(function() {
 
 	//详情页
 	mui(".mui-slider-group").on("tap", ".detail", function() {
-		if(plus.webview.getWebviewById('match/detail.html')==null){
+		if(plus.webview.getWebviewById('match/detail.html') == null) {
 			openNew("../match/detail.html", {
 				id: this.dataset.id
 			});
-		}else{
-			mui.fire(plus.webview.getWebviewById('match/detail.html'),'uploadList',{id:this.dataset.id});
+		} else {
+			mui.fire(plus.webview.getWebviewById('match/detail.html'), 'uploadList', {
+				id: this.dataset.id
+			});
 			openNew("../match/detail.html", {
 				id: this.dataset.id
 			});
 		}
-		
+
 	})
 	//切换tab
 	document.getElementById('slider').addEventListener('slide', function(e) {
@@ -80,7 +82,7 @@ mui.plusReady(function() {
 		indicators: true, //是否显示滚动条
 		deceleration: deceleration
 	});
-	
+
 });
 
 function initPage() {
@@ -125,7 +127,7 @@ function loadData(isnextpage, isreload, pullobj) {
 			mui.toast(json.msg);
 		}
 		mui(document.getElementById("scroll" + curr_index)).pullToRefresh().endPullUpToRefresh(nomore);
-	},false,function(){
+	}, false, function() {
 		mui(document.getElementById("scroll" + curr_index)).pullToRefresh().endPullUpToRefresh(true);
 	});
 }

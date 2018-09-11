@@ -195,9 +195,9 @@ function bindEvent(_field, model) {
 		if(postData && postData.birthday) {
 			var arr = postData.birthday.split('-');
 			if(arr.length == 3) {
-				year=arr[0];
-				month=arr[1];
-				day=arr[2];
+				year = arr[0];
+				month = arr[1];
+				day = arr[2];
 			} else {
 				year = new Date().getFullYear();
 				month = new Date().getMonth() + 1;

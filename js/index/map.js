@@ -13,27 +13,26 @@ var self = null, //当前wv
 	selectMaker = null, //选择了的地图上的点，用于打开popover传参
 	isMarkedCity = [], //已经打过点的城市
 	noNetworkDom = document.getElementById("noNetwork");
-var codtArr=[];
+var codtArr = [];
 
 var brandList = [];
 
-
 mui.plusReady(function() {
 	storage.init();
-	var self=plus.webview.currentWebview();
+	var self = plus.webview.currentWebview();
 
 	//拖动结束
-	document.getElementById("map").addEventListener('dragend',function(){
-		document.getElementsByClassName("center")[0].setAttribute('class','center centerAnimation');
-		setTimeout(function(){
-			document.getElementsByClassName("center")[0].setAttribute('class','center');
-		},500)
+	document.getElementById("map").addEventListener('dragend', function() {
+		document.getElementsByClassName("center")[0].setAttribute('class', 'center centerAnimation');
+		setTimeout(function() {
+			document.getElementsByClassName("center")[0].setAttribute('class', 'center');
+		}, 500)
 	})
-	
+
 	//搜索
-	document.getElementById("searchBtn").addEventListener("tap",function(){
-		var keyword=document.getElementById("search").value;
-		if(keyword==''){
+	document.getElementById("searchBtn").addEventListener("tap", function() {
+		var keyword = document.getElementById("search").value;
+		if(keyword == '') {
 			mui.toast('请输入店铺名称！');
 			return;
 		}
@@ -41,7 +40,6 @@ mui.plusReady(function() {
 		gdMap.setLocalMarker(codtArr);
 		gdMap.setMarkersBySearchResult(keyword);
 	})
-	
 
 	self = plus.webview.currentWebview()
 	//	在Android5以上设备， 如果默认没有开启硬件加速， 则强制设置开启
@@ -69,7 +67,7 @@ mui.plusReady(function() {
 			//将用户当前位置存入storage
 			localStorage.setItem("longitude", p.coords.longitude);
 			localStorage.setItem("latitude", p.coords.latitude);
-			codtArr =[p.coords.longitude,p.coords.latitude];
+			codtArr = [p.coords.longitude, p.coords.latitude];
 			log('【当前位置：codtArr =[' + p.coords.longitude + ',' + p.coords.latitude + ']】')
 			//初始化高德地图
 			gdMap.mapInit(codtArr)
@@ -96,7 +94,7 @@ mui.plusReady(function() {
 					localStorage.setItem("city", city);
 				})
 			})
-			
+
 			//打当前位置点
 			document.getElementById("location").addEventListener('tap', function() {
 				gdMap.mapInit(codtArr);
@@ -110,7 +108,7 @@ mui.plusReady(function() {
 					latitude: codtArr[1]
 				})
 			})
-			
+
 		}, function(e) {
 			mui.toast(e.message)
 			noNetworkDom.innerHTML = "地图初始化失败！点击重试"
@@ -119,7 +117,7 @@ mui.plusReady(function() {
 				plus.webview.currentWebview().reload(true) //TODO 先用reload顶上，应重新初始化地图
 			})
 		}) //H5定位 end
-		
+
 	} else {
 		log(mklog() + 'main:网络异常');
 		plus.nativeUI.toast('当前设备未联网，先打开WIFI/2G/3G/4G信号');
@@ -133,22 +131,16 @@ mui.plusReady(function() {
 	document.getElementById("reload").addEventListener('tap', function() {
 		plus.webview.currentWebview().reload(true) //TODO 先用reload顶上，应重新初始化地图
 	})
-	
+
 	//自定义放大缩小
-	document.getElementById("add").addEventListener("tap",function(){
+	document.getElementById("add").addEventListener("tap", function() {
 		gdMap.moveCamera(mapObj.zoomIn());
 	})
-	document.getElementById("subtract").addEventListener("tap",function(){
+	document.getElementById("subtract").addEventListener("tap", function() {
 		gdMap.moveCamera(mapObj.zoomOut());
 	})
 
 }) //plusReady end
-
-
-
-
-
-
 
 //高德地图相关
 //初始化：mapInit(null)
@@ -166,7 +158,7 @@ gdMap = {
 		})
 		mapObj.setMapStyle("fresh");
 		mapObj.setFeatures(['road', 'point', 'bg']) //多个种类要素显示
-		mapObj.setLimitBounds(mapObj.getBounds());  //限制地图显示区域
+		mapObj.setLimitBounds(mapObj.getBounds()); //限制地图显示区域
 	},
 	setLocalMarker: function(coordinate) { //打本地点
 		coordinate = coordinate || ''
@@ -187,7 +179,7 @@ gdMap = {
 		mapObj.plugin(["AMap.CitySearch"], function() {
 			//实例化城市查询类
 			var citysearch = new AMap.CitySearch();
-			
+
 			//自动获取用户IP，返回当前城市
 			citysearch.getLocalCity();
 			AMap.event.addListener(citysearch, "complete", function(result) {
@@ -216,31 +208,31 @@ gdMap = {
 		//						filter.city = '上海市'
 		isMarkedCity.push(filter.city); //记录已经打过点的城市
 		request('/Store/getStoreList', {
-			lon : storageLocation.Lon,
-			lat : storageLocation.Lat,
-			pageindex:1
-		},function(r) {
+			lon: storageLocation.Lon,
+			lat: storageLocation.Lat,
+			pageindex: 1
+		}, function(r) {
 			mapObj.remove(markers);
-			markers=[];
+			markers = [];
 			mui.each(r.data, function(j, k) {
 				var markerPosition = JSON.parse('[' + k.Lon + ',' + k.Lat + ']');
-				var Shopstatus=0;
-				if(k.IsHaveMatch=='Y')Shopstatus=1;
+				var Shopstatus = 0;
+				if(k.IsHaveMatch == 'Y') Shopstatus = 1;
 				var iconUrl = "../../images/amp-mk" + k.Status + ".svg";
 				var marker = new AMap.Marker({
 					position: markerPosition,
 					"content": "<div class='experience-image'>" +
-						"<span class='map-icon-url' data_id='" + k.StoreId + "' data_name='" + k.StoreName+ "' data_distance='" + k.distance + "' data_score='" + k.Score + "' style='position:absolute;border-radius:6px ;width:90px;height:20px;text-align: center;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-size:12px;color:#666;left:50%;bottom:50px;margin-left:-45px;border-radio:25%;background: #fff;'>"+k.StoreName+"</span>" +
+						"<span class='map-icon-url' data_id='" + k.StoreId + "' data_name='" + k.StoreName + "' data_distance='" + k.distance + "' data_score='" + k.Score + "' style='position:absolute;border-radius:6px ;width:90px;height:20px;text-align: center;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-size:12px;color:#666;left:50%;bottom:50px;margin-left:-45px;border-radio:25%;background: #fff;'>" + k.StoreName + "</span>" +
 						//"<img class='shopIcon' src='" + iconUrl + "'/>"+
-						"<i class='shopIcon"+Shopstatus+"' style='background: url("+iconUrl+");'></i>"+
+						"<i class='shopIcon" + Shopstatus + "' style='background: url(" + iconUrl + ");'></i>" +
 						"</div>",
 					"extData": {
 						"id": k.StoreId,
 						"name": k.StoreName,
 						"status": Shopstatus,
-						"distance":k.distance,
-						"Score":k.Score,
-						"ImgUrl":k.ImgUrl
+						"distance": k.distance,
+						"Score": k.Score,
+						"ImgUrl": k.ImgUrl
 						//"designerId": k.designerId
 					},
 
@@ -261,45 +253,45 @@ gdMap = {
 		//API http://lbs.amap.com/api/javascript-api/reference/plugin/#AMap.MarkerClusterer
 		log(mklog(JSON.stringify(dataParm)) + '进入搜索结果打点')
 		request('/Store/searchStoreList', {
-			lon : storageLocation.Lon,
-			lat : storageLocation.Lat,
-			pageindex:1,
-			keyword:dataParm
+			lon: storageLocation.Lon,
+			lat: storageLocation.Lat,
+			pageindex: 1,
+			keyword: dataParm
 		}, function(r) {
-			if(r.code==-1) {
+			if(r.code == -1) {
 				appUI.showTopTip(r.msg);
 				return;
 			} else {
 				mapObj.remove(markers);
-				markers=[];
+				markers = [];
 				mui.each(r.data, function(j, k) {
 					var markerPosition = JSON.parse('[' + k.Lon + ',' + k.Lat + ']');
-					var Shopstatus=0;
-					if(k.IsHaveMatch=='Y')Shopstatus=1;
+					var Shopstatus = 0;
+					if(k.IsHaveMatch == 'Y') Shopstatus = 1;
 					var iconUrl = "../../images/amp-mk" + k.Status + ".svg";
 					var marker = new AMap.Marker({
 						position: markerPosition,
 						"content": "<div class='experience-image'>" +
-							"<span class='map-icon-url' data_id='" + k.StoreId + "' data_name='" + k.StoreName+ "' data_distance='" + k.distance + "' data_score='" + k.Score + "' style='position:absolute;border-radius:6px ;width:90px;height:20px;text-align: center;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-size:12px;color:#666;left:50%;bottom:50px;margin-left:-45px;border-radio:25%;background: #fff;'>"+k.StoreName+"</span>" +
+							"<span class='map-icon-url' data_id='" + k.StoreId + "' data_name='" + k.StoreName + "' data_distance='" + k.distance + "' data_score='" + k.Score + "' style='position:absolute;border-radius:6px ;width:90px;height:20px;text-align: center;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-size:12px;color:#666;left:50%;bottom:50px;margin-left:-45px;border-radio:25%;background: #fff;'>" + k.StoreName + "</span>" +
 							//"<img class='shopIcon' src='" + iconUrl + "'/>"+
-							"<i class='shopIcon"+Shopstatus+"' style='background: url("+iconUrl+");'></i>"+
+							"<i class='shopIcon" + Shopstatus + "' style='background: url(" + iconUrl + ");'></i>" +
 							"</div>",
 						"extData": {
 							"id": k.StoreId,
 							"name": k.StoreName,
 							"status": Shopstatus,
-							"distance":k.distance,
-							"Score":k.Score,
-							"ImgUrl":k.ImgUrl
+							"distance": k.distance,
+							"Score": k.Score,
+							"ImgUrl": k.ImgUrl
 							//"designerId": k.designerId
 						},
-	
+
 					}) //marker end
 					markers.push(marker);
 				})
 			} //else end
 			log(mklog() + '【debug】ajax获取到地图上的点集合:' + r.data.length)
-			
+
 			if(markers.length) {
 				log(mklog() + '【debug】点数量:' + markers.length)
 				gdMap.addClusterToMap(markers) //执行一次
@@ -360,22 +352,20 @@ function gdMapMarkerClick(extData) {
 	var status = selectMaker.status
 	var mkid = selectMaker.id;
 	if(mkid != undefined) { //防止点击当前位置
-		render("#mainPopoverEl","popoverTep1",extData);
+		render("#mainPopoverEl", "popoverTep1", extData);
 		appUI.closeWaiting();
 		mui('#mainPopoverEl').popover('show');
 		//右上角关闭
-		document.getElementById("close").addEventListener("tap",function(){
+		document.getElementById("close").addEventListener("tap", function() {
 			mui('#mainPopoverEl').popover('hide');
 		})
 		//查看战帖
-//		document.getElementById("lookFight").addEventListener("tap",function(){
-//			mui('#mainPopoverEl').popover('hide');
-//			openNew("shopMatch.html",{
-//				storeid:this.dataset.id,
-//				shopname:this.dataset.shopname
-//			});
-//		})
+		//		document.getElementById("lookFight").addEventListener("tap",function(){
+		//			mui('#mainPopoverEl').popover('hide');
+		//			openNew("shopMatch.html",{
+		//				storeid:this.dataset.id,
+		//				shopname:this.dataset.shopname
+		//			});
+		//		})
 	}
 }
-
-

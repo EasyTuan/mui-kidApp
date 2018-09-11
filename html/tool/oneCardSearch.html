@@ -15,9 +15,9 @@
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">单卡查询</h1>
-		    <!--<a class="mui-icon iconfont icon-more mui-pull-right"></a>-->
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">单卡查询</h1>
+			<!--<a class="mui-icon iconfont icon-more mui-pull-right"></a>-->
 		</header>
 		<div class="mui-content">
 			<div class="mui-scroll-wrapper">
@@ -102,45 +102,43 @@
 				<span class="iconfont icon-edit" id="shuru1"></span>
 			</div>
 			{{each data as value}}
-				<!--下拉-->
-				{{if value.QueryLayoutType==1}}
-					<h5>{{value.CardBrandAttrName}}</h5>
-					<div class="group">
-						<input style="padding-left:10px ;" type="text" name="" class="pulldown" readonly="readonly" value="" data-brand="{{value.CardBrandAttrId}}" />
-						<span class="sanj"></span>
-						<div class="mui-popover">
-							<ul>
-								<b></b>
-								<li style="padding-left:10px ;" data-text="" data-id="">
-									<a href="#" style="opacity: 0;">.</a>
-								</li>
-								{{each value.ItemList as val}}
-									<li style="padding-left:10px ;" data-text="{{val.CardBrandAttrItemValue}}" data-id="{{val.CardBrandAttrItemId}}">
-										<a href="#">{{val.CardBrandAttrItemValue}}</a>
-									</li>
-								{{/each}}
-							</ul>
-						</div>
-					</div>
-				{{/if}}
-				<!--多选-->
-				{{if value.QueryLayoutType==2}}
-					<h5>{{value.CardBrandAttrName}}</h5>
-					<div class="group kind">
+			<!--下拉-->
+			{{if value.QueryLayoutType==1}}
+			<h5>{{value.CardBrandAttrName}}</h5>
+			<div class="group">
+				<input style="padding-left:10px ;" type="text" name="" class="pulldown" readonly="readonly" value="" data-brand="{{value.CardBrandAttrId}}" />
+				<span class="sanj"></span>
+				<div class="mui-popover">
+					<ul>
+						<b></b>
+						<li style="padding-left:10px ;" data-text="" data-id="">
+							<a href="#" style="opacity: 0;">.</a>
+						</li>
 						{{each value.ItemList as val}}
-							<span class="classify" data-id="{{val.CardBrandAttrItemId}}" data-brand="{{value.CardBrandAttrId}}">{{val.CardBrandAttrItemValue}}</span>
+						<li style="padding-left:10px ;" data-text="{{val.CardBrandAttrItemValue}}" data-id="{{val.CardBrandAttrItemId}}">
+							<a href="#">{{val.CardBrandAttrItemValue}}</a>
+						</li>
 						{{/each}}
-					</div>
-				{{/if}}	
-				<!--输入框-->
-				{{if value.QueryLayoutType==3}}
-					<h5>{{value.CardBrandAttrName}}</h5>
-					<div class="group">
-						<input type="text" name="" class="inputList" data-id='{{value.CardBrandAttrId}}' value="" placeholder="请输入{{value.CardBrandAttrName}}" />
-						<span class="iconfont icon-edit" id="shuru1"></span>
-					</div>
-				{{/if}}	
-			{{/each}}
+					</ul>
+				</div>
+			</div>
+			{{/if}}
+			<!--多选-->
+			{{if value.QueryLayoutType==2}}
+			<h5>{{value.CardBrandAttrName}}</h5>
+			<div class="group kind">
+				{{each value.ItemList as val}}
+				<span class="classify" data-id="{{val.CardBrandAttrItemId}}" data-brand="{{value.CardBrandAttrId}}">{{val.CardBrandAttrItemValue}}</span> {{/each}}
+			</div>
+			{{/if}}
+			<!--输入框-->
+			{{if value.QueryLayoutType==3}}
+			<h5>{{value.CardBrandAttrName}}</h5>
+			<div class="group">
+				<input type="text" name="" class="inputList" data-id='{{value.CardBrandAttrId}}' value="" placeholder="请输入{{value.CardBrandAttrName}}" />
+				<span class="iconfont icon-edit" id="shuru1"></span>
+			</div>
+			{{/if}} {{/each}}
 			<div style="height: 20px;clear: both;"></div>
 		</script>
 		<script type="text/javascript">

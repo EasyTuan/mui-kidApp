@@ -9,34 +9,34 @@
 			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
 		</script>
 		<script type="text/javascript">
-			link(['../../css/picker/mui.picker.min.css','../../css/picker/mui.poppicker.css','../../css/index/citySelect.css']);
+			link(['../../css/picker/mui.picker.min.css', '../../css/picker/mui.poppicker.css', '../../css/index/citySelect.css']);
 		</script>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">城市选择</h1>
-		    <a class="mui-pull-right" id="comment">完成</a>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">城市选择</h1>
+			<a class="mui-pull-right" id="comment">完成</a>
 		</header>
 		<div class="mui-content">
-		    <input id="city" readonly="readonly" type="text" value="" />
-		    <span class="cut">切换城市<i class="mui-icon mui-icon-arrowdown"></i></span>
-		    <div class="recently">
-		    	<p>最近访问<i class="iconfont icon-delete mui-pull-right" id="delete"></i></p>
-		    	<div class="stoList mui-text-center" id="cityList">
-		    		<!--<span class="item">上海</span>
+			<input id="city" readonly="readonly" type="text" value="" />
+			<span class="cut">切换城市<i class="mui-icon mui-icon-arrowdown"></i></span>
+			<div class="recently">
+				<p>最近访问<i class="iconfont icon-delete mui-pull-right" id="delete"></i></p>
+				<div class="stoList mui-text-center" id="cityList">
+					<!--<span class="item">上海</span>
 		    		<span class="item">鞍山</span>
 		    		<span class="item">苏州</span>
 		    		<span class="item">上海</span>
 		    		<span class="item">鞍山</span>
 		    		<span class="item">苏州</span>-->
-		    	</div>
-		    </div>
+				</div>
+			</div>
 		</div>
 		<script type="text/javascript">
 			//必须顺序加载
-			script(['../../js/lib/picker/city.data.js','../../js/lib/picker/mui.picker.min.js','../../js/lib/picker/mui.poppicker.js', '../../js/index/citySelect.js']);
+			script(['../../js/lib/picker/city.data.js', '../../js/lib/picker/mui.picker.min.js', '../../js/lib/picker/mui.poppicker.js', '../../js/index/citySelect.js']);
 		</script>
 	</body>
 

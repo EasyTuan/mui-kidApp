@@ -97,13 +97,13 @@ function initPage() {
 }
 //渲染列表
 function getList(isnextpage, isreload) {
-	if(type == 3 ) {
+	if(type == 3) {
 		if(!storageUser.IsLogin) {
 			mui.alert("宝宝，登录后才能查看好友参加赛事");
 			return;
 		}
 	}
-	if(type == 4 ) {
+	if(type == 4) {
 		if(!storageUser.IsLogin) {
 			mui.alert("宝宝，登录后才能查看自己发起赛事");
 			return;
@@ -119,7 +119,7 @@ function getList(isnextpage, isreload) {
 	} else {
 		pageno = 1; //默认加载第一页
 	}
-	
+
 	if(pageno > pagecount) {
 		appPage.endPullRefresh(true);
 		return;
@@ -174,9 +174,9 @@ function getList(isnextpage, isreload) {
 		} else {
 			var arr = document.getElementsByClassName("nodata");
 			for(var i = 0; i < arr.length; i++) {
-				arr[i].innerText = "暂无内容";				
+				arr[i].innerText = "暂无内容";
 			}
-			if(type == 3)appUI.showTopTip(json.msg);
+			if(type == 3) appUI.showTopTip(json.msg);
 		}
 		appPage.endPullRefresh(nomore);
 	}, showwaitting, function() {
@@ -186,23 +186,23 @@ function getList(isnextpage, isreload) {
 
 function checkInvitation() {
 	if(storageUser.UId > 0) {
-//		request("/Match/checkWhetherHaveInviteMatch", {
-//			playerid: storageUser.UId
-//		}, function(json) {
-//			if(json.code == 0) {
-//				if(json.countinvite > 0) { //包含受邀
-//					document.getElementById("yaoqing").setAttribute("class", "active ckecklogin");
-//				} else { //不包含受邀
-//					document.getElementById("yaoqing").setAttribute("class", "ckecklogin");
-//				}
-//			}
-//		}, false, function() {}, false);
+		//		request("/Match/checkWhetherHaveInviteMatch", {
+		//			playerid: storageUser.UId
+		//		}, function(json) {
+		//			if(json.code == 0) {
+		//				if(json.countinvite > 0) { //包含受邀
+		//					document.getElementById("yaoqing").setAttribute("class", "active ckecklogin");
+		//				} else { //不包含受邀
+		//					document.getElementById("yaoqing").setAttribute("class", "ckecklogin");
+		//				}
+		//			}
+		//		}, false, function() {}, false);
 	}
 }
 //下拉刷新具体业务实现
 function pulldownRefresh() {
 	showwaitting = false;
-	pagecount=1;
+	pagecount = 1;
 	getList(false);
 	checkInvitation();
 }

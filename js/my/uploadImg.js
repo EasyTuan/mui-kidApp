@@ -142,7 +142,7 @@ function cutImg() {
 	var cuteimg = document.getElementById("cuteimg");
 	_cropper = $('#photo #cuteimg').cropper({
 		aspectRatio: 1 / 1,
-		zoomable:false,
+		zoomable: false,
 	});
 	cuteimg.setAttribute("style", "");
 }
@@ -227,7 +227,7 @@ function start() {
 							log(entry.toLocalURL())
 							storageUser.refreshImgUrl(entry.toLocalURL()); //路径刷新为本地图片
 							storageUser.log();
-						});						
+						});
 						mui.back();
 					} else {
 						mui.toast(json.msg);

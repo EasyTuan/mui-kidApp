@@ -16,10 +16,10 @@
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <input type="text" name="" id="search" value="" style="color: #333;" placeholder="搜索店铺" />
-		    <span class="iconfont icon-searchIcon1"></span>
-		    <span class="mui-pull-right" id="searchBtn">搜索</span>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<input type="text" name="" id="search" value="" style="color: #333;" placeholder="搜索店铺" />
+			<span class="iconfont icon-searchIcon1"></span>
+			<span class="mui-pull-right" id="searchBtn">搜索</span>
 		</header>
 		<div id="noNetwork" class="mui-text-center" style="padding: 80% 0px;display: none;">网络无法访问，请点击重试</div>
 		<div class="mui-content">
@@ -27,7 +27,7 @@
 			<a id='location' class="mui-icon iconfont icon-location3 home_btn"></a>
 			<a id='add' class="mui-icon iconfont icon-increse1 right_btn"></a>
 			<a id='subtract' class="mui-icon iconfont icon-subtract1 right_btn"></a>
-			<img src="../../images/center.svg" class="center"/>
+			<img src="../../images/center.svg" class="center" />
 			<div id="main_ad" class="main_ad" data-href=''>
 				<img id="ad_img" src="../../images/banner.png" />
 				<span id="ad_text" class="mui-ellipsis">---</span>
@@ -35,28 +35,25 @@
 			<div id="map"></div>
 		</div>
 		<div id="mainPopoverEl" class="mui-popover main-pop" style="background: #fff;">
-		    
+
 		</div>
 		<script type="text/html" id="popoverTep1">
 			<div class="shopTop">
-	            <img class="mui-pull-left" src="{{ImgUrl}}">
-	            <div class="shopDetail mui-pull-left">
-	                {{name}}
-	                <p class="mui-ellipsis">
-                    	<div class="scorewarp1">
+				<img class="mui-pull-left" src="{{ImgUrl}}">
+				<div class="shopDetail mui-pull-left">
+					{{name}}
+					<p class="mui-ellipsis">
+						<div class="scorewarp1">
 							<i style="width: calc({{Score}} * 13px);"></i>
 						</div>
-                    	<span class="grade">{{Score}}分</span>
-                    </p>
-	            </div>
-	            <span class="iconfont icon-close mui-pull-right" id="close"></span>
-		    </div>
+						<span class="grade">{{Score}}分</span>
+					</p>
+				</div>
+				<span class="iconfont icon-close mui-pull-right" id="close"></span>
+			</div>
 			<div class="dist">
-				<span class="iconfont icon-navigation"></span>
-				距离{{distance}}米
-				{{if status==1}}
-					<span class="mui-pull-right" id="lookFight" data-id="{{id}}" data-shopname="{{name}}">查看战帖</span>
-				{{/if}}
+				<span class="iconfont icon-navigation"></span> 距离{{distance}}米 {{if status==1}}
+				<span class="mui-pull-right" id="lookFight" data-id="{{id}}" data-shopname="{{name}}">查看战帖</span> {{/if}}
 			</div>
 		</script>
 		<script type="text/javascript">

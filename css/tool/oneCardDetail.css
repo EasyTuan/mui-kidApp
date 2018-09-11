@@ -1,30 +1,29 @@
 @charset "utf-8";
-
-.mui-scroll-wrapper{
+.mui-scroll-wrapper {
 	padding: 0 0 50px 0;
 }
 
-#detail>p:nth-of-type(2){
+#detail>p:nth-of-type(2) {
 	height: 15px;
 	background: #f0f0f0;
 }
 
-.cardName{
+.cardName {
 	font-size: 18px;
 	color: #333;
-	border-bottom:1px solid #e6ebef ;
+	border-bottom: 1px solid #e6ebef;
 	padding: 12px 0 6px 10px;
 	background: #fff;
 	margin: 0;
 }
 
-.card{
+.card {
 	background: #fff;
 	width: 100%;
 	padding: 20px 10% 4px 10%;
 }
 
-#detail{
+#detail {
 	font-size: 13px;
 	color: #485257;
 	padding: 0 0 30px 0px;
@@ -33,28 +32,28 @@
 	min-height: calc(100vh - 110px);
 }
 
-#detail div:nth-of-type(2n){
+#detail div:nth-of-type(2n) {
 	color: #74B6ED;
 }
 
-#detail .iconfont{
+#detail .iconfont {
 	font-size: 13px;
 }
 
-.effect{
+.effect {
 	background: #fff;
 	padding: 10px 15px 20px 15px;
 }
 
-.effect h5{
+.effect h5 {
 	color: #485257;
 }
 
-.effect p{
+.effect p {
 	font-size: 12px;
 }
 
-.mui-bar-tab>span{
+.mui-bar-tab>span {
 	display: inline-block;
 	width: 25%;
 	height: 50px;
@@ -63,29 +62,29 @@
 	color: #485257;
 }
 
-.mui-bar-tab>span i{
+.mui-bar-tab>span i {
 	font-size: 18px;
 	position: relative;
 	top: 3px;
 }
 
-.mui-bar-tab>span .active{
+.mui-bar-tab>span .active {
 	color: #74b6ed;
 }
 
-.select{
+.select {
 	line-height: 50px;
 	padding: 0 10px 0 0;
 }
 
-.select i{
-	border:1px solid #999 ;
-	border-radius:4px ;
+.select i {
+	border: 1px solid #999;
+	border-radius: 4px;
 	padding: 0!important;
 	color: #999;
 }
 
-#page{
+#page {
 	display: inline-block;
 	margin: 0 5px;
 	color: #666;
@@ -93,41 +92,43 @@
 	top: -2px;
 }
 
-.select .active{
+.select .active {
 	background: #4B9CF6;
 	color: #fff;
 	border: 1px solid #74b6ed;
 }
 
-.select .end{
+.select .end {
 	background: #f0f0f0;
 	border: 1px solid #ccc;
 }
 
-.mui-row>div:nth-of-type(2n+1){
+.mui-row>div:nth-of-type(2n+1) {
 	text-align: right;
 }
 
-#detail div{
+#detail div {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
-.effect p img{
+
+.effect p img {
 	margin: 0 3px 0 0;
 	position: relative;
 	top: 4px;
 }
 
 .mui-row {
-	border-top:1px solid #E6EBEF ;
-	border-bottom:1px solid #E6EBEF ;
+	border-top: 1px solid #E6EBEF;
+	border-bottom: 1px solid #E6EBEF;
 	padding: 15px 0;
 }
 
 img.loadok {
 	background: #fff;
 }
+
 
 /**
  * 图片预览

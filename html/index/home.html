@@ -9,7 +9,7 @@
 			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
 		</script>
 		<script type="text/javascript">
-			link(['../../css/swiper-3.4.2.min.css','../../css/index/home.css','../../css/news/newsList.css']);
+			link(['../../css/swiper-3.4.2.min.css', '../../css/index/home.css', '../../css/news/newsList.css']);
 		</script>
 	</head>
 
@@ -49,11 +49,11 @@
 				</div>
 				<div class="gameList" id="siglematch_warp">
 					<div class="nodata"></div>
-					<img class="matchLogo" src="http://kid-test.oss-cn-shanghai.aliyuncs.com/Brand/20170817172122475roihf.jpg"/>
+					<img class="matchLogo" src="http://kid-test.oss-cn-shanghai.aliyuncs.com/Brand/20170817172122475roihf.jpg" />
 					<div class="matchDetails">
 						<h4 class="mui-text-center">一起来战吧!!!</h4>
 						<p class="mui-text-center"><b id="timer_h">11</b>:<b id="timer_m">01</b>:<b id="timer_s">00</b></p>
-						<img class="matchBtn" src="../../images/matchBtn.png"/>
+						<img class="matchBtn" src="../../images/matchBtn.png" />
 						<div class="mui-text-center">距离你100m</div>
 					</div>
 				</div>
@@ -66,26 +66,26 @@
 						</div>
 						<ul class="mui-table-view mui-text-left" id="newmatch_warp" style="min-height: 120px;">
 							<div class="nodata"></div>
-						    <li class="mui-table-view-cell mui-media matchList">
-						        <a href="javascript:;">
-						            <img class="mui-media-object mui-pull-left" src="../../images/1v.png">
-						            <div class="mui-media-body">
-						                <b>报名中</b>幸福
-						                <p class="mui-ellipsis"><i class="iconfont icon-shop"></i> 我已经发起来一场比赛</p>
-						                <p class="imgList">
-						                	<img class="" src="../../images/defuser.jpg"/>
-						                	<img src="../../images/defuser.jpg"/>
-						                	<img src="../../images/defuser.jpg"/>
-						                	<img src="../../images/defuser.jpg"/>
-						                	<img src="../../images/defuser.jpg"/>
-						                </p>
-						            </div>
-						            <div class="dec">
-						            	<img src="../../images/fun.png"/>
-						            	<time>6-12 12：00</time>
-						            </div>
-						        </a>
-						    </li>
+							<li class="mui-table-view-cell mui-media matchList">
+								<a href="javascript:;">
+									<img class="mui-media-object mui-pull-left" src="../../images/1v.png">
+									<div class="mui-media-body">
+										<b>报名中</b>幸福
+										<p class="mui-ellipsis"><i class="iconfont icon-shop"></i> 我已经发起来一场比赛</p>
+										<p class="imgList">
+											<img class="" src="../../images/defuser.jpg" />
+											<img src="../../images/defuser.jpg" />
+											<img src="../../images/defuser.jpg" />
+											<img src="../../images/defuser.jpg" />
+											<img src="../../images/defuser.jpg" />
+										</p>
+									</div>
+									<div class="dec">
+										<img src="../../images/fun.png" />
+										<time>6-12 12：00</time>
+									</div>
+								</a>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -141,7 +141,7 @@
 					</h5>
 				</div>
 				<div class="competition">
-					<img src="../../images/strongCard.png"/>
+					<img src="../../images/strongCard.png" />
 					<div class="mui-row mui-text-left recommend cardList" id="cardgroup_warp" style="padding: 0 6px;">
 						<div class="nodata"></div>
 					</div>
@@ -170,15 +170,15 @@
 		</script>
 		<script type="text/html" id="siglematch_view">
 			{{if data!=null && data.MatchId}}
-				<div class="matchInfo" data-id="{{data.MatchId}}">
-					<img class="matchLogo loadthumb" data-url="{{data.ImgUrl}}" data-wh="160,"/>
-					<div class="matchDetails">
-						<h4 class="mui-text-center">{{data.MatchName}}</h4>
-						<p class="mui-text-center"><b id="timer_h"></b>:<b id="timer_m"></b>:<b id="timer_s"></b></p>
-						<img class="matchBtn" src="../../images/matchBtn.png"/>
-						<div class="mui-text-center">比赛店铺距离你{{data.distance}}m</div>
-					</div>
+			<div class="matchInfo" data-id="{{data.MatchId}}">
+				<img class="matchLogo loadthumb" data-url="{{data.ImgUrl}}" data-wh="160," />
+				<div class="matchDetails">
+					<h4 class="mui-text-center">{{data.MatchName}}</h4>
+					<p class="mui-text-center"><b id="timer_h"></b>:<b id="timer_m"></b>:<b id="timer_s"></b></p>
+					<img class="matchBtn" src="../../images/matchBtn.png" />
+					<div class="mui-text-center">比赛店铺距离你{{data.distance}}m</div>
 				</div>
+			</div>
 			{{else}}
 			<div class="nodata">暂无内容</div>
 			{{/if}}
@@ -186,27 +186,24 @@
 		<script type="text/html" id="newmatch_view">
 			{{if data!=null && data.length>0}} {{each data as item}}
 			<li class="mui-table-view-cell mui-media matchList matchInfo" data-id='{{item.MatchId}}'>
-		        <a href="javascript:;">
-		            <img style="min-width: 42px;min-height: 42px;" class="mui-media-object mui-pull-left loadthumb defuserimg" data-url="{{item.ImgUrl}}" data-wh="200,200">
-		            <div class="mui-media-body">
-		                <b>{{item.StatusName}}</b>{{item.MatchName}}
-		                <p class="mui-ellipsis"><i class="iconfont icon-shop"></i> {{item.StoreName}}</p>
-		                <p class="imgList">
-		                	{{each item.PlayerImg as value}}
-		                		<img style="min-width: 20px;min-height: 20px;" class="loadthumb defuserimg" data-url='{{value.ImgUrl}}' data-wh="80,80"/>
-		                	{{/each}}
-		                </p>
-		            </div>
-		            <div class="dec">
-		            	{{if item.PlayerMaxNum==2}}
-		            		<img src="../../images/solo.png"/>
-		            	{{else}}
-		            		<img src="../../images/fun.png"/>
-		            	{{/if}}
-		            	<time>{{item.MatchBeginTime}}</time>
-		            </div>
-		        </a>
-		    </li>
+				<a href="javascript:;">
+					<img style="min-width: 42px;min-height: 42px;" class="mui-media-object mui-pull-left loadthumb defuserimg" data-url="{{item.ImgUrl}}" data-wh="200,200">
+					<div class="mui-media-body">
+						<b>{{item.StatusName}}</b>{{item.MatchName}}
+						<p class="mui-ellipsis"><i class="iconfont icon-shop"></i> {{item.StoreName}}</p>
+						<p class="imgList">
+							{{each item.PlayerImg as value}}
+							<img style="min-width: 20px;min-height: 20px;" class="loadthumb defuserimg" data-url='{{value.ImgUrl}}' data-wh="80,80" /> {{/each}}
+						</p>
+					</div>
+					<div class="dec">
+						{{if item.PlayerMaxNum==2}}
+						<img src="../../images/solo.png" /> {{else}}
+						<img src="../../images/fun.png" /> {{/if}}
+						<time>{{item.MatchBeginTime}}</time>
+					</div>
+				</a>
+			</li>
 			{{/each}} {{else}}
 			<div class="nodata">暂无内容</div>
 			{{/if}}
@@ -220,7 +217,7 @@
 					</span> {{item.Score}}<br />
 					<span class="storeName">{{item.StoreName}}</span>
 				</p>
-				<img class="mui-pull-left loadthumb storeImg" style="min-width: 30px;min-height: 30px;" data-url="{{item.ImgUrl}}" data-wh=",64"/>
+				<img class="mui-pull-left loadthumb storeImg" style="min-width: 30px;min-height: 30px;" data-url="{{item.ImgUrl}}" data-wh=",64" />
 			</div>
 			{{/each}} {{else}}
 			<div class="nodata">暂无内容</div>
@@ -228,15 +225,15 @@
 		</script>
 		<script type="text/html" id="cardgroup_view">
 			{{if data!=null && data.length>0}} {{each data as item}}
-				<div class="mui-col-sm-4 mui-col-xs-4 header cardgroupdetail" data-id="{{item.CardGroupId}}" style="pa: 0 5px;">
-					<div class="cardgroupimgbox">
-						<img class="loadthumb" data-url="{{item.ImgUrl}}" data-wh=",200" />
-					</div>
-					<h5 class="mui-col-xs-12 mui-ellipsis cardName">{{item.CardGroupName}}</h5>
-					<div class="mui-row">
-						<span class="mui-ellipsis">玩家:{{item.NickName}}</span>
-					</div>
+			<div class="mui-col-sm-4 mui-col-xs-4 header cardgroupdetail" data-id="{{item.CardGroupId}}" style="pa: 0 5px;">
+				<div class="cardgroupimgbox">
+					<img class="loadthumb" data-url="{{item.ImgUrl}}" data-wh=",200" />
 				</div>
+				<h5 class="mui-col-xs-12 mui-ellipsis cardName">{{item.CardGroupName}}</h5>
+				<div class="mui-row">
+					<span class="mui-ellipsis">玩家:{{item.NickName}}</span>
+				</div>
+			</div>
 			{{/each}} {{else}}
 			<div class="nodata">暂无内容</div>
 			{{/if}}
@@ -257,7 +254,7 @@
 		</script>
 		<script type="text/javascript">
 			//必须顺序加载
-			script(['../../js/lib/swiper-3.4.1.min.js','../../js/index/home.js']);
+			script(['../../js/lib/swiper-3.4.1.min.js', '../../js/index/home.js']);
 		</script>
 	</body>
 

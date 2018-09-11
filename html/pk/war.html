@@ -9,7 +9,7 @@
 			document.write('<script src="../../js/fix.js?rd=?rd=' + Math.random() + '"><\/script>');
 		</script>
 		<script type="text/javascript">
-			link(['../../css/swiper-3.4.2.min.css','../../css/pk/war.css']);
+			link(['../../css/swiper-3.4.2.min.css', '../../css/pk/war.css']);
 		</script>
 	</head>
 
@@ -62,7 +62,7 @@
 					</div>
 
 				</div>
-				<p class="storeaddress" ><i class="iconfont icon-location mr10" style="color: #999;"></i> <span id="storeaddress" ></span>
+				<p class="storeaddress"><i class="iconfont icon-location mr10" style="color: #999;"></i> <span id="storeaddress"></span>
 				</p>
 				<p class="matchNum mui-text-center" id="gameNum">
 					<span class="selectMactchNum" data-status='solo'><i class="iconfont icon-sure"></i>单人对战 <i class="iconfont icon-single"></i></span>
@@ -124,11 +124,11 @@
 			<div class="search mui-text-center" id="searchBtn">下一步</div>
 		</div>
 		<script type="text/html" id="swiperContainerTep1">
-			{{each branddata as value}}
-				{{if value.BigImgUrl!=null}}
-					<div class="swiper-slide" data-id='{{value.BrandId}}' data-imgurl='{{value.PKImgUrl}}'><div class="imgBox" ><img class="loadthumb" data-url="{{value.BigImgUrl}}" data-wh="128,128"/></div></div>
-				{{/if}}
-			{{/each}}
+			{{each branddata as value}} {{if value.BigImgUrl!=null}}
+			<div class="swiper-slide" data-id='{{value.BrandId}}' data-imgurl='{{value.PKImgUrl}}'>
+				<div class="imgBox"><img class="loadthumb" data-url="{{value.BigImgUrl}}" data-wh="128,128" /></div>
+			</div>
+			{{/if}} {{/each}}
 		</script>
 		<script type="text/html" id="storedataTep1">
 			<b></b> {{each storedata as value}}
