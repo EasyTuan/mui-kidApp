@@ -14,7 +14,7 @@ var app_config = {
 	]
 }
 
-Array.prototype.distinct = function() {
+Array.prototype._distinct = function() {
 	var arr = this,
 		result = [],
 		_result = [],
@@ -34,14 +34,14 @@ Array.prototype.distinct = function() {
 };
 
 function link(cssAr, type) {
-	var cssAr = type ? cssAr.distinct() : app_config.cssAr.concat(cssAr || []).distinct();
+	var cssAr = type ? cssAr._distinct() : app_config.cssAr.concat(cssAr || [])._distinct();
 	for(var i = 0; i < cssAr.length; i++) {
 		document.write('<link rel="stylesheet" href="' + cssAr[i] + '?version=' + app_config.version + '"/>');
 	}
 }
 
 function script(jsAr, type) {
-	var jsAr = type ? jsAr.distinct() : app_config.jsAr.concat(jsAr || []).distinct();
+	var jsAr = type ? jsAr._distinct() : app_config.jsAr.concat(jsAr || [])._distinct();
 	for(var i = 0; i < jsAr.length; i++) {
 		document.write('<script src="' + jsAr[i] + '?version=' + app_config.version + ' type="text/javascript" charset="utf-8"><\/script>');
 	}

@@ -1,4 +1,4 @@
-mui.init()
+mui.init();
 
 mui.plusReady(function() {
 	log('popshare mplusready');

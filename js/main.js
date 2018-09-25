@@ -14,18 +14,9 @@ var subPageStyle = {
 var self, pkbtn_def, pkbtn_activity, defstyle, deftxt, activetxt, activestyle, activeTab, targetTab, firstPage, tabindex;
 mui.plusReady(function() {
 	self = plus.webview.currentWebview();
-	//	self.onloaded=function(e){
-	//		alert('Loaded!');
-	//	};
 	storage.init();
 	plus.navigator.setStatusBarBackground('#fff');
 	plus.navigator.setStatusBarStyle('dark');
-
-	//启动页关闭以后才有loading动画
-	//	if(!closeLoad) {
-	//		plus.nativeUI.showWaiting();
-	//		closeLoad = true;
-	//	}
 
 	for(var i = 0; i < subPages.length; i++) {
 		var sub = plus.webview.create(subPages[i], subPages[i], subPageStyle);
@@ -35,12 +26,6 @@ mui.plusReady(function() {
 		self.append(sub);
 	}
 	plus.webview.show(subPages[0]);
-
-	//	firstPage.addEventListener("loaded", function() {
-	//		if(closeLoad) { //首页加载完毕，关闭等待
-	//			plus.nativeUI.closeWaiting();
-	//		}
-	//	}, false);
 
 	//底部切換
 	activeTab = "index/home.html";
@@ -76,12 +61,6 @@ mui.plusReady(function() {
 		//		plus.nativeUI.closeWaiting();
 		showPop = true
 	})
-
-	//1分钟刷新一次位置
-	setTimeout(function() {
-		storageLocation.timeRefresh(0);
-	}, 3000);
-	storageLocation.timeRefresh(1 * 60 * 1000);
 
 	//首页返回键处理 逻辑：1秒内，连续两次按返回键，则退出应用；
 	var first = null;
