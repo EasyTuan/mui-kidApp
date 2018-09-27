@@ -6,9 +6,9 @@
 }
 
 .bg>p {
-	border-left: 5px solid #4B9CF6;
+	border-left: 5px solid #13D1BE;
 	padding: 0px 0 0px 5px;
-	color: #4B9CF6;
+	color: #13D1BE;
 	margin: 0px 0px 0px 10px;
 	line-height: 16px;
 	height: 16px;
@@ -23,7 +23,7 @@
 	font-size: 20px;
 	position: relative;
 	top: 10px;
-	color: #4B9CF6;
+	color: #13D1BE;
 }
 
 .mui-media img {

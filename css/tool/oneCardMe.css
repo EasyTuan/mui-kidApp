@@ -1,6 +1,6 @@
 @charset "utf-8";
 .kind .active {
-	background: #4B9CF6;
+	background: #13D1BE;
 	color: #fff;
 }
 
@@ -14,7 +14,7 @@
 
 #create {
 	margin: 11px 0 0 0;
-	background: #4B9CF6;
+	background: #13D1BE;
 	color: #fff!important;
 	font-size: 13px;
 	padding: 3px 8px 1px 8px;
@@ -37,7 +37,7 @@ nav span {
 }
 
 .active {
-	color: #4B9CF6;
+	color: #13D1BE;
 }
 
 .active i {

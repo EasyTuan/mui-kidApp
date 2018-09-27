@@ -33,7 +33,7 @@ mui.plusReady(function() {
 		targetTab = this.dataset.href;
 		tabindex = this.dataset.index;
 		if(targetTab == 'my/user.html') {
-			plus.navigator.setStatusBarBackground('#4B9CF6');
+			plus.navigator.setStatusBarBackground('#13D1BE');
 			plus.navigator.setStatusBarStyle('light');
 		} else {
 			plus.navigator.setStatusBarBackground('#fff');
@@ -214,7 +214,7 @@ function createPKBtn() {
 		id: 'iconBg',
 		position: iconp2,
 		rectStyles: {
-			color: '#4b9cf6',
+			color: '#13D1BE',
 			radius: '30px',
 			borderColor: '#3e7ee7',
 			borderWidth: '2px'
@@ -295,7 +295,7 @@ function createPKBtn() {
 	pkbtn_def.addEventListener('click', function(e) {
 		updatePKBtn(1);
 		targetTab = "pk/pk.html";
-		plus.navigator.setStatusBarBackground('#4B9CF6');
+		plus.navigator.setStatusBarBackground('#13D1BE');
 		plus.navigator.setStatusBarStyle('light');
 		if(targetTab == activeTab) {
 			return;

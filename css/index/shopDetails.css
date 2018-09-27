@@ -89,7 +89,7 @@ h4 i {
 	position: absolute;
 	top: -10px;
 	right: 5px;
-	background: #4B9CF6;
+	background: #13D1BE;
 }
 
 .comment {
@@ -120,7 +120,7 @@ h4 i {
 }
 
 .group .active {
-	background: #4B9CF6;
+	background: #13D1BE;
 	color: #fff;
 }
 

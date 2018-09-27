@@ -76,7 +76,7 @@ header p {
 	margin: 10px 0 0 0;
 	background: #fff;
 	padding: 10px 15px 5px 15px;
-	color: #4B9CF6;
+	color: #13D1BE;
 }
 
 .padding15 {
@@ -84,7 +84,7 @@ header p {
 }
 
 #onlySee {
-	color: #4B9CF6;
+	color: #13D1BE;
 	border: none;
 	padding: 0;
 }
@@ -180,5 +180,5 @@ header p {
 }
 
 .editComment .active {
-	background: #4B9CF6;
+	background: #13D1BE;
 }

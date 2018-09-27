@@ -63,7 +63,7 @@ img.loadok {
 
 .headBtb {
 	margin: 11px 0 0 0;
-	background: #4B9CF6;
+	background: #13D1BE;
 	color: #fff!important;
 	font-size: 13px;
 	padding: 1px 3px;
@@ -84,14 +84,14 @@ img.loadok {
 }
 
 .kidNav .mui-active {
-	color: #4B9CF6!important;
+	color: #13D1BE!important;
 }
 
 .kidNav .mui-active i {
 	display: inline-block;
 	width: 50%;
 	height: 2px;
-	background: #4B9CF6;
+	background: #13D1BE;
 	position: absolute;
 	bottom: 0;
 	left: 25%;
@@ -253,7 +253,7 @@ img.loadok {
 	border: none;
 	margin-top: 10px;
 	border-radius: 5px;
-	background: #4B9CF6;
+	background: #13D1BE;
 	color: #FFF;
 	float: right;
 }
@@ -262,7 +262,7 @@ img.loadok {
 	display: inline-block;
 	width: 4px;
 	height: 14px;
-	background: #4B9CF6;
+	background: #13D1BE;
 	position: relative;
 	top: 2px;
 	margin: 0 4px 0 0;
@@ -273,7 +273,7 @@ img.loadok {
 }
 
 .col4b {
-	color: #4B9CF6;
+	color: #13D1BE;
 }
 
 .col999 {

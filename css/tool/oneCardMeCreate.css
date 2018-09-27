@@ -25,7 +25,7 @@ nav h5 {
 }
 
 nav span {
-	color: #4B9CF6;
+	color: #13D1BE;
 	font-size: 20px!important;
 	position: relative;
 	left: -7px;
@@ -45,7 +45,7 @@ nav p {
 }
 
 .contant>p span:nth-last-of-type(1) {
-	color: #4B9CF6;
+	color: #13D1BE;
 }
 
 .lable {
@@ -56,7 +56,7 @@ nav p {
 .lable span {
 	display: inline-block;
 	color: #fff!important;
-	background: #4B9CF6;
+	background: #13D1BE;
 	padding: 0 5px;
 	border-radius: 5px;
 	margin: 8px 4px 0 0;

@@ -1,6 +1,6 @@
 @charset "utf-8";
 .bg4b {
-	background: #4b9cf6!important;
+	background: #13D1BE!important;
 	border: none;
 }
 
@@ -9,7 +9,7 @@
 }
 
 .col4b {
-	color: #4B9CF6!important;
+	color: #13D1BE!important;
 }
 
 .mui-title,
@@ -137,7 +137,7 @@
 
 .mui-ellipsis strong {
 	font-weight: normal;
-	color: #4B9CF6;
+	color: #13D1BE;
 }
 
 .titleBg {

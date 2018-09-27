@@ -22,7 +22,7 @@ h5:nth-of-type(1) {
 }
 
 h5 {
-	color: #4B9CF6;
+	color: #13D1BE;
 	margin: 0;
 	padding: 15px 0 0 15px;
 	/*border-bottom:1px solid #e6ebef ;*/
@@ -100,13 +100,13 @@ textarea {
 }
 
 .kind .active {
-	background: #4B9CF6;
+	background: #13D1BE;
 	color: #fff;
 }
 
 .search {
 	width: 100%;
-	background: #4B9CF6;
+	background: #13D1BE;
 	line-height: 40px;
 	color: #fff;
 	position: absolute;

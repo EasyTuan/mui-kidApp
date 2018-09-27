@@ -55,12 +55,12 @@
 }
 
 .mui-bar-tab .mui-active .mui-tab-label {
-	color: #4B9CF6;
+	color: #13D1BE;
 }
 
 .mui-bar-tab .mui-active .iconfont {
 	text-align: center;
-	color: #4B9CF6;
+	color: #13D1BE;
 	font-size: 22px;
 	animation: mymove 0.2s;
 	-webkit-animation: mymove 0.2s;
@@ -92,11 +92,11 @@
 		font-size: 10px;
 	}
 	50% {
-		color: #4B9CF6;
+		color: #13D1BE;
 		font-size: 25px;
 	}
 	100% {
-		color: #4B9CF6;
+		color: #13D1BE;
 		font-size: 22px;
 	}
 }
@@ -107,11 +107,11 @@
 		font-size: 10px;
 	}
 	50% {
-		color: #4B9CF6;
+		color: #13D1BE;
 		font-size: 25px;
 	}
 	100% {
-		color: #4B9CF6;
+		color: #13D1BE;
 		font-size: 22px;
 	}
 }
