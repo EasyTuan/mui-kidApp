@@ -1,4 +1,3 @@
-//动态加载解决app重启时候缓存问题。
 var app_config = {
 	version: '1.0.0',
 	cssAr: [
@@ -14,6 +13,7 @@ var app_config = {
 	]
 }
 
+// 动态加载解决app重启时候缓存问题。
 Array.prototype._distinct = function() {
 	var arr = this,
 		result = [],
