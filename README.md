@@ -91,6 +91,8 @@ git clone https://github.com/EasyTuan/mui-kidApp.git
 
 如有帮助，欢迎打赏
 
+收到赞助款后，我会及时[更新赞助墙](https://caibowen.net/sponsor)
+
 <img src="unpackage/wechat.jpg" width="200px" /> <img src="unpackage/alipay.jpg" width="200px" />
 
 # 友情链接
