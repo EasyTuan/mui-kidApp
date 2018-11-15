@@ -87,9 +87,9 @@ git clone https://github.com/EasyTuan/mui-kidApp.git
 
 >  如有问题请直接在 Issues 中提，或者您发现问题并有非常好的解决方案，欢迎 PR 👍
 
-# 捐助
+# 赞助
 
-如有帮助，欢迎打赏
+如有帮助，欢迎赞助
 
 收到赞助款后，我会及时更新[赞助墙](https://caibowen.net/sponsor)
 
