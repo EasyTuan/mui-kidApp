@@ -25,6 +25,10 @@ git clone https://github.com/EasyTuan/mui-kidApp.git
 
 注：服务器到期，接口服务不再支持，能正常登陆和退出，不影响正常功能但预览和学习
 
+## 休闲一刻
+
+<img src="screenshots/gh_a896d27a50a3_430.jpg" width="250"/> <img src="screenshots/gh_44a51ea2dd08_430.jpg" width="250"/>
+
 
 # 目标功能
 - [x] 定位功能 -- 完成
